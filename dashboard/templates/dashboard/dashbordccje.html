@@ -1,0 +1,470 @@
+{% extends 'dashboard/base_simple.html' %}
+{% load static %}
+
+{% block title %}College of Criminal justice - NORSU{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'dashboard/css/ccjestyle.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="overlay"></div>
+
+  <div class="container">
+
+    <!-- LEFT CONTENT -->
+    <div class="left">
+      <div class="logo-title">
+        <div class="logo-container">
+          <img src="{% static 'dashboard/images/CCJE.png' %}" alt="NORSU Logo" class="college-logo">
+        </div>
+        <div class="title-container">
+          <h4>COLLEGE OF</h4>
+          <h1>CRIMINAL JUSTICE EDUCATION</h1>
+        </div>
+      </div>
+
+      <p class="description">
+        Welcome to The College of Criminal justice at Norsu BSC– University (CCJE)
+        is one of the most storied programs in the institution's history. It transformed
+        CCJE from a traditional engineering school into a modern "Center of Excellence"
+        for technology. Strengthen moral standards. Pagpalig-on sa moralidad nga sukdanan.
+      </p>
+
+      <button class="btn-primary" onclick="document.getElementById('programs-section').scrollIntoView({behavior: 'smooth'})">Programs Offered</button>
+    </div>
+
+    <!-- RIGHT ICON MENU -->
+    <div class="right">
+      <div class="icon-grid">
+        <a href="#about-section" class="icon-box" onclick="document.getElementById('about-section').scrollIntoView({behavior: 'smooth'}); return false;">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About CCJE</span>
+        </a>
+
+        <a href="#topnotchers-section" class="icon-box">
+          <i class="fa-solid fa-user-graduate"></i>
+          <span>Topnotchers</span>
+        </a>
+
+        <a href="#awards-section" class="icon-box">
+          <i class="fa-solid fa-award"></i>
+          <span>Awards&Recognition</span>
+        </a>
+
+        <a href="#alumni-section" class="icon-box">
+          <i class="fa-solid fa-users"></i>
+          <span>Alumni</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-card">
+      <i class="fa-solid fa-desktop"></i>
+      <h2>1</h2>
+      <p>PROGRAMS</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fa-solid fa-user"></i>
+      <h2>5000</h2>
+      <p>STUDENTS</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fa-solid fa-chalkboard-user"></i>
+      <h2>35</h2>
+      <p>FACULTY</p>
+    </div>
+  </div>
+
+</section>
+<section class="about-section" id="about-section">
+  <div class="about-container">
+
+    <!-- HEADER -->
+    <div class="about-header">
+      <img src="{% static 'dashboard/images/CCJE.png' %}" alt="CCJE Logo" class="logo">
+      <div class="title">
+        <h4>About</h4>
+        <h1>
+          <span class="green">College</span>
+          <span class="dark"> of Criminal &amp; Justice Education</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <p class="about-text">
+      For the past 25 years, the College of Criminal justice continuously bring
+      professional training to students, for them to be intellectually, morally, physically
+      and socially skilled individuals equipped to contribute to global social and
+      professional demands. The CIT is committed to produce graduates with scientific,
+      artistic, and technological skills that meet global standards to aid in the advantage
+      of society in its interminable quest towards development. The CIT provides academic
+      and academic-support programs designed for the holistic development and professional
+      advances for students in fields of specialization in both the arts and sciences.
+    </p>
+
+    <!-- GOALS BUTTON -->
+    <button class="goals-btn">GOALS</button>
+
+    <!-- GOALS LIST -->
+    <div class="goals-list">
+
+      <div class="goal-item">
+        <span class="letter c">C</span>
+        <div>
+          <p>
+            Collaborative approaches to university-based and community-based planning.
+          </p>
+          <em>
+            Tambarayong nga pamaagi basi sa mga plano sa unibersidad og komunidad.
+          </em>
+        </div>
+      </div>
+
+      <div class="goal-item">
+        <span class="letter a">C</span>
+        <div>
+          <p>
+            Attain excellent status in providing a pool of competent and competitive human resources.
+          </p>
+          <em>
+            Pagkab-ot sa taas nga matang sa pag pangalagad ug dli palupig nga tawhanong mamumuo.
+          </em>
+        </div>
+      </div>
+
+      <div class="goal-item">
+        <span class="letter s">J</span>
+        <div>
+          <p>
+            Strengthen moral standards.
+          </p>
+          <em>
+            Pagpalig-on sa moralidad nga sukdanan.
+          </em>
+        </div>
+      </div>
+
+         <div class="goal-item">
+        <span class="letter s">E</span>
+        <div>
+          <p>
+            Strengthen moral standards.
+          </p>
+          <em>
+            Pagpalig-on sa moralidad nga sukdanan.
+          </em>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="programs-section" id="programs-section">
+  <div class="programs-container">
+
+    <!-- HEADER -->
+    <h1 class="section-title">PROGRAM OFFERED</h1>
+    <p class="section-subtitle">
+      Experience top-notch facilities and cutting-edge laboratories at College of Criminal Justice Education for unparalleled academics advancements.
+    </p>
+
+    <!-- PROGRAM CARDS -->
+    <div class="cards">
+
+      <!-- CARD 1 -->
+      <div class="card">
+        <img src="{% static 'dashboard/images/pulis.jpg' %}" alt="CCJE">
+        <div class="card-body highlighted">
+          <h3>Bachelor of Criminology</h3>
+          <button class="learn-btn">Learn More</button>
+        </div>
+      </div> 
+
+    </div>
+  </div>
+</section>
+
+<section class="facilities-section" id="facilities-section">
+  <div class="facilities-container">
+
+    <!-- HEADER -->
+    <h1 class="section-title">CCJE FACILITIES AND ROOMS</h1>
+    <p class="section-subtitle">
+      Experience top-notch facilities and cutting-edge laboratories at College of
+      Industrial Technology for unparalleled academics advancements.
+    </p>
+
+    <!-- GRID -->
+    <div class="facilities-grid">
+
+        <div class="facility-card">
+        <img src="{% static 'dashboard/images/ccjeof.jpg' %}" alt="CCJE OFFICE">
+        <span class="label">CCJE OFFICE</span>
+      </div>
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/ccje1.jpg' %}" alt="CCJE 1">
+        <span class="label">CCJE 1</span>
+      </div>
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/ccje2.jpg' %}" alt="CCJE 2">
+        <span class="label">CCJE 2</span>
+      </div>
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/ccje3.jpg' %}" alt="CCJE 3">
+        <span class="label">CCJE 3</span>
+      </div>
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/ccje3.jpg' %}" alt="CCJE 4">
+        <span class="label">CCJE 4</span>
+      </div>
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/ccje3.jpg' %}" alt="CCJE 5">
+        <span class="label">CCJE 5</span>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+<section class="cas-admin">
+
+  <!-- HEADER -->
+  <div class="cas-header">
+    <h4>CCJE ADMINISTRATION</h4>
+    <h1>
+      <span>COLLEGE OF </span> CRIMINAL JUSTICE <span class="dark">EDUCATION</span>
+    </h1>
+    <p>
+      Attain excellent status in providing a pool of competent and competitive
+      human resources. Pagkab-ot sa taas nga matan-aw sa pag pangalagad ug dili
+      palupig nga.
+    </p>
+  </div>
+
+  <div class="cas-content">
+    
+    <!-- PROFILE SLIDER -->
+    <div class="profile-area">
+
+      <div class="profiles"> 
+        
+
+        <!-- PROFILE 1 -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Jonas S. Gako., MSCJ  </h3>
+          <p>Dean, College of Criminal Justice Education</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        
+        <!-- PROFILE 2 -->
+          <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Ben John I. Laquinon., MSCJ</h3>
+          <p>Assistant Dean </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+
+        <!-- PROFILE 3 -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Allah H. Ege., MSCJ</h3>
+          <p>Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 4 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3> April Loed M. Arnaiz., MSCJ </h3>
+          <p>Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 5 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Marites F. Pantinople., MSCJ</h3>
+          <p>Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 6 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Maribel S. Toledo</h3>
+          <p>Staff</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+           <!-- PROFILE 7(NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Judith E. Catubay</h3>
+          <p>Staff</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+           <!-- PROFILE 8 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Celesste Ann Gaga-a Laure Capilla </h3>
+          <p>Guest Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+           <!-- PROFILE 9 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Dr. Iagn Neil D. Velarde</h3>
+          <p>Guest Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        
+          <!-- PROFILE 10 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Dionaldo Saldasal</h3>
+          <p>Guest Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+          <!-- PROFILE 11 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Eve Marie ALcazar</h3>
+          <p>Guest Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        
+          <!-- PROFILE 12 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Christopher Barrientos</h3>
+          <p>Guest Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        
+          <!-- PROFILE 6 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Archimedes Jr Lalamunan </h3>
+          <p>Guest Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+          <!-- PROFILE 13 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
+          <h3>Mark Anthony </h3>
+          <p>Guest Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+
+
+
+
+
+
+      </div>  
+     
+    </div>
+
+  </div>
+
+   <!-- NAVIGATION -->
+      <div class="nav-buttons">
+        <button id="prev">&#10094;</button>
+        <button id="next">&#10095;</button>
+      </div>
+
+</section>
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const profiles = document.querySelector('.profiles');
+    const next = document.getElementById('next');
+    const prev = document.getElementById('prev');
+
+    if (!profiles || !next || !prev) {
+      console.error('Required elements not found');
+      return;
+    }
+
+    let index = 0;
+    const cardsPerView = 3;
+    const totalCards = profiles.children.length;
+    const maxIndex = Math.max(0, totalCards - cardsPerView);
+
+    console.log('Total cards:', totalCards, 'Max index:', maxIndex);
+
+    function updateProfiles() {
+      // Hide all profiles completely
+      Array.from(profiles.children).forEach(card => {
+        card.style.display = 'none';
+        card.style.opacity = '0';
+        card.style.transform = 'translateX(20px)';
+      });
+
+      // Show only current 3 profiles
+      for (let i = index; i < index + cardsPerView && i < totalCards; i++) {
+        const card = profiles.children[i];
+        card.style.display = 'block';
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateX(0)';
+        }, (i - index) * 100);
+      }
+    }
+
+    next.onclick = () => {
+      if (index < maxIndex) {
+        index++;
+        updateProfiles();
+        console.log('Next clicked, index:', index);
+      } else {
+        console.log('Reached max index');
+      }
+    };
+
+    prev.onclick = () => {
+      if (index > 0) {
+        index--;
+        updateProfiles();
+        console.log('Prev clicked, index:', index);
+      } else {
+        console.log('At start index');
+      }
+    };
+
+    // Initialize first view
+    updateProfiles();
+  });
+</script>
+{% endblock %}
+
+{% endblock %}

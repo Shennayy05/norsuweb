@@ -1,0 +1,65 @@
+{% load static %}
+<nav class="main-navbar">
+    <div class="navbar-container">
+        <div class="nav-left">
+            <!-- NORSU Logo Design Inside Navbar -->
+            <div class="navbar-norsu-logo" id="navbarLogo">
+                <div class="navbar-logo-container">
+                    <img src="{% static 'dashboard/images/logo1.png' %}" alt="NORSU Logo" class="navbar-floating-logo">
+                    <div class="navbar-logo-text">
+                        <span class="navbar-norsu-name">NEGROS ORIENTAL STATE UNIVERSITY</span>
+                        <span class="navbar-norsu-country">Bayawan-Sta. Catalina Campus</span>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About <span class="dropdown-arrow">▼</span></a></li>
+                <li><a href="#academics">Academics <span class="dropdown-arrow">▼</span></a></li>
+                <li><a href="#admissions">Admissions <span class="dropdown-arrow">▼</span></a></li>
+                <li><a href="#contacts">Contacts <span class="dropdown-arrow">▼</span></a></li>
+                <li><a href="#alumni">Alumni <span class="dropdown-arrow">▼</span></a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search...">
+                <button class="search-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+           <div class="mobile-menu-toggle">
+            <button class="menu-toggle-btn" aria-label="Toggle Mobile Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+        <!-- Mobile Menu Toggle -->
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#about">About <span class="dropdown-arrow">▼</span></a></li>
+            <li><a href="#academics">Academics <span class="dropdown-arrow">▼</span></a></li>
+            <li><a href="#admissions">Admissions <span class="dropdown-arrow">▼</span></a></li>
+            <li><a href="#contacts">Contacts <span class="dropdown-arrow">▼</span></a></li>
+            <li><a href="#alumni">Alumni <span class="dropdown-arrow">▼</span></a></li>
+        </ul>
+        <div class="mobile-search">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search...">
+                <button class="search-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>

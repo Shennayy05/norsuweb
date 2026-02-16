@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORSU Bayawan-Sta. Catalina Campus</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/styles.css' %}">
+</head>
+<body>
+    {% include 'dashboard/header.html' %}
+    {% include 'dashboard/navbar.html' %}
+    
+    <main class="main-content">
+         
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide header on scroll down, show on scroll up
+            let lastScrollTop = 0;
+            const header = document.querySelector('.main-header');
+            const navbarLogo = document.querySelector('.navbar-norsu-logo');
+            
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    header.classList.add('hidden');
+                    // Show navbar logo when scrolling down
+                    if (navbarLogo) {
+                        navbarLogo.classList.add('visible');
+                    }
+                } else {
+                    // Scrolling up
+                    header.classList.remove('hidden');
+                    // Hide navbar logo when scrolling up
+                    if (navbarLogo) {
+                        navbarLogo.classList.remove('visible');
+                    }
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+
+            // Mobile menu toggle functionality
+            const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+            const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+            
+            if (menuToggleBtn && mobileNavMenu) {
+                console.log('Mobile menu elements found');
+                
+                menuToggleBtn.addEventListener('click', function() {
+                    console.log('Menu toggle clicked');
+                    // Toggle active class on button
+                    menuToggleBtn.classList.toggle('active');
+                    
+                    // Toggle active class on mobile menu
+                    mobileNavMenu.classList.toggle('active');
+                    
+                    console.log('Menu active:', mobileNavMenu.classList.contains('active'));
+                });
+
+                // Close mobile menu when clicking on links
+                const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggleBtn.classList.remove('active');
+                        mobileNavMenu.classList.remove('active');
+                    });
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    const isClickInsideMenu = mobileNavMenu.contains(event.target);
+                    const isClickOnToggle = menuToggleBtn.contains(event.target);
+                    
+                    if (!isClickInsideMenu && !isClickOnToggle && mobileNavMenu.classList.contains('active')) {
+                        menuToggleBtn.classList.remove('active');
+                        mobileNavMenu.classList.remove('active');
+                    }
+                });
+            } else {
+                console.log('Mobile menu elements not found');
+            }
+
+            // Header hamburger menu (if needed)
+            const headerMenuToggle = document.querySelector('.menu-toggle');
+            if (headerMenuToggle) {
+                headerMenuToggle.addEventListener('click', function() {
+                    // Add functionality for header menu if needed
+                    console.log('Header menu toggle clicked');
+                });
+            }
+
+            // Colleges Navigation Arrows
+        const collegesNavArrows = document.querySelectorAll('.colleges-nav-arrow');
+        const collegesScroll = document.querySelector('.colleges-scroll');
+        
+        if (collegesNavArrows.length > 0 && collegesScroll) {
+            let scrollPosition = 0;
+            const cardWidth = 305; // 280px card + 25px gap
+            
+            collegesNavArrows.forEach(arrow => {
+                arrow.addEventListener('click', function() {
+                    if (arrow.classList.contains('left')) {
+                        // Scroll left
+                        scrollPosition = Math.max(0, scrollPosition - cardWidth);
+                    } else if (arrow.classList.contains('right')) {
+                        // Scroll right
+                        const maxScroll = collegesScroll.scrollWidth - collegesScroll.parentElement.offsetWidth;
+                        scrollPosition = Math.min(maxScroll, scrollPosition + cardWidth);
+                    }
+                    
+                    // Apply smooth scroll
+                    collegesScroll.style.transform = `translateX(-${scrollPosition}px)`;
+                });
+            });
+        }
+
+        // Navigation Menu Functionality
+        const desktopNavLinks = document.querySelectorAll('.nav-links li');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links li');
+
+        // Desktop dropdown functionality
+        desktopNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const linkText = this.querySelector('a').textContent.replace(' ▼', '').trim();
+                
+                // Toggle active state
+                desktopNavLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Handle navigation based on link text
+                handleNavigation(linkText);
+            });
+        });
+
+        // Mobile navigation functionality
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const linkText = this.querySelector('a').textContent.replace(' ▼', '').trim();
+                
+                // Close mobile menu after click
+                mobileNavMenu.classList.remove('active');
+                menuToggleBtn.classList.remove('active');
+                
+                // Handle navigation
+                handleNavigation(linkText);
+            });
+        });
+
+        // Navigation handler function
+        function handleNavigation(section) {
+            switch(section.toLowerCase()) {
+                case 'about':
+                    scrollToSection('hero-section');
+                    break;
+                case 'academics':
+                    scrollToSection('colleges-section');
+                    break;
+                case 'admissions':
+                    scrollToSection('programs-section');
+                    break;
+                case 'contacts':
+                    scrollToSection('footer');
+                    break;
+                case 'alumni':
+                    scrollToSection('alumni');
+                    break;
+                default:
+                    console.log('Navigation to:', section);
+            }
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId) || document.querySelector(`.${sectionId}`);
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Program Cards Navigation
+            const programCards = document.querySelectorAll('.program-card');
+            const navArrows = document.querySelectorAll('.nav-arrow');
+            
+            if (programCards.length > 0 && navArrows.length > 0) {
+                let currentActiveIndex = 1; // Start with center card (index 1)
+                
+                function updateActiveCard(newIndex) {
+                    // Hide all cards first
+                    programCards.forEach(card => {
+                        card.style.display = 'none';
+                    });
+                    
+                    // Calculate which cards to show (3 cards: left, center, right)
+                    const leftIndex = (newIndex - 1 + programCards.length) % programCards.length;
+                    const centerIndex = newIndex;
+                    const rightIndex = (newIndex + 1) % programCards.length;
+                    
+                    // Show the three cards
+                    const leftCard = programCards[leftIndex];
+                    const centerCard = programCards[centerIndex];
+                    const rightCard = programCards[rightIndex];
+                    
+                    // Reset all card classes and styles
+                    programCards.forEach((card, index) => {
+                        const title = card.querySelector('h3');
+                        const button = card.querySelector('.btn');
+                        const arrow = card.querySelector('.nav-arrow');
+                        
+                        // Remove all classes
+                        card.classList.remove('side', 'center');
+                        title.classList.remove('active-title');
+                        button.classList.remove('blue');
+                        button.classList.add('gray');
+                        
+                        // Remove arrows from all cards
+                        if (arrow) {
+                            arrow.remove();
+                        }
+                    });
+                    
+                    // Setup left card
+                    leftCard.style.display = 'block';
+                    leftCard.classList.add('side');
+                    const leftArrow = document.createElement('div');
+                    leftArrow.className = 'nav-arrow left';
+                    leftArrow.innerHTML = '&#8249;';
+                    leftCard.querySelector('.image-container').appendChild(leftArrow);
+                    
+                    // Setup center card
+                    centerCard.style.display = 'block';
+                    centerCard.classList.add('center');
+                    const centerTitle = centerCard.querySelector('h3');
+                    const centerButton = centerCard.querySelector('.btn');
+                    centerTitle.classList.add('active-title');
+                    centerButton.classList.remove('gray');
+                    centerButton.classList.add('blue');
+                    
+                    // Setup right card
+                    rightCard.style.display = 'block';
+                    rightCard.classList.add('side');
+                    const rightArrow = document.createElement('div');
+                    rightArrow.className = 'nav-arrow right';
+                    rightArrow.innerHTML = '&#8250;';
+                    rightCard.querySelector('.image-container').appendChild(rightArrow);
+                    
+                    // Re-attach event listeners to new arrows
+                    const newArrows = document.querySelectorAll('.nav-arrow');
+                    newArrows.forEach(arrow => {
+                        arrow.addEventListener('click', function() {
+                            if (arrow.classList.contains('left')) {
+                                currentActiveIndex = (currentActiveIndex - 1 + programCards.length) % programCards.length;
+                            } else if (arrow.classList.contains('right')) {
+                                currentActiveIndex = (currentActiveIndex + 1) % programCards.length;
+                            }
+                            updateActiveCard(currentActiveIndex);
+                        });
+                    });
+                }
+                
+                // Initialize with first three cards
+                updateActiveCard(currentActiveIndex);
+            }
+        });
+    </script>
+</body>
+</html>

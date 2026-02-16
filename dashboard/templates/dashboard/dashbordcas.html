@@ -1,0 +1,505 @@
+{% extends 'dashboard/base_simple.html' %}
+{% load static %}
+
+{% block title %}College of Arts & Sciences - NORSU{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'dashboard/css/casstyle.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="overlay"></div>
+
+  <div class="container">
+
+    <!-- LEFT CONTENT -->
+    <div class="left">
+      <div class="logo-title">
+        <div class="logo-container">
+          <img src="{% static 'dashboard/images/CAS.png' %}" alt="NORSU Logo" class="college-logo">
+        </div>
+        <div class="title-container">
+          <h4>COLLEGE OF</h4>
+          <h1>ARTS & SCIENCES</h1>
+        </div>
+      </div>
+
+      <p class="description">
+        Welcome to The Bachelor of Information Technology at Norsu BSC– University (CAS)
+        is one of the most storied programs in the institution's history. It transformed
+        CAS from a traditional engineering school into a modern "Center of Excellence"
+        for technology. Strengthen moral standards. Pagpalig-on sa moralidad nga sukdanan.
+      </p>
+
+      <button class="btn-primary" onclick="document.getElementById('programs-section').scrollIntoView({behavior: 'smooth'})">Programs Offered</button>
+    </div>
+
+    <!-- RIGHT ICON MENU -->
+    <div class="right">
+      <div class="icon-grid">
+        <a href="#about-section" class="icon-box" onclick="document.getElementById('about-section').scrollIntoView({behavior: 'smooth'}); return false;">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About CAS</span>
+        </a>
+
+        <a href="#topnotchers-section" class="icon-box">
+          <i class="fa-solid fa-user-graduate"></i>
+          <span>Topnotchers</span>
+        </a>
+
+        <a href="#awards-section" class="icon-box">
+          <i class="fa-solid fa-award"></i>
+          <span>Awards&Recognition</span>
+        </a>
+
+        <a href="#alumni-section" class="icon-box">
+          <i class="fa-solid fa-users"></i>
+          <span>Alumni</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-card">
+      <i class="fa-solid fa-desktop"></i>
+      <h2>2</h2>
+      <p>PROGRAMS</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fa-solid fa-user"></i>
+      <h2>5000</h2>
+      <p>STUDENTS</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fa-solid fa-chalkboard-user"></i>
+      <h2>35</h2>
+      <p>FACULTY</p>
+    </div>
+  </div>
+
+</section>
+<section class="about-section" id="about-section">
+  <div class="about-container">
+
+    <!-- HEADER -->
+    <div class="about-header">
+      <img src="{% static 'dashboard/images/CAS.png' %}" alt="CAS Logo" class="logo">
+      <div class="title">
+        <h4>About</h4>
+        <h1>
+          <span class="green">College</span>
+          <span class="dark">of Arts &amp; Sciences</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <p class="about-text">
+      For the past 25 years, the College of Information Technology continuously bring
+      professional training to students, for them to be intellectually, morally, physically
+      and socially skilled individuals equipped to contribute to global social and
+      professional demands. The CAS is committed to produce graduates with scientific,
+      artistic, and technological skills that meet global standards to aid in the advantage
+      of society in its interminable quest towards development. The CAS provides academic
+      and academic-support programs designed for the holistic development and professional
+      advances for students in fields of specialization in both the arts and sciences.
+    </p>
+
+    <!-- GOALS BUTTON -->
+    <button class="goals-btn">GOALS</button>
+
+    <!-- GOALS LIST -->
+    <div class="goals-list">
+
+      <div class="goal-item">
+        <span class="letter c">C</span>
+        <div>
+          <p>
+            Collaborative approaches to university-based and community-based planning.
+          </p>
+          <em>
+            Tambarayong nga pamaagi basi sa mga plano sa unibersidad og komunidad.
+          </em>
+        </div>
+      </div>
+
+      <div class="goal-item">
+        <span class="letter a">A</span>
+        <div>
+          <p>
+            Attain excellent status in providing a pool of competent and competitive human resources.
+          </p>
+          <em>
+            Pagkab-ot sa taas nga matang sa pag pangalagad ug dli palupig nga tawhanong mamumuo.
+          </em>
+        </div>
+      </div>
+
+      <div class="goal-item">
+        <span class="letter s">S</span>
+        <div>
+          <p>
+            Strengthen moral standards.
+          </p>
+          <em>
+            Pagpalig-on sa moralidad nga sukdanan.
+          </em>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="programs-section" id="programs-section">
+  <div class="programs-container">
+
+    <!-- HEADER -->
+    <h1 class="section-title">Programs Offered</h1>
+    <p class="section-subtitle">
+      Experience top-notch facilities and cutting-edge laboratories at College of Arts and
+      Science for unparalleled academics advancements.
+    </p>
+
+    <!-- PROGRAM CARDS -->
+    <div class="cards">
+
+      <!-- CARD 1 -->
+      <div class="card">
+        <img src="{% static 'dashboard/images/info.jpg' %}" alt="BSIT">
+        <div class="card-body highlighted">
+          <h3>Bachelor of Science Information Technology</h3>
+          <button class="learn-btn">Learn More</button>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="card">
+        <img src="{% static 'dashboard/images/coms.jpg' %}" alt="BSCS">
+        <div class="card-body">
+          <h3>Bachelor of Science in Computer Science</h3>
+          <button class="learn-btn">Learn More</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="facilities-section" id="facilities-section">
+  <div class="facilities-container">
+
+    <!-- HEADER -->
+    <h1 class="section-title">CAS FACILITIES AND LABORATORIES</h1>
+    <p class="section-subtitle">
+      Experience top-notch facilities and cutting-edge laboratories at College of
+      Arts and Science for unparalleled academics advancements.
+    </p>
+
+    <!-- GRID -->
+    <div class="facilities-grid">
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/ITBUILDING.jpg' %}" alt="IT BUILDING">
+        <span class="label">IT BUILDING</span>
+      </div>
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/mul1.jpg' %}" alt="Multimedia Lab">
+        <span class="label">Multimedia Lab</span>
+      </div>
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/101.jpg' %}" alt="IT 101">
+        <span class="label">IT 101</span>
+      </div>
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/102.jpg' %}" alt="IT 102">
+        <span class="label">IT 102</span>
+      </div>
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/103.jpg' %}" alt="IT 103">
+        <span class="label">IT 103</span>
+      </div>
+
+      <div class="facility-card">
+        <img src="{% static 'dashboard/images/itof.jpg' %}" alt="IT Faculty">
+        <span class="label">IT Faculty</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="cas-admin">
+
+  <!-- HEADER -->
+  <div class="cas-header">
+    <h4>CAS ADMINISTRATION</h4>
+    <h1>
+      <span>COLLEGE</span> OF ARTS & <span class="dark">SCIENCES</span>
+    </h1>
+    <p>
+      Attain excellent status in providing a pool of competent and competitive
+      human resources. Pagkab-ot sa taas nga matan-aw sa pag pangalagad ug dili
+      palupig nga.
+    </p>
+  </div>
+  <div class="cas-content">
+    
+    <!-- PROFILE SLIDER -->
+    <div class="profile-area">
+
+      <div class="profiles"> 
+        
+
+        <!-- PROFILE 1 -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/yurfo.png' %}">
+          <h3>ARNEL M. YURFO, PH.D.</h3>
+          <p>Dean, College of Arts and Sciences</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 2 -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/carem.png' %}">
+          <h3>JEAN CARREM R. ESPARCIA, PH.D.</h3>
+          <p>Assistant Dean Program Head Department</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 3 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/jes.jpg' %}">
+          <h3>JESUS D. SUMADIA, MSIT</h3>
+          <p>CAS – Research and Extension Coordinator</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 4 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/or.jpg' %}">
+          <h3>JOHNREY S. ORTEGA</h3>
+          <p>Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 5 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/EL.png' %}">
+          <h3>ELLEN JOY TUNGHA</h3>
+          <p>Part Time</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 6 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/pogs.jpg' %}">
+          <h3>JONATHAN AGUPASA</h3>
+          <p>Part Time Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+          <!-- PROFILE 9 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ro.png' %}">
+          <h3>ROMNICK MACAPOBRE</h3>
+          <p>Part Time Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 7 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/ang.jpg' %}">
+          <h3>ANGELIE WENNA ALQUIZAR</h3>
+          <p>Part Time Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 8 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/faculty5.jpg' %}">
+          <h3>JOVANY CASTILLO</h3>
+          <p>Instructor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/helen.jpg' %}">
+          <h3>HELLEN TAMONANG</h3>
+          <p>Instructor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 10 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/royy.png' %}">
+          <h3>ROY RODRIQUEZ</h3>
+          <p>Instructor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 10 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/maf.png' %}">
+          <h3>MUFFIT PAMPILLO</h3>
+          <p>Assistant Professor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 11 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/lili.png' %}">
+          <h3>LILIAN SUMAGAYSAY</h3>
+          <p>Instructor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 12 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/rote.png' %}">
+          <h3>MA. ROSARIO S. ROTE</h3>
+          <p>Assistant Professor</p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- PROFILE 10 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/rt.jpg' %}">
+          <h3>HENRIETTA L. ABELGAS</h3>
+          <p>Instructor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+        
+         <!-- PROFILE 10 (NEXT SLIDE) -->
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/baron.jpg' %}">
+          <h3>DR. FLORDELIZA B. BARRON</h3>
+          <p>Instructor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/bal.jpg' %}">
+          <h3>JOEL J. MELENDRES, LPT</h3>
+          <p>Instructor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/mar.jpg' %}">
+          <h3>MARJIO BABOR</h3>
+          <p>Instructor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+        
+         <div class="profile-card">
+          <img src="{% static 'dashboard/images/c1.png' %}">
+          <h3>MATET B. CANELA</h3>
+          <p>Instructor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="profile-card">
+          <img src="{% static 'dashboard/images/faculty7.jpg' %}">
+          <h3>MAY AN JOY ABEJERON</h3>
+          <p>Instructor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+         <div class="profile-card">
+          <img src="{% static 'dashboard/images/C2.jpg' %}">
+          <h3>JOANNA MHEY</h3>
+          <p>Instructor </p>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+
+      </div>
+
+      <!-- NAVIGATION -->
+      <div class="nav-buttons">
+        <button id="prev">&#10094;</button>
+        <button id="next">&#10095;</button>
+      </div>
+     
+    </div>
+
+  </div>
+
+</section>
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const profiles = document.querySelector('.profiles');
+    const next = document.getElementById('next');
+    const prev = document.getElementById('prev');
+
+    if (!profiles || !next || !prev) {
+      console.error('Required elements not found');
+      return;
+    }
+
+    let index = 0;
+    const cardsPerView = 3;
+    const totalCards = profiles.children.length;
+    const maxIndex = Math.max(0, totalCards - cardsPerView);
+
+    console.log('Total cards:', totalCards, 'Max index:', maxIndex);
+
+    function updateProfiles() {
+      // Hide all profiles completely
+      Array.from(profiles.children).forEach(card => {
+        card.style.display = 'none';
+        card.style.opacity = '0';
+        card.style.transform = 'translateX(20px)';
+      });
+
+      // Show only current 3 profiles
+      for (let i = index; i < index + cardsPerView && i < totalCards; i++) {
+        const card = profiles.children[i];
+        card.style.display = 'block';
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateX(0)';
+        }, (i - index) * 100);
+      }
+    }
+
+    next.onclick = () => {
+      if (index < maxIndex) {
+        index++;
+        updateProfiles();
+        console.log('Next clicked, index:', index);
+      } else {
+        console.log('Reached max index');
+      }
+    };
+
+    prev.onclick = () => {
+      if (index > 0) {
+        index--;
+        updateProfiles();
+        console.log('Prev clicked, index:', index);
+      } else {
+        console.log('At start index');
+      }
+    };
+
+    // Initialize first view
+    updateProfiles();
+  });
+</script>
+{% endblock %}
+
+{% endblock %}
