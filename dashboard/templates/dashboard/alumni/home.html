@@ -1,0 +1,931 @@
+{% extends 'dashboard/alumni/base.html' %}
+{% load static %}
+
+{% block title %}NORSU-BSC Alumni Network - Home{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Minimalist Minimalist Features */
+    
+    /* Hero Section */
+    .hero-minimal {
+        padding: 120px 0 80px;
+        background-image: url("{% static 'dashboard/images/alumni.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+    }
+
+    .hero-minimal::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.45) 0%,
+            rgba(0, 0, 0, 0.35) 55%,
+            rgba(0, 0, 0, 0.25) 100%
+        );
+        pointer-events: none;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--lily-white);
+        margin-bottom: 16px;
+        letter-spacing: -1.5px;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: rgba(255, 255, 255, 0.92);
+        margin-bottom: 32px;
+        font-weight: 400;
+    }
+    
+    /* Stats Section */
+    .stats-minimal {
+        padding: 60px 0;
+        background-color: var(--azure-light);
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 24px;
+    }
+    
+    .stat-card {
+        padding: 24px;
+        background: var(--lily-white);
+        border-radius: 16px;
+        text-align: center;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 127, 255, 0.08);
+    }
+    
+    .stat-number {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--azure-blue);
+        margin-bottom: 4px;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+    
+    /* Analytics Section */
+    .analytics-minimal {
+        padding: 100px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 60px;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 12px;
+    }
+    
+    .section-desc {
+        color: var(--text-muted);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .analytics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 40px;
+    }
+    
+    .chart-card {
+        background: var(--lily-white);
+        border-radius: 20px;
+        padding: 32px;
+        border: 1px solid var(--border-color);
+    }
+    
+    .chart-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: var(--text-dark);
+    }
+    
+    /* About Section */
+    .about-minimal {
+        padding: 100px 0;
+        background-color: var(--lily-white);
+    }
+    
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+    
+    .about-image {
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 127, 255, 0.1);
+    }
+    
+    .about-image img {
+        width: 100%;
+        display: block;
+    }
+    
+    .about-tag {
+        color: var(--azure-blue);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+        display: block;
+    }
+    
+    .about-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin-bottom: 24px;
+        line-height: 1.2;
+    }
+    
+    .about-text {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        margin-bottom: 32px;
+    }
+    
+    .mission-box {
+        background-color: var(--azure-light);
+        padding: 32px;
+        border-radius: 20px;
+        border-left: 4px solid var(--azure-blue);
+    }
+    
+    .mission-title {
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 12px;
+        display: block;
+    }
+    
+    /* News Section */
+    .news-minimal {
+        padding: 80px 0;
+        background-color: #fff;
+        position: relative;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #1e3a5f;
+        margin-bottom: 12px;
+    }
+
+    .section-desc {
+        color: #6688AA;
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 1rem;
+    }
+    
+    .news-carousel-wrapper {
+        position: relative; 
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 60px; /* Space for arrows */
+        overflow: hidden;
+    }
+    
+    .news-grid {
+        display: flex;
+        gap: 30px;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .news-card {
+        flex: 0 0 calc(33.333% - 20px);
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #E0F2FF;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 20px rgba(0, 127, 255, 0.05);
+    }
+    
+    .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 127, 255, 0.1);
+    }
+    
+    .news-image {
+        height: 220px;
+        overflow: hidden;
+    }
+    
+    .news-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .news-content {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    
+    .news-date {
+        font-size: 0.85rem;
+        color: #007FFF;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    .news-title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #1e3a5f;
+        margin-bottom: 12px;
+        line-height: 1.3;
+        text-transform: uppercase;
+    }
+    
+    .news-excerpt {
+        color: #6688AA;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+        flex-grow: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .btn-text {
+        color: #007FFF;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: auto;
+        transition: transform 0.2s;
+    }
+
+    .btn-text:hover {
+        transform: translateX(5px);
+    }
+
+    /* Carousel Arrows */
+    .carousel-nav {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        pointer-events: none;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    .carousel-btn {
+        pointer-events: auto;
+        background: #F0F8FF; /* Light blue background */
+        color: #007FFF;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 127, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .carousel-btn:hover {
+        background: #007FFF;
+        color: #fff;
+        transform: scale(1.1);
+    }
+
+    .carousel-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    @media (max-width: 992px) {
+        .news-card {
+            flex: 0 0 calc(50% - 15px);
+        }
+        .news-carousel-wrapper {
+            padding: 0 50px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .news-card {
+            flex: 0 0 100%;
+        }
+        .news-carousel-wrapper {
+            padding: 0 40px;
+        }
+        .carousel-btn {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    
+    /* Events Section */
+    .events-minimal {
+        padding: 100px 0;
+        background-color: var(--lily-white);
+    }
+    
+    .events-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 32px;
+    }
+    
+    .event-card {
+        background: var(--lily-white);
+        border-radius: 24px;
+        border: 1px solid var(--border-color);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .event-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--azure-blue);
+        box-shadow: 0 20px 40px rgba(0, 127, 255, 0.08);
+    }
+    
+    .event-image {
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .event-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .event-date-badge {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: var(--lily-white);
+        padding: 10px 15px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        z-index: 2;
+    }
+    
+    .event-day {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--azure-blue);
+        line-height: 1;
+    }
+    
+    .event-month {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+    
+    .event-info {
+        padding: 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .event-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+    
+    .event-meta {
+        margin-bottom: 20px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+    
+    .event-meta span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+    }
+    
+    .btn-join-event {
+        margin-top: auto;
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        background: var(--azure-blue);
+        color: white;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-join-event:hover {
+        background: #0066CC;
+        box-shadow: 0 4px 12px rgba(0, 127, 255, 0.2);
+    }
+    
+    /* CTA Section */
+    .cta-minimal {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--azure-blue) 0%, #0066CC 100%);
+        color: white;
+        text-align: center;
+    }
+    
+    .cta-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 16px;
+    }
+    
+    .cta-desc {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .btn-white {
+        display: inline-block;
+        padding: 16px 40px;
+        background: white;
+        color: var(--azure-blue);
+        border-radius: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-white:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Featured Alumni */
+    .featured-minimal {
+        padding: 80px 0;
+        background-color: #fff;
+    }
+    
+    .alumni-grid {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .alumni-card {
+        flex: 0 0 calc(33.333% - 20px);
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #E0F2FF;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 20px rgba(0, 127, 255, 0.05);
+        max-width: none;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .alumni-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 127, 255, 0.1);
+    }
+    
+    .alumni-photo-wrapper {
+        height: 220px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+    
+    .alumni-photo-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .alumni-card-body {
+        padding: 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .alumni-name {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #1e3a5f;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+
+    .alumni-achievement {
+        font-size: 0.85rem;
+        color: #007FFF;
+        font-weight: 700;
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    .alumni-bio {
+        color: #6688AA;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        font-style: italic;
+        margin-bottom: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+        align-items: center;
+        overflow: hidden;
+    }
+    
+    .alumni-name {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin-bottom: 4px;
+    }
+    
+    .alumni-achievement {
+        color: var(--azure-blue);
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    .alumni-bio {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        font-style: italic;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    
+    .section-btn-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    
+    .btn-outline {
+        padding: 12px 32px;
+        border: 2px solid var(--azure-blue);
+        color: var(--azure-blue);
+        border-radius: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+        background-color: var(--azure-blue);
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        .hero-title { font-size: 2.5rem; }
+        .about-grid { grid-template-columns: 1fr; }
+        .cta-title { font-size: 2rem; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-minimal">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Connecting NORSUnians Everywhere</h1>
+            <p class="hero-subtitle">The official gateway for Negros Oriental State University alumni to network, grow, and give back.</p>
+            <a href="{% url 'directory' %}" class="btn-join">Join the Network</a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-minimal">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">12k+</span>
+                <span class="stat-label">Active Alumni</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">85+</span>
+                <span class="stat-label">Chapters</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Annual Events</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">45</span>
+                <span class="stat-label">Countries</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-minimal">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-image">
+                {% if about_data.image %}
+                <img src="{{ about_data.image.url }}" alt="NORSU Alumni">
+                {% else %}
+                <img src="{% static 'dashboard/images/alumni.jpg' %}" alt="NORSU Alumni">
+                {% endif %}
+            </div>
+            <div class="about-content">
+                <span class="about-tag">Our Community</span>
+                <h2 class="about-title">{{ about_data.title|default:"The NORSU-BSC Alumni Association" }}</h2>
+                <p class="about-text">{{ about_data.content|default:"We are a vibrant community of graduates dedicated to fostering lifelong relationships between Negros Oriental State University and its alumni. Through networking, mentorship, and support, we empower our members to achieve excellence in their respective fields." }}</p>
+                <div class="mission-box">
+                    <span class="mission-title">Our Mission</span>
+                    <p class="about-text" style="margin-bottom: 0;">{{ about_data.mission|default:"To build a strong, supportive network that champions the success of NORSUnians and contributes to the institution's enduring legacy of academic excellence." }}</p>
+                </div>
+                <div style="margin-top: 40px;">
+                    <a href="{% url 'alumni_about' %}" class="btn-outline">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News Section -->
+<section class="news-minimal">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Latest News & Announcements</h2>
+            <p class="section-desc">Stay informed about the latest developments and stories from our alumni network.</p>
+        </div>
+        
+        <div class="news-carousel-wrapper">
+            <div class="news-grid" id="news-slider">
+                {% for post in latest_news %}
+                <article class="news-card">
+                    <div class="news-image">
+                        {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        {% else %}
+                        <img src="{% static 'dashboard/images/default-news.jpg' %}" alt="{{ post.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">{{ post.created_at|date:"F d, Y" }}</span>
+                        <h3 class="news-title">{{ post.title }}</h3>
+                        <p class="news-excerpt">{{ post.content|truncatewords:20 }}</p>
+                        <a href="{% url 'news_alumni' %}?id={{ post.id }}" class="btn-text">Read More →</a>
+                    </div>
+                </article>
+                {% empty %}
+                <p class="section-desc" style="width: 100%; text-align: center;">No news posts available at the moment.</p>
+                {% endfor %}
+            </div>
+
+            <!-- Navigation Arrows -->
+            <div class="carousel-nav" id="news-nav">
+                <button class="carousel-btn prev" id="news-prev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="carousel-btn next" id="news-next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Events Section -->
+<section class="events-minimal">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Upcoming Events</h2>
+            <p class="section-desc">Join us for upcoming reunions, workshops, and networking gatherings.</p>
+        </div>
+        
+        <div class="events-grid">
+            {% for event in upcoming_events %}
+            <div class="event-card">
+                <div class="event-image">
+                    {% if event.image %}
+                    <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                    {% else %}
+                    <img src="{% static 'dashboard/images/alumni.jpg' %}" alt="{{ event.title }}">
+                    {% endif %}
+                    <div class="event-date-badge">
+                        <span class="event-day">{{ event.date|date:"d" }}</span>
+                        <span class="event-month">{{ event.date|date:"M" }}</span>
+                    </div>
+                </div>
+                <div class="event-info">
+                    <h3 class="event-title">{{ event.title }}</h3>
+                    <div class="event-meta">
+                        <span>📍 {{ event.location }}</span>
+                        <span>⏰ {{ event.date|date:"h:i A" }}</span>
+                    </div>
+                    <a href="{% url 'events' %}" class="btn-join-event">Register Now</a>
+                </div>
+            </div>
+            {% empty %}
+            <p class="section-desc" style="grid-column: 1/-1; text-align: center;">No upcoming events scheduled yet.</p>
+            {% endfor %}
+        </div>
+        
+        <div class="section-btn-wrapper">
+            <a href="{% url 'events' %}" class="btn-outline">Browse All Events</a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Alumni - only shown when there are success stories -->
+{% if featured_achievements %}
+<section class="featured-minimal">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Featured Success Stories</h2>
+            <p class="section-desc">Meet the NORSUnians making an impact across the globe.</p>
+        </div>
+        <div class="alumni-grid">
+            {% for achievement in featured_achievements %}
+            <div class="alumni-card">
+                <div class="alumni-photo-wrapper">
+                    {% if achievement.image %}
+                    <img src="{{ achievement.image.url }}" alt="{{ achievement.alumni_name }}">
+                    {% else %}
+                    <div style="width:100%; height:100%; background:var(--azure-light); display:flex; align-items:center; justify-content:center; color:var(--azure-blue); font-size:3rem; font-weight:800;">{{ achievement.alumni_name|first }}</div>
+                    {% endif %}
+                </div>
+                <div class="alumni-card-body">
+                    <h3 class="alumni-name">{{ achievement.alumni_name }}</h3>
+                    <span class="alumni-achievement">{{ achievement.achievement }}</span>
+                    <p class="alumni-bio">"{{ achievement.description|truncatewords:25 }}"</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="section-btn-wrapper">
+            <a href="{% url 'achievements' %}" class="btn-outline">Meet More Topnotchers</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="cta-minimal">
+    <div class="container">
+        <h2 class="cta-title">Ready to reconnect?</h2>
+        <p class="cta-desc">Join thousands of fellow graduates and start your journey today.</p>
+        <a href="{% url 'directory' %}" class="btn-white">Create Your Profile</a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById('news-slider');
+        const nav = document.getElementById('news-nav');
+        const prevBtn = document.getElementById('news-prev');
+        const nextBtn = document.getElementById('news-next');
+        const cards = slider.querySelectorAll('.news-card');
+        
+        if (cards.length > 3) {
+            nav.style.display = 'flex';
+            let currentIndex = 0;
+            const gap = 30;
+            const cardWidth = cards[0].offsetWidth;
+            const scrollWidth = cardWidth + gap;
+            const maxIndex = cards.length - 3;
+
+            function updateSlider() {
+                const offset = -(currentIndex * scrollWidth);
+                slider.style.transform = `translateX(${offset}px)`;
+                
+                // Disable/enable buttons based on position
+                prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+                prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+                
+                nextBtn.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
+                nextBtn.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateSlider();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            });
+
+            // Initial state
+            updateSlider();
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                const newCardWidth = cards[0].offsetWidth + 32;
+                const offset = -(currentIndex * newCardWidth);
+                slider.style.transform = `translateX(${offset}px)`;
+            });
+        }
+    });
+</script>
+
+{% endblock %}

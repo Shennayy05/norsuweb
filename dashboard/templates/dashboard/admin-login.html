@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,22 +22,23 @@
             background-attachment: fixed;
             background-blend-mode: overlay;
             min-height: 100vh;
-            display: flex;
+            display: flex;  
             align-items: center;
             justify-content: center;
         }
 
         .login-container {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 40px;
+            background: white;
+            padding: 30px;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             width: 100%;
-            max-width: 500px;
+            max-width: 520px;
             position: relative;
             overflow: hidden;
         }
+
+        
 
         @keyframes shimmer {
             0% { background-position: -200% 0; }
@@ -51,19 +53,94 @@
         .logo {
             width: 80px;
             height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            overflow: hidden;
+            font-size: 32px;
+            color: white;
+        }
+        .logo-img {
+          width: 80px;
+          height: 80px;
+          object-fit: contain;
+          border-radius: 50%;
+        }
+        .login-header h1 {
+            color: #333;
+            font-size: 34px;
+            margin-bottom: 8px;
         }
 
-        .logo-img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            border-radius: 50%;
+        .login-header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #02732d, #036d23);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .n-red {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+
+        .red {
+            color: #c0392b;
+            font-weight: 700;
+        }
+        .divider span { 
+            background: #edeaea;
+            padding: 0 15px;
+            color: #7f8c8d;
+            font-size: 14px;
         }
 
         .password-input-container {
@@ -87,81 +164,12 @@
         }
 
         .password-toggle:hover {
-            color: #029620;
-            background: rgba(2, 150, 32, 0.1);
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
         }
 
         .password-toggle i {
             font-size: 16px;
-        }
-
-        .login-header h1 {
-            color: #333;
-            font-size: 35px;
-            margin-bottom: 8px;
-        }
-
-        .login-header p {
-            color: #000000;
-            font-size: 14px;
-        }
-
-        .n-red {
-            color: #e74c3c;
-            font-weight: 700;
-        }
-
-        .red {
-            color: #c0392b;
-            font-weight: 700;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #000000;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .form-group select,
-        .form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .form-group select:focus,
-        .form-group input:focus {
-            outline: none;
-            border-color: #029620;
-            box-shadow: 0 0 0 3px rgba(2, 110, 44, 0.1);
-        }
-
-        .login-btn {
-            width: 100%;
-            padding: 14px;
-            background: #029620;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(2, 110, 44, 0.3);
         }
 
         .login-btn:active {
@@ -188,8 +196,24 @@
             display: none;
         }
 
+        .college-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
         .college-info strong {
             color: #333;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
         }
 
         /* Login Footer Styles */
@@ -206,14 +230,14 @@
         }
 
         .login-links a {
-            color: #1a5f3f;
+            color: #667eea;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s ease;
         }
 
         .login-links a:hover {
-            color: #0d3d28;
+            color: #764ba2;
             text-decoration: underline;
         }
 
@@ -234,7 +258,7 @@
         }
 
         .divider span {
-            background: #fff;
+            background: white;
             padding: 0 15px;
             color: #666;
             font-size: 12px;
@@ -256,9 +280,194 @@
         }
 
         .back-link a:hover {
-            color: #1a5f3f;
+            color: #667eea;
         }
 
         .back-link i {
             font-size: 12px;
         }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <div class="login-logo">
+                     <img src="/static/dashboard/images/logo1.png" alt="NORSU Logo" class="logo-img">
+                </div>
+            <h1 class="login-title"><span class="n-red">N</span>egros <span class="red">OR</span>iental <span class="red">S</span>tate <span class="red">U</span>niversity</h1>
+            <p>Colleges Admin</p>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="college">Select College</label>
+                <select id="college" required>
+                    <option value="">Choose your college...</option>
+                    <option value="CAS">College of Arts and Sciences</option>
+                    <option value="CBA">College of Business and Administration</option>
+                    <option value="CCJE">College of Criminal Justice Education</option>
+                    <option value="CAF">College of Agriculture and Forestry</option>
+                    <option value="CIT">College of Industrial Technology</option>
+                    <option value="CTED">College of Teacher Education</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-input-container">
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <button type="button" class="password-toggle" onclick="togglePassword()">
+                        <i class="fas fa-eye" id="toggleIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+        </form>
+
+        <div class="login-footer">
+            <div class="login-links">
+                <a href="#" onclick="showAlert('Contact system administrator for password reset', 'error'); return false;">Forgot Password?</a>
+                <a href="/super-admin-login/">Super Admin Login</a>
+            </div>
+
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+            <div class="back-link">
+                <a href="/">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Admin credentials for each college
+        const adminCredentials = {
+            CAS: { username: 'admin', password: 'cas123', name: 'CAS Administrator' },
+            CBA: { username: 'admin', password: 'cba123', name: 'CBA Administrator' },
+            CCJE: { username: 'admin', password: 'ccje123', name: 'CCJE Administrator' },
+            CAF: { username: 'admin', password: 'caf123', name: 'CAF Administrator' },
+            CIT: { username: 'admin', password: 'cit123', name: 'CIT Administrator' },
+            CTED: { username: 'admin', password: 'cted123', name: 'CTED Administrator' }
+        };
+
+        // College information
+        const collegeInfo = {
+            CAS: { fullName: 'College of Arts and Sciences', color: '#2c7f76' },
+            CBA: { fullName: 'College of Business and Accountancy', color: '#1e4a8a' },
+            CCJE: { fullName: 'College of Criminal Justice Education', color: '#056410' },
+            CAF: { fullName: 'College of Agriculture and Forestry', color: '#056410' },
+            CIT: { fullName: 'College of Industrial Technology', color: '#1e4a8a' },
+            CTED: { fullName: 'College of Teacher Education', color: '#056410' }
+        };
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const college = document.getElementById('college').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            const errorMsg = document.getElementById('errorMessage');
+            const successMsg = document.getElementById('successMessage');
+            
+            // Hide previous messages
+            errorMsg.style.display = 'none';
+            successMsg.style.display = 'none';
+            
+            // Validate credentials
+            if (!college) {
+                showError('Please select a college');
+                return;
+            }
+            
+            const validCredentials = adminCredentials[college];
+            
+            if (username === validCredentials.username && password === validCredentials.password) {
+                // Successful login
+                const sessionData = {
+                    college: college,
+                    collegeFullName: collegeInfo[college].fullName,
+                    collegeColor: collegeInfo[college].color,
+                    name: validCredentials.name,
+                    username: username,
+                    loginTime: Date.now(),
+                    sessionTimeout: 2 * 60 * 60 * 1000 // 2 hours
+                };
+                
+                // Store session
+                sessionStorage.setItem('adminSession', JSON.stringify(sessionData));
+                
+                showSuccess('Login successful! Redirecting...');
+                
+                // Redirect to dashboard
+                setTimeout(() => {
+                    window.location.href = '/admin-dashboard/';
+                }, 1500);
+                
+            } else {
+                showError('Invalid username or password');
+            }
+        });
+
+        function showError(message) {
+            const errorMsg = document.getElementById('errorMessage');
+            errorMsg.textContent = message;
+            errorMsg.style.display = 'block';
+        }
+
+        function showSuccess(message) {
+            const successMsg = document.getElementById('successMessage');
+            successMsg.textContent = message;
+            successMsg.style.display = 'block';
+        }
+
+        // Check if already logged in
+        window.addEventListener('load', function() {
+            const sessionData = sessionStorage.getItem('adminSession');
+            if (sessionData) {
+                const session = JSON.parse(sessionData);
+                const now = Date.now();
+                const sessionAge = now - session.loginTime;
+                
+                if (sessionAge < session.sessionTimeout) {
+                    // Session still valid, redirect to dashboard
+                    window.location.href = '/admin-dashboard/';
+                } else {
+                    // Session expired, clear it
+                    sessionStorage.removeItem('adminSession');
+                }
+            }
+        });
+
+        // Password visibility toggle function
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,19 +1,21 @@
 {% extends 'dashboard/base_simple.html' %}
 {% load static %}
 
-{% block title %}College of Arts & Sciences - NORSU{% endblock %}
+{% block title %}College of Arts and Sciences - NORSU{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'dashboard/css/casstyle.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/footer.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 {% endblock %}
 
 {% block content %}
+{% include 'dashboard/navbar.html' %}
+
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="overlay"></div>
-
   <div class="container">
-
     <!-- LEFT CONTENT -->
     <div class="left">
       <div class="logo-title">
@@ -22,17 +24,15 @@
         </div>
         <div class="title-container">
           <h4>COLLEGE OF</h4>
-          <h1>ARTS & SCIENCES</h1>
+          <h1>ARTS AND SCIENCES</h1>
         </div>
       </div>
-
       <p class="description">
-        Welcome to The Bachelor of Information Technology at Norsu BSC– University (CAS)
-        is one of the most storied programs in the institution's history. It transformed
+        Welcome to The College of Arts and Sciences at Norsu BSC– University (CAS)
+        is one of the most storied programs in institution's history. It transformed
         CAS from a traditional engineering school into a modern "Center of Excellence"
         for technology. Strengthen moral standards. Pagpalig-on sa moralidad nga sukdanan.
       </p>
-
       <button class="btn-primary" onclick="document.getElementById('programs-section').scrollIntoView({behavior: 'smooth'})">Programs Offered</button>
     </div>
 
@@ -43,52 +43,45 @@
           <i class="fa-solid fa-circle-info"></i>
           <span>About CAS</span>
         </a>
-
-        <a href="#topnotchers-section" class="icon-box">
+        <a href="#alumni-section" class="icon-box">
           <i class="fa-solid fa-user-graduate"></i>
-          <span>Topnotchers</span>
+          <span>Alumni</span>
         </a>
-
         <a href="#awards-section" class="icon-box">
           <i class="fa-solid fa-award"></i>
-          <span>Awards&Recognition</span>
+          <span>Awards</span>
         </a>
-
-        <a href="#alumni-section" class="icon-box">
+        <a href="#administration-section" class="icon-box">
           <i class="fa-solid fa-users"></i>
-          <span>Alumni</span>
+          <span>Administration</span>
         </a>
       </div>
     </div>
-
   </div>
 
   <!-- STATS -->
   <div class="stats">
     <div class="stat-card">
       <i class="fa-solid fa-desktop"></i>
-      <h2>2</h2>
+      <h2 id="hero-program-count">0</h2>
       <p>PROGRAMS</p>
     </div>
-
     <div class="stat-card">
       <i class="fa-solid fa-user"></i>
       <h2>5000</h2>
       <p>STUDENTS</p>
     </div>
-
     <div class="stat-card">
       <i class="fa-solid fa-chalkboard-user"></i>
-      <h2>35</h2>
+      <h2 id="hero-faculty-count">0</h2>
       <p>FACULTY</p>
     </div>
   </div>
-
 </section>
+
+<!-- ABOUT SECTION -->
 <section class="about-section" id="about-section">
   <div class="about-container">
-
-    <!-- HEADER -->
     <div class="about-header">
       <img src="{% static 'dashboard/images/CAS.png' %}" alt="CAS Logo" class="logo">
       <div class="title">
@@ -99,407 +92,537 @@
         </h1>
       </div>
     </div>
-
-    <!-- DESCRIPTION -->
     <p class="about-text">
-      For the past 25 years, the College of Information Technology continuously bring
+      For the past 25 years, the College of Arts and Sciences continuously brings
       professional training to students, for them to be intellectually, morally, physically
       and socially skilled individuals equipped to contribute to global social and
       professional demands. The CAS is committed to produce graduates with scientific,
       artistic, and technological skills that meet global standards to aid in the advantage
       of society in its interminable quest towards development. The CAS provides academic
-      and academic-support programs designed for the holistic development and professional
+      and academic-support programs designed for holistic development and professional
       advances for students in fields of specialization in both the arts and sciences.
     </p>
-
-    <!-- GOALS BUTTON -->
     <button class="goals-btn">GOALS</button>
-
-    <!-- GOALS LIST -->
     <div class="goals-list">
-
       <div class="goal-item">
         <span class="letter c">C</span>
         <div>
-          <p>
-            Collaborative approaches to university-based and community-based planning.
-          </p>
-          <em>
-            Tambarayong nga pamaagi basi sa mga plano sa unibersidad og komunidad.
-          </em>
+          <p>Collaborative approaches to university-based and community-based planning.</p>
+          <em>Tambarayong nga pamaagi basi sa mga plano sa unibersidad og komunidad.</em>
         </div>
       </div>
-
       <div class="goal-item">
         <span class="letter a">A</span>
         <div>
-          <p>
-            Attain excellent status in providing a pool of competent and competitive human resources.
-          </p>
-          <em>
-            Pagkab-ot sa taas nga matang sa pag pangalagad ug dli palupig nga tawhanong mamumuo.
-          </em>
+          <p>Attain excellent status in providing a pool of competent and competitive human resources.</p>
+          <em>Pagkab-ot sa taas nga matang sa pag pangalagad ug dli palupig nga tawhanong mamumuo.</em>
         </div>
       </div>
-
       <div class="goal-item">
         <span class="letter s">S</span>
         <div>
-          <p>
-            Strengthen moral standards.
-          </p>
-          <em>
-            Pagpalig-on sa moralidad nga sukdanan.
-          </em>
+          <p>Strengthen moral standards.</p>
+          <em>Pagpalig-on sa moralidad nga sukdanan.</em>
         </div>
       </div>
-
     </div>
-
   </div>
 </section>
 
+<!-- LATEST AT CAS -->
+<section class="latest-section" id="latest-section">
+  <div class="latest-container">
+    <h1 class="section-title">LATEST AT CAS</h1>
+    <p class="section-subtitle">
+      Stay updated with the latest news, announcements, and events from the College of Arts and Sciences.
+    </p>
+    <div class="unified-cards-grid" id="cas-latest">
+      <!-- Loaded dynamically -->
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS SECTION -->
 <section class="programs-section" id="programs-section">
   <div class="programs-container">
-
-    <!-- HEADER -->
-    <h1 class="section-title">Programs Offered</h1>
+    <h1 class="section-title">PROGRAMS OFFERED</h1>
     <p class="section-subtitle">
-      Experience top-notch facilities and cutting-edge laboratories at College of Arts and
-      Science for unparalleled academics advancements.
+      Experience top-notch facilities and cutting-edge laboratories at College of Arts and Sciences for unparalleled academic advancements.
     </p>
-
-    <!-- PROGRAM CARDS -->
-    <div class="cards">
-
-      <!-- CARD 1 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/info.jpg' %}" alt="BSIT">
-        <div class="card-body highlighted">
-          <h3>Bachelor of Science Information Technology</h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/coms.jpg' %}" alt="BSCS">
-        <div class="card-body">
-          <h3>Bachelor of Science in Computer Science</h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
+    <div class="cards" id="cas-programs">
+      <!-- Loaded dynamically -->
     </div>
   </div>
 </section>
 
+<!-- ALUMNI SECTION -->
+<section class="alumni-section" id="alumni-section">
+  <div class="alumni-container">
+    <h1 class="section-title">CAS ALUMNI</h1>
+    <p class="section-subtitle">
+      Meet our successful graduates from the College of Arts and Sciences who continue to make an impact in different fields.
+    </p>
+    <div class="alumni-cards" id="cas-alumni">
+      <!-- Loaded dynamically -->
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS SECTION -->
+<section class="awards-section" id="awards-section">
+  <div class="awards-container">
+    <h1 class="section-title">CAS Awards and Recognition</h1>
+    <p class="section-subtitle">
+      Discover the achievements, honors, and recognitions earned by the 
+      College of Arts and Sciences through excellence in academics, research, 
+      and community service.
+    </p>
+    <div class="unified-cards-grid" id="cas-awards">
+      <!-- Loaded dynamically -->
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES SECTION -->
 <section class="facilities-section" id="facilities-section">
   <div class="facilities-container">
-
-    <!-- HEADER -->
-    <h1 class="section-title">CAS FACILITIES AND LABORATORIES</h1>
+    <h1 class="section-title">CAS Facilities</h1>
     <p class="section-subtitle">
-      Experience top-notch facilities and cutting-edge laboratories at College of
-      Arts and Science for unparalleled academics advancements.
+      Explore the modern laboratories, classrooms, research centers, and learning spaces 
+      available at the College of Arts and Sciences that support hands-on training, 
+      innovation, and academic excellence.
     </p>
-
-    <!-- GRID -->
-    <div class="facilities-grid">
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/ITBUILDING.jpg' %}" alt="IT BUILDING">
-        <span class="label">IT BUILDING</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/mul1.jpg' %}" alt="Multimedia Lab">
-        <span class="label">Multimedia Lab</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/101.jpg' %}" alt="IT 101">
-        <span class="label">IT 101</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/102.jpg' %}" alt="IT 102">
-        <span class="label">IT 102</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/103.jpg' %}" alt="IT 103">
-        <span class="label">IT 103</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/itof.jpg' %}" alt="IT Faculty">
-        <span class="label">IT Faculty</span>
-      </div>
-
+    <div class="unified-cards-grid" id="cas-facilities">
+      <!-- Loaded dynamically -->
     </div>
   </div>
 </section>
-<section class="cas-admin">
 
-  <!-- HEADER -->
+<!-- ADMINISTRATION SECTION (ORG CHART) -->
+<section class="cas-admin" id="administration-section">
   <div class="cas-header">
-    <h4>CAS ADMINISTRATION</h4>
-    <h1>
-      <span>COLLEGE</span> OF ARTS & <span class="dark">SCIENCES</span>
-    </h1>
-    <p>
-      Attain excellent status in providing a pool of competent and competitive
-      human resources. Pagkab-ot sa taas nga matan-aw sa pag pangalagad ug dili
-      palupig nga.
-    </p>
+    <h4>College of Arts and Sciences</h4>
+    <h1><span>ORGANIZATIONAL CHART</span></h1>
+    <p>Strengthen moral standards and provide quality education in arts and sciences.</p>
   </div>
   <div class="cas-content">
-    
-    <!-- PROFILE SLIDER -->
-    <div class="profile-area">
-
-      <div class="profiles"> 
-        
-
-        <!-- PROFILE 1 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/yurfo.png' %}">
-          <h3>ARNEL M. YURFO, PH.D.</h3>
-          <p>Dean, College of Arts and Sciences</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 2 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/carem.png' %}">
-          <h3>JEAN CARREM R. ESPARCIA, PH.D.</h3>
-          <p>Assistant Dean Program Head Department</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 3 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/jes.jpg' %}">
-          <h3>JESUS D. SUMADIA, MSIT</h3>
-          <p>CAS – Research and Extension Coordinator</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 4 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/or.jpg' %}">
-          <h3>JOHNREY S. ORTEGA</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 5 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/EL.png' %}">
-          <h3>ELLEN JOY TUNGHA</h3>
-          <p>Part Time</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 6 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/pogs.jpg' %}">
-          <h3>JONATHAN AGUPASA</h3>
-          <p>Part Time Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-          <!-- PROFILE 9 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ro.png' %}">
-          <h3>ROMNICK MACAPOBRE</h3>
-          <p>Part Time Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 7 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ang.jpg' %}">
-          <h3>ANGELIE WENNA ALQUIZAR</h3>
-          <p>Part Time Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 8 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/faculty5.jpg' %}">
-          <h3>JOVANY CASTILLO</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/helen.jpg' %}">
-          <h3>HELLEN TAMONANG</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 10 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/royy.png' %}">
-          <h3>ROY RODRIQUEZ</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 10 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/maf.png' %}">
-          <h3>MUFFIT PAMPILLO</h3>
-          <p>Assistant Professor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 11 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/lili.png' %}">
-          <h3>LILIAN SUMAGAYSAY</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 12 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/rote.png' %}">
-          <h3>MA. ROSARIO S. ROTE</h3>
-          <p>Assistant Professor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 10 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/rt.jpg' %}">
-          <h3>HENRIETTA L. ABELGAS</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-        
-         <!-- PROFILE 10 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/baron.jpg' %}">
-          <h3>DR. FLORDELIZA B. BARRON</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/bal.jpg' %}">
-          <h3>JOEL J. MELENDRES, LPT</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/mar.jpg' %}">
-          <h3>MARJIO BABOR</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-        
-         <div class="profile-card">
-          <img src="{% static 'dashboard/images/c1.png' %}">
-          <h3>MATET B. CANELA</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/faculty7.jpg' %}">
-          <h3>MAY AN JOY ABEJERON</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-         <div class="profile-card">
-          <img src="{% static 'dashboard/images/C2.jpg' %}">
-          <h3>JOANNA MHEY</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-      </div>
-
-      <!-- NAVIGATION -->
-      <div class="nav-buttons">
-        <button id="prev">&#10094;</button>
-        <button id="next">&#10095;</button>
-      </div>
-     
+    <div class="org-chart" id="cas-organizational-chart">
+      <!-- Loaded dynamically -->
     </div>
-
   </div>
-
 </section>
+
+
+{% endblock %}
 
 {% block extra_js %}
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const profiles = document.querySelector('.profiles');
-    const next = document.getElementById('next');
-    const prev = document.getElementById('prev');
+  document.addEventListener('DOMContentLoaded', async function() {
+    // Initialize CAS data from Database APIs
+    await Promise.all([
+        loadCASPrograms(),
+        loadCASFaculty(),
+        loadCasLatestPosts(),
+        loadCasAlumni(),
+        loadCasAwards(),
+        loadCasFacilities()
+    ]);
+    
+    // Listen for storage changes (for real-time updates when admin saves data)
+    window.addEventListener('storage', function(e) {
+      if (e.key.includes('Updated') || e.key.includes('Posts')) {
+          loadCASPrograms();
+          loadCASFaculty();
+          loadCasLatestPosts();
+          loadCasAlumni();
+          loadCasAwards();
+          loadCasFacilities();
+      }
+    });
+  });
 
-    if (!profiles || !next || !prev) {
-      console.error('Required elements not found');
+  // --- PROGRAMS ---
+  async function loadCASPrograms() {
+    const container = document.getElementById('cas-programs');
+    if (!container) return;
+    try {
+      const response = await fetch(`/api/programs/?college=cas&t=${Date.now()}`);
+      const data = await response.json();
+      if (data.success && data.programs) {
+        // Filter for CAS only (though API should handle it)
+        const casPrograms = data.programs.filter(p => (p.college || '').toLowerCase() === 'cas');
+        if (casPrograms.length === 0) {
+          container.innerHTML = '<div class="empty-state"><i class="fas fa-book-open"></i><p>No programs listed for CAS.</p></div>';
+        } else {
+          container.innerHTML = casPrograms.map(p => `
+            <div class="card">
+              <img src="${p.image || '/static/dashboard/images/casuni.jpg'}" alt="${p.title}">
+              <div class="card-body ${p.status === 'active' ? 'highlighted' : ''}">
+                <h3>${p.title}</h3>
+                <div class="program-info">
+                  <span class="info-item"><i class="fas fa-clock"></i> ${p.duration || '4 Years'}</span>
+                  <span class="info-item"><i class="fas fa-info-circle"></i> ${p.status || 'Active'}</span>
+                </div>
+                <button class="learn-btn">Learn More</button>
+              </div>
+            </div>
+          `).join('');
+        }
+        document.getElementById('hero-program-count').textContent = casPrograms.length;
+      }
+    } catch (e) { console.error('Error loading programs:', e); }
+  }
+
+  // --- FACULTY / ORG CHART ---
+  async function loadCASFaculty() {
+    try {
+      const response = await fetch('/api/faculty/?college=cas');
+      const data = await response.json();
+      if (data.success && data.faculty) {
+        updateOrganizationalChart(data.faculty);
+        document.getElementById('hero-faculty-count').textContent = data.faculty.length;
+      }
+    } catch (e) { console.error('Error loading faculty:', e); }
+  }
+
+  function updateOrganizationalChart(faculty) {
+    const container = document.getElementById('cas-organizational-chart');
+    if (!container) return;
+    if (!faculty || faculty.length === 0) {
+      container.innerHTML = '<p>No faculty data available.</p>';
       return;
     }
 
-    let index = 0;
-    const cardsPerView = 3;
-    const totalCards = profiles.children.length;
-    const maxIndex = Math.max(0, totalCards - cardsPerView);
+    const priority = (pos) => {
+      pos = (pos || '').toLowerCase();
+      if (pos.includes('dean') && !pos.includes('assistant')) return 1;
+      if (pos.includes('assistant dean')) return 2;
+      return 3;
+    };
 
-    console.log('Total cards:', totalCards, 'Max index:', maxIndex);
+    const sorted = [...faculty].sort((a, b) => priority(a.position) - priority(b.position));
+    const dean = sorted.find(f => priority(f.position) === 1);
+    const assistants = sorted.filter(f => priority(f.position) === 2);
+    const others = sorted.filter(f => priority(f.position) === 3);
 
-    function updateProfiles() {
-      // Hide all profiles completely
-      Array.from(profiles.children).forEach(card => {
-        card.style.display = 'none';
-        card.style.opacity = '0';
-        card.style.transform = 'translateX(20px)';
-      });
+    let html = '';
+    // Dean
+    html += `<div class="org-level top-level">
+      <div class="org-box dean-box">
+        <img src="${dean?.image || '/static/dashboard/images/casdean.jpg'}" class="org-avatar">
+        <div class="org-info">
+          <h3>${dean?.name || 'ARNEL M. YURFO, PH.D.'}</h3>
+          <p class="org-title">${dean?.position || 'Dean, College of Arts and Sciences'}</p>
+        </div>
+      </div>
+    </div><div class="org-connector"></div>`;
 
-      // Show only current 3 profiles
-      for (let i = index; i < index + cardsPerView && i < totalCards; i++) {
-        const card = profiles.children[i];
-        card.style.display = 'block';
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateX(0)';
-        }, (i - index) * 100);
-      }
+    // Assistants
+    if (assistants.length > 0) {
+      html += `<div class="org-level second-level"><div class="org-row">`;
+      html += assistants.map(a => `
+        <div class="org-box assistant-box">
+          <img src="${a.image || '/static/dashboard/images/cbadean.jpg'}" class="org-avatar">
+          <div class="org-info"><h3>${a.name}</h3><p class="org-title">${a.position}</p></div>
+        </div>
+      `).join('');
+      html += `</div></div><div class="org-connector"></div>`;
     }
 
-    next.onclick = () => {
-      if (index < maxIndex) {
-        index++;
-        updateProfiles();
-        console.log('Next clicked, index:', index);
-      } else {
-        console.log('Reached max index');
-      }
-    };
+    // Others (Faculty Grid - 3 columns for consistency with CCJE)
+    if (others.length > 0) {
+      html += `<div class="org-level third-level" style="width: 100% !important;"><div class="org-grid" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 25px !important;">`;
+      html += others.map(f => `
+        <div class="org-box faculty-box" style="display: flex !important; flex-direction: row !important; align-items: center !important; text-align: left !important; gap: 20px !important; width: 100% !important; height: 120px !important; padding: 15px !important; box-sizing: border-box !important;">
+          <img src="${f.image || '/static/dashboard/images/casdean.jpg'}" class="org-avatar" style="width: 80px !important; height: 80px !important; object-fit: cover !important; border-radius: 8px !important; flex-shrink: 0 !important;">
+          <div class="org-info" style="text-align: left !important; flex: 1 !important;">
+            <h3 style="font-size: 16px !important; margin-bottom: 4px !important; text-transform: uppercase !important;">${f.name}</h3>
+            <p class="org-title" style="font-size: 13px !important; color: #666 !important;">${f.position}</p>
+          </div>
+        </div>
+      `).join('');
+      html += `</div></div>`;
+    }
+    container.innerHTML = html;
+  }
 
-    prev.onclick = () => {
-      if (index > 0) {
-        index--;
-        updateProfiles();
-        console.log('Prev clicked, index:', index);
-      } else {
-        console.log('At start index');
-      }
-    };
+  // --- LATEST POSTS (Announcements, News, Updates) ---
+  async function loadCasLatestPosts() {
+    const container = document.getElementById('cas-latest');
+    if (!container) return;
+    try {
+        const response = await fetch('/api/posts/get/?college=cas');
+        const data = await response.json();
+        if (data.success && data.posts) {
+            // Filter for generic posts (not alumni or awards)
+            const posts = data.posts.filter(p => !['alumni', 'award'].includes(p.post_type || p.type));
+            if (posts.length === 0) {
+                container.innerHTML = '<p>No news or announcements available.</p>';
+            } else {
+                container.innerHTML = posts.map(p => {
+                  const date = p.date_posted ? new Date(p.date_posted).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  }) : p.date ? new Date(p.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  }) : "March 14, 2026";
 
-    // Initialize first view
-    updateProfiles();
-  });
+                  // Check if post is new (created within last 72 hours)
+                  const postDate = new Date(p.date_posted || p.date);
+                  const now = new Date();
+                  const hoursSincePosted = (now - postDate) / (1000 * 60 * 60);
+                  const isNewPost = hoursSincePosted <= 72;
+
+                  return `
+                  <div class="latest-card" style="max-width: 450px; min-height: 500px; margin: 0 auto; display: flex; flex-direction: column; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.06);">
+                    <div class="latest-card-image-wrapper" style="height: 250px; position: relative;">
+                      ${isNewPost ? '<span style="position: absolute; top: 15px; left: 15px; background: #ff4757; color: white; padding: 8px 18px; border-radius: 25px; font-weight: 700; font-size: 13px; text-transform: uppercase; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">NEW</span>' : ''}
+                      <span style="position: absolute; top: 15px; right: 15px; background: #1fb36a; color: white; padding: 8px 18px; border-radius: 25px; font-weight: 700; font-size: 13px; text-transform: uppercase; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">${(p.post_type || p.type || 'ANNOUNCEMENT').toUpperCase()}</span>
+                      <img src="${p.image || '/static/dashboard/images/news.jpg'}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="latest-card-content" style="padding: 25px; background: #f9fdfb; flex: 1; display: flex; flex-direction: column;">
+                      <div class="latest-card-date" style="display: flex; align-items: center; gap: 10px; color: #7a7a7a; font-size: 15px; margin-bottom: 15px; font-weight: 500;">
+                        <i class="fas fa-calendar-alt"></i> ${date}
+                      </div>
+                      <h3 style="font-size: 22px; font-weight: 900; margin-bottom: 12px; color: #174c2a; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3;">${p.title}</h3>
+                      <p style="color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">${p.content?.substring(0, 100)}...</p>
+                      <a href="/news/?postId=${p.id}&section=colleges-announcement" style="color: #1fb36a; text-decoration: none; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; display: inline-flex; align-items: center; gap: 8px; margin-top: auto;">
+                        READ MORE →
+                      </a>
+                    </div>
+                  </div>
+                  `;
+                }).join('');
+            }
+        }
+    } catch (e) { console.error('Error loading posts:', e); }
+  }
+
+  // --- ALUMNI ---
+  async function loadCasAlumni() {
+    const container = document.getElementById('cas-alumni');
+    if (!container) return;
+    try {
+        // Fetch from Alumni Directory API instead of posts
+        const response = await fetch('/api/alumni/?course=Information Technology');
+        const data = await response.json();
+        
+        if (data.success && data.alumni) {
+            let alumni = data.alumni;
+            
+            // Filter for CAS college alumni (those with IT-related courses)
+            const casAlumni = alumni.filter(a => {
+                const course = (a.course || '').toLowerCase();
+                return course.includes('information technology') || 
+                       course.includes('computer science') || 
+                       course.includes('it') ||
+                       course.includes('cs');
+            });
+            
+            // Take only the first 6 alumni for display
+            const displayAlumni = casAlumni.slice(0, 3);
+            
+            if (displayAlumni.length === 0) {
+                container.innerHTML = '<p>No alumni stories available.</p>';
+            } else {
+                container.innerHTML = displayAlumni.map(a => `
+                  <div class="alumni-card">
+                    <img src="${a.profile_image || '/static/dashboard/images/pulis.jpg'}" alt="${a.full_name}">
+                    <div class="alumni-card-content">
+                      <h3>${a.full_name || 'Alumni'}</h3>
+                      <p class="alumni-position">${a.position || a.course || 'Graduate'}</p>
+                      <p class="alumni-quote">"${a.bio || 'Making an impact in their field'}"</p>
+                      <div class="alumni-meta">
+                        <span class="alumni-course">${a.course || ''}</span>
+                        <span class="alumni-batch">Batch ${a.graduation_year || ''}</span>
+                      </div>
+                    </div>
+                  </div>
+                `).join('');
+            }
+        } else {
+            container.innerHTML = '<p>No alumni stories available.</p>';
+        }
+    } catch (e) { 
+        console.error('Error loading alumni:', e); 
+        container.innerHTML = '<p>Error loading alumni data.</p>';
+    }
+  }
+
+  // --- AWARDS ---
+  async function loadCasAwards() {
+    const container = document.getElementById('cas-awards');
+    if (!container) return;
+    try {
+        const response = await fetch('/api/posts/get/?college=cas&type=award');
+        const data = await response.json();
+        if (data.success && data.posts) {
+            let awards = data.posts;
+            
+            // Remove duplicates based on ID AND Content (title + content)
+            const uniqueAwards = awards.filter((award, index, self) => {
+                const firstById = self.findIndex((a) => a.id === award.id);
+                if (index !== firstById) return false;
+                
+                // Check for content duplication (same title and content)
+                const awardTitle = (award.title || '').trim().toLowerCase();
+                const awardContent = (award.content || '').trim().toLowerCase();
+                
+                const firstByContent = self.findIndex((a) => {
+                    const aTitle = (a.title || '').trim().toLowerCase();
+                    const aContent = (a.content || '').trim().toLowerCase();
+                    return aTitle === awardTitle && aContent === awardContent;
+                });
+                
+                return index === firstByContent;
+            });
+            
+            if (uniqueAwards.length !== awards.length) {
+                console.log(`Removed ${awards.length - uniqueAwards.length} duplicate award posts`);
+            }
+            
+            if (uniqueAwards.length === 0) {
+                container.innerHTML = '<p>No awards listed.</p>';
+            } else {
+                container.innerHTML = uniqueAwards.map(a => `
+                  <div class="award-card" style="position: relative;">
+                    <div class="award-icon-box"><i class="fas fa-trophy"></i></div>
+                    <img src="${a.image || '/static/dashboard/images/acads.jpg'}" alt="${a.title}">
+                    <div class="award-card-content">
+                        <h3>${a.title}</h3>
+                        <p>${a.content}</p>
+                    </div>
+                  </div>
+                `).join('');
+            }
+        }
+    } catch (e) { console.error('Error loading awards:', e); }
+  }
+
+  // --- FACILITIES ---
+  async function loadCasFacilities() {
+    const container = document.getElementById('cas-facilities');
+    if (!container) return;
+    try {
+      const response = await fetch('/api/facilities/?college=cas');
+      const data = await response.json();
+      if (data.success && data.facilities) {
+        const items = data.facilities;
+        if (items.length === 0) {
+          container.innerHTML = '<p>No facilities information available.</p>';
+        } else {
+          container.innerHTML = items.map(f => `
+            <div class="facility-card">
+              <img src="${f.image || '/static/dashboard/images/ITBUILDING.jpg'}" alt="${f.name}">
+              <span class="label">${f.name}</span>
+            </div>
+          `).join('');
+        }
+      }
+    } catch (e) { console.error('Error loading facilities:', e); }
+  }
 </script>
-{% endblock %}
 
+<!-- Floating Arrow Button -->
+<div class="floating-arrow" id="floatingArrow" onclick="scrollToTop()">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<style>
+/* Floating Arrow Button */
+.floating-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #007fff, #0056b3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 127, 255, 0.3);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  pointer-events: none;
+}
+
+.floating-arrow.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-arrow:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  box-shadow: 0 4px 12px rgba(0, 127, 255, 0.4);
+  transform: translateY(-1px) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.floating-arrow i {
+  font-size: 14px;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+}
+
+.floating-arrow.visible i {
+  transform: rotate(0deg);
+}
+
+.floating-arrow:hover i {
+  transform: translateY(-1px) rotate(5deg);
+  transition: all 0.3s ease;
+}
+</style>
+
+<script>
+// Floating Arrow functionality
+const floatingArrow = document.getElementById('floatingArrow');
+let lastScrollTop = 0;
+
+// Show/hide arrow based on scroll position - trigger at PROGRAMS OFFERED section
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // Get the PROGRAMS OFFERED section position
+  const programsSection = document.getElementById('programs-section');
+  if (programsSection) {
+    const programsTop = programsSection.offsetTop;
+    
+    // Show arrow when user scrolls past the PROGRAMS OFFERED section
+    if (scrollTop > programsTop - 100) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  } else {
+    // Fallback: use fixed pixel value if section not found
+    if (scrollTop > 800) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  }
+  
+  lastScrollTop = scrollTop;
+});
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
+{% include 'dashboard/footer.html' %}
 {% endblock %}

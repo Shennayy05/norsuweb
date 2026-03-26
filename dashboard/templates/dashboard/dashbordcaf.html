@@ -5,10 +5,14 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'dashboard/css/cafstyle.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/footer.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 {% endblock %}
 
+
 {% block content %}
+{% include 'dashboard/navbar.html' %}
+
 <section class="hero">
   <div class="overlay"></div>
 
@@ -46,17 +50,17 @@
 
         <div class="icon-box">
           <i class="fa-solid fa-user-graduate"></i>
-          <span>Topnotchers</span>
+          <span>Alumni</span>
         </div>
 
         <div class="icon-box">
           <i class="fa-solid fa-award"></i>
-          <span>CAF Awards & Recognition</span>
+          <span>Awards</span>
         </div>
 
         <div class="icon-box">
           <i class="fa-solid fa-users"></i>
-          <span>Alumni</span>
+          <span>Administration</span>
         </div>
       </div>
     </div>
@@ -159,6 +163,23 @@
   </div>
 </section>
 
+<!-- LATEST AT CAF ------------------------------------------------------------------------------------>
+<section class="latest-section" id="latest-section">
+  <div class="latest-container">
+
+    <h1 class="section-title">LATEST AT CAF</h1>
+    <p class="section-subtitle">
+      Stay updated with the latest news, announcements, and events from the College of Agriculture and Forestry.
+    </p>
+
+    <div class="latest-cards" id="caf-latest">
+      <!-- Latest posts/news will load dynamically -->
+    </div>
+
+  </div>
+</section>
+
+<!-- PROGRAMS  OEFFERED CAF ------------------------------------------------------------------------>
 <section class="programs-section" id="programs-section">
   <div class="programs-container">
 
@@ -169,236 +190,85 @@
     </p>
 
     <!-- PROGRAM CARDS -->
-    <div class="cards">
-
-      <!-- CARD 1 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/agri.jpg' %}" alt="BSIT">
-        <div class="card-body highlighted">
-          <h3>Bachelor of Science in Animal Science</h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/agri.jpg' %}" alt="BSCS">
-        <div class="card-body">
-          <h3>Bachelor of Science Agronomy</h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
+    <div class="cards" id="caf-programs">
+      <!-- Programs will be dynamically loaded here -->
     </div>
+
   </div>
 </section>
 
-<section class="facilities-section">
-  <div class="facilities-container">
+<!-- ALUMNI SECTION ---------------------------------------------------------------------------------->
+<section class="alumni-section" id="alumni-section">
+  <div class="alumni-container">
 
-    <!-- HEADER -->
-    <h1 class="section-title">CAF FACILITIES AND LABORATORIES</h1>
+    <h1 class="section-title">CAF ALUMNI</h1>
     <p class="section-subtitle">
-      Experience top-notch facilities and cutting-edge laboratories at College of
-      Arts and Science for unparalleled academics advancements.
+      Meet our successful graduates from the College of Agriculture and Forestry.
     </p>
 
-    <!-- GRID -->
-    <div class="facilities-grid">
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cf1.jpg' %}" alt="CAF 1">
-        <span class="label">CAF 1</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cf2.jpg' %}" alt="CAF 2">
-        <span class="label">CAF 2</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/102.jpg' %}" alt="CAF 3">
-        <span class="label">CAF 3</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/103.jpg' %}" alt="CAF 4">
-        <span class="label">CAF 4</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/itof.jpg' %}" alt="CAF 5">
-        <span class="label">CAF 5</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/103.jpg' %}" alt="CAF 6">
-        <span class="label">CAF 6</span>
-      </div>
-
+    <div class="alumni-cards" id="caf-alumni">
+      <!-- Alumni will load dynamically -->
     </div>
+
   </div>
 </section>
-<section class="cas-admin">
 
+
+<!-- AWARDS AND RECOGNITION SECTION ---------------------------------------------------------------------------------->
+<section class="awards-section" id="awards-section">
+  <div class="awards-container">
+
+    <h1 class="section-title">CAF Awards and Recognition</h1>
+    <p class="section-subtitle">
+      Discover the achievements, honors, and recognitions earned by the College of Agriculture and Forestry through excellence in academics, research, and community service.
+    </p>
+
+    <div class="awards-cards" id="caf-awards">
+      <!-- Awards will load dynamically -->
+    </div>
+
+  </div>
+</section>
+
+<!-- CAF FACILITIES SECTION ----------------------------------------------------------------------->
+<section class="facilities-section" id="facilities-section">
+  <div class="facilities-container">
+
+    <!-- SECTION HEADER -->
+    <h1 class="section-title">CAF Facilities</h1>
+    <p class="section-subtitle">
+      Explore the modern laboratories, research centers, and learning spaces
+      available at the College of Agriculture and Forestry that support
+      innovation, hands-on training, and academic excellence.
+    </p>
+
+    <!-- FACILITY CARDS (Loaded from JavaScript) -->
+    <div class="facilities-cards" id="caf-facilities">
+      <!-- CAF Facilities will load dynamically here -->
+    </div>
+
+  </div>
+</section>
+
+
+<section class="caf-admin">
   <!-- HEADER -->
-  <div class="cas-header">
-    <h4>CAF ADMINISTRATION</h4>
+  <div class="caf-header">
+    <h4>College of Agriculture and Forestry</h4>
     <h1>
-      <span>COLLEGE</span> OF AGRICULTURE & <span class="dark">FORESTRY</span>
+      <span>ORGANIZATIONAL CHART</span>
     </h1>
     <p>
       Attain excellent status in providing a pool of competent and competitive
-      human resources. Pagkab-ot sa taas nga matan-aw sa pag pangalagad ug dili
-      palupig nga.
+      human resources.
     </p>
-
   </div>
 
-  <div class="cas-content">
+  <div class="caf-content">
     
-    <!-- PROFILE SLIDER -->
-    <div class="profile-area">
-
-      <div class="profiles"> 
-
-         <!-- PROFILE 2 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/cafdean.png' %}">
-          <h3>Francis M. Galon, Ph.D</h3>
-          <p>Dean, College of Agriculture and Forestry</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-        
-        <!-- PROFILE 3 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f1.png' %}">
-          <h3>ENGR. AGUSTIN L. ROTE, MSA</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 4 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f2.png' %}">
-          <h3>RUEL T. TUBONGBANUA, Ph.D.</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 5 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f3.png' %}">
-          <h3>ROEL P. LIMSON, MAED</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 6 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f4.png' %}">
-          <h3>JUNAMAE M. GALON, MS AgExt </h3>
-          <p>Part Time Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-          <!-- PROFILE 9 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f5.png' %}">
-          <h3>ENGR. JENBEE G. DORMIDO, MSA</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 7 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f6.png' %}">
-          <h3>JAY O. PACULANANG, MSES DEPT.</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 8 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f7.png' %}">
-          <h3>MILAGROSA ISIDRA Q. VELARDE, MSES</h3>
-          <p>DEPARTMENT CHAIR</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f8.png' %}">
-          <h3>SHELLA JEAN S. MOLENO, MSES</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 10 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f8.png' %}">
-          <h3>GRACE SEDILLO-SAYCON</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f8.png' %}">
-          <h3>KEELA T. BUCITA, MSA</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f9.png' %}">
-          <h3>GENELIE C. MAGAYANES, MSA</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f10.png' %}">
-          <h3>VALIANT DOMINIC D. VELARDE, MSAS</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f11.png' %}">
-          <h3>DAISY G. SARSUELO, MSA</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f12.png' %}">
-          <h3>LALY JANE CATITISTA-RIVERA</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f13.png' %}">
-          <h3>ROMELY H. ALSON, MSA </h3>
-          <p>FACULTY  </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/f14.png' %}">
-          <h3>EUGENE F. GASENDO, MSA </h3>
-          <p>FACULTY</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-
-      </div>
-
-      <!-- NAVIGATION -->
-      <div class="nav-buttons">
-        <button id="prev">&#10094;</button>
-        <button id="next">&#10095;</button>
-      </div>
-     
+    <!-- ORGANIZATIONAL CHART -->
+    <div class="org-chart" id="caf-organizational-chart">
+      <!-- Organizational chart will be dynamically loaded here -->
     </div>
 
   </div>
@@ -407,66 +277,1027 @@
 
 {% block extra_js %}
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const profiles = document.querySelector('.profiles');
-    const next = document.getElementById('next');
-    const prev = document.getElementById('prev');
-
-    if (!profiles || !next || !prev) {
-      console.error('Required elements not found');
-      return;
+  document.addEventListener('DOMContentLoaded', async function() {
+    // Initialize CAF programs from API
+    const programsContainer = document.getElementById('caf-programs');
+    if (programsContainer) {
+        try {
+            // Show loading state
+            programsContainer.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin"></i> Loading programs...</div>';
+            
+            // Fetch programs from API
+            const response = await fetch('/api/programs/');
+            const data = await response.json();
+            
+            if (data.success && data.programs) {
+                // Filter programs for CAF college (case-insensitive matching)
+                const cafPrograms = data.programs.filter(program => 
+                    program.college && program.college.toLowerCase() === 'caf'
+                );
+                
+                if (cafPrograms.length === 0) {
+                    programsContainer.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>No Programs Available</h3>
+                            <p>Programs for this college will appear here once added in the admin dashboard.</p>
+                        </div>
+                    `;
+                } else {
+                    // Generate program cards from API data
+                    let html = '';
+                    cafPrograms.forEach(program => {
+                        const isHighlighted = program.status === 'active';
+                        const statusText = program.status === 'active' ? 'Available' : 'Not Available';
+                        
+                        // Use uploaded image or default fallback
+                        let programImage = program.image || "/static/dashboard/images/pulis.jpg";
+                        
+                        html += `
+                            <div class="card">
+                                <img src="${programImage}" alt="${program.title}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+                                <div class="card-body ${isHighlighted ? 'highlighted' : ''}">
+                                    <h3>${program.title}</h3>
+                                    <div class="program-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>${program.duration}</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-info-circle"></i>
+                                            <span>${statusText}</span>
+                                        </div>
+                                    </div>
+                                    <a href="/programs/#${program.title.toLowerCase().replace(/\s+/g, '-')}" class="learn-btn">Learn More</a>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    programsContainer.innerHTML = html;
+                }
+                
+                // Update program count in stats
+                const programCountElement = document.querySelector('.stats .stat-card h2');
+                if (programCountElement) {
+                    programCountElement.textContent = cafPrograms.length;
+                }
+            } else {
+                throw new Error('Failed to load programs');
+            }
+        } catch (error) {
+            console.error('Error loading CAF programs:', error);
+            programsContainer.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Error Loading Programs</h3>
+                    <p>Unable to load programs. Please refresh the page or try again later.</p>
+                </div>
+            `;
+        }
     }
-
-    let index = 0;
-    const cardsPerView = 3;
-    const totalCards = profiles.children.length;
-    const maxIndex = Math.max(0, totalCards - cardsPerView);
-
-    console.log('Total cards:', totalCards, 'Max index:', maxIndex);
-
-    function updateProfiles() {
-      // Hide all profiles completely
-      Array.from(profiles.children).forEach(card => {
-        card.style.display = 'none';
-        card.style.opacity = '0';
-        card.style.transform = 'translateX(20px)';
-      });
-
-      // Show only current 3 profiles
-      for (let i = index; i < index + cardsPerView && i < totalCards; i++) {
-        const card = profiles.children[i];
-        card.style.display = 'block';
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateX(0)';
-        }, (i - index) * 100);
-      }
-    }
-
-    next.onclick = () => {
-      if (index < maxIndex) {
-        index++;
-        updateProfiles();
-        console.log('Next clicked, index:', index);
-      } else {
-        console.log('Reached max index');
-      }
-    };
-
-    prev.onclick = () => {
-      if (index > 0) {
-        index--;
-        updateProfiles();
-        console.log('Prev clicked, index:', index);
-      } else {
-        console.log('At start index');
-      }
-    };
-
-    // Initialize first view
-    updateProfiles();
   });
 </script>
-{% endblock %}
 
-{% endblock %}
+<script>
+  
+// Load latest posts for CAF from Database API
+async function loadCafLatestPosts() {
+    try {
+        console.log('Fetching CAF latest posts from API...');
+        
+        // Fetch posts from API filtered by college=caf
+        const response = await fetch('/api/posts/get/?college=caf');
+        const data = await response.json();
+        
+        if (!data.success) {
+            throw new Error(data.error || 'Failed to load posts');
+        }
+
+        const cafPosts = data.posts;
+        console.log('Parsed CAF posts from API:', cafPosts);
+        
+        // Filter OUT alumni and awards - only show announcements and general posts
+        const nonAlumniPosts = cafPosts.filter(post => 
+            post.post_type !== 'alumni' && post.post_type !== 'award' &&
+            post.type !== 'alumni' && post.type !== 'award'
+        );
+        
+        const latestContainer = document.getElementById('caf-latest');
+        if (!latestContainer) return;
+        
+        latestContainer.innerHTML = '';
+        latestContainer.style.display = "grid";
+        latestContainer.style.gridTemplateColumns = "repeat(3, minmax(320px,1fr))";
+        latestContainer.style.gap = "30px";
+        
+        if (nonAlumniPosts.length === 0) {
+            latestContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-newspaper" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CAF Posts Available</h3>
+                <p>Posts created by CAF Administrator will appear here.</p>
+            </div>
+            `;
+            return;
+        }
+
+        nonAlumniPosts.forEach(post => {
+            const postCard = document.createElement("div");
+            postCard.className = "latest-card";
+            
+            const date = post.created_at ? new Date(post.created_at).toLocaleDateString('en-US',{
+                year:'numeric',
+                month:'long',
+                day:'numeric'
+            }) : "March 14, 2026";
+            
+            const image = post.image ? post.image : "https://via.placeholder.com/600x350";
+            
+            // Check if post is new (created within last 3 days)
+            const postDate = new Date(post.created_at);
+            const now = new Date();
+            const hoursSincePosted = (now - postDate) / (1000 * 60 * 60);
+            const isNewPost = hoursSincePosted <= 72;
+            
+            postCard.innerHTML = `
+            <div style="position:relative;">
+                <img src="${image}" 
+                style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;"
+                onerror="this.src='https://via.placeholder.com/600x350'">
+                
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    background:#1e88ff;
+                    color:white;
+                    padding:6px 14px;
+                    font-size:12px;
+                    border-radius:20px;
+                    font-weight:600;">
+                    ${(post.post_type || post.type || 'CAF ADMIN').toUpperCase()}
+                </span>
+                
+                ${isNewPost ? `
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    left:15px;
+                    background:#ff4757;
+                    color:white;
+                    padding:4px 10px;
+                    font-size:10px;
+                    border-radius:12px;
+                    font-weight:700;
+                    text-transform:uppercase;
+                    letter-spacing:1px;
+                    animation: pulse 2s infinite;">
+                    NEW
+                </span>
+                ` : ''}
+            </div>
+            
+            <div style="padding:22px;">
+                <p style="color:#7a7a7a; font-size:15px; margin-bottom:10px;">${date}</p>
+                <h3 style="font-size:22px; font-weight:700; margin-bottom:14px; color:#222;">${post.title}</h3>
+                <p style="color:#666; font-size:14px; line-height:1.5; margin-bottom:15px;">${post.content.substring(0, 100)}${post.content.length > 100 ? '...' : ''}</p>
+                <a href="/news/?postId=${post.id}&section=colleges-announcement" style="color:#2a5db0; text-decoration:none; font-weight:600; font-size:14px;">READ MORE →</a>
+            </div>
+            `;
+            
+            postCard.style.background = "#fff";
+            postCard.style.borderRadius = "16px";
+            postCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            postCard.style.overflow = "hidden";
+            postCard.style.transition = "0.3s";
+            
+            postCard.addEventListener("mouseenter",()=>{
+                postCard.style.transform="translateY(-6px)";
+                postCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            postCard.addEventListener("mouseleave",()=>{
+                postCard.style.transform="translateY(0)";
+                postCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            latestContainer.appendChild(postCard);
+        });
+        
+    } catch(error) {
+        console.error("Error loading CAF admin posts:", error);
+        const latestContainer = document.getElementById('caf-latest');
+        if (latestContainer) {
+            latestContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:red;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 48px; margin-bottom: 20px;"></i>
+                <h3>Error Loading Posts</h3>
+                <p>Unable to load posts from the server. Please try again later.</p>
+            </div>
+            `;
+        }
+    }
+}
+
+// Load alumni for CAF from Database API
+async function loadCafAlumni() {
+    try {
+        console.log('Fetching CAF alumni from API...');
+        const response = await fetch('/api/posts/get/?college=caf&type=alumni');
+        const data = await response.json();
+        
+        if (!data.success) throw new Error(data.error);
+
+        const alumniPosts = data.posts.slice(0, 3);
+        const alumniContainer = document.getElementById('caf-alumni');
+        if (!alumniContainer) return;
+        
+        alumniContainer.innerHTML = '';
+        alumniContainer.style.display = "grid";
+        alumniContainer.style.gridTemplateColumns = "repeat(3, minmax(320px,1fr))";
+        alumniContainer.style.gap = "30px";
+        
+        if (alumniPosts.length === 0) {
+            alumniContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-user-graduate" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CAF Alumni Available</h3>
+                <p>Check back soon for CAF alumni updates.</p>
+            </div>
+            `;
+            return;
+        }
+
+        alumniPosts.forEach(post => {
+            const alumniCard = document.createElement("div");
+            alumniCard.className = "alumni-card";
+            
+            const date = post.created_at ? new Date(post.created_at).toLocaleDateString('en-US',{
+                year:'numeric',
+                month:'long',
+                day:'numeric'
+            }) : "March 14, 2026";
+            
+            const image = post.image ? post.image : "https://via.placeholder.com/600x350";
+            
+            alumniCard.innerHTML = `
+            <div style="position:relative;">
+                <img src="${image}" style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;" onerror="this.src='https://via.placeholder.com/600x350'">
+                <span style="position:absolute; top:15px; right:15px; background:#28a745; color:white; padding:6px 14px; font-size:12px; border-radius:20px; font-weight:600;">ALUMNI</span>
+            </div>
+            <div style="padding:22px;">
+                <p style="color:#7a7a7a; font-size:15px; margin-bottom:10px;">${date}</p>
+                <h3 style="font-size:22px; font-weight:700; margin-bottom:14px; color:#222;">${post.title}</h3>
+                <p style="color:#666; font-size:14px; line-height:1.5; margin-bottom:15px;">${post.content.substring(0, 100)}...</p>
+                <a href="/news/?postId=${post.id}&section=colleges-announcement" style="color:#28a745; text-decoration:none; font-weight:600; font-size:14px;">READ MORE →</a>
+            </div>
+            `;
+            
+            alumniCard.style.background = "#fff";
+            alumniCard.style.borderRadius = "16px";
+            alumniCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            alumniCard.style.overflow = "hidden";
+            alumniCard.style.transition = "0.3s";
+            
+            alumniCard.addEventListener("mouseenter",()=>{
+                alumniCard.style.transform="translateY(-6px)";
+                alumniCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            alumniCard.addEventListener("mouseleave",()=>{
+                alumniCard.style.transform="translateY(0)";
+                alumniCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            alumniContainer.appendChild(alumniCard);
+        });
+        
+    } catch(error) {
+        console.error("Error loading CAF alumni:", error);
+    }
+}
+
+// Load awards for CAF from Database API
+async function loadCafAwards() {
+    try {
+        console.log('Fetching CAF awards from API...');
+        const response = await fetch('/api/posts/get/?college=caf&type=award');
+        const data = await response.json();
+        
+        if (!data.success) throw new Error(data.error);
+
+        const awardPosts = data.posts.slice(0, 3);
+        const awardsContainer = document.getElementById('caf-awards');
+        if (!awardsContainer) return;
+        
+        awardsContainer.innerHTML = '';
+        awardsContainer.style.display = "grid";
+        awardsContainer.style.gridTemplateColumns = "repeat(3, minmax(320px,1fr))";
+        awardsContainer.style.gap = "30px";
+        
+        if (awardPosts.length === 0) {
+            awardsContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-trophy" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CAF Awards Available</h3>
+                <p>Check back soon for CAF awards and recognitions.</p>
+            </div>
+            `;
+            return;
+        }
+
+        awardPosts.forEach(post => {
+            const awardCard = document.createElement("div");
+            awardCard.className = "award-card";
+            
+            const date = post.created_at ? new Date(post.created_at).toLocaleDateString('en-US',{
+                year:'numeric',
+                month:'long',
+                day:'numeric'
+            }) : "March 14, 2026";
+            
+            const image = post.image ? post.image : "https://via.placeholder.com/600x350";
+            
+            awardCard.innerHTML = `
+            <div style="position:relative;">
+                <img src="${image}" style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;" onerror="this.src='https://via.placeholder.com/600x350'">
+                <span style="position:absolute; top:15px; right:15px; background:#ffc107; color:#000; padding:6px 14px; font-size:12px; border-radius:20px; font-weight:600;">AWARD</span>
+            </div>
+            <div style="padding:22px;">
+                <p style="color:#7a7a7a; font-size:15px; margin-bottom:10px;">${date}</p>
+                <h3 style="font-size:22px; font-weight:700; margin-bottom:14px; color:#222;">${post.title}</h3>
+                <p style="color:#666; font-size:14px; line-height:1.5; margin-bottom:15px;">${post.content.substring(0, 100)}...</p>
+                <a href="/news/?postId=${post.id}&section=colleges-announcement" style="color:#ffc107; text-decoration:none; font-weight:600; font-size:14px;">READ MORE →</a>
+            </div>
+            `;
+            
+            awardCard.style.background = "#fff";
+            awardCard.style.borderRadius = "16px";
+            awardCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            awardCard.style.overflow = "hidden";
+            awardCard.style.transition = "0.3s";
+            
+            awardCard.addEventListener("mouseenter",()=>{
+                awardCard.style.transform="translateY(-6px)";
+                awardCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            awardCard.addEventListener("mouseleave",()=>{
+                awardCard.style.transform="translateY(0)";
+                awardCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            awardsContainer.appendChild(awardCard);
+        });
+        
+    } catch(error) {
+        console.error("Error loading CAF awards:", error);
+    }
+}
+
+// Load facilities for CAF from facilityData localStorage (connected to admin dashboard)
+function loadCafFacilities() {
+    try {
+        console.log('=== CAF FACILITIES DEBUG START ===');
+        
+        // Get all facility data from admin dashboard
+        const facilityData = JSON.parse(localStorage.getItem('facilityData') || '{}');
+        console.log('All facility data from localStorage:', facilityData);
+        console.log('Number of all facilities:', Object.keys(facilityData).length);
+        
+        // Get CAF-specific facility data
+        const cafFacilityData = JSON.parse(localStorage.getItem('cafFacilityData') || '{}');
+        console.log('CAF facility data from localStorage:', cafFacilityData);
+        console.log('Number of CAF facilities:', Object.keys(cafFacilityData).length);
+        
+        // Combine both data sources (fallback to general facilityData if cafFacilityData is empty)
+        let allFacilities = {};
+        
+        // Add CAF-specific facilities first
+        Object.keys(cafFacilityData).forEach(key => {
+            allFacilities[key] = cafFacilityData[key];
+        });
+        
+        // Add general facilities if CAF-specific is empty
+        if (Object.keys(cafFacilityData).length === 0) {
+            Object.keys(facilityData).forEach(key => {
+                allFacilities[key] = facilityData[key];
+            });
+        }
+        
+        console.log('Combined facilities data:', allFacilities);
+        console.log('Total facilities to display:', Object.keys(allFacilities).length);
+        
+        // Convert to array and show all facilities (no filtering)
+        const cafFacilities = Object.values(allFacilities).slice(0, 12); // Show up to 12 facilities
+        
+        console.log('Final CAF facilities to display:', cafFacilities);
+        
+        const facilityContainer = document.getElementById('caf-facilities');
+        facilityContainer.innerHTML = "";
+
+        facilityContainer.style.display = "grid";
+        facilityContainer.style.gridTemplateColumns = "repeat(3, 1fr)";
+        facilityContainer.style.gap = "40px";
+
+        cafFacilities.forEach(facility => {
+            const facilityCard = document.createElement("div");
+            
+            // Use facility image or default placeholder
+            let facilityImage = facility.image || "https://via.placeholder.com/400x300/4CAF50/FFFFFF?text=" + encodeURIComponent(facility.name);
+            
+            facilityCard.innerHTML = `
+            
+            <div style="position:relative;">
+                <img src="${facilityImage}" 
+                style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;"
+                onerror="this.src='https://via.placeholder.com/400x300/4CAF50/FFFFFF?text=${encodeURIComponent(facility.name)}'">
+                
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    background:#4CAF50;
+                    color:white;
+                    padding:6px 14px;
+                    font-size:12px;
+                    border-radius:20px;
+                    font-weight:600;
+                    text-transform:uppercase;">
+                    ${facility.status || 'Active'}
+                </span>
+                
+                ${facility.capacity ? `
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    left:15px;
+                    background:#2196F3;
+                    color:white;
+                    padding:4px 10px;
+                    font-size:10px;
+                    border-radius:12px;
+                    font-weight:700;">
+                    Capacity: ${facility.capacity}
+                </span>
+                ` : ''}
+            </div>
+            
+            <div style="padding:22px;">
+                
+                <h3 style="
+                    font-size:22px;
+                    font-weight:700;
+                    margin-bottom:14px;
+                    color:#222;">
+                    ${facility.name}
+                </h3>
+                
+                <p style="
+                    color:#666;
+                    font-size:16px;
+                    margin-bottom:10px;
+                    font-weight:500;">
+                    <i class="fas fa-door-open" style="margin-right:8px; color:#4CAF50;"></i>
+                    Type: ${facility.type}
+                </p>
+                
+                ${facility.capacity ? `
+                <p style="
+                    color:#666;
+                    font-size:14px;
+                    margin-bottom:15px;">
+                    <i class="fas fa-users" style="margin-right:8px; color:#2196F3;"></i>
+                    Capacity: ${facility.capacity} people
+                </p>
+                ` : ''}
+                
+                <div style="
+                    display:flex;
+                    align-items:center;
+                    gap:8px;">
+                    <span style="
+                        display:inline-block;
+                        width:10px;
+                        height:10px;
+                        border-radius:50%;
+                        background:${facility.status === 'active' ? '#4CAF50' : facility.status === 'maintenance' ? '#FF9800' : '#F44336'};">
+                    </span>
+                    <span style="
+                        color:#666;
+                        font-size:14px;
+                        font-weight:500;">
+                        ${facility.status === 'active' ? 'Available' : facility.status === 'maintenance' ? 'Under Maintenance' : 'Unavailable'}
+                    </span>
+                </div>
+                
+            </div>
+            `;
+            
+            facilityCard.style.background = "#fff";
+            facilityCard.style.borderRadius = "16px";
+            facilityCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            facilityCard.style.overflow = "hidden";
+            facilityCard.style.transition = "0.3s";
+            
+            facilityCard.addEventListener("mouseenter",()=>{
+                facilityCard.style.transform="translateY(-6px)";
+                facilityCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            facilityCard.addEventListener("mouseleave",()=>{
+                facilityCard.style.transform="translateY(0)";
+                facilityCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            facilityContainer.appendChild(facilityCard);
+        });
+
+        if(cafFacilities.length === 0){
+            facilityContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-building" style="font-size:64px;margin-bottom:20px;opacity:0.5;"></i>
+                <h3>No CAF Facilities Available</h3>
+                <p>Add facilities in the CAF admin dashboard to see them here.</p>
+                <p style="font-size:12px; color:#999; margin-top:10px;">Facilities added through the admin dashboard will appear in this section.</p>
+                <button onclick="window.debugCAFFacilities()" style="margin-top:15px; padding:8px 16px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">Debug Facilities</button>
+            </div>
+            `;
+        }
+
+        console.log('CAF Facilities loaded successfully:', cafFacilities.length, 'facilities displayed');
+        console.log('=== CAF FACILITIES DEBUG END ===');
+
+    } catch(error) {
+        console.error("Error loading CAF facilities:", error);
+        document.getElementById("caf-facilities").innerHTML = `
+        <div style="text-align:center;padding:60px;color:red;">
+            <i class="fas fa-exclamation-triangle" style="font-size:64px;margin-bottom:20px;"></i>
+            <h3>Error Loading CAF Facilities</h3>
+            <p>Unable to load facilities. Please refresh the page or try again later.</p>
+            <p style="font-size:12px; color:#666; margin-top:10px;">Error: ${error.message}</p>
+        </div>
+        `;
+    }
+}
+
+// Add debug function for CAF facilities
+window.debugCAFFacilities = function() {
+    console.log('=== CAF FACILITIES DEBUG ===');
+    
+    // Check all localStorage keys
+    console.log('All localStorage keys:', Object.keys(localStorage));
+    
+    // Check facility data locations
+    const facilityData = JSON.parse(localStorage.getItem('facilityData') || '{}');
+    console.log('General facilityData:', Object.keys(facilityData).length, 'entries');
+    if (Object.keys(facilityData).length > 0) {
+        console.log('General facilities:', facilityData);
+    }
+    
+    const cafFacilityData = JSON.parse(localStorage.getItem('cafFacilityData') || '{}');
+    console.log('CAF facilityData:', Object.keys(cafFacilityData).length, 'entries');
+    if (Object.keys(cafFacilityData).length > 0) {
+        console.log('CAF facilities:', cafFacilityData);
+    }
+    
+    // Check other college facility data
+    const colleges = ['cas', 'cba', 'ccje', 'cit', 'cted'];
+    colleges.forEach(col => {
+        const data = JSON.parse(localStorage.getItem(`${col}FacilityData`) || '{}');
+        if (Object.keys(data).length > 0) {
+            console.log(`${col.toUpperCase()} facilityData:`, Object.keys(data).length, 'entries');
+        }
+    });
+    
+    console.log('=== END DEBUG ===');
+};
+
+  // --- CAF FACULTY & ORG CHART ---
+  async function loadCAFOrganizationalChart() {
+    const container = document.getElementById('caf-organizational-chart');
+    if (!container) return;
+
+    try {
+      container.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin"></i> Loading organizational chart...</div>';
+      
+      const response = await fetch('/api/faculty/?college=caf');
+      const data = await response.json();
+
+      if (data.success && data.faculty) {
+        const faculty = data.faculty;
+        
+        if (faculty.length === 0) {
+          container.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-user-shield" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CAF Faculty Members Found</h3>
+                <p>Faculty added in the CAF admin dashboard will appear here.</p>
+            </div>`;
+          return;
+        }
+
+        const priority = (pos) => {
+          pos = (pos || '').toLowerCase();
+          if (pos.includes('dean') && !pos.includes('assistant')) return 1;
+          if (pos.includes('assistant dean') || pos.includes('coordinator')) return 2;
+          return 3;
+        };
+
+        const sorted = [...faculty].sort((a, b) => priority(a.position) - priority(b.position));
+        const dean = sorted.find(f => priority(f.position) === 1);
+        const secondLevel = sorted.filter(f => priority(f.position) === 2);
+        const others = sorted.filter(f => priority(f.position) === 3);
+
+        let html = '';
+        // Dean
+        if (dean) {
+          html += `
+            <div class="org-level top-level">
+              <div class="org-box dean-box">
+                <img src="${dean.image || '/static/dashboard/images/cbadean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/cbadean.jpg'">
+                <div class="org-info">
+                  <h3>${dean.name}</h3>
+                  <p class="org-title">${dean.position}, College of Agriculture and Forestry</p>
+                </div>
+              </div>
+            </div><div class="org-connector"></div>`;
+        }
+
+        // Second Level
+        if (secondLevel.length > 0) {
+          html += `<div class="org-level second-level"><div class="org-row">`;
+          html += secondLevel.map(a => `
+            <div class="org-box assistant-box">
+              <img src="${a.image || '/static/dashboard/images/cbadean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/cbadean.jpg'">
+              <div class="org-info"><h3>${a.name}</h3><p class="org-title">${a.position}</p></div>
+            </div>
+          `).join('');
+          html += `</div></div><div class="org-connector"></div>`;
+        }
+
+        // Others
+        if (others.length > 0) {
+          html += `<div class="org-level third-level"><div class="org-grid">`;
+          html += others.map(f => `
+            <div class="org-box faculty-box">
+              <img src="${f.image || '/static/dashboard/images/cbadean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/cbadean.jpg'">
+              <div class="org-info"><h3>${f.name}</h3><p class="org-title">${f.position}</p></div>
+            </div>
+          `).join('');
+          html += `</div></div>`;
+        }
+        container.innerHTML = html;
+      }
+    } catch (e) {
+      console.error('Error loading CAF faculty:', e);
+      container.innerHTML = '<p style="text-align: center; color: red;">Error loading organizational chart.</p>';
+    }
+  }
+
+  // --- CAF LATEST POSTS ---
+  async function loadCafLatestPosts() {
+    const container = document.getElementById('caf-latest');
+    if (!container) return;
+
+    try {
+      container.innerHTML = '<div style="text-align: center; padding: 40px; grid-column: 1/-1;"><i class="fas fa-spinner fa-spin"></i> Loading latest posts...</div>';
+      const response = await fetch('/api/posts/get/?college=caf');
+      const data = await response.json();
+
+      if (data.success && data.posts) {
+        const posts = data.posts.filter(p => p.type === 'announcement' || p.type === 'news' || !p.type);
+        if (posts.length === 0) {
+          container.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-newspaper" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CAF Admin Posts Available</h3>
+                <p>Posts created by CAF Administrator will appear here.</p>
+            </div>`;
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+          const date = post.created_at ? new Date(post.created_at).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+          }) : "March 14, 2026";
+
+          const card = document.createElement('div');
+          card.className = 'latest-card-professional';
+          card.innerHTML = `
+            <div class="post-image-container">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="post-badges">
+                <span class="badge-new">NEW</span>
+                <span class="badge-type">${(post.type || 'ANNOUNCEMENT').toUpperCase()}</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <p class="post-date">${date}</p>
+              <h3 class="post-title">${post.title.toUpperCase()}</h3>
+              <p class="post-excerpt">${post.content.substring(0, 80)}...</p>
+              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="read-more">READ MORE &rarr;</a>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) { console.error('Error loading CAF posts:', e); }
+  }
+
+  // --- CAF ALUMNI ---
+  async function loadCafAlumni() {
+    const container = document.getElementById('caf-alumni');
+    if (!container) return;
+
+    try {
+      const response = await fetch('/api/posts/get/?college=caf&type=alumni');
+      const data = await response.json();
+
+      if (data.success && data.posts) {
+        const posts = data.posts;
+        if (posts.length === 0) {
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No alumni posts available.</p>';
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+          const card = document.createElement('div');
+          card.className = 'latest-card-professional';
+          card.innerHTML = `
+            <div class="post-image-container">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="post-badges">
+                <span class="badge-type">ALUMNI</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <h3 class="post-title">${post.title.toUpperCase()}</h3>
+              <p class="post-excerpt">${post.content.substring(0, 100)}...</p>
+              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="read-more">READ MORE &rarr;</a>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) { console.error('Error loading CAF alumni:', e); }
+  }
+
+  // --- CAF AWARDS ---
+  async function loadCafAwards() {
+    const container = document.getElementById('caf-awards');
+    if (!container) return;
+
+    try {
+      const response = await fetch('/api/posts/get/?college=caf&type=award');
+      const data = await response.json();
+
+      if (data.success && data.posts) {
+        const posts = data.posts;
+        if (posts.length === 0) {
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No awards available.</p>';
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+          const card = document.createElement('div');
+          card.className = 'cit-award-card-v2';
+          card.innerHTML = `
+            <div class="award-image-container-v2">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="award-trophy-badge-v2">
+                <i class="fas fa-trophy"></i>
+              </div>
+            </div>
+            <div class="award-content-box-v2">
+              <h3 class="award-title-green-v2">${post.title}</h3>
+              <p class="award-subtitle-grey-v2">${post.content}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) { console.error('Error loading CAF awards:', e); }
+  }
+
+  // --- CAF FACILITIES ---
+  async function loadCafFacilities() {
+    const container = document.getElementById('caf-facilities');
+    if (!container) return;
+
+    try {
+      const response = await fetch('/api/facilities/?college=caf');
+      const data = await response.json();
+
+      if (data.success && data.facilities) {
+        const facilities = data.facilities;
+        if (facilities.length === 0) {
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No facilities available.</p>';
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "40px";
+        container.innerHTML = '';
+
+        facilities.forEach(facility => {
+          const card = document.createElement('div');
+          card.className = 'caf-facility-card';
+          card.innerHTML = `
+            <div class="caf-facility-image-wrapper">
+              <div class="caf-facility-badge">${facility.name}</div>
+              <img src="${facility.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) { console.error('Error loading CAF facilities:', e); }
+  }
+
+  document.addEventListener('DOMContentLoaded', async function() {
+    // Initialize data from Database APIs
+    loadCAFOrganizationalChart();
+    loadCafLatestPosts();
+    loadCafAlumni();
+    loadCafAwards();
+    loadCafFacilities();
+    
+    // --- LOAD PROGRAMS ---
+    const programsContainer = document.getElementById('caf-programs');
+    if (programsContainer) {
+      try {
+        programsContainer.innerHTML = '<div style="text-align: center; padding: 40px; grid-column: 1/-1;"><i class="fas fa-spinner fa-spin"></i> Loading programs...</div>';
+        const response = await fetch('/api/programs/');
+        const data = await response.json();
+        
+        if (data.success && data.programs) {
+          const cafPrograms = data.programs.filter(p => p.college && p.college.toLowerCase() === 'caf');
+          if (cafPrograms.length === 0) {
+            programsContainer.innerHTML = '<div class="empty-state"><h3>No Programs Available</h3></div>';
+          } else {
+            let html = '';
+            cafPrograms.forEach(program => {
+              // Generate URL-friendly program name
+              let programSlug = program.title.toLowerCase()
+                .replace(/bachelor of science in/gi, 'bachelor-of-sciences')
+                .replace(/bachelor of/gi, 'bachelor-of')
+                .replace(/[^a-z0-9\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-')
+                .trim('-');
+              
+              // Special handling for agriculture program - point to BS AGRICULTURE section
+              if (program.title.toLowerCase().includes('agriculture')) {
+                programSlug = 'bs-agriculture';
+              }
+              
+              // Special handling for forestry program - point to BS FORESTRY section  
+              if (program.title.toLowerCase().includes('forestry')) {
+                programSlug = 'bs-forestry';
+              }
+              
+              console.log('Program title:', program.title, '→ URL:', '/programs/#' + programSlug);
+              
+              html += `
+                <div class="card">
+                  <img src="${program.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+                  <div class="card-body ${program.status === 'active' ? 'highlighted' : ''}">
+                    <h3>${program.title}</h3>
+                    <div class="program-info">
+                      <div class="info-item"><i class="fas fa-clock"></i> <span>${program.duration}</span></div>
+                    </div>
+                    <a href="/programs/#${programSlug}" class="learn-btn">Learn More</a>
+                  </div>
+                </div>`;
+            });
+            programsContainer.innerHTML = html;
+          }
+        }
+      } catch (e) { console.error('Error loading programs:', e); }
+    }
+  });
+</script>
+
+{% endblock extra_js %}
+
+<!-- Floating Arrow Button -->
+<div class="floating-arrow" id="floatingArrow" onclick="scrollToTop()">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<style>
+/* Floating Arrow Button */
+.floating-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #007fff, #0056b3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 127, 255, 0.3);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  pointer-events: none;
+}
+
+.floating-arrow.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-arrow:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  box-shadow: 0 4px 12px rgba(0, 127, 255, 0.4);
+  transform: translateY(-1px) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.floating-arrow i {
+  font-size: 14px;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+}
+
+.floating-arrow.visible i {
+  transform: rotate(0deg);
+}
+
+.floating-arrow:hover i {
+  transform: translateY(-1px) rotate(5deg);
+  transition: all 0.3s ease;
+}
+</style>
+
+<script>
+// Floating Arrow functionality
+const floatingArrow = document.getElementById('floatingArrow');
+let lastScrollTop = 0;
+
+// Show/hide arrow based on scroll position - trigger at PROGRAMS OFFERED section
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // Get the PROGRAMS OFFERED section position
+  const programsSection = document.getElementById('programs-section');
+  if (programsSection) {
+    const programsTop = programsSection.offsetTop;
+    
+    // Show arrow when user scrolls past the PROGRAMS OFFERED section
+    if (scrollTop > programsTop - 100) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  } else {
+    // Fallback: use fixed pixel value if section not found
+    if (scrollTop > 800) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  }
+  
+  lastScrollTop = scrollTop;
+});
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
+{% include 'dashboard/footer.html' %}
+{% endblock content %}

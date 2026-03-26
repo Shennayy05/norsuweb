@@ -6,9 +6,16 @@
     <title>NORSU Bayawan-Sta. Catalina Campus</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'dashboard/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/location.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-    {% include 'dashboard/header.html' %}
+    {% block header %}
+        {% include 'dashboard/header.html' %}
+    {% endblock %}
     {% include 'dashboard/navbar.html' %}
     
     <main class="main-content">
@@ -17,51 +24,49 @@
         {% endblock %}
     </main>
 
+    {% include 'dashboard/footer.html' %}
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Hide header on scroll down, show on scroll up
-            let lastScrollTop = 0;
-            const header = document.querySelector('.main-header');
-            const navbarLogo = document.querySelector('.navbar-norsu-logo');
+            // Scroll to Top Button - Show/Hide based on scroll position
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
             
-            window.addEventListener('scroll', function() {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop > lastScrollTop && scrollTop > 100) {
-                    // Scrolling down
-                    header.classList.add('hidden');
-                    // Show navbar logo when scrolling down
-                    if (navbarLogo) {
-                        navbarLogo.classList.add('visible');
-                    }
-                } else {
-                    // Scrolling up
-                    header.classList.remove('hidden');
-                    // Hide navbar logo when scrolling up
-                    if (navbarLogo) {
-                        navbarLogo.classList.remove('visible');
-                    }
+            if (scrollToTopBtn) {
+                // Hide button initially if at top
+                if (window.pageYOffset <= 100) {
+                    scrollToTopBtn.style.display = 'none';
                 }
                 
-                lastScrollTop = scrollTop;
-            });
-
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 100) {
+                        scrollToTopBtn.style.display = 'flex';
+                    } else {
+                        scrollToTopBtn.style.display = 'none';
+                    }
+                });
+            }
             // Mobile menu toggle functionality
-            const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+            const menuToggleBtn = document.querySelector('.mobile-menu-toggle');
             const mobileNavMenu = document.querySelector('.mobile-nav-menu');
             
+            // Header scroll functionality
+            const header = document.querySelector('.main-header');
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    if (scrollTop > 50) {
+                        header.style.display = 'none';
+                    } else {
+                        header.style.display = 'block';
+                    }
+                });
+            }
+            
             if (menuToggleBtn && mobileNavMenu) {
-                console.log('Mobile menu elements found');
-                
-                menuToggleBtn.addEventListener('click', function() {
-                    console.log('Menu toggle clicked');
-                    // Toggle active class on button
+                menuToggleBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
                     menuToggleBtn.classList.toggle('active');
-                    
-                    // Toggle active class on mobile menu
                     mobileNavMenu.classList.toggle('active');
-                    
-                    console.log('Menu active:', mobileNavMenu.classList.contains('active'));
                 });
 
                 // Close mobile menu when clicking on links
@@ -83,43 +88,10 @@
                         mobileNavMenu.classList.remove('active');
                     }
                 });
-            } else {
-                console.log('Mobile menu elements not found');
             }
 
-            // Header hamburger menu (if needed)
-            const headerMenuToggle = document.querySelector('.menu-toggle');
-            if (headerMenuToggle) {
-                headerMenuToggle.addEventListener('click', function() {
-                    // Add functionality for header menu if needed
-                    console.log('Header menu toggle clicked');
-                });
-            }
-
-            // Colleges Navigation Arrows
-        const collegesNavArrows = document.querySelectorAll('.colleges-nav-arrow');
-        const collegesScroll = document.querySelector('.colleges-scroll');
-        
-        if (collegesNavArrows.length > 0 && collegesScroll) {
-            let scrollPosition = 0;
-            const cardWidth = 305; // 280px card + 25px gap
-            
-            collegesNavArrows.forEach(arrow => {
-                arrow.addEventListener('click', function() {
-                    if (arrow.classList.contains('left')) {
-                        // Scroll left
-                        scrollPosition = Math.max(0, scrollPosition - cardWidth);
-                    } else if (arrow.classList.contains('right')) {
-                        // Scroll right
-                        const maxScroll = collegesScroll.scrollWidth - collegesScroll.parentElement.offsetWidth;
-                        scrollPosition = Math.min(maxScroll, scrollPosition + cardWidth);
-                    }
-                    
-                    // Apply smooth scroll
-                    collegesScroll.style.transform = `translateX(-${scrollPosition}px)`;
-                });
-            });
-        }
+            // Colleges auto-scroll is now handled by CSS animation
+            // No JavaScript needed for arrow navigation
 
         // Navigation Menu Functionality
         const desktopNavLinks = document.querySelectorAll('.nav-links li');
@@ -127,37 +99,78 @@
 
         // Desktop dropdown functionality
         desktopNavLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const linkText = this.querySelector('a').textContent.replace(' ▼', '').trim();
-                
-                // Toggle active state
-                desktopNavLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Handle navigation based on link text
-                handleNavigation(linkText);
-            });
+            const topLevelAnchor = link.querySelector(':scope > a');
+            if (topLevelAnchor) {
+                topLevelAnchor.addEventListener('click', function(e) {
+                    const linkText = this.textContent.trim();
+                    console.log('Desktop top-level link clicked:', linkText);
+                    
+                    const hasDropdown = this.textContent.includes('▼');
+                    
+                    // Only prevent default for dropdown triggers, but let About and other real links work normally
+                    if (hasDropdown && !linkText.includes('About')) {
+                        const href = this.getAttribute('href');
+                        // If it's just an anchor, handle navigation
+                        if (href && href.startsWith('#')) {
+                            e.preventDefault();
+                            const sectionName = linkText.replace(' ▼', '').trim();
+                            
+                            // Toggle active state
+                            desktopNavLinks.forEach(l => l.classList.remove('active'));
+                            link.classList.add('active');
+                            
+                            // Handle navigation based on link text
+                            handleNavigation(sectionName);
+                        }
+                    }
+                });
+            }
         });
 
         // Mobile navigation functionality
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const linkText = this.querySelector('a').textContent.replace(' ▼', '').trim();
-                
-                // Close mobile menu after click
-                mobileNavMenu.classList.remove('active');
-                menuToggleBtn.classList.remove('active');
-                
-                // Handle navigation
-                handleNavigation(linkText);
-            });
+            const topLevelAnchor = link.querySelector(':scope > a');
+            if (topLevelAnchor) {
+                topLevelAnchor.addEventListener('click', function(e) {
+                    const linkText = this.textContent.trim();
+                    console.log('Mobile top-level link clicked:', linkText);
+                    
+                    const hasDropdown = this.textContent.includes('▼');
+                    
+                    // Only prevent default for dropdown triggers
+                    if (hasDropdown && !linkText.includes('About')) {
+                        const href = this.getAttribute('href');
+                        if (href && href.startsWith('#')) {
+                            e.preventDefault();
+                            const sectionName = linkText.replace(' ▼', '').trim();
+                            
+                            // Close mobile menu after click if needed
+                            // (Actually for dropdowns we might want to keep it open, 
+                            // but the original code closed it)
+                            
+                            // Handle navigation
+                            handleNavigation(sectionName);
+                        }
+                    } else {
+                        // For regular links, just close mobile menu
+                        if (mobileNavMenu) {
+                            mobileNavMenu.classList.remove('active');
+                        }
+                        if (menuToggleBtn) {
+                            menuToggleBtn.classList.remove('active');
+                        }
+                    }
+                });
+            }
         });
 
         // Navigation handler function
         function handleNavigation(section) {
             switch(section.toLowerCase()) {
+                case 'home':
+                    // Let Home link navigate normally
+                    window.location.href = '/';
+                    break;
                 case 'about':
                     scrollToSection('hero-section');
                     break;
@@ -165,10 +178,10 @@
                     scrollToSection('colleges-section');
                     break;
                 case 'admissions':
-                    scrollToSection('programs-section');
+                    scrollToSection('programs-offered-section');
                     break;
                 case 'contacts':
-                    scrollToSection('footer');
+                    scrollToSection('main-footer');
                     break;
                 case 'alumni':
                     scrollToSection('alumni');
@@ -186,6 +199,9 @@
                     behavior: 'smooth',
                     block: 'start'
                 });
+            } else {
+                // If section not found on current page, redirect to home with hash
+                window.location.href = "{% url 'home' %}#" + sectionId;
             }
         }
 

@@ -1,14 +1,18 @@
 {% extends 'dashboard/base_simple.html' %}
 {% load static %}
 
-{% block title %}College of Indutrial Technology - NORSU{% endblock %}
+{% block title %}College of Industrial Technology - NORSU{% endblock %}
+
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'dashboard/css/citstyle.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/footer.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 {% endblock %}
 
+
 {% block content %}
+{% include 'dashboard/navbar.html' %}
 <section class="hero">
   <div class="overlay"></div>
 
@@ -22,13 +26,13 @@
         </div>
         <div class="title-container">
           <h4>COLLEGE OF</h4>
-          <h1>Industrial Technology</h1>
+          <h1>INDUSTRIAL TECHNOLOGY</h1>
         </div>
       </div>
 
       <p class="description">
-        Welcome to The Bachelor of Industrial Technology at Norsu BSC– University (CIT)
-        is one of the most storied programs in the institution's history. It transformed
+        Welcome to The College of Industrial Technology at Norsu BSC– University (CIT)
+        is one of most storied programs in institution's history. It transformed
         CIT from a traditional engineering school into a modern "Center of Excellence"
         for technology. Strengthen moral standards. Pagpalig-on sa moralidad nga sukdanan.
       </p>
@@ -44,19 +48,19 @@
           <span>About CIT</span>
         </a>
 
-        <a href="#topnotchers-section" class="icon-box">
+        <a href="#alumni-section" class="icon-box">
           <i class="fa-solid fa-user-graduate"></i>
-          <span>Topnotchers</span>
+          <span>Alumni</span>
         </a>
 
         <a href="#awards-section" class="icon-box">
           <i class="fa-solid fa-award"></i>
-          <span>Awards&Recognition</span>
+          <span>Awards</span>
         </a>
 
-        <a href="#alumni-section" class="icon-box">
+        <a href="#administration-section" class="icon-box">
           <i class="fa-solid fa-users"></i>
-          <span>Alumni</span>
+          <span>Administration</span>
         </a>
       </div>
     </div>
@@ -67,7 +71,7 @@
   <div class="stats">
     <div class="stat-card">
       <i class="fa-solid fa-desktop"></i>
-      <h2>1</h2>
+      <h2>3</h2>
       <p>PROGRAMS</p>
     </div>
 
@@ -90,25 +94,25 @@
 
     <!-- HEADER -->
     <div class="about-header">
-      <img src="{% static 'dashboard/images/CIT.png' %}" alt="CAS Logo" class="logo">
+      <img src="{% static 'dashboard/images/CIT.png' %}" alt="CIT Logo" class="logo">
       <div class="title">
         <h4>About</h4>
         <h1>
           <span class="green">College</span>
-          <span class="dark">of Industrial &amp; Technology</span>
+          <span class="dark">of Industrial Technology</span>
         </h1>
       </div>
     </div>
 
     <!-- DESCRIPTION -->
     <p class="about-text">
-      For the past 25 years, the College of Industrial Technology continuously bring
+      For the past 25 years, the College of Industrial Technology continuously brings
       professional training to students, for them to be intellectually, morally, physically
       and socially skilled individuals equipped to contribute to global social and
       professional demands. The CIT is committed to produce graduates with scientific,
       artistic, and technological skills that meet global standards to aid in the advantage
       of society in its interminable quest towards development. The CIT provides academic
-      and academic-support programs designed for the holistic development and professional
+      and academic-support programs designed for holistic development and professional
       advances for students in fields of specialization in both the arts and sciences.
     </p>
 
@@ -159,290 +163,1293 @@
   </div>
 </section>
 
-<section class="programs-section" id="programs-section">
-  <div class="programs-container">
 
-    <!-- HEADER -->
-    <h1 class="section-title">PROGRAM OFFERED</h1>
+<!-- LATEST AT CIT ------------------------------------------------------------------>
+<section class="latest-section" id="latest-section">
+  <div class="latest-container">
+
+    <h1 class="section-title">LATEST AT CIT</h1>
     <p class="section-subtitle">
-      Experience top-notch facilities and cutting-edge laboratories at College of Arts and
-      Science for unparalleled academics advancements.
+      Stay updated with the latest news, announcements, and events from the College of Industrial Technology.
     </p>
 
+    <div class="latest-cards" id="cit-latest">
+      <!-- Latest posts/news will load dynamically -->
+    </div>
+
+  </div>
+</section>
+
+<!--   CIT PROGRAMS OFFERED SECTION ---------------------------------------------->
+
+<section class="programs-section" id="programs-section">
+  <div class="programs-container">
+    <!-- HEADER -->
+    <h1 class="section-title">PROGRAMS OFFERED</h1>
+    <p class="section-subtitle">
+      Discover innovative technical programs and hands-on training at College of Industrial Technology for cutting-edge career opportunities.
+    </p>
     <!-- PROGRAM CARDS -->
-    <div class="cards">
-
-      <!-- CARD 1 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/cit1.jpg' %}" alt="BSIT">
-        <div class="card-body highlighted">
-          <h3>Bachelor of Industrial Technology</h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/cit1.jpg' %}" alt="BSCS">
-        <div class="card-body">
-          <h3>Bachelor of Industrial Technology </h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
+    <div class="cards" id="cit-programs">
+      <!-- Programs will be dynamically loaded here -->
     </div>
   </div>
 </section>
 
+<!-- CIT ALUMNI ------------------------------------------------------------------>
+<section class="alumni-section" id="alumni-section">
+  <div class="alumni-container">
+
+    <h1 class="section-title">CIT ALUMNI</h1>
+    <p class="section-subtitle">
+      Meet our successful graduates from the College of Industrial Technology who continue to make an impact in different fields.
+    </p>
+
+    <div class="alumni-cards" id="cit-alumni">
+      <!-- Alumni profiles will load dynamically -->
+    </div>
+
+  </div>
+</section>
+
+<!--   CIT AWARDS AND RECOGNITION SECTION ---------------------------------------------->
+<section class="awards-section" id="awards-section">
+  <div class="awards-container">
+
+    <!-- SECTION HEADER -->
+    <h1 class="section-title">CIT Awards and Recognition</h1>
+    <p class="section-subtitle">
+      Discover achievements, honors, and recognitions earned by the 
+      College of Industrial Technology through excellence in academics, research, 
+      and community service.
+    </p>
+
+    <!-- AWARDS CARDS (Loaded dynamically via JavaScript) -->
+    <div class="awards-cards" id="cit-awards">
+      <!-- CIT Awards will load dynamically here -->
+    </div>
+
+  </div>
+</section>
+
+<!-- CIT FACILITIES SECTION ------------------------------------------------------------->
 <section class="facilities-section" id="facilities-section">
   <div class="facilities-container">
 
-    <!-- HEADER -->
-    <h1 class="section-title">CIT FACILITIES AND ROOMS</h1>
+    <!-- SECTION HEADER -->
+    <h1 class="section-title">CIT Facilities</h1>
     <p class="section-subtitle">
-      Experience top-notch facilities and cutting-edge laboratories at College of
-      Industrial Technology for unparalleled academics advancements.
+      Explore to modern workshops, laboratories, technical rooms, and learning spaces 
+      available at the College of Industrial Technology that support hands-on training, 
+      innovation, and technical excellence.
     </p>
 
-    <!-- GRID -->
-    <div class="facilities-grid">
-
-        <div class="facility-card">
-        <img src="{% static 'dashboard/images/citoff.jpg' %}" alt="CIT OFFICE">
-        <span class="label">CIT OFFICE</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit1.jpg' %}" alt="CIT 1">
-        <span class="label">CIT 1</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit2.jpg' %}" alt="CIT 2">
-        <span class="label">CIT 2</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit8.jpg' %}" alt="CIT 3">
-        <span class="label">CIT 3</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit4.jpg' %}" alt="CIT 4">
-        <span class="label">CIT 4</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit2.jpg' %}" alt="CIT 5">
-        <span class="label">CIT 5</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit6.jpg' %}" alt="CIT 6">
-        <span class="label">CIT 6</span>
-      </div>
-
-        <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit8.jpg' %}" alt="CIT 7">
-        <span class="label">CIT 7</span>
-      </div>
-
-        <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit8.jpg' %}" alt="CIT 8">
-        <span class="label">CIT 8</span>
-      </div>
-           
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit9.jpg' %}" alt="CIT 9">
-        <span class="label">CIT 9</span>
-      </div>
-
-        <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit10.jpg' %}" alt="CIT 10">
-        <span class="label">CIT 10</span>
-      </div>
-
-        <div class="facility-card">
-        <img src="{% static 'dashboard/images/cit11.jpg' %}" alt="CIT 11">
-        <span class="label">CIT 11</span>
-      </div>
-
+    <!-- FACILITIES CARDS (Loaded dynamically via JavaScript) -->
+    <div class="facilities-cards" id="cit-facilities">
+      <!-- CIT Facilities will load dynamically here -->
     </div>
+
   </div>
 </section>
-<section class="cas-admin">
 
+<section class="cit-admin">
   <!-- HEADER -->
-  <div class="cas-header">
-    <h4>CIT ADMINISTRATION</h4>
+  <div class="cit-header">
+    <h4>College of Industrial Technology</h4>
     <h1>
-      <span>COLLEGE OF </span> INDUSTRIAL <span class="dark">TECHNOLOGY</span>
+      <span>ORGANIZATIONAL CHART</span>
     </h1>
     <p>
-      Attain excellent status in providing a pool of competent and competitive
-      human resources. Pagkab-ot sa taas nga matan-aw sa pag pangalagad ug dili
-      palupig nga.
+      Strengthen moral standards and provide quality education in industrial technology.
     </p>
   </div>
 
-  <div class="cas-content">
+  <div class="cit-content">
     
-    <!-- PROFILE SLIDER -->
-    <div class="profile-area">
-
-      <div class="profiles"> 
-        
-
-        <!-- PROFILE 1 -->
-
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/cit dean.jpg' %}">
-          <h3>Theresa Cathrine P. Tubil, Civ. Engr., Ph.D.</h3>
-          <p>Dean, College of Industrial Teachnology</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 2 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/cord.jpg' %}">
-          <h3>Rogelo Cordero</h3>
-          <p>Assistan Dean </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 3 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/t15.png' %}">
-          <h3>RONNEL N. CHUA</h3>
-          <p>ADMIN AID</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-        
-          <!-- PROFILE 4 (NEXT SLIDE) -->
-          <div class="profile-card">
-          <img src="{% static 'dashboard/images/t17.png' %}">
-          <h3> CHRISTOPHER E. BARIENTOS, PhD</h3>
-          <p>FACULTY</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-
-        <!-- PROFILE 5 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ui.png' %}">
-          <h3> ENGR. ELTON IAN M. JO, MTE </h3>
-          <p>FACULTY</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 6 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/y.png' %}">
-          <h3>JUNRYL S. ESPANOL</h3>
-          <p>Faculty</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 7 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/em.png' %}">
-          <h3>JANEDELLE O. MACAHUSAY, LPT</h3>
-          <p>Part Time</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-         <!-- PROFILE 7 (NEXT SLIDE) -->
-          <div class="profile-card">
-          <img src="{% static 'dashboard/images/t17.png' %}">
-          <h3> CHRISTOPHER E. BARIENTOS, PhD</h3>
-          <p>FACULTY</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 7 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/t16.png' %}">
-          <h3>RONALD A. CORTEZ</h3>
-          <p>FACULTY</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-      </div>
-     
+    <!-- ORGANIZATIONAL CHART -->
+    <div class="org-chart" id="cit-organizational-chart">
+      <!-- Organizational chart will be dynamically loaded here -->
     </div>
 
   </div>
-
-   <!-- NAVIGATION -->
-      <div class="nav-buttons">
-        <button id="prev">&#10094;</button>
-        <button id="next">&#10095;</button>
-      </div>
 
 </section>
 
 {% block extra_js %}
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const profiles = document.querySelector('.profiles');
-    const next = document.getElementById('next');
-    const prev = document.getElementById('prev');
+  // --- FACULTY / ORG CHART ---
+  async function loadCITFaculty() {
+    try {
+      const response = await fetch('/api/faculty/?college=cit');
+      const data = await response.json();
+      if (data.success && data.faculty) {
+        updateCITOrganizationalChart(data.faculty);
+      }
+    } catch (e) { console.error('Error loading CIT faculty:', e); }
+  }
 
-    if (!profiles || !next || !prev) {
-      console.error('Required elements not found');
+  function updateCITOrganizationalChart(faculty) {
+    const container = document.getElementById('cit-organizational-chart');
+    if (!container) return;
+    if (!faculty || faculty.length === 0) {
+      container.innerHTML = '<p>No faculty data available.</p>';
       return;
     }
 
-    let index = 0;
-    const cardsPerView = 3;
-    const totalCards = profiles.children.length;
-    const maxIndex = Math.max(0, totalCards - cardsPerView);
+    const priority = (pos) => {
+      pos = (pos || '').toLowerCase();
+      if (pos.includes('dean') && !pos.includes('assistant')) return 1;
+      if (pos.includes('assistant dean') || pos.includes('coordinator')) return 2;
+      return 3;
+    };
 
-    console.log('Total cards:', totalCards, 'Max index:', maxIndex);
+    const sorted = [...faculty].sort((a, b) => priority(a.position) - priority(b.position));
+    const dean = sorted.find(f => priority(f.position) === 1);
+    const secondLevel = sorted.filter(f => priority(f.position) === 2);
+    const others = sorted.filter(f => priority(f.position) === 3);
 
-    function updateProfiles() {
-      // Hide all profiles completely
-      Array.from(profiles.children).forEach(card => {
-        card.style.display = 'none';
-        card.style.opacity = '0';
-        card.style.transform = 'translateX(20px)';
-      });
-
-      // Show only current 3 profiles
-      for (let i = index; i < index + cardsPerView && i < totalCards; i++) {
-        const card = profiles.children[i];
-        card.style.display = 'block';
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateX(0)';
-        }, (i - index) * 100);
-      }
+    let html = '';
+    // Dean
+    if (dean) {
+      html += `<div class="org-level top-level">
+        <div class="org-box dean-box">
+          <img src="${dean.image || '/static/dashboard/images/citdean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/citdean.jpg'">
+          <div class="org-info">
+            <h3>${dean.name}</h3>
+            <p class="org-title">${dean.position}, College of Industrial Technology</p>
+          </div>
+        </div>
+      </div><div class="org-connector"></div>`;
     }
 
-    next.onclick = () => {
-      if (index < maxIndex) {
-        index++;
-        updateProfiles();
-        console.log('Next clicked, index:', index);
-      } else {
-        console.log('Reached max index');
-      }
-    };
+    // Second Level (Assistant Dean / Coordinators)
+    if (secondLevel.length > 0) {
+      html += `<div class="org-level second-level"><div class="org-row">`;
+      html += secondLevel.map(a => `
+        <div class="org-box assistant-box">
+          <img src="${a.image || '/static/dashboard/images/citdean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/citdean.jpg'">
+          <div class="org-info"><h3>${a.name}</h3><p class="org-title">${a.position}</p></div>
+        </div>
+      `).join('');
+      html += `</div></div><div class="org-connector"></div>`;
+    }
 
-    prev.onclick = () => {
-      if (index > 0) {
-        index--;
-        updateProfiles();
-        console.log('Prev clicked, index:', index);
-      } else {
-        console.log('At start index');
-      }
-    };
+    // Others (Faculty Grid - 3 columns)
+    if (others.length > 0) {
+      html += `<div class="org-level third-level"><div class="org-grid">`;
+      html += others.map(f => `
+        <div class="org-box faculty-box">
+          <img src="${f.image || '/static/dashboard/images/citdean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/citdean.jpg'">
+          <div class="org-info">
+            <h3>${f.name}</h3>
+            <p class="org-title">${f.position}</p>
+          </div>
+        </div>
+      `).join('');
+      html += `</div></div>`;
+    }
+    container.innerHTML = html;
+  }
 
-    // Initialize first view
-    updateProfiles();
+  // --- LATEST POSTS ---
+  async function loadCitLatestPosts() {
+    const container = document.getElementById('cit-latest');
+    if (!container) return;
+
+    try {
+      container.innerHTML = '<div style="text-align: center; padding: 40px; grid-column: 1/-1;"><i class="fas fa-spinner fa-spin"></i> Loading latest posts...</div>';
+      
+      const response = await fetch('/api/posts/get/?college=cit');
+      const data = await response.json();
+
+      if (data.success && data.posts) {
+        const posts = data.posts.filter(p => p.type === 'announcement' || p.type === 'news' || !p.type);
+        
+        if (posts.length === 0) {
+          container.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-user-shield" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CIT Administrator Posts Available</h3>
+                <p>Posts created by CIT Administrator will appear here.</p>
+            </div>`;
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+          const date = post.created_at ? new Date(post.created_at).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+          }) : "March 14, 2026";
+
+          const card = document.createElement('div');
+          card.className = 'latest-card-professional';
+          card.innerHTML = `
+            <div class="post-image-container">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="post-badges">
+                <span class="badge-new">NEW</span>
+                <span class="badge-type">${(post.type || 'ANNOUNCEMENT').toUpperCase()}</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <p class="post-date">${date}</p>
+              <h3 class="post-title">${post.title.toUpperCase()}</h3>
+              <p class="post-excerpt">${post.content.substring(0, 80)}...</p>
+              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="read-more">READ MORE &rarr;</a>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) {
+      console.error('Error loading CIT posts:', e);
+      container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Error loading posts.</p>';
+    }
+  }
+
+  // --- ALUMNI ---
+  async function loadCitAlumni() {
+    const container = document.getElementById('cit-alumni');
+    if (!container) return;
+
+    try {
+      const response = await fetch('/api/posts/get/?college=cit&type=alumni');
+      const data = await response.json();
+
+      if (data.success && data.posts) {
+        let posts = data.posts;
+        
+        // Remove duplicates based on ID AND Content (name + title + content)
+        const uniquePosts = posts.filter((post, index, self) => {
+            const firstById = self.findIndex((p) => p.id === post.id);
+            if (index !== firstById) return false;
+            
+            // Check for content duplication (same name, title, and content)
+            const postName = (post.name || '').trim().toLowerCase();
+            const postTitle = (post.title || '').trim().toLowerCase();
+            const postContent = (post.content || '').trim().toLowerCase();
+            
+            const firstByContent = self.findIndex((p) => {
+                const pName = (p.name || '').trim().toLowerCase();
+                const pTitle = (p.title || '').trim().toLowerCase();
+                const pContent = (p.content || '').trim().toLowerCase();
+                return pName === postName && pTitle === postTitle && pContent === postContent;
+            });
+            
+            return index === firstByContent;
+        });
+        
+        if (uniquePosts.length !== posts.length) {
+            console.log(`Removed ${posts.length - uniquePosts.length} duplicate alumni posts from CIT`);
+        }
+        
+        if (uniquePosts.length === 0) {
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No alumni posts available.</p>';
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        uniquePosts.forEach(post => {
+          const card = document.createElement('div');
+          card.className = 'latest-card-professional';
+          card.innerHTML = `
+            <div class="post-image-container">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="post-badges">
+                <span class="badge-type">ALUMNI</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <h3 class="post-title">${post.title.toUpperCase()}</h3>
+              <p class="post-excerpt">${post.content.substring(0, 100)}...</p>
+              <a href="#" class="read-more">READ MORE &rarr;</a>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) { console.error('Error loading CIT alumni:', e); }
+  }
+
+  // --- AWARDS ---
+  async function loadCitAwards() {
+    const container = document.getElementById('cit-awards');
+    if (!container) return;
+
+    try {
+      const response = await fetch('/api/posts/get/?college=cit&type=award');
+      const data = await response.json();
+
+      if (data.success && data.posts) {
+        const posts = data.posts;
+        if (posts.length === 0) {
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No awards available.</p>';
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+          const card = document.createElement('div');
+          card.className = 'cit-award-card-v2';
+          card.innerHTML = `
+            <div class="award-image-container-v2">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="award-trophy-badge-v2">
+                <i class="fas fa-trophy"></i>
+              </div>
+            </div>
+            <div class="award-content-box-v2">
+              <h3 class="award-title-green-v2">${post.title}</h3>
+              <p class="award-subtitle-grey-v2">${post.content}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) { console.error('Error loading CIT awards:', e); }
+  }
+
+  document.addEventListener('DOMContentLoaded', async function() {
+    // Initialize data from Database APIs
+    loadCITFaculty();
+    loadCitLatestPosts();
+    loadCitAlumni();
+    loadCitAwards();
+    loadCitFacilities();
+    
+    // --- LOAD PROGRAMS ---
+    const programsContainer = document.getElementById('cit-programs');
+    if (programsContainer) {
+      try {
+        programsContainer.innerHTML = '<div style="text-align: center; padding: 40px; grid-column: 1/-1;"><i class="fas fa-spinner fa-spin"></i> Loading programs...</div>';
+        const response = await fetch('/api/programs/');
+        const data = await response.json();
+        
+        if (data.success && data.programs) {
+          const citPrograms = data.programs.filter(p => p.college && p.college.toLowerCase() === 'cit');
+          if (citPrograms.length === 0) {
+            programsContainer.innerHTML = '<div class="empty-state"><h3>No Programs Available</h3></div>';
+          } else {
+            let html = '';
+            citPrograms.forEach(program => {
+              html += `
+                <div class="card">
+                  <img src="${program.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+                  <div class="card-body ${program.status === 'active' ? 'highlighted' : ''}">
+                    <h3>${program.title}</h3>
+                    <div class="program-info">
+                      <div class="info-item"><i class="fas fa-clock"></i> <span>${program.duration}</span></div>
+                    </div>
+                    <a href="#" class="learn-btn">Learn More</a>
+                  </div>
+                </div>`;
+            });
+            programsContainer.innerHTML = html;
+          }
+        }
+      } catch (e) { console.error('Error loading programs:', e); }
+    }
   });
 </script>
 {% endblock %}
+<script>
+// Load latest posts for CIT from CIT administrator dashboard localStorage
+function loadCitLatestPosts() {
+    try {
+        // Debug: Check all localStorage keys
+        console.log('All localStorage keys:', Object.keys(localStorage));
+        
+        // Debug: Check citAdminPosts specifically
+        const citPostsRaw = localStorage.getItem('citAdminPosts');
+        console.log('Raw citAdminPosts data:', citPostsRaw);
+        
+        // Get posts specifically from CIT administrator dashboard
+        const citPosts = JSON.parse(localStorage.getItem('citAdminPosts') || '[]');
+        console.log('Parsed CIT posts:', citPosts);
+        console.log('Number of CIT posts:', citPosts.length);
+        
+        // Debug: Check post types
+        citPosts.forEach(post => {
+            console.log('Post type:', post.type, 'Post title:', post.title);
+        });
+        
+        // Filter OUT alumni and awards - only show announcements and general posts
+        const nonAlumniPosts = citPosts.filter(post => post.type !== 'alumni' && post.type !== 'award');
+        console.log('Filtered non-alumni posts:', nonAlumniPosts);
+        console.log('Number of non-alumni posts:', nonAlumniPosts.length);
+        
+        const latestContainer = document.getElementById("cit-latest");
+        latestContainer.innerHTML = "";
 
+        latestContainer.style.display = "grid";
+        latestContainer.style.gridTemplateColumns = "repeat(3, minmax(320px,1fr))";
+        latestContainer.style.gap = "30px";
+
+        nonAlumniPosts.forEach(post => {
+            const postCard = document.createElement("div");
+            postCard.className = "latest-card";
+
+            const date = post.date ? new Date(post.date).toLocaleDateString('en-US',{
+                year:'numeric',
+                month:'long',
+                day:'numeric'
+            }) : "March 09, 2026";
+
+            const image = post.image ? post.image : "https://via.placeholder.com/600x350";
+
+            // Check if post is new (created within last 3 days)
+            const postDate = new Date(post.date);
+            const now = new Date();
+            const hoursSincePosted = (now - postDate) / (1000 * 60 * 60);
+            const isNewPost = hoursSincePosted <= 72;
+
+            postCard.innerHTML = `
+            
+            <div style="position:relative;">
+                <img src="${image}" 
+                style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;">
+                
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    background:#ff6b35;
+                    color:white;
+                    padding:6px 14px;
+                    font-size:12px;
+                    border-radius:20px;
+                    font-weight:600;">
+                    CIT ADMIN
+                </span>
+                
+                ${isNewPost ? `
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    left:15px;
+                    background:#ff4757;
+                    color:white;
+                    padding:4px 10px;
+                    font-size:10px;
+                    border-radius:12px;
+                    font-weight:700;
+                    text-transform:uppercase;
+                    letter-spacing:1px;
+                    animation: pulse 2s infinite;">
+                    NEW
+                </span>
+                ` : ''}
+            </div>
+            
+            <div style="padding:22px;">
+                
+                <p style="
+                    color:#7a7a7a;
+                    font-size:15px;
+                    margin-bottom:10px;">
+                    ${date}
+                </p>
+                
+                <h3 style="
+                    font-size:22px;
+                    font-weight:700;
+                    margin-bottom:14px;
+                    color:#222;">
+                    ${post.title}
+                </h3>
+                
+                <a href="#" style="
+                    color:#ff6b35;
+                    text-decoration:none;
+                    font-weight:600;
+                    font-size:14px;">
+                    READ MORE
+                </a>
+                
+            </div>
+            `;
+            
+            postCard.style.background = "#fff";
+            postCard.style.borderRadius = "16px";
+            postCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            postCard.style.overflow = "hidden";
+            postCard.style.transition = "0.3s";
+            
+            postCard.addEventListener("mouseenter",()=>{
+                postCard.style.transform="translateY(-6px)";
+                postCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            postCard.addEventListener("mouseleave",()=>{
+                postCard.style.transform="translateY(0)";
+                postCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            latestContainer.appendChild(postCard);
+        });
+
+        // Show message if no CIT administrator posts found
+        if(nonAlumniPosts.length === 0){
+            latestContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-user-shield" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CIT Administrator Posts Available</h3>
+                <p>Posts created by CIT Administrator will appear here.</p>
+                <p style="font-size:12px; color:#999; margin-top:10px;">Only CIT Administrator posts are shown in this dashboard.</p>
+                <p style="font-size:11px; color:#ff6b35; margin-top:10px;">Debug: Check browser console for post details</p>
+            </div>
+            `;
+        }
+
+    } catch(error) {
+        console.error("Error loading CIT administrator posts:", error);
+        document.getElementById("cit-latest").innerHTML = `
+        <div style="text-align:center;padding:60px;color:red;">
+            Error loading CIT administrator posts
+        </div>
+        `;
+    }
+}
+
+// Load alumni for CIT from CIT admin dashboard localStorage
+function loadCitAlumni() {
+    try {
+        // Get posts specifically from CIT admin dashboard
+        const citPosts = JSON.parse(localStorage.getItem('citAdminPosts') || '[]');
+        console.log('CIT posts for alumni:', citPosts);
+        
+        // Filter alumni posts from CIT admin posts
+        const alumniPosts = citPosts.filter(post => post.type === 'alumni').slice(0, 3);
+        console.log('CIT alumni posts:', alumniPosts);
+        
+        const alumniContainer = document.getElementById('cit-alumni');
+        alumniContainer.innerHTML = '';
+        
+        alumniContainer.style.display = "grid";
+        alumniContainer.style.gridTemplateColumns = "repeat(3, minmax(320px,1fr))";
+        alumniContainer.style.gap = "30px";
+        
+        alumniPosts.forEach(post => {
+            const alumniCard = document.createElement("div");
+            alumniCard.className = "alumni-card";
+            
+            const date = post.date ? new Date(post.date).toLocaleDateString('en-US',{
+                year:'numeric',
+                month:'long',
+                day:'numeric'
+            }) : "March 09, 2026";
+            
+            const image = post.image ? post.image : "https://via.placeholder.com/600x350/ff6b35/FFFFFF?text=CIT+ALUMNI";
+            
+            alumniCard.innerHTML = `
+            
+            <div style="position:relative;">
+                <img src="${image}" 
+                style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;"
+                onerror="this.src='https://via.placeholder.com/600x350/ff6b35/FFFFFF?text=CIT+ALUMNI';">
+                
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    background:#28a745;
+                    color:white;
+                    padding:6px 14px;
+                    font-size:12px;
+                    border-radius:20px;
+                    font-weight:600;">
+                    ALUMNI
+                </span>
+            </div>
+            
+            <div style="padding:22px;">
+                
+                <p style="
+                    color:#7a7a7a;
+                    font-size:15px;
+                    margin-bottom:10px;">
+                    ${date}
+                </p>
+                
+                <h3 style="
+                    font-size:22px;
+                    font-weight:700;
+                    margin-bottom:14px;
+                    color:#222;">
+                    ${post.title}
+                </h3>
+                
+                <p style="
+                    color:#666;
+                    font-size:14px;
+                    line-height:1.5;
+                    margin-bottom:15px;">
+                    ${post.content.substring(0, 100)}...
+                </p>
+                
+                <a href="#" style="
+                    color:#ff6b35;
+                    text-decoration:none;
+                    font-weight:600;
+                    font-size:14px;">
+                    READ MORE
+                </a>
+                
+            </div>
+            `;
+            
+            alumniCard.style.background = "#fff";
+            alumniCard.style.borderRadius = "16px";
+            alumniCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            alumniCard.style.overflow = "hidden";
+            alumniCard.style.transition = "0.3s";
+            
+            alumniCard.addEventListener("mouseenter",()=>{
+                alumniCard.style.transform="translateY(-6px)";
+                alumniCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            alumniCard.addEventListener("mouseleave",()=>{
+                alumniCard.style.transform="translateY(0)";
+                alumniCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            alumniContainer.appendChild(alumniCard);
+        });
+        
+        if(alumniPosts.length === 0){
+            alumniContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-user-graduate" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CIT Alumni Available</h3>
+                <p>Check back soon for CIT alumni updates.</p>
+            </div>
+            `;
+        }
+        
+    } catch(error) {
+        console.error("Error loading CIT alumni:", error);
+        document.getElementById("cit-alumni").innerHTML = `
+        <div style="text-align:center;padding:60px;color:red;">
+            Error loading CIT alumni
+        </div>
+        `;
+    }
+}
+
+// Load CIT faculty and update organizational chart
+function loadCITOrganizationalChart() {
+    try {
+        // Get faculty data from localStorage
+        const facultyData = JSON.parse(localStorage.getItem('facultyData') || '{}');
+        
+        // Filter CIT faculty (engineering and technical positions)
+        const citFaculty = Object.values(facultyData).filter(faculty => 
+            faculty.position && (
+                faculty.position.toLowerCase().includes('dean') ||
+                faculty.position.toLowerCase().includes('assistant dean') ||
+                faculty.position.toLowerCase().includes('professor') ||
+                faculty.position.toLowerCase().includes('instructor') ||
+                faculty.position.toLowerCase().includes('engineer') ||
+                faculty.position.toLowerCase().includes('coordinator')
+            )
+        );
+        
+        console.log('CIT Faculty found:', citFaculty);
+        
+        // Update organizational chart with faculty data
+        updateCITOrganizationalChart(citFaculty);
+        
+    } catch (error) {
+        console.error('Error loading CIT faculty data:', error);
+        // Show fallback content
+        const orgChart = document.getElementById('cit-organizational-chart');
+        if (orgChart) {
+            orgChart.innerHTML = `
+                <div style="text-align: center; padding: 60px; color: #777;">
+                    <i class="fas fa-users" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                    <h3>Organizational Chart Loading...</h3>
+                    <p>Please check back soon for faculty updates.</p>
+                </div>
+            `;
+        }
+    }
+}
+
+// Update CIT organizational chart with faculty data - PRESERVING STRUCTURE
+function updateCITOrganizationalChart(faculty) {
+    try {
+        const orgChart = document.getElementById('cit-organizational-chart');
+        if (!orgChart) return;
+        
+        // Sort faculty by position priority
+        const sortedFaculty = faculty.sort((a, b) => {
+            const priority = {
+                'dean': 1,
+                'assistant dean': 2,
+                'program coordinator': 3,
+                'professor': 4,
+                'associate professor': 5,
+                'assistant professor': 6,
+                'instructor': 7,
+                'engineer': 8
+            };
+            
+            const aPriority = priority[a.position.toLowerCase()] || 999;
+            const bPriority = priority[b.position.toLowerCase()] || 999;
+            
+            return aPriority - bPriority;
+        });
+        
+        // Build organizational chart HTML structure
+        let chartHTML = '';
+        
+        // TOP LEVEL - DEAN
+        const dean = sortedFaculty.find(f => f.position.toLowerCase().includes('dean'));
+        if (dean) {
+            chartHTML += `
+                <!-- TOP LEVEL - DEAN -->
+                <div class="org-level top-level">
+                    <div class="org-box dean-box">
+                        ${dean.image ? `<img src="${dean.image}" alt="Dean" class="org-avatar">` : '<div class="no-image-placeholder" style="display: flex; align-items: center; justify-content: center; height: 100px; color: #999; font-size: 12px;">No Image</div>'}
+                        <div class="org-info">
+                            <h3>${dean.name}</h3>
+                            <p class="org-title">${dean.position}, College of Industrial Technology</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CONNECTION LINES -->
+                <div class="org-connector"></div>
+            `;
+        }
+        
+        // SECOND LEVEL - ASSISTANT DEAN/COORDINATORS
+        const secondLevel = sortedFaculty.filter(f => 
+            f.position.toLowerCase().includes('assistant dean') || 
+            f.position.toLowerCase().includes('coordinator')
+        );
+        
+        if (secondLevel.length > 0) {
+            chartHTML += `
+                <!-- SECOND LEVEL - ASSISTANT DEAN -->
+                <div class="org-level second-level">
+                    <div class="org-row">
+            `;
+            
+            secondLevel.forEach(faculty => {
+                chartHTML += `
+                    <div class="org-box assistant-box">
+                        ${faculty.image ? `<img src="${faculty.image}" alt="${faculty.position}" class="org-avatar">` : '<div class="no-image-placeholder" style="display: flex; align-items: center; justify-content: center; height: 100px; color: #999; font-size: 12px;">No Image</div>'}
+                        <div class="org-info">
+                            <h3>${faculty.name}</h3>
+                            <p class="org-title">${faculty.position}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            chartHTML += `
+                    </div>
+                </div>
+                <!-- CONNECTION LINES -->
+                <div class="org-connector"></div>
+            `;
+        }
+        
+        // THIRD LEVEL - FACULTY & INSTRUCTORS
+        const facultyLevel = sortedFaculty.filter(f => 
+            !f.position.toLowerCase().includes('dean') && 
+            !f.position.toLowerCase().includes('assistant dean') && 
+            !f.position.toLowerCase().includes('coordinator')
+        );
+        
+        if (facultyLevel.length > 0) {
+            chartHTML += `
+                <!-- THIRD LEVEL - FACULTY & INSTRUCTORS -->
+                <div class="org-level third-level">
+                    <div class="org-grid">
+            `;
+            
+            facultyLevel.forEach(faculty => {
+                chartHTML += `
+                    <div class="org-box faculty-box">
+                        ${faculty.image ? `<img src="${faculty.image}" alt="${faculty.position}" class="org-avatar">` : '<div class="no-image-placeholder" style="display: flex; align-items: center; justify-content: center; height: 100px; color: #999; font-size: 12px;">No Image</div>'}
+                        <div class="org-info">
+                            <h3>${faculty.name}</h3>
+                            <p class="org-title">${faculty.position}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            chartHTML += `
+                    </div>
+                </div>
+            `;
+        }
+        
+        // If no faculty found, show empty message instead of fallback image
+        if (chartHTML === '') {
+            chartHTML = `
+                <div style="text-align: center; padding: 60px; color: #777;">
+                    <i class="fas fa-users" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                    <h3>No Faculty Data Available</h3>
+                    <p>Add faculty in the admin dashboard to see them here.</p>
+                </div>
+            `;
+        }
+        
+        // Update the chart
+        orgChart.innerHTML = chartHTML;
+        
+        console.log('CIT Organizational chart updated with faculty data - structure preserved');
+        
+    } catch (error) {
+        console.error('Error updating CIT organizational chart:', error);
+    }
+}
+
+// Load CIT programs from API
+async function loadCITPrograms() {
+    const programsContainer = document.getElementById('cit-programs');
+    if (programsContainer) {
+        try {
+            // Show loading state
+            programsContainer.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin"></i> Loading programs...</div>';
+            
+            // Fetch programs from API with cache-busting
+            const timestamp = new Date().getTime();
+            const response = await fetch(`/api/programs/?college=cit&t=${timestamp}`);
+            
+            if (!response.ok) {
+                throw new Error('Failed to fetch programs');
+            }
+            
+            const data = await response.json();
+            
+            if (data.success && data.programs && data.programs.length > 0) {
+                programsContainer.innerHTML = '';
+                
+                data.programs.forEach(program => {
+                    const programCard = document.createElement('div');
+                    programCard.className = 'program-card';
+                    
+                    const image = program.image || '/static/dashboard/images/pulis.jpg';
+                    const duration = program.duration || '4 years';
+                    const status = program.status || 'active';
+                    
+                    programCard.innerHTML = `
+                        <div class="program-image">
+                            <img src="${image}" alt="${program.title}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+                        </div>
+                        <div class="program-content">
+                            <h3>${program.title}</h3>
+                            <p class="duration"><i class="fas fa-clock"></i> ${duration}</p>
+                            <span class="status-badge ${status}">${status}</span>
+                        </div>
+                    `;
+                    
+                    programsContainer.appendChild(programCard);
+                });
+                
+                console.log('CIT programs loaded successfully');
+            } else {
+                // Show empty state
+                programsContainer.innerHTML = `
+                    <div style="text-align: center; padding: 60px; color: #777;">
+                        <i class="fas fa-graduation-cap" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                        <h3>No Programs Available</h3>
+                        <p>Check back soon for CIT program updates.</p>
+                    </div>
+                `;
+            }
+            
+        } catch (error) {
+            console.error('Error loading CIT programs:', error);
+            programsContainer.innerHTML = `
+                <div style="text-align: center; padding: 60px; color: red;">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 64px; margin-bottom: 20px;"></i>
+                    <h3>Error Loading Programs</h3>
+                    <p>Unable to load programs. Please try again later.</p>
+                </div>
+            `;
+        }
+    }
+}
+
+// Load awards for CIT from CIT admin dashboard localStorage
+function loadCitAwards() {
+    console.log('=== loadCitAwards() function called ===');
+    try {
+        // Get posts specifically from CIT admin dashboard
+        const citPosts = JSON.parse(localStorage.getItem('citAdminPosts') || '[]');
+        console.log('CIT posts for awards:', citPosts);
+        console.log('Number of CIT posts total:', citPosts.length);
+        
+        // Filter award posts
+        const awardPosts = citPosts.filter(post => post.type === 'award').slice(0, 3);
+        console.log('CIT award posts after filtering:', awardPosts);
+        console.log('Number of CIT award posts:', awardPosts.length);
+        
+        const awardsContainer = document.getElementById('cit-awards');
+        console.log('Awards container element:', awardsContainer);
+        
+        if (!awardsContainer) {
+            console.error('ERROR: cit-awards container not found!');
+            return;
+        }
+        
+        awardsContainer.innerHTML = '';
+        
+        awardsContainer.style.display = "grid";
+        awardsContainer.style.gridTemplateColumns = "repeat(3, minmax(320px,1fr))";
+        awardsContainer.style.gap = "30px";
+        
+        if (awardPosts.length === 0) {
+            console.log('No award posts found, showing empty state');
+            awardsContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-trophy" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CIT Awards Available</h3>
+                <p>Check back soon for CIT awards and recognitions.</p>
+                <p style="font-size:12px; color:#999; margin-top:10px;">Debug: Check browser console for award details</p>
+            </div>
+            `;
+            return;
+        }
+        
+        awardPosts.forEach(post => {
+            console.log('=== Processing Award Post ===');
+            console.log('Full post object:', post);
+            
+            const awardCard = document.createElement("div");
+            awardCard.className = "award-card";
+            
+            const date = post.date ? new Date(post.date).toLocaleDateString('en-US',{
+                year:'numeric',
+                month:'long',
+                day:'numeric'
+            }) : "March 09, 2026";
+            
+            const image = post.image ? post.image : "https://via.placeholder.com/600x350/ff6b35/000000?text=CIT+AWARD";
+            
+            awardCard.innerHTML = `
+            <div style="position:relative;">
+                <img src="${image}" 
+                style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;"
+                onerror="this.src='https://via.placeholder.com/600x350/ff6b35/000000?text=CIT+AWARD'; console.log('Image failed to load, using fallback');">
+                
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    background:#ff6b35;
+                    color:#fff;
+                    padding:6px 14px;
+                    font-size:12px;
+                    border-radius:20px;
+                    font-weight:600;">
+                    AWARD
+                </span>
+            </div>
+            
+            <div style="padding:22px;">
+                <p style="
+                    color:#7a7a7a;
+                    font-size:15px;
+                    margin-bottom:10px;">
+                    ${date}
+                </p>
+                
+                <h3 style="
+                    font-size:22px;
+                    font-weight:700;
+                    margin-bottom:14px;
+                    color:#222;">
+                    ${post.title}
+                </h3>
+                
+                <p style="
+                    color:#666;
+                    font-size:14px;
+                    line-height:1.5;
+                    margin-bottom:15px;">
+                    ${post.content.substring(0, 100)}...
+                </p>
+                
+                <a href="#" style="
+                    color:#ff6b35;
+                    text-decoration:none;
+                    font-weight:600;
+                    font-size:14px;">
+                    READ MORE
+                </a>
+            </div>
+            `;
+            
+            awardCard.style.background = "#fff";
+            awardCard.style.borderRadius = "16px";
+            awardCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            awardCard.style.overflow = "hidden";
+            awardCard.style.transition = "0.3s";
+            
+            awardCard.addEventListener("mouseenter",()=>{
+                awardCard.style.transform="translateY(-6px)";
+                awardCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            awardCard.addEventListener("mouseleave",()=>{
+                awardCard.style.transform="translateY(0)";
+                awardCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            awardsContainer.appendChild(awardCard);
+        });
+        
+    } catch(error) {
+        console.error("Error loading CIT awards:", error);
+        const awardsContainer = document.getElementById("cit-awards");
+        if (awardsContainer) {
+            awardsContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:red;">
+                Error loading CIT awards
+            </div>
+            `;
+        }
+    }
+}
+
+// Load facilities for CIT from Database API
+async function loadCitFacilities() {
+    try {
+        console.log('=== CIT FACILITIES FROM API ===');
+        const container = document.getElementById('cit-facilities');
+        if (!container) return;
+
+        // Fetch facilities from API specifically for CIT
+        const response = await fetch('/api/facilities/?college=cit');
+        const data = await response.json();
+        
+        if (data.success && data.facilities) {
+            const facilities = data.facilities;
+            console.log(`Loaded ${facilities.length} facilities for CIT`);
+            
+            if (facilities.length === 0) {
+                container.innerHTML = `
+                <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                    <i class="fas fa-building" style="font-size:64px;margin-bottom:20px;opacity:0.5;"></i>
+                    <h3>No CIT Facilities Available</h3>
+                    <p>Add facilities in the CIT admin dashboard to see them here.</p>
+                </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = "";
+            container.style.display = "grid";
+            container.style.gridTemplateColumns = "repeat(3, 1fr)";
+            container.style.gap = "40px";
+
+            facilities.forEach(facility => {
+                const facilityCard = document.createElement("div");
+                facilityCard.className = "cit-facility-card";
+                
+                // Use facility image or default fallback
+                let facilityImage = facility.image || "/static/dashboard/images/pulis.jpg";
+                
+                facilityCard.innerHTML = `
+                <div class="cit-facility-image-wrapper">
+                    <div class="cit-facility-badge">${facility.name}</div>
+                    <img src="${facilityImage}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+                </div>
+                `;
+                
+                container.appendChild(facilityCard);
+            });
+        }
+    } catch(error) {
+        console.error("Error loading CIT facilities:", error);
+    }
+}
+
+// Add debug function for CIT facilities
+window.debugCITFacilities = function() {
+    console.log('=== CIT FACILITIES DEBUG ===');
+    
+    // Check all localStorage keys
+    console.log('All localStorage keys:', Object.keys(localStorage));
+    
+    // Check facility data locations
+    const facilityData = JSON.parse(localStorage.getItem('facilityData') || '{}');
+    console.log('General facilityData:', Object.keys(facilityData).length, 'entries');
+    if (Object.keys(facilityData).length > 0) {
+        console.log('General facilities:', facilityData);
+    }
+    
+    const citFacilityData = JSON.parse(localStorage.getItem('citFacilityData') || '{}');
+    console.log('CIT facilityData:', Object.keys(citFacilityData).length, 'entries');
+    if (Object.keys(citFacilityData).length > 0) {
+        console.log('CIT facilities:', citFacilityData);
+    }
+    
+    // Check other college facility data
+    const colleges = ['cas', 'cba', 'caf', 'ccje', 'cted'];
+    colleges.forEach(col => {
+        const data = JSON.parse(localStorage.getItem(`${col}FacilityData`) || '{}');
+        if (Object.keys(data).length > 0) {
+            console.log(`${col.toUpperCase()} facilityData:`, Object.keys(data).length, 'entries');
+        }
+    });
+    
+    console.log('=== END DEBUG ===');
+};
+
+// Load all CIT content when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadCitLatestPosts();
+    loadCitAlumni();
+    loadCITPrograms();
+    loadCitAwards();
+    loadCitFacilities();
+    loadCITOrganizationalChart();
+    
+    // Listen for storage changes to auto-refresh when data is updated
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'citProgramsUpdated') {
+            console.log('CIT Programs updated, refreshing...');
+            loadCITPrograms();
+        }
+        if (e.key === 'citFacultyUpdated') {
+            console.log('CIT Faculty updated, refreshing...');
+            loadCITOrganizationalChart();
+        }
+    });
+    
+    // Refresh data every 30 seconds to get updates from admin dashboard
+    setInterval(() => {
+        loadCitLatestPosts();
+        loadCitAlumni();
+        loadCITPrograms();
+        loadCitAwards();
+        loadCitFacilities();
+        loadCITOrganizationalChart();
+    }, 30000);
+});
+
+</script>
+
+<!-- Floating Arrow Button -->
+<div class="floating-arrow" id="floatingArrow" onclick="scrollToTop()">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<style>
+/* Floating Arrow Button */
+.floating-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #007fff, #0056b3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 127, 255, 0.3);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  pointer-events: none;
+}
+
+.floating-arrow.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-arrow:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  box-shadow: 0 4px 12px rgba(0, 127, 255, 0.4);
+  transform: translateY(-1px) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.floating-arrow i {
+  font-size: 14px;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+}
+
+.floating-arrow.visible i {
+  transform: rotate(0deg);
+}
+
+.floating-arrow:hover i {
+  transform: translateY(-1px) rotate(5deg);
+  transition: all 0.3s ease;
+}
+</style>
+
+<script>
+// Floating Arrow functionality
+const floatingArrow = document.getElementById('floatingArrow');
+let lastScrollTop = 0;
+
+// Show/hide arrow based on scroll position - trigger at PROGRAMS OFFERED section
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // Get the PROGRAMS OFFERED section position
+  const programsSection = document.getElementById('programs-section');
+  if (programsSection) {
+    const programsTop = programsSection.offsetTop;
+    
+    // Show arrow when user scrolls past the PROGRAMS OFFERED section
+    if (scrollTop > programsTop - 100) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  } else {
+    // Fallback: use fixed pixel value if section not found
+    if (scrollTop > 800) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  }
+  
+  lastScrollTop = scrollTop;
+});
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
+{% include 'dashboard/footer.html' %}
 {% endblock %}
+
+</body>
+</html>

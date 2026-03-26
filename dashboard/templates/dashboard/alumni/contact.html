@@ -1,0 +1,410 @@
+{% extends 'dashboard/alumni/base.html' %}
+
+{% block title %}Contact Us - NORSU-BSC Alumni Network{% endblock %}
+
+{% block content %}
+
+<style>
+/* Contact Page Styles */
+.contact-hero {
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.95) 0%, rgba(95, 168, 211, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80') center/cover fixed;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.hero-title {
+    color: white;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.hero-subtitle {
+    color: rgba(255,255,255,0.95);
+    font-size: 1.2rem;
+}
+
+.contact-container {
+    padding: 4rem 0;
+    background: #F0F8FF;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.contact-form-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.section-title {
+    color: #1e3a5f;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    color: #1e3a5f;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #87CEEB;
+    box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.1);
+}
+
+.form-textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #87CEEB 0%, #5fa8d3 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(135, 206, 235, 0.4);
+}
+
+.contact-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(135, 206, 235, 0.2);
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-title {
+    color: #1e3a5f;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.info-text {
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.info-text a {
+    color: #87CEEB;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.info-text a:hover {
+    text-decoration: underline;
+}
+
+.map-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 3rem;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, #F0F8FF 0%, #e6f3ff 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #4a5568;
+}
+
+.map-placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.officers-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.officers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.officer-card {
+    text-align: center;
+    padding: 2rem;
+    background: #F0F8FF;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.officer-card:hover {
+    transform: translateY(-5px);
+    background: #e6f3ff;
+}
+
+.officer-photo {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #87CEEB 0%, #5fa8d3 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
+}
+
+.officer-name {
+    color: #1e3a5f;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.officer-position {
+    color: #87CEEB;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.officer-details {
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .officers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<section class="contact-hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-icon">📞</div>
+            <h1 class="hero-title">Get In Touch</h1>
+            <p class="hero-subtitle">We'd love to hear from you! Reach out to us anytime</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact-container">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+                <h2 class="section-title">Send Us a Message</h2>
+                
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-error{% endif %}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                
+                <form method="post" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="form-label">Your Name *</label>
+                        <input type="text" name="name" class="form-input" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" name="email" class="form-input" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Subject *</label>
+                        <input type="text" name="subject" class="form-input" placeholder="How can we help?" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Message *</label>
+                        <textarea name="message" class="form-textarea" placeholder="Tell us more..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="contact-info-section">
+                <div class="info-card">
+                    <div class="info-icon">📧</div>
+                    <h3 class="info-title">Email Us</h3>
+                    <p class="info-text">
+                        <a href="mailto:alumni@norsu.edu.ph">alumni@norsu.edu.ph</a><br>
+                        We'll respond within 24-48 hours
+                    </p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">📞</div>
+                    <h3 class="info-title">Call Us</h3>
+                    <p class="info-text">
+                        <a href="tel:+631234567890">+63 123 456 7890</a><br>
+                        Monday - Friday, 8:00 AM - 5:00 PM
+                    </p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <h3 class="info-title">Visit Us</h3>
+                    <p class="info-text">
+                        Negros Oriental State University<br>
+                        Bayawan-Santa Catalina Campus<br>
+                        Negros Oriental, Philippines
+                    </p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">🌐</div>
+                    <h3 class="info-title">Follow Us</h3>
+                    <p class="info-text">
+                        <a href="https://facebook.com" target="_blank">Facebook</a> •
+                        <a href="https://twitter.com" target="_blank">Twitter</a> •
+                        <a href="https://linkedin.com" target="_blank">LinkedIn</a> •
+                        <a href="https://instagram.com" target="_blank">Instagram</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Alumni Officers -->
+        {% if officers %}
+        <div class="officers-section">
+            <h2 class="section-title">Alumni Association Officers</h2>
+            <div class="officers-grid">
+                {% for officer in officers %}
+                <div class="officer-card">
+                    <div class="officer-photo">
+                        {% if officer.photo_url %}
+                        <img src="{{ officer.photo_url }}" alt="{{ officer.name }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                        {% else %}
+                        {{ officer.name|first }}
+                        {% endif %}
+                    </div>
+                    <h3 class="officer-name">{{ officer.name }}</h3>
+                    <p class="officer-position">{{ officer.get_position_display }}</p>
+                    <p class="officer-details">Class of {{ officer.batch_year }}</p>
+                    {% if officer.email %}
+                    <p class="officer-details"><a href="mailto:{{ officer.email }}">{{ officer.email }}</a></p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

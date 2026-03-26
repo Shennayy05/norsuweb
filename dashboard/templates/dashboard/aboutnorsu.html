@@ -1,0 +1,853 @@
+{% extends 'dashboard/base.html' %}
+
+{% load static %}
+
+{% block header %}
+    <!-- Removed header for About page -->
+{% endblock %}
+
+{% block title %}About NORSU - Negros Oriental State University{% endblock %}
+
+{% block extra_css %}
+<style>
+:root{
+    --about-bg: #f6f8fb;
+    --about-card: #ffffff;
+    --about-border: rgba(0,0,0,.08);
+    --about-text: #1f2937;
+    --about-muted: #6b7280;
+    --about-primary: #0b8a2a;
+    --about-primary-2: #057a55;
+    --about-shadow: 0 14px 36px rgba(0,0,0,.10);
+}
+
+.about-page {
+    padding: 0 0 64px;
+    background: #ffffff;
+}
+
+.about-container{
+    max-width: 5500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-hero{
+    width: 100%;
+    border-radius: 0;
+    background: #87ceeb ;
+    border: none;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.about-hero-inner{
+    padding: 150px 100px 100px;
+    text-align: center;
+    max-width: 2200px;
+    margin: 0 auto;
+}
+
+.about-kicker{
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(11,138,42,.08);
+    border: 1px solid rgba(11,138,42,.18);
+    color: var(--about-primary);
+    font-weight: 700;
+    letter-spacing: .3px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.hero-title{
+    margin: 0 auto;
+    font-size: clamp(32px, 3.2vw, 52px);
+    color: #f8f8ff;
+    font-weight: 900;
+    line-height: 1.08;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    text-align: center;
+}
+
+.hero-subtitle{
+    margin: 0 auto;
+    max-width: 760px;
+    font-size: 50px;
+    color: #f8f8ff;
+    line-height: 1.65;
+}
+
+.about-actions{
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about-btn{
+    appearance: none;
+    border: 1px solid var(--about-border);
+    background: #fff;
+    color: var(--about-text);
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.about-btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,.10); }
+.about-btn.primary{
+    background: linear-gradient(135deg, var(--about-primary), var(--about-primary-2));
+    color: #fff;
+    border-color: transparent;
+}
+
+.about-nav{
+    margin-top: 16px;
+    position: sticky;
+    top: 10px;
+    z-index: 2;
+}
+
+.about-nav-inner{
+    background: rgba(255,255,255,.84);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--about-border);
+    border-radius: 16px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.08);
+    padding: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.about-pill{
+    padding: 8px 12px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 1000;
+    font-size: 100px;
+    color: var(--about-muted);
+    border: 1px solid transparent;
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.about-pill:hover{ background: rgba(11,138,42,.08); color: var(--about-primary); }
+.about-pill.active{ background: rgba(11,138,42,.10); color: var(--about-primary); border-color: rgba(11,138,42,.20); }
+
+.about-grid{
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-card{
+    background: var(--about-card);
+    border: 1px solid var(--about-border);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.about-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+    border-color: var(--about-primary);
+}
+
+.about-card.full{ 
+    padding: 24px;
+}
+
+.about-card h2{
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: var(--about-text);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.about-card h2 i{ color: var(--about-primary); }
+
+.about-card p{
+    margin: 0;
+    color: var(--about-muted);
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+.about-meta{
+    margin-top: 14px;
+    text-align: center;
+    color: var(--about-muted);
+    font-size: 13px;
+}
+
+.loading, .loading-state, .error-state{
+    text-align: center;
+    padding: 42px 12px;
+    color: var(--about-muted);
+}
+.loading i, .loading-state i{
+    font-size: 44px;
+    margin-bottom: 14px;
+    color: #0ea5e9;
+}
+.error-state i{
+    font-size: 44px;
+    margin-bottom: 14px;
+    color: #f59e0b;
+}
+.refresh-btn{
+    margin-top: 12px;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-weight: 800;
+    border: 1px solid var(--about-border);
+    background: #fff;
+    cursor: pointer;
+}
+.refresh-btn:hover{ box-shadow: 0 10px 22px rgba(0,0,0,.10); }
+
+/* University president section */
+.president-section{
+    margin: -80px auto 40px;
+    max-width: 920px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 22px 45px rgba(15,23,42,.28);
+    border: 1px solid rgba(15,23,42,.04);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px 24px 26px;
+    gap: 22px;
+}
+.president-photo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    max-width: 300px;
+}
+.president-photo img{
+    width: 100%;
+    max-width: 260px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.40);
+    object-fit: cover;
+}
+.president-info{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+.president-role{
+    font-size: 16px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #6b7280;
+    font-weight: 700;
+}
+.president-name{
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin: 0;
+    color: #111827;
+}
+.president-name span{
+    display: inline-block;
+}
+.president-caption{
+    margin-top: 8px;
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.6;
+}
+@media (max-width: 900px){
+    .president-section{
+        grid-template-columns: minmax(0,1fr);
+    }
+    .president-info{
+        padding: 20px 20px 24px;
+    }
+}
+
+/* About content background section */
+.about-content{
+    margin: 24px auto 0;
+    max-width: 1800px;
+    padding: 100px 80px;
+    border-radius: 0;
+    background-attachment: fixed;
+    background-image:
+        linear-gradient(rgba(20, 175, 209, 0.78)),
+        url("{% static 'dashboard/images/theater.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #f9fafb;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.about-row{
+    display: grid;
+    grid-template-columns: minmax(0,260px) minmax(0,1fr);
+    column-gap: 60px;
+    align-items: flex-start;
+}
+
+.about-label h2{
+    color: #ffffff;
+    font-weight: 1000;
+    margin: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.about-text p{
+    color: #e5e7eb;
+    line-height: 1.8;
+    font-size: 18px;
+    margin: 0;
+}
+
+/* NORSU History section */
+.history-section{
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 0 16px 60px;
+}
+.history-grid{
+    display: grid;
+    grid-template-columns: minmax(0,320px) minmax(0,1fr);
+    column-gap: 60px;
+    row-gap: 24px;
+    align-items: flex-start;
+}
+.history-left h2{
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #007fff;
+    margin: 0 0 6px;
+}
+.history-left p{
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+.history-right p{
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+.history-download{
+    margin-top: 18px;
+}
+.history-download a{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid #047857;
+    color: #047857;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+.history-download a:hover{
+    background: #047857;
+    color: #ffffff;
+}
+
+@media (max-width: 900px){
+    .about-content{
+        padding: 60px 20px;
+    }
+    .about-row{
+        grid-template-columns: minmax(0,1fr);
+        row-gap: 8px;
+    }
+    .about-label h2{
+        font-size: 18px;
+    }
+    .history-grid{
+        grid-template-columns: minmax(0,1fr);
+        row-gap: 12px;
+    }
+}
+
+@media (max-width: 900px){
+    .about-card{ grid-column: 1 / -1; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="about-page">
+    <div class="about-container">
+        <section class="about-hero" id="hero-section">
+            <div class="about-hero-inner">
+                
+                <h1 class="hero-title">About NORSU</h1>
+             
+                
+        </section>
+
+        <section class="president-section" aria-labelledby="president-heading">
+            <div class="president-photo">
+                <img id="presidentPhotoImg" src="{% static 'dashboard/images/pres.png' %}" data-default-src="{% static 'dashboard/images/pres.png' %}" alt="University President portrait">
+            </div>
+            <div class="president-info">
+                <div class="president-role" id="presidentRole">Loading...</div>
+                <h2 class="president-name" id="president-heading">
+                    <span id="presidentName">Loading...</span>
+                </h2>
+            </div>
+        </section>
+
+        <section class="about-content" id="contentArea" aria-live="polite">
+            <div class="about-row" id="general-mandate">
+                <div class="about-label">
+                    <h2>General Mandate</h2>
+                </div>
+                <div class="about-text">
+                    <p data-field="generalMandate"></p>
+                </div>
+            </div>
+            
+            <div class="about-row" id="vision">
+                <div class="about-label">
+                    <h2>Vision</h2>
+                </div>
+                <div class="about-text">
+                    <p data-field="vision"></p>
+                </div>
+                </div>
+           
+            <div class="about-row" id="mission">
+                <div class="about-label">
+                    <h2>Mission</h2>
+                </div>
+                <div class="about-text">
+                    <p data-field="mission"></p>
+                </div>
+            </div>
+            <div class="about-row" id="strategic-goals">
+                <div class="about-label">
+                    <h2>Strategic Goals</h2>
+                </div>
+                <div class="about-text">
+                    <p data-field="strategicGoals"></p>
+                </div>
+            </div>
+            <div class="about-row" id="core-values">
+                <div class="about-label">
+                    <h2>Core Values</h2>
+                </div>
+                <div class="about-text">
+                    <p data-field="coreValues"></p>
+                </div>
+            </div>
+            <div class="about-row" id="quality-policy">
+                <div class="about-label">
+                    <h2>Quality Policy</h2>
+                </div>
+                <div class="about-text">
+                    <p data-field="qualityPolicy"></p>
+                </div>
+            </div>
+            
+            <!-- Download Button inside About Content -->
+            <div class="about-row" style="text-align: center; margin-top: 20px;">
+                <div style="width: 100%; text-align: center;">
+                    <a href="#" onclick="downloadNORSUPDF()" class="download-btn" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; background: linear-gradient(135deg, #0078d4, #005a9e); color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 18px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);">
+                        <i class="fas fa-download"></i>
+                        Download NORSU (pdf)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="history-section" id="norsu-history">
+            <div class="history-grid">
+                <div class="history-left">
+                    <h2>NORSU HISTORY</h2>
+                </div>
+                <div class="history-right">
+                    <p id="norsu-history-content">
+                        Loading history content...
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<script src="{% static 'dashboard/js/aboutnorsu.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+// Load University Information from localStorage (connected to admin dashboard)
+function loadUniversityInfo() {
+    try {
+        console.log('Loading university information from localStorage...');
+        
+        // Load President Profile from localStorage
+        const presidentData = JSON.parse(localStorage.getItem('superAdminPresidentInfo') || 'null');
+        console.log('President data from localStorage:', presidentData);
+        
+        if (presidentData) {
+            // Update president information
+            const presidentName = document.getElementById('presidentName');
+            const presidentRole = document.getElementById('presidentRole');
+            const presidentPhoto = document.getElementById('presidentPhotoImg');
+            
+            if (presidentName) presidentName.textContent = presidentData.name || 'Loading...';
+            if (presidentRole) presidentRole.textContent = presidentData.role || 'University President';
+            if (presidentPhoto) {
+                const defaultSrc = presidentPhoto.getAttribute('data-default-src') || presidentPhoto.src;
+                presidentPhoto.onerror = function() {
+                    presidentPhoto.onerror = null;
+                    presidentPhoto.src = defaultSrc;
+                };
+
+                if (presidentData.image) {
+                    presidentPhoto.src = presidentData.image;
+                } else {
+                    presidentPhoto.src = defaultSrc;
+                }
+            }
+        }
+        
+        // Load University Information from localStorage
+        const infoData = JSON.parse(localStorage.getItem('superAdminNORSUInfo') || '[]');
+        console.log('University info from localStorage:', infoData);
+        
+        if (infoData && infoData.length > 0) {
+            // Get the latest info (first item or most recent)
+            const info = infoData[infoData.length - 1];
+            console.log('Using university info:', info);
+            
+            // Update all university information fields
+            const fields = {
+                'generalMandate': info.generalMandate,
+                'vision': info.vision,
+                'mission': info.mission,
+                'strategicGoals': info.strategicGoals,
+                'coreValues': info.coreValues,
+                'qualityPolicy': info.qualityPolicy
+            };
+            
+            Object.keys(fields).forEach(fieldId => {
+                const element = document.querySelector(`[data-field="${fieldId}"]`);
+                if (element && fields[fieldId]) {
+                    element.textContent = fields[fieldId];
+                }
+            });
+        }
+        
+        // Load NORSU History from localStorage
+        const historyData = JSON.parse(localStorage.getItem('superAdminHistoryInfo') || 'null');
+        console.log('History data from localStorage:', historyData);
+        
+        if (historyData && historyData.body) {
+            const historyContent = document.getElementById('norsu-history-content');
+            if (historyContent) {
+                historyContent.textContent = historyData.body;
+            }
+        }
+        
+    } catch (error) {
+        console.error('Error loading university information:', error);
+        
+        // Fallback to default values
+        const presidentName = document.getElementById('presidentName');
+        const presidentRole = document.getElementById('presidentRole');
+        const historyContent = document.getElementById('norsu-history-content');
+        
+        if (presidentName) presidentName.textContent = 'DR. NOEL MARJON E. YASI';
+        if (presidentRole) presidentRole.textContent = 'University President';
+        if (historyContent) historyContent.textContent = 'History content will be updated soon.';
+    }
+}
+
+// Listen for storage changes (real-time updates from admin dashboard)
+function setupStorageListener() {
+    window.addEventListener('storage', function(e) {
+        console.log('Storage changed:', e.key);
+        
+        if (e.key === 'superAdminPresidentInfo' || 
+            e.key === 'superAdminNORSUInfo' || 
+            e.key === 'superAdminHistoryInfo') {
+            console.log('University data updated in admin, refreshing page...');
+            loadUniversityInfo();
+        }
+    });
+    
+    // Also listen for custom events from admin dashboard
+    window.addEventListener('norsuDataUpdated', function() {
+        console.log('NORSU data updated event received');
+        loadUniversityInfo();
+    });
+}
+
+// Load university information when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadUniversityInfo();
+    setupStorageListener();
+    
+    // Refresh data every 30 seconds (shorter interval for real-time updates)
+    setInterval(loadUniversityInfo, 30000);
+});
+
+// Manual refresh function
+function refreshUniversityInfo() {
+    loadUniversityInfo();
+}
+</script>
+<script>
+function downloadNORSUPDF() {
+    try {
+        // Check if jsPDF is loaded
+        if (typeof window.jspdf === 'undefined') {
+            alert('PDF library is loading. Please try again in a moment.');
+            return;
+        }
+        
+        const { jsPDF } = window.jspdf;
+        
+        // Create new PDF document
+        const doc = new jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'a4'
+        });
+        
+        // Set font
+        doc.setFont('helvetica');
+        
+        // Add title
+        doc.setFontSize(20);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Negros Oriental State University (NORSU)', 20, 30);
+        
+        // Add subtitle
+        doc.setFontSize(16);
+        doc.setFont('helvetica', 'normal');
+        doc.text('University Information', 20, 45);
+        
+        // Add line separator
+        doc.setDrawColor(0, 120, 212);
+        doc.setLineWidth(0.5);
+        doc.line(20, 50, 190, 50);
+        
+        let yPosition = 60;
+        
+        // Add General Mandate
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('General Mandate:', 20, yPosition);
+        yPosition += 10;
+        
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        const mandateText = 'The general mandate of Negros Oriental State University is expressed in Section 2 of Republic Act 9299 herein quoted as follows: "The University shall primarily provide advanced education, higher technological, professional instruction and training in the fields of arts, sciences, education, commerce, agriculture and forestry, and fishery and other related fields of study. It shall also promote research and extension services and provide progressive leadership in its areas of specialization." Quoted hereunder, Section 3 of RA 9299 provides for the curricular offerings of the State University, to wit: "The University shall offer undergraduate and graduate studies in the fields of arts and sciences, philosophy, literature, mass communication, teacher education, agriculture and forestry, fishery, engineering and architecture, maritime education, industrial and information technology, hotel, and restaurant management, tourism, public health, criminology, volcanology/geology, public administration, business and accountancy, law, medicine, nontraditional courses and other degrees within its areas of specialization and according to its capabilities as the Board of Regents may deem necessary to carry out its objectives, particularly to meet the needs of the province of Negros Oriental and the region." In addition to this, the law provides that "The University shall maintain and operate a laboratory high school if it has a College of Education. Otherwise, the existing laboratory high school shall be allowed to remain and operate until the existing students shall have completed their high school education." In so far as administration is concerned, the law provides that "the University shall have the general powers of a corporation set forth in Batas Pambansa Blg. 68, as amended, otherwise known as "The Corporation Code of the Philippines." The administration of the University and the exercise of its corporate powers shall be vested exclusively in the Board of Regents and the President of the University insofar as authorized by the Board.';
+        
+        // Check if we need a new page
+        if (yPosition > 200) {
+            doc.addPage();
+            yPosition = 30;
+        }
+        
+        const mandateLines = doc.splitTextToSize(mandateText, 170);
+        mandateLines.forEach(line => {
+            if (yPosition > 270) {
+                doc.addPage();
+                yPosition = 30;
+            }
+            doc.text(line, 20, yPosition);
+            yPosition += 6;
+        });
+        
+        yPosition += 10;
+        
+        // Check if we need a new page for Vision
+        if (yPosition > 250) {
+            doc.addPage();
+            yPosition = 30;
+        }
+        
+        // Add Vision
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Vision:', 20, yPosition);
+        yPosition += 10;
+        
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        doc.text('A globally recognized state university.', 20, yPosition);
+        yPosition += 15;
+        
+        // Add Mission
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Mission:', 20, yPosition);
+        yPosition += 10;
+        
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        const missionText = 'Negros Oriental State University delivers global excellence through advanced instruction, impactful research, and sustainable extension, with strategic partnerships and modern infrastructure shaping effective leaders to serve the Philippine society and the world.';
+        const missionLines = doc.splitTextToSize(missionText, 170);
+        missionLines.forEach(line => {
+            if (yPosition > 270) {
+                doc.addPage();
+                yPosition = 30;
+            }
+            doc.text(line, 20, yPosition);
+            yPosition += 6;
+        });
+        
+        yPosition += 10;
+        
+        // Add Strategic Goals
+        if (yPosition > 250) {
+            doc.addPage();
+            yPosition = 30;
+        }
+        
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Strategic Goals:', 20, yPosition);
+        yPosition += 10;
+        
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        const goals = [
+            'A - Achieve global recognition by program excellence',
+            'S - Strengthen research through impactful innovation',
+            'P - Promote enhanced community extension services',
+            'I - Integrate partnerships and international relations',
+            'R - Revitalize infrastructure with operational systems',
+            'E - Enrich student life and leadership opportunities'
+        ];
+        
+        goals.forEach(goal => {
+            if (yPosition > 270) {
+                doc.addPage();
+                yPosition = 30;
+            }
+            doc.text(goal, 25, yPosition);
+            yPosition += 6;
+        });
+        
+        yPosition += 10;
+        
+        // Add Core Values
+        if (yPosition > 250) {
+            doc.addPage();
+            yPosition = 30;
+        }
+        
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Core Values:', 20, yPosition);
+        yPosition += 10;
+        
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        const values = [
+            'S - Spirituality',
+            'H - Honesty',
+            'I - Innovation',
+            'N - Nurturance',
+            'E - Excellence'
+        ];
+        
+        values.forEach(value => {
+            if (yPosition > 270) {
+                doc.addPage();
+                yPosition = 30;
+            }
+            doc.text(value, 25, yPosition);
+            yPosition += 6;
+        });
+        
+        yPosition += 10;
+        
+        // Add Quality Policy
+        if (yPosition > 250) {
+            doc.addPage();
+            yPosition = 30;
+        }
+        
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Quality Policy:', 20, yPosition);
+        yPosition += 10;
+        
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        const policyText = 'Negros Oriental State University commits to delivering quality instruction, research, extension and production. We ensure compliance with all statutory and regulatory requirements and continuously work to improve our management system to meet our quality objectives.';
+        const policyLines = doc.splitTextToSize(policyText, 170);
+        policyLines.forEach(line => {
+            if (yPosition > 270) {
+                doc.addPage();
+                yPosition = 30;
+            }
+            doc.text(line, 20, yPosition);
+            yPosition += 6;
+        });
+        
+        // Add footer
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'italic');
+        doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, 280);
+        
+        // Save the PDF
+        doc.save('NORSU_Information.pdf');
+        
+        // Show success message
+        setTimeout(() => {
+            alert('NORSU PDF downloaded successfully!');
+        }, 500);
+        
+    } catch (error) {
+        console.error('PDF generation error:', error);
+        alert('There was an error generating the PDF. Please try again.');
+    }
+}
+
+
+</script>
+
+
+{% endblock %}

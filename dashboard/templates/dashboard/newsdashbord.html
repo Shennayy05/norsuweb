@@ -1,8 +1,8 @@
-{% extends 'dashboard/base_simple.html' %}
+{% extends 'dashboard/base.html' %}
 
 {% load static %}
 
-{% block title %}College of Teacher Education - NORSU{% endblock %}
+{% block title %}News and Announcements - NORSU{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'dashboard/css/navbar.css' %}">
@@ -12,23 +12,21 @@
 
 {% block content %}
 
-{% include 'dashboard/navbar.html' %}
-
 <div class="page">
 
     <div class="layout">
 
         <!-- LEFT COLUMN -->
-        <main class="column scrollable">
+        <main class="column scrollable" id="main-content-column">
+            <div id="content-news-full">
+                <!-- Pagination -->
+                <div class="news-header swap-trigger-main" onclick="swapSection('achievements')">
+                  <h1>NORSU BSC NEWS AND ANNOUNCEMENT</h1>
+                  <p>Latest News</p>
+                </div>
 
-            <!-- Pagination -->
-            <div class="tile">
-              <h1>NORSU BSC NEWS AND ANNOUNCEMENT</h1>
-              <p>Latest News</p>
-            </div>
-
-            <!-- Dynamic Posts from Database -->
-            {% for post in posts %}
+                <!-- Dynamic Posts from Database -->
+            {% for post in general_posts %}
             <article class="news">
                 <div class="image-box">
                     {% if post.image %}
@@ -58,6 +56,99 @@
                 </div>
             </article>
             {% endfor %}
+            
+            {% for post in event_posts %}
+            <article class="news">
+                <div class="image-box">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    {% else %}
+                        <img src="{% static 'dashboard/images/default-news.jpg' %}" alt="{{ post.title }}">
+                    {% endif %}
+                </div>
+
+                <div class="content">
+                    <div class="date">📅 {{ post.created_at|date:"F d, Y" }}
+                        <span style="background: #e74c3c; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">{{ post.category|upper }}</span>
+                    </div>
+                    <h2>{{ post.title }}</h2>
+                    <p>
+                        {% if post.content|length > 200 %}
+                            {{ post.content|slice:":200" }}...
+                        {% else %}
+                            {{ post.content }}
+                        {% endif %}
+                    </p>
+
+                    <div class="footer">
+                        <a href="#" class="read" data-post-id="{{ post.id }}" onclick="viewFullPost(this.getAttribute('data-post-id')); return false;">READ MORE →</a>
+                        <span class="share">f&nbsp;&nbsp;Share</span>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+            
+            {% for post in academic_posts %}
+            <article class="news">
+                <div class="image-box">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    {% else %}
+                        <img src="{% static 'dashboard/images/default-news.jpg' %}" alt="{{ post.title }}">
+                    {% endif %}
+                </div>
+
+                <div class="content">
+                    <div class="date">📅 {{ post.created_at|date:"F d, Y" }}
+                        <span style="background: #27ae60; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">{{ post.category|upper }}</span>
+                    </div>
+                    <h2>{{ post.title }}</h2>
+                    <p>
+                        {% if post.content|length > 200 %}
+                            {{ post.content|slice:":200" }}...
+                        {% else %}
+                            {{ post.content }}
+                        {% endif %}
+                    </p>
+
+                    <div class="footer">
+                        <a href="#" class="read" data-post-id="{{ post.id }}" onclick="viewFullPost(this.getAttribute('data-post-id')); return false;">READ MORE →</a>
+                        <span class="share">f&nbsp;&nbsp;Share</span>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+            
+            {% for post in sports_posts %}
+            <article class="news">
+                <div class="image-box">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    {% else %}
+                        <img src="{% static 'dashboard/images/default-news.jpg' %}" alt="{{ post.title }}">
+                    {% endif %}
+                </div>
+
+                <div class="content">
+                    <div class="date">📅 {{ post.created_at|date:"F d, Y" }}
+                        <span style="background: #f39c12; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">{{ post.category|upper }}</span>
+                    </div>
+                    <h2>{{ post.title }}</h2>
+                    <p>
+                        {% if post.content|length > 200 %}
+                            {{ post.content|slice:":200" }}...
+                        {% else %}
+                            {{ post.content }}
+                        {% endif %}
+                    </p>
+
+                    <div class="footer">
+                        <a href="#" class="read" data-post-id="{{ post.id }}" onclick="viewFullPost(this.getAttribute('data-post-id')); return false;">READ MORE →</a>
+                        <span class="share">f&nbsp;&nbsp;Share</span>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
 
             <!-- Static News Item -->
             <article class="news">
@@ -66,7 +157,7 @@
                 </div>
 
                 <div class="content">
-                    <div class="date">📅 October 23, 2025</div>
+                    <div class="date">📅 February 23, 2025</div>
                     <h2>Higalaay sa NORSU- BSC </h2>
                     <p>
                         NORSU -BSC Gathered for the higalaay sa norsu/ acquintance party 2025 
@@ -74,7 +165,7 @@
                     </p>
 
                     <div class="footer">
-                        <a href="/news1/#news1" class="read">READ MORE →</a>
+                        <a href="#" class="read" onclick="viewStaticNews('news1'); return false;">READ MORE →</a>
                         <span class="share">f&nbsp;&nbsp;Share</span>
                     </div>
                 </div>
@@ -96,7 +187,7 @@
                     </p>
 
                     <div class="footer">
-                        <a href="/news1/#news2" class="read">READ MORE →</a>
+                        <a href="#" class="read" onclick="viewStaticNews('news2'); return false;">READ MORE →</a>
                         <span class="share">f&nbsp;&nbsp;Share</span>
                     </div>
                 </div>
@@ -117,7 +208,7 @@
                     </p>
 
                     <div class="footer">
-                        <a href="/news1/#news3" class="read">READ MORE →</a>
+                        <a href="#" class="read" onclick="viewStaticNews('news3'); return false;">READ MORE →</a>
                         <span class="share">f&nbsp;&nbsp;Share</span>
                     </div>
                 </div>
@@ -138,86 +229,258 @@
                     </p>
 
                     <div class="footer">
-                        <a href="/news1/#news4" class="read">READ MORE →</a>
+                        <a href="#" class="read" onclick="viewStaticNews('news4'); return false;">READ MORE →</a>
                         <span class="share">f&nbsp;&nbsp;Share</span>
                     </div>
                 </div>
             </article>
             
+            </div>
         </main>
 
         <!-- RIGHT COLUMN -->
-        <aside class="column scrollable sidebar">
+        <aside class="column scrollable sidebar" id="sidebar-column">
 
-            <section>
-                <h3>GENERAL ANNOUNCEMENT</h3>
+            <section id="section-achievements">
+                <h3 class="swap-trigger" onclick="swapSection('achievements')">ACHIEVEMENTS</h3>
+                <div id="content-achievements-side">
+                    {% for achievement in achievements %}
+                    <div class="side-item">
+                        {% if achievement.image %}
+                        <img src="{{ achievement.image.url }}" alt="{{ achievement.title }}">
+                        {% else %}
+                        <div style="width: 60px; height: 60px; background: #f8f9fa; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                            <i class="fas fa-trophy" style="color: #f39c12; font-size: 24px;"></i>
+                        </div>
+                        {% endif %}
+                        <div>
+                            <p>{{ achievement.title|truncatewords:8 }}</p>
+                            <a href="#" onclick="viewAchievement('{{ achievement.id }}'); return false;">📄 See More</a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p style="padding: 0 15px; font-size: 0.9rem; color: #667eea;">No recent achievements.</p>
+                    {% endfor %}
+                </div>
+                
+                <!-- Full version hidden -->
+                <div id="content-achievements-full" class="hidden-version">
+                    <div class="news-header swap-trigger-main" onclick="swapSection('news')">
+                        <h1>NORSU CAMPUS ACHIEVEMENTS</h1>
+                        <p>Celebrating Excellence and Leadership</p>
+                    </div>
+                    {% for achievement in achievements %}
+                    <article class="news">
+                        <div class="image-box">
+                            {% if achievement.image %}
+                                <img src="{{ achievement.image.url }}" alt="{{ achievement.title }}">
+                            {% else %}
+                                <div style="width: 100%; height: 200px; background: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-trophy" style="color: #f39c12; font-size: 64px;"></i>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <div class="date">📅 {{ achievement.achievement_date|date:"F d, Y" }}
+                                <span style="background: #f39c12; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">{{ achievement.category|upper }}</span>
+                            </div>
+                            <h2>{{ achievement.title }}</h2>
+                            {% if achievement.recipient %}<p style="font-weight: bold; color: #1e2d6d; margin-bottom: 5px;">Recipient: {{ achievement.recipient }}</p>{% endif %}
+                            <p>{{ achievement.description|truncatewords:50 }}</p>
+                            <div class="footer">
+                                <a href="#" class="read" onclick="viewAchievement('{{ achievement.id }}'); return false;">READ MORE →</a>
+                                <span class="share">f&nbsp;&nbsp;Share</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
 
-                <div class="side-item">
-                    <img src="{% static 'dashboard/images/bb.jpg' %}">
-                    <div>
-                        <p>NORSU BSC BACK TO SCHOOL</p>
-                        <a href="/news1/#news5">📄 See More</a>
+            <section id="section-general-announcement">
+                <h3 class="swap-trigger" onclick="swapSection('general-announcement')">GENERAL ANNOUNCEMENT</h3>
+                <div id="content-general-announcement-side">
+                    {% for post in general_posts|slice:":3" %}
+                    <div class="side-item">
+                        {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        {% else %}
+                        <img src="{% static 'dashboard/images/default-news.jpg' %}" alt="{{ post.title }}">
+                        {% endif %}
+                        <div>
+                            <p>{{ post.title|truncatewords:8 }}</p>
+                            <a href="#" onclick="viewFullPost('{{ post.id }}'); return false;">📄 See More</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="side-item">
+                        <img src="{% static 'dashboard/images/bb.jpg' %}">
+                        <div>
+                            <p>NORSU BSC BACK TO SCHOOL</p>
+                            <a href="#" onclick="viewStaticNews('news5'); return false;">📄 See More</a>
+                        </div>
+                    </div>
+                    <div class="side-item">
+                        <img src="{% static 'dashboard/images/test.jpg' %}">
+                        <div>
+                            <p>NORSU-BSC ADMISSION TEST (SCHOOLL YEAR 2026-2027)</p>
+                            <a href="#" onclick="viewStaticNews('news6'); return false;">📄 See More</a>
+                        </div>
                     </div>
                 </div>
-                <div class="side-item">
-                    <img src="{% static 'dashboard/images/test.jpg' %}">
-                    <div>
-                        <p>NORSU-BSC ADMISSION TEST (SCHOOLL YEAR 2026-2027)</p>
-                        <a href="/news1/#news6">📄 See More</a>
+
+                <!-- Full version hidden -->
+                <div id="content-general-announcement-full" class="hidden-version">
+                    <div class="news-header swap-trigger-main" onclick="swapSection('achievements')">
+                        <h1>NORSU BSC GENERAL ANNOUNCEMENTS</h1>
+                        <p>Stay updated with the latest administrative notices</p>
                     </div>
+                    {% for post in general_posts %}
+                    <article class="news">
+                        <div class="image-box">
+                            {% if post.image %}
+                                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                            {% else %}
+                                <img src="{% static 'dashboard/images/default-news.jpg' %}" alt="{{ post.title }}">
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <div class="date">📅 {{ post.created_at|date:"F d, Y" }}
+                                <span style="background: #3498db; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">GENERAL</span>
+                            </div>
+                            <h2>{{ post.title }}</h2>
+                            <p>{{ post.content|truncatewords:50 }}</p>
+                            <div class="footer">
+                                <a href="#" class="read" onclick="viewFullPost('{{ post.id }}'); return false;">READ MORE →</a>
+                                <span class="share">f&nbsp;&nbsp;Share</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
                 </div>
             </section>
 
-            <section>
-                <h3>COLLEGES ANNOUNCEMENT</h3>
+            <section id="section-colleges-announcement">
+                <h3 class="swap-trigger" onclick="swapSection('colleges-announcement')">COLLEGES ANNOUNCEMENT</h3>
+                <div id="content-colleges-announcement-side">
+                    <!-- CAS -->
+                    <div class="side-item">
+                        {% if college_latest_posts.cas and college_latest_posts.cas.image %}
+                            <img src="{{ college_latest_posts.cas.image.url }}" alt="CAS">
+                        {% else %}
+                            <img src="{% static 'dashboard/images/cas2.jpg' %}" alt="CAS">
+                        {% endif %}
+                        <div>
+                            <p>CAS - College of Arts & Sciences</p>
+                            <a href="/cas/#cas-news">📄 See More</a>
+                        </div>
+                    </div>
 
-                <div class="side-item">
-                    <img src="{% static 'dashboard/images/ccje4.jpg' %}">
-                    <div>
-                        <p>CCJE Fire Drill and Fire Lecture</p>
-                        <a href="/ccje/#ccje-news">📄 See More</a>
+                    <!-- CTED -->
+                    <div class="side-item">
+                        {% if college_latest_posts.cted and college_latest_posts.cted.image %}
+                            <img src="{{ college_latest_posts.cted.image.url }}" alt="CTED">
+                        {% else %}
+                            <img src="{% static 'dashboard/images/cted8.jpg' %}" alt="CTED">
+                        {% endif %}
+                        <div>
+                            <p>CTED - College of Teacher Education</p>
+                            <a href="/cted/#cted-news">📄 See More</a>
+                        </div>
+                    </div>
+
+                    <!-- CAF -->
+                    <div class="side-item">
+                        {% if college_latest_posts.caf and college_latest_posts.caf.image %}
+                            <img src="{{ college_latest_posts.caf.image.url }}" alt="CAF">
+                        {% else %}
+                            <img src="{% static 'dashboard/images/caf7.png' %}" alt="CAF">
+                        {% endif %}
+                        <div>
+                            <p>CAF - College of Agriculture & Forestry</p>
+                            <a href="/caf/#caf-news">📄 See More</a>
+                        </div>
+                    </div>
+
+                    <!-- CCJE -->
+                    <div class="side-item">
+                        {% if college_latest_posts.ccje and college_latest_posts.ccje.image %}
+                            <img src="{{ college_latest_posts.ccje.image.url }}" alt="CCJE">
+                        {% else %}
+                            <img src="{% static 'dashboard/images/ccje4.jpg' %}" alt="CCJE">
+                        {% endif %}
+                        <div>
+                            <p>CCJE - College of Criminal Justice Education</p>
+                            <a href="/ccje/#ccje-news">📄 See More</a>
+                        </div>
+                    </div>
+
+                    <!-- CBA -->
+                    <div class="side-item">
+                        {% if college_latest_posts.cba and college_latest_posts.cba.image %}
+                            <img src="{{ college_latest_posts.cba.image.url }}" alt="CBA">
+                        {% else %}
+                            <img src="{% static 'dashboard/images/cba5.jpg' %}" alt="CBA">
+                        {% endif %}
+                        <div>
+                            <p>CBA - College of Business Administration</p>
+                            <a href="/cba/#cba-news">📄 See More</a>
+                        </div>
+                    </div>
+
+                    <!-- CIT -->
+                    <div class="side-item">
+                        {% if college_latest_posts.cit and college_latest_posts.cit.image %}
+                            <img src="{{ college_latest_posts.cit.image.url }}" alt="CIT">
+                        {% else %}
+                            <img src="{% static 'dashboard/images/cit12.jpg' %}" alt="CIT">
+                        {% endif %}
+                        <div>
+                            <p>CIT - College of Industrial Technology</p>
+                            <a href="/cit/#cit-news">📄 See More</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="side-item">
-                    <img src="{% static 'dashboard/images/cit12.jpg' %}">
-                    <div>
-                        <p>CIT CLEAN UP DRIVE</p>
-                        <a href="/cit/#cit-news">📄 See More</a>
+                <!-- Full version hidden -->
+                <div id="content-colleges-announcement-full" class="hidden-version">
+                    <div class="news-header swap-trigger-main" onclick="swapSection('achievements')">
+                        <h1>NORSU COLLEGES ANNOUNCEMENT</h1>
+                        <p>Explore the latest updates from our academic departments</p>
                     </div>
-                </div>
-
-                <div class="side-item">
-                    <img src="{% static 'dashboard/images/cas2.jpg' %}">
-                    <div>
-                        <p>CAS CLEAN UP DRIVE</p>
-                        <a href="/cas/#cas-news">📄 See More</a>
-                    </div>
-                </div>
-                 <div class="side-item">
-                    <img src="{% static 'dashboard/images/cba5.jpg' %}">
-                    <div>
-                        <p>CBA WORLD TOURISIM DAY</p>
-                        <a href="/cba/#cba-news">📄 See More</a>
-                    </div>
-                </div>
-
-                <div class="side-item">
-                    <img src="{% static 'dashboard/images/cted8.jpg' %}">
-                    <div>
-                        <p>CTED CLEAN UP DRIVE</p>
-                        <a href="/cted/#cted-news">📄 See More</a>
-                    </div>
-                </div>
-
-                     <div class="side-item">
-                    <img src="{% static 'dashboard/images/caf7.png' %}">
-                    <div>
-                        <p>CAF FIRST PINNING CEREMONY</p>
-                        <a href="/caf/#caf-news">📄 See More</a>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px;">
+                        <!-- Render colleges as larger cards for full view -->
+                        {% for code, post in college_latest_posts.items %}
+                        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 4px solid #3498db;">
+                            <img src="{{ post.image.url }}" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div style="padding: 15px;">
+                                <h3 style="margin: 0 0 10px 0; color: #1e2d6d;">{{ code|upper }} - Latest Update</h3>
+                                <p style="font-size: 0.9rem; color: #666;">{{ post.title }}</p>
+                                <a href="/{{ code }}/" style="display: inline-block; margin-top: 10px; color: #3498db; font-weight: 600; text-decoration: none;">Visit College Page →</a>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </section>
+            
+            <!-- Side News hidden -->
+            <div id="content-news-side" class="hidden-version">
+                {% for post in general_posts|slice:":3" %}
+                <div class="side-item">
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    {% else %}
+                    <img src="{% static 'dashboard/images/default-news.jpg' %}" alt="{{ post.title }}">
+                    {% endif %}
+                    <div>
+                        <p>{{ post.title|truncatewords:8 }}</p>
+                        <a href="#" onclick="viewFullPost('{{ post.id }}'); return false;">📄 See More</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
 
         </aside>
 
@@ -259,7 +522,185 @@
 </section>
 
 <script>
+// Static News Data for Modal
+const staticNewsData = {
+    'news1': {
+        title: "HIGALAAY SA NORSU-BSC (School Year 2025-2026)",
+        date: "February 23, 2025",
+        category: "EVENT",
+        image: "{% static 'dashboard/images/ac.jpg' %}",
+        content: `The celebration of Higalaay sa NORSU-BSC as a meaningful event that marks the official opening of School Year 2025–2026 at Negros Oriental State University – Bayawan Sta Catalina Campus. Through this program, we warmly welcome our new students and reaffirm our unity as one academic community composed of students, faculty, and staff. Higalaay reflects our shared values of hospitality, inclusivity, and commitment to academic excellence.
+
+Throughout the event, various presentations, cultural performances, and interactive activities are conducted to give students the opportunity to get to know one another and showcase their talents. Student organizations and different academic departments actively participate by introducing their programs, services, and campus initiatives. These activities help freshmen and transferees better understand campus life and the opportunities available to them at NORSU-BSC.
+
+More than just a welcoming celebration, Higalaay sa NORSU-BSC serves as a foundation for building camaraderie, respect, and cooperation within the academic community. It encourages students to be active, responsible, and engaged members of the university as they prepare for a school year filled with learning, personal growth, and academic success.`
+    },
+    'news2': {
+        title: "ACADEMIC ADVISORY: CLASS SUSPENSION UPDATE",
+        date: "February 5, 2025",
+        category: "ACADEMIC",
+        image: "{% static 'dashboard/images/ss.jpg' %}",
+        content: `Due to unforeseen circumstances and in consideration of student safety and welfare, all NORSU campuses shall shift to asynchronous classes starting Monday, November 3, 2025, until the suspension is officially lifted by the university administration.
+
+This advisory affects all undergraduate and graduate programs across all NORSU campuses including Bayawan-Sta. Catalina, Dumaguete, Bais, and satellite campuses. Students are advised to monitor official university channels for further updates and announcements regarding the resumption of face-to-face classes.
+
+Faculty members are instructed to prepare alternative learning materials and conduct online consultations to ensure the continuity of education during this period. The university administration emphasizes that this measure is taken as a precautionary step to maintain the safety and well-being of the entire academic community.`
+    },
+    'news3': {
+        title: "NORSU BSC INTRAMURALS CELEBRATION",
+        date: "February 9, 2025",
+        category: "SPORTS",
+        image: "{% static 'dashboard/images/intram.jpg' %}",
+        content: `Negros Oriental State University – Bayawan Sta Catalina Campus (NORSU–BSC) proudly gathered for Intramurals 2025, bringing together students from its six colleges in a campus-wide celebration of athleticism, teamwork, and sportsmanship. The event served as a unifying activity that strengthened intercollegiate relationships while fostering friendly competition and mutual respect among participants.
+
+Throughout the intramurals, students from the six colleges actively participated in various sports and recreational activities, showcasing not only their physical skills but also discipline, leadership, and cooperation. Each college demonstrated pride and determination as they represented their respective teams, contributing to a lively and energetic atmosphere across the campus.
+
+More than a sporting event, Intramurals 2025 reinforced unity and school spirit within the NORSU–BSC community. It provided students from all six colleges an opportunity to connect beyond academics, build lasting camaraderie, and create meaningful memories that highlight the values of teamwork, perseverance, and collective excellence.`
+    },
+    'news4': {
+        title: "GRAND CONVOCATION, AWARDING CEREMONIES HIGHLIGHT NORSU’s 118th FOUNDING ANNIVERSARY",
+        date: "December 1, 2025",
+        category: "GENERAL",
+        image: "{% static 'dashboard/images/aw.jpg' %}",
+        content: `In a momentous occasion marking the 118th founding anniversary of Negros Oriental State University (NORSU), the university held its annual Convocation program at NORSU Gymnasium on November 28, 2025, showcasing the institution's legacy of academic excellence.
+
+In his keynote address, Dr. Noel Marjon E. Yasi, the university president, expressed his deep gratitude to the former university leaders, as well as the faculty, and staff, acknowledging their contributions to the institution’s growth. "Let our actions speak louder than words, and the top example can inspire others," he added.
+
+Several faculty members of NORSU BSC received prestigious awards in categories such as the Scopus Citation Award, AD Scientific Award, and Google Scholar Citation Award, among others. Special recognition was also given to students excelling in academics, research, and community service. This year’s convocation was a fitting tribute to NORSU’s legacy and a promising look at the bright future ahead for the university and its stakeholders.`
+    },
+    'news5': {
+        title: "Back-to-School Marks Start of Second Semester, AY 2025-2026 at NORSU-BSC",
+        date: "January 19, 2026",
+        category: "ACADEMIC",
+        image: "{% static 'dashboard/images/bb.jpg' %}",
+        content: `Negros Oriental State University- Bayawan–Santa Catalina Campus (NORSU-BSC) officially reopened its doors last January 19, 2026, marking the beginning of the second semester of Academic Year 2025-2026. The return of students, faculty, and staff brought renewed energy to the campus as classes formally resumed.
+
+In the first week of classes, students settled into their new schedules while instructors provided an overview of the semester’s lessons, expectations, and academic requirements. This helped learners prepare for the subjects they will take and guided them in meeting the standards set for the term.
+
+Campus offices and student services were also fully operational, assisting learners with enrollment, schedules, and other academic concerns. Faculty and staff worked hand in hand to ensure that classes ran smoothly and that activities followed proper timelines.`
+    },
+    'news6': {
+        title: "NORSU BSC ADMISSION TEST (SCHOOL YEAR 2026-2027)",
+        date: "February 16, 2025",
+        category: "ACADEMIC",
+        image: "{% static 'dashboard/images/test.jpg' %}",
+        content: `The Negros Oriental State University - Bayawan-Sta. Catalina Campus is now announcing its admission test schedule for the incoming school year 2026-2027. Prospective students are encouraged to prepare their requirements and visit the campus for registration.
+
+The admission test is a crucial step for students wishing to join the NORSU community. It evaluates the academic readiness of applicants across various fields of study. Detailed instructions regarding the application process, required documents, and testing dates will be posted on official university boards and social media pages.
+
+We look forward to welcoming a new batch of students who are committed to academic excellence and personal growth. For more information, please visit the Admission Office or contact our official helpdesk.`
+    }
+};
+
+// Function to view static news in modal
+function viewStaticNews(newsId) {
+    const news = staticNewsData[newsId];
+    if (news) {
+        showPostModal({
+            title: news.title,
+            created_at: news.date,
+            category: news.category,
+            image: news.image,
+            content: news.content
+        });
+    }
+}
+
 // View full post content
+// Content version store
+let contentStore = {};
+let currentMainSection = 'news';
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize content store
+    const sections = ['news', 'achievements', 'general-announcement', 'colleges-announcement'];
+    
+    sections.forEach(sec => {
+        const sideContainer = document.getElementById(`content-${sec}-side`);
+        const fullContainer = document.getElementById(`content-${sec}-full`);
+        
+        contentStore[sec] = {
+            title: getSectionTitle(sec),
+            side: sideContainer ? sideContainer.innerHTML : '',
+            full: fullContainer ? fullContainer.innerHTML : ''
+        };
+    });
+    
+    console.log('Content Store Initialized:', Object.keys(contentStore));
+
+    // Handle URL parameters for deep linking (e.g., from college pages)
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('postId');
+    const section = urlParams.get('section');
+
+    if (section && contentStore[section]) {
+        console.log('Deep linking to section:', section);
+        setTimeout(() => swapSection(section), 100);
+    }
+    
+    if (postId) {
+        console.log('Deep linking to post:', postId);
+        setTimeout(() => viewFullPost(postId), 500);
+    }
+});
+
+function swapSection(targetSection) {
+    if (targetSection === currentMainSection) return;
+
+    console.log(`Swapping ${currentMainSection} with ${targetSection}`);
+
+    const mainColumn = document.getElementById('main-content-column');
+    
+    // 1. Update Main Area with target's full content
+    mainColumn.innerHTML = `<div id="content-${targetSection}-full">${contentStore[targetSection].full}</div>`;
+
+    // 2. Find the sidebar section that currently holds the target
+    // We search for the section whose side container has the target's ID
+    const sidebarSections = document.querySelectorAll('.sidebar section');
+    let targetSidebarSection = null;
+    
+    sidebarSections.forEach(section => {
+        const sideDiv = section.querySelector('[id$="-side"]');
+        if (sideDiv && sideDiv.id === `content-${targetSection}-side`) {
+            targetSidebarSection = section;
+        }
+    });
+
+    if (targetSidebarSection) {
+        // 3. Update this sidebar section to show what was previously in main
+        const header = targetSidebarSection.querySelector('h3');
+        header.textContent = contentStore[currentMainSection].title;
+        header.setAttribute('onclick', `swapSection('${currentMainSection}')`);
+        
+        const sideContentDiv = targetSidebarSection.querySelector('[id$="-side"]');
+        sideContentDiv.id = `content-${currentMainSection}-side`;
+        sideContentDiv.innerHTML = contentStore[currentMainSection].side;
+        
+        // Update the hidden full content (optional but good for consistency)
+        const fullContentDiv = targetSidebarSection.querySelector('[id$="-full"]');
+        if (fullContentDiv) {
+            fullContentDiv.id = `content-${currentMainSection}-full`;
+            fullContentDiv.innerHTML = contentStore[currentMainSection].full;
+        }
+    }
+
+    // 4. Update state
+    currentMainSection = targetSection;
+    
+    // 5. Scroll to top
+    mainColumn.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function getSectionTitle(id) {
+    const titles = {
+        'news': 'NORSU BSC NEWS AND ANNOUNCEMENT',
+        'achievements': 'ACHIEVEMENTS',
+        'general-announcement': 'GENERAL ANNOUNCEMENT',
+        'colleges-announcement': 'COLLEGES ANNOUNCEMENT'
+    };
+    return titles[id] || id.toUpperCase();
+}
+
 function viewFullPost(postId) {
     // Convert to integer if it's a string
     postId = parseInt(postId);
@@ -277,6 +718,99 @@ function viewFullPost(postId) {
         .catch(error => console.error('Error loading post:', error));
 }
 
+function viewAchievement(achievementId) {
+    fetch(`/api/achievements/`)
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                const achievement = result.achievements.find(a => a.id == achievementId);
+                if (achievement) {
+                    showAchievementModal(achievement);
+                }
+            }
+        })
+        .catch(error => console.error('Error loading achievement:', error));
+}
+
+function showAchievementModal(achievement) {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        backdrop-filter: blur(5px);
+    `;
+    
+    // Format date properly
+    const achievementDate = achievement.achievement_date ? new Date(achievement.achievement_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'N/A';
+
+    modal.innerHTML = `
+        <div style="background: white; padding: 40px; border-radius: 20px; max-width: 1000px; width: 95%; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.2);">
+            <button onclick="this.closest('div').parentElement.remove()" style="position: absolute; top: 20px; right: 20px; background: #f1f2f6; color: #2f3542; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 24px; transition: 0.3s; display: flex; align-items: center; justify-content: center; z-index: 10;">&times;</button>
+            
+            <!-- Header Section -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
+                    <div style="width: 6px; height: 24px; background: #f39c12; border-radius: 3px;"></div>
+                    <h2 style="color: #1e2d6d; font-size: 24px; font-weight: 800; text-transform: uppercase; margin: 0; line-height: 1.2;">${achievement.title}</h2>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; color: #7f8c8d; font-size: 14px; white-space: nowrap; margin-left: 20px;">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>${achievementDate}</span>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                <!-- Left: Images -->
+                <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px;">
+                    ${achievement.image ? `
+                        <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 4px solid #f39c12;">
+                            <img src="${achievement.image}" alt="${achievement.title}" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                        </div>
+                    ` : `
+                        <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 4px solid #f39c12; height: 300px; background: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-trophy" style="font-size: 100px; color: #f39c12; opacity: 0.5;"></i>
+                        </div>
+                    `}
+                </div>
+
+                <!-- Right: Text Content -->
+                <div style="flex: 1.5; min-width: 300px; background: #fdfdfd; padding: 30px; border-radius: 15px; box-shadow: inset 0 0 20px rgba(0,0,0,0.02), 0 5px 15px rgba(0,0,0,0.05); position: relative;">
+                    ${achievement.recipient ? `<h3 style="color: #1e2d6d; font-size: 1.2rem; margin-bottom: 15px;">Recipient: ${achievement.recipient}</h3>` : ''}
+                    <div style="color: #2c3e50; line-height: 1.8; font-size: 16px; text-align: justify;">
+                        ${achievement.description.split('\n\n').map((para, idx) => {
+                            return `<p style="margin-bottom: 20px;">${para}</p>`;
+                        }).join('')}
+                    </div>
+                    
+                    <div style="margin-top: 30px; display: flex; gap: 10px;">
+                        <span style="background: rgba(243, 156, 18, 0.1); color: #f39c12; padding: 6px 15px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase;">
+                            ${achievement.category || 'ACHIEVEMENT'}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
 function showPostModal(post) {
     const modal = document.createElement('div');
     modal.style.cssText = `
@@ -285,23 +819,74 @@ function showPostModal(post) {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.6);
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 10000;
+        backdrop-filter: blur(5px);
     `;
     
+    // Check if it's the Higalaay post to show two images
+    const isHigalaay = post.title.includes('HIGALAAY');
+    const secondImage = isHigalaay ? "{% static 'dashboard/images/gg.jpg' %}" : null;
+    
+    // Format date properly
+    const postDate = typeof post.created_at === 'string' ? post.created_at : new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
     modal.innerHTML = `
-        <div style="background: white; padding: 30px; border-radius: 15px; max-width: 700px; max-height: 80vh; overflow-y: auto; margin: 20px;">
-            ${post.image ? `<img src="${post.image}" alt="${post.title}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;">` : ''}
-            <h2 style="color: #2c3e50; margin-bottom: 15px;">${post.title}</h2>
-            <div style="color: #7f8c8d; margin-bottom: 20px;">
-                📅 ${new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                <span style="background: #3498db; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">${post.category.toUpperCase()}</span>
+        <div style="background: white; padding: 40px; border-radius: 20px; max-width: 1000px; width: 95%; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.2);">
+            <button onclick="this.closest('div').parentElement.remove()" style="position: absolute; top: 20px; right: 20px; background: #f1f2f6; color: #2f3542; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 24px; transition: 0.3s; display: flex; align-items: center; justify-content: center; z-index: 10;">&times;</button>
+            
+            <!-- Header Section -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
+                    <div style="width: 6px; height: 24px; background: #1f7a3f; border-radius: 3px;"></div>
+                    <h2 style="color: #0c3d1e; font-size: 24px; font-weight: 800; text-transform: uppercase; margin: 0; line-height: 1.2;">${post.title}</h2>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; color: #7f8c8d; font-size: 14px; white-space: nowrap; margin-left: 20px;">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>${postDate}</span>
+                </div>
             </div>
-            <div style="color: #2c3e50; line-height: 1.6; margin-bottom: 20px; white-space: pre-wrap;">${post.content}</div>
-            <button onclick="this.closest('div').parentElement.remove()" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Close</button>
+
+            <!-- Content Section -->
+            <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                <!-- Left: Images -->
+                <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px;">
+                    ${post.image ? `
+                        <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 4px solid #1f7a3f;">
+                            <img src="${post.image}" alt="${post.title}" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                        </div>
+                    ` : ''}
+                    
+                    ${secondImage ? `
+                        <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 4px solid #1f7a3f;">
+                            <img src="${secondImage}" alt="Secondary Image" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                        </div>
+                    ` : ''}
+                </div>
+
+                <!-- Right: Text Content -->
+                <div style="flex: 1.5; min-width: 300px; background: #fdfdfd; padding: 30px; border-radius: 15px; box-shadow: inset 0 0 20px rgba(0,0,0,0.02), 0 5px 15px rgba(0,0,0,0.05); position: relative;">
+                    <div style="color: #2c3e50; line-height: 1.8; font-size: 16px; text-align: justify;">
+                        ${post.content.split('\n\n').map((para, idx) => {
+                            if (idx === 0) {
+                                const firstChar = para.charAt(0);
+                                const restText = para.slice(1);
+                                return `<p style="margin-bottom: 20px;"><span style="float: left; color: #1f7a3f; font-size: 64px; line-height: 50px; padding-top: 4px; padding-right: 8px; font-weight: 800; font-family: serif;">${firstChar}</span>${restText}</p>`;
+                            }
+                            return `<p style="margin-bottom: 20px;">${para}</p>`;
+                        }).join('')}
+                    </div>
+                    
+                    <div style="margin-top: 30px; display: flex; gap: 10px;">
+                        <span style="background: rgba(31, 122, 63, 0.1); color: #1f7a3f; padding: 6px 15px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase;">
+                            ${post.category || 'NEWS'}
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     `;
     
@@ -695,6 +1280,56 @@ setInterval(() => {
     .content-section {
         padding: 20px;
     }
+}
+/* Fix content overlap with sticky navbar */
+.page {
+    margin-top: 20px;
+}
+
+.layout {
+    margin-top: 0;
+}
+/* Swap triggers */
+.sidebar h3, .news-header.swap-trigger-main {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar h3:hover, .news-header.swap-trigger-main:hover {
+    background: rgba(52, 152, 219, 0.1);
+    color: #3498db;
+    transform: translateX(5px);
+}
+
+.sidebar h3::after, .news-header.swap-trigger-main h1::after {
+    content: '';
+    font-size: 0.8em;
+    opacity: 0.5;
+}
+
+.news-header.swap-trigger-main h1::after {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sidebar h3 {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.news-header.swap-trigger-main {
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid transparent;
+}
+
+.news-header.swap-trigger-main:hover {
+    border-color: rgba(52, 152, 219, 0.2);
+}
+
+.hidden-version {
+    display: none;
 }
 </style>
               

@@ -7,26 +7,13 @@
 
 body {
   background: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
-
-/* FLEXIBLE CONTAINER */
-.cas-container {
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 0 20px;
-  width: 100%;
-  flex: 1;
-}
-
 /* HERO SECTION */
 .hero {
   position: relative;
   min-height: 100vh;
-  background: url("../images/background.jpg") center/cover no-repeat;
-  padding: 40px 20px 160px;
+  background: url("{% static 'dashboard/images/background.jpg' %}") center/cover no-repeat;
+  padding: 40px 100px 160px;
   overflow: hidden;
 }
 
@@ -648,7 +635,7 @@ body {
 .goals-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 35px;
 }
 
 .goal-item {
@@ -679,207 +666,123 @@ body {
 
 /* PROGRAMS SECTION */
 .programs-section {
-  padding: 20px 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.programs-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100px;
-  width: 200px;
-  height: 100%;
-  opacity: 0.1;
-  transform: skewX(-15deg);
+  padding: 80px 70px;
 }
 
 .programs-container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
   text-align: center;
-  position: relative;
-  z-index: 1;
 }
 
 /* HEADER */
 .section-title {
-  font-size: 42px;
-  font-weight: 800;
-  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 12px;
   color: #2c7f76;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #0066cc, #004499);
-  border-radius: 2px;
 }
 
 .section-subtitle {
-  font-size: 20px;
-  max-width: 800px;
-  margin: 0 auto 40px;
-  line-height: 1.7;
+  font-size: 18px;
+  max-width: 900px;
+  margin: 0 auto 45px;
+  line-height: 1.6;
   color: #555;
-  font-weight: 400;
 }
 
 /* CARDS */
 .cards {
   display: flex;
   justify-content: center;
-  gap: 60px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding: 40px 0;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  gap: 50px;
 }
-
-.cards::-webkit-scrollbar {
-  height: 8px;
-}
-
-.cards::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
-}
-
-
 
 .card {
   background: #fff;
-  width: 650px;
-  border-radius: 32px;
-  padding: 0;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(0,102,204,0.1);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #06b706, #067b02);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  width: 520px;
+  border-radius: 28px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.12);
-  border-color: rgba(0,102,204,0.3);
-}
-
-.card:hover::before {
-  opacity: 1;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 .card img {
   width: 100%;
-  height: 320px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 28px;
-  transition: transform 0.4s ease;
+  border-radius: 22px;
 }
 
-.card:hover img {
-  transform: scale(1.05);
-}
-
+/* CARD BODY */
 .card-body {
-  padding: 40px;
+  padding: 22px 18px 10px;
 }
 
-.card-body.highlighted {
-
-  color: rgb(0, 0, 0);
-  padding: 40px;
-  position: relative;
-  overflow: hidden;
-}
-
-.card-body.highlighted::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.card h3 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: 700;
-  color: #2c3e50;
-  line-height: 1.3;
-}
-
-.card-body.highlighted h3 {
-  color: rgb(0, 0, 0);
-}
-
-.learn-btn {
-  background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
-  color: white;
-  border: none;
-  padding: 16px 32px;
-  border-radius: 12px;
-  cursor: pointer;
+.card-body h3 {
+  font-size: 22px;
   font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 8px 25px rgba(0,102,204,0.3);
+  margin-bottom: 18px;
+  color: #3b5b8f;
 }
 
-.learn-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s ease;
+/* HIGHLIGHT BORDER (LEFT CARD) */
+.card-body.highlighted {
+  
+  border-radius: 6px;
+  padding: 20px;
+  background: rgba(122, 75, 255, 0.05);
+}
+
+/* BUTTON */
+.learn-btn {
+  background: #3f5f94;
+  border: none;
+  color: #fff !important;
+  font-size: 15px;
+  padding: 10px 26px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+  display: inline-block;
 }
 
 .learn-btn:hover {
-  background: linear-gradient(135deg, #0052a3 0%, #003d82 100%);
+  background: #2a4270;
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(0,102,204,0.4);
+  color: #fff !important;
+  text-decoration: none !important;
 }
 
-.learn-btn:hover::before {
-  left: 100%;
+a.learn-btn {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+a.learn-btn:hover {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+a.learn-btn:focus {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+a.learn-btn:active {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+a.learn-btn:visited {
+  color: #fff !important;
+  text-decoration: none !important;
 }
 
 /* FACILITIES SECTION */
@@ -981,7 +884,7 @@ body {
 .label {
   display: inline-block;
   margin-top: 16px;
-  background: linear-gradient(135deg, #3f5f94);
+  background: linear-gradient(135deg, #056410, #069d21);
   color: #fff;
   padding: 12px 28px;
   border-radius: 25px;
@@ -1452,310 +1355,4 @@ body::before {
 .nav-buttons button:active {
   transform: scale(0.95);
 }
-
-/* ===============================
-   UNIVERSITY NEWS SECTION
-================================ */
-
-/* SECTION */
-.uv-news-section {
-    background: linear-gradient(135deg, rgba(44, 62, 80, 0.05), rgba(30, 41, 59, 0.05));
-    padding: 70px 80px 90px;
-}
-
-/* HEADER */
-.uv-news-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 45px;
-}
-
-.uv-title-group {
-    max-width: 600px;
-}
-
-.uv-title {
-    font-size: 34px;
-    font-weight: 600;
-    padding-left: 14px;
-    position: relative;
-}
-
-.uv-title::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 6px;
-    width: 4px;
-    height: 26px;
-    background-color: #39b54a;
-}
-
-.uv-subtitle {
-    margin-top: 14px;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #374151;
-}
-
-/* NAV BUTTONS */
-.uv-nav-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.uv-nav-btn {
-    width: 44px;
-    height: 44px;
-    background-color: #3f5f94;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-/* GRID */
-.uv-news-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-/* CARD */
-.uv-news-card {
-    background: #ffffff;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-}
-
-.uv-news-card:hover {
-    transform: translateY(-6px);
-}
-
-/* IMAGE */
-.uv-news-card img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-}
-
-/* CONTENT */
-.uv-card-content {
-    padding: 20px 22px 26px;
-}
-
-.uv-date {
-    font-size: 14px;
-    color: #4b5563;
-    margin-bottom: 12px;
-}
-
-.uv-card-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: #14532d;
-    line-height: 1.35;
-    margin-bottom: 22px;
-}
-
-/* READ MORE */
-.uv-read-more {
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.6px;
-    color: #000000;
-    text-decoration: none;
-}
-
-/* SEE MORE */
-.uv-see-more-wrapper {
-    text-align: center;
-    margin-top: 55px;
-}
-
-.uv-see-more-btn {
-    background-color: #3f5f94;
-    color: #ffffff;
-    border: none;
-    padding: 16px 42px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-    .uv-news-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .uv-news-section {
-        padding: 40px 20px 60px;
-    }
-
-    .uv-news-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .uv-news-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ===============================
-   UNIVERSITY NEWS SECTION END
- ================================ */
-
-/* Floating NORSU Logo Design */
-.floating-norsu-logo {
-    position: fixed;
-    top: 80px;
-    left: 20px;
-    z-index: 1001;
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: all 0.5s ease-in-out;
-    pointer-events: none;
-}
-
-.floating-norsu-logo.visible {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
-}
-
-.floating-logo-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 10px 15px;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-}
-
-.floating-logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #0066cc;
-}
-
-.floating-logo-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.norsu-name {
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #000000;
-    text-align: center;
-    line-height: 1.2;
-}
-
-.norsu-name span {
-    color: #cc0000;
-}
-
-.norsu-country {
-    font-size: 0.6rem;
-    color: #0066cc;
-    text-align: center;
-    font-weight: 500;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .university-logo {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .norsu-logo {
-        width: 50px;
-        height: 50px;
-    }
-
-    .university-text h1 {
-        font-size: 1.2rem;
-        text-align: center;
-    }
-
-    .university-text p {
-        font-size: 0.9rem;
-        text-align: center;
-    }
-
-       
-    }
-
-    .nav-left, .nav-right {
-        display: none;
-    }
-
-    .mobile-menu-toggle {
-        display: block;
-    }
-
-    .search-container {
-        min-width: 200px;
-    }
-
-    .floating-norsu-logo {
-        top: 70px;
-        left: 10px;
-    }
-
-    .floating-logo-container {
-        padding: 8px 12px;
-        gap: 10px;
-    }
-
-    .floating-logo {
-        width: 40px;
-        height: 40px;
-    }
-
-    .norsu-name {
-        font-size: 0.7rem;
-    }
-
-    .norsu-country {
-        font-size: 0.5rem;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 2rem;
-    }
-    
-    .hero-tagline {
-        font-size: 1.8rem;
-    }
-    
-    .university-name {
-        font-size: 1.2rem;
-    }
 

@@ -5,10 +5,12 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'dashboard/css/ctedstyle.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/footer.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 {% endblock %}
 
 {% block content %}
+{% include 'dashboard/navbar.html' %}
 <section class="hero">
   <div class="overlay"></div>
 
@@ -22,18 +24,18 @@
         </div>
         <div class="title-container">
           <h4>COLLEGE OF</h4>
-          <h1>Teacher Education</h1>
+          <h1>TEACHER EDUCATION</h1>
         </div>
       </div>
 
       <p class="description">
-        Welcome to The College of Teacher Education at Norsu BSC– University (CAS)
+        Welcome to The College of Teacher Education at Norsu BSC– University (CTED)
         is one of the most storied programs in the institution's history. It transformed
-        CAS from a traditional engineering school into a modern "Center of Excellence"
-        for technology. Strengthen moral standards. Pagpalig-on sa moralidad nga sukdanan.
+        CTED from a traditional education school into a modern "Center of Excellence"
+        for education. Strengthen moral standards. Pagpalig-on sa moralidad nga sukdanan.
       </p>
 
-      <button class="btn-primary" onclick="document.getElementById('programs-section').scrollIntoView({behavior: 'smooth'})">Program Offered</button>
+      <button class="btn-primary" onclick="document.getElementById('programs-section').scrollIntoView({behavior: 'smooth'})">Programs Offered</button>
     </div>
 
     <!-- RIGHT ICON MENU -->
@@ -44,28 +46,48 @@
           <span>About CTED</span>
         </a>
 
-        <div class="icon-box">
+        <a href="#topnotchers-section" class="icon-box">
           <i class="fa-solid fa-user-graduate"></i>
-          <span>Topnotchers</span>
-        </div>
-
-        <div class="icon-box">
-          <i class="fa-solid fa-award"></i>
-          <span>CTED Awards & Recognition</span>
-        </div>
-
-        <div class="icon-box">
-          <i class="fa-solid fa-users"></i>
           <span>Alumni</span>
-        </div>
+        </a>
+
+        <a href="#awards-section" class="icon-box">
+          <i class="fa-solid fa-award"></i>
+          <span>Awards</span>
+        </a>
+
+        <a href="#alumni-section" class="icon-box">
+          <i class="fa-solid fa-users"></i>
+          <span>Administration</span>
+        </a>
       </div>
     </div>
 
   </div>
 
   <!-- STATS -->
-  
+  <div class="stats">
+    <div class="stat-card">
+      <i class="fa-solid fa-desktop"></i>
+      <h2>2</h2>
+      <p>PROGRAMS</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fa-solid fa-user"></i>
+      <h2>5000</h2>
+      <p>STUDENTS</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fa-solid fa-chalkboard-user"></i>
+      <h2>35</h2>
+      <p>FACULTY</p>
+    </div>
+  </div>
+
 </section>
+
 <section class="about-section" id="about-section">
   <div class="about-container">
 
@@ -76,19 +98,19 @@
         <h4>About</h4>
         <h1>
           <span class="green">College</span>
-          <span class="dark">of Teacher Education </span>
+          <span class="dark">of Teacher Education</span>
         </h1>
       </div>
     </div>
 
     <!-- DESCRIPTION -->
     <p class="about-text">
-      For the past 25 years, the College of Teacher Education continuously bring
+      For the past 25 years, the College of Business Administration continuously bring
       professional training to students, for them to be intellectually, morally, physically
       and socially skilled individuals equipped to contribute to global social and
-      professional demands. The CTED is committed to produce graduates with scientific,
+      professional demands. The CIT is committed to produce graduates with scientific,
       artistic, and technological skills that meet global standards to aid in the advantage
-      of society in its interminable quest towards development. The CTED provides academic
+      of society in its interminable quest towards development. The CIT provides academic
       and academic-support programs designed for the holistic development and professional
       advances for students in fields of specialization in both the arts and sciences.
     </p>
@@ -135,7 +157,7 @@
         </div>
       </div>
 
-       <div class="goal-item">
+      <div class="goal-item">
         <span class="letter s">D</span>
         <div>
           <p>
@@ -147,272 +169,511 @@
         </div>
       </div>
 
-
     </div>
 
   </div>
 </section>
+<!-- LATEST AT CTED --------------------------------------------------------------->
+<section class="latest-section" id="latest-section">
+  <div class="latest-container">
 
+    <h1 class="section-title">LATEST AT CTED</h1>
+    <p class="section-subtitle">
+      Stay updated with the latest news, announcements, and events from the College of Teacher Education.
+    </p>
+
+    <div class="latest-cards" id="cted-latest">
+      <!-- Latest posts/news will load dynamically -->
+    </div>
+
+  </div>
+</section>
+  <!-- PROGRAM CARDS -------------------------------------------------------------->
 <section class="programs-section" id="programs-section">
   <div class="programs-container">
 
     <!-- HEADER -->
-    <h1 class="section-title">Programs Offered</h1>
+    <h1 class="section-title">PROGRAMS OFFERED</h1>
     <p class="section-subtitle">
-      Experience top-notch facilities and cutting-edge laboratories at College of ATeacher Education for unparalleled academics advancements.
+      Experience top-notch facilities and cutting-edge laboratories at College of Business Administration for unparalleled academics advancements.
     </p>
 
     <!-- PROGRAM CARDS -->
-    <div class="cards">
-
-      <!-- CARD 1 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/elemen.jpg' %}" alt="BSIT">
-        <div class="card-body highlighted">
-          <h3>Bachelor of Science In Elementary Education</h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/secondary.jpg' %}" alt="BSCS">
-        <div class="card-body">
-          <h3>Bachelor of Science in Secondary Education</h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
+    <div class="cards" id="cted-programs">
+      <!-- Programs will be dynamically loaded here -->
     </div>
   </div>
 </section>
 
-<section class="facilities-section">
-  <div class="facilities-container">
+<!-- CTED ALUMNI --------------------------------------------------------------->
+<section class="alumni-section" id="alumni-section">
+  <div class="alumni-container">
 
-    <!-- HEADER -->
-    <h1 class="section-title">CTED FACILITIES AND ROOMS</h1>
+    <h1 class="section-title">CTED ALUMNI</h1>
     <p class="section-subtitle">
-      Experience top-notch facilities and cutting-edge laboratories at College of
-      Arts and Science for unparalleled academics advancements.
+      Meet our successful graduates from the College of Teacher Education who continue to make an impact in different fields.
     </p>
 
-    <!-- GRID -->
-    <div class="facilities-grid">
-
-         <div class="facility-card">
-        <img src="{% static 'dashboard/images/cted fr.jpg' %}" alt="CTED faculty room">
-        <span class="label">CTED Faculty Room</span>
-      </div>
-
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cted1.jpg' %}" alt="CTED 1">
-        <span class="label">CTED 1</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cted2.jpg' %}" alt="CTED 2">
-        <span class="label">CTED 2</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cted3.jpg' %}" alt="CTED 3">
-        <span class="label">CTED 3</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cted4.jpg' %}" alt="CTED 4">
-        <span class="label">CTED 4</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cted5.jpg' %}" alt="CTED 5">
-        <span class="label">CTED 5</span>
-      </div>
-
+    <div class="alumni-cards" id="cted-alumni">
+      <!-- Alumni profiles will load dynamically -->
     </div>
+
   </div>
 </section>
-<section class="cas-admin">
+<!-- CTED AWARDS --------------------------------------------------------------->
+<section class="awards-section" id="cted-awards-section">
+  <div class="awards-container">
 
+    <h1 class="section-title">CTED Awards and Recognition</h1>
+    <p class="section-subtitle">
+      Explore the achievements, honors, and recognitions earned by the College of Teacher Education through excellence in academics, research, and community service.
+    </p>
+
+    <div class="awards-cards" id="cted-awards">
+      <!-- Awards will load dynamically -->
+    </div>
+
+  </div>
+</section>
+
+<!-- CTED FACILITIES ----------------------------------------------------------->
+<section class="facilities-section" id="cted-facilities-section">
+  <div class="facilities-container">
+
+    <h1 class="section-title">CTED Facilities</h1>
+    <p class="section-subtitle">
+      Discover the modern facilities, classrooms, and laboratories available at the College of Teacher Education for optimal learning and research.
+    </p>
+
+    <div class="facilities-cards" id="cted-facilities">
+      <!-- Facilities will load dynamically -->
+    </div>
+
+  </div>
+</section>
+<section class="cted-admin">
   <!-- HEADER -->
-  <div class="cas-header">
-    <h4>CTED ADMINISTRATION</h4>
+  <div class="cted-header">
+    <h4>College of Teacher Education</h4>
     <h1>
-      <span>COLLEGE</span> OF TEACHER <span class="dark">EDUCATION</span>
+      <span>ORGANIZATIONAL CHART</span>
     </h1>
     <p>
       Attain excellent status in providing a pool of competent and competitive
-      human resources. Pagkab-ot sa taas nga matan-aw sa pag pangalagad ug dili
-      palupig nga.
+      human resources.
     </p>
   </div>
 
-  <div class="cas-content">
+  <div class="cted-content">
     
-    <!-- PROFILE SLIDER -->
-    <div class="profile-area">
-
-      <div class="profiles"> 
-        
-
-        <!-- PROFILE 1 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/liza.png' %}">
-          <h3>Liza J. Caballero, EdD</h3>
-          <p>Dean, College of Teacher Education</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 2 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/liza.png' %}">
-          <h3>Liza J. Caballero, EdD</h3>
-          <p>Assistant Campus Director for Academic Affairs</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 3 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/liza.png' %}">
-          <h3>JESUS D. SUMADIA, MSIT</h3>
-          <p>CAS – Research and Extension Coordinator</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 4 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/liza.png' %}">
-          <h3>JOHNREY S. ORTEGA</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 5 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/liza.png' %}">
-          <h3>ELLEN JOY TUNGHA</h3>
-          <p>Part Time</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 6 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/liza.png' %}">
-          <h3>JONATHAN AGUPASA</h3>
-          <p>Part Time Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-          <!-- PROFILE 7 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/liza.png' %}">
-          <h3>ROMNICK MACAPOBRE</h3>
-          <p>Part Time Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 8 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/liza.png' %}">
-          <h3>ANGELIE WENNA ALQUIZAR</h3>
-          <p>Part Time Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 9 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/liza.png' %}">
-          <h3>JOVANY CASTILLO</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 10 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/liza.png' %}">
-          <h3>ROY RODRIQUEZ</h3>
-          <p>Instructor </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-      </div>
-
-      <!-- NAVIGATION -->
-      <div class="nav-buttons">
-        <button id="prev">&#10094;</button>
-        <button id="next">&#10095;</button>
-      </div>
-     
+    <!-- ORGANIZATIONAL CHART -->
+    <div class="org-chart" id="cted-organizational-chart">
+      <!-- Organizational chart will be dynamically loaded here -->
     </div>
 
   </div>
 
 </section>
 
+{% include 'dashboard/footer.html' %}
+{% endblock content %}
+
 {% block extra_js %}
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const profiles = document.querySelector('.profiles');
-    const next = document.getElementById('next');
-    const prev = document.getElementById('prev');
+  // --- CTED FACULTY & ORG CHART ---
+  async function loadCTEDOrganizationalChart() {
+    const container = document.getElementById('cted-organizational-chart');
+    if (!container) return;
 
-    if (!profiles || !next || !prev) {
-      console.error('Required elements not found');
-      return;
+    try {
+      container.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin"></i> Loading organizational chart...</div>';
+      
+      const response = await fetch('/api/faculty/?college=cted');
+      const data = await response.json();
+
+      if (data.success && data.faculty) {
+        const faculty = data.faculty;
+        
+        if (faculty.length === 0) {
+          container.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-user-shield" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CTED Faculty Members Found</h3>
+                <p>Faculty added in the CTED admin dashboard will appear here.</p>
+            </div>`;
+          return;
+        }
+
+        const priority = (pos) => {
+          pos = (pos || '').toLowerCase();
+          if (pos.includes('dean') && !pos.includes('assistant')) return 1;
+          if (pos.includes('assistant dean') || pos.includes('coordinator')) return 2;
+          return 3;
+        };
+
+        const sorted = [...faculty].sort((a, b) => priority(a.position) - priority(b.position));
+        const dean = sorted.find(f => priority(f.position) === 1);
+        const secondLevel = sorted.filter(f => priority(f.position) === 2);
+        const others = sorted.filter(f => priority(f.position) === 3);
+
+        let html = '';
+        // Dean
+        if (dean) {
+          html += `
+            <div class="org-level top-level">
+              <div class="org-box dean-box">
+                <img src="${dean.image || '/static/dashboard/images/cbadean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/cbadean.jpg'">
+                <div class="org-info">
+                  <h3>${dean.name}</h3>
+                  <p class="org-title">${dean.position}, College of Teacher Education</p>
+                </div>
+              </div>
+            </div><div class="org-connector"></div>`;
+        }
+
+        // Second Level
+        if (secondLevel.length > 0) {
+          html += `<div class="org-level second-level"><div class="org-row">`;
+          html += secondLevel.map(a => `
+            <div class="org-box assistant-box">
+              <img src="${a.image || '/static/dashboard/images/cbadean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/cbadean.jpg'">
+              <div class="org-info"><h3>${a.name}</h3><p class="org-title">${a.position}</p></div>
+            </div>
+          `).join('');
+          html += `</div></div><div class="org-connector"></div>`;
+        }
+
+        // Others
+        if (others.length > 0) {
+          html += `<div class="org-level third-level"><div class="org-grid">`;
+          html += others.map(f => `
+            <div class="org-box faculty-box">
+              <img src="${f.image || '/static/dashboard/images/cbadean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/cbadean.jpg'">
+              <div class="org-info"><h3>${f.name}</h3><p class="org-title">${f.position}</p></div>
+            </div>
+          `).join('');
+          html += `</div></div>`;
+        }
+        container.innerHTML = html;
+      }
+    } catch (e) {
+      console.error('Error loading CTED faculty:', e);
+      container.innerHTML = '<p style="text-align: center; color: red;">Error loading organizational chart.</p>';
     }
+  }
 
-    let index = 0;
-    const cardsPerView = 3;
-    const totalCards = profiles.children.length;
-    const maxIndex = Math.max(0, totalCards - cardsPerView);
+  // --- CTED LATEST POSTS ---
+  async function loadCtedLatestPosts() {
+    const container = document.getElementById('cted-latest');
+    if (!container) return;
 
-    console.log('Total cards:', totalCards, 'Max index:', maxIndex);
+    try {
+      container.innerHTML = '<div style="text-align: center; padding: 40px; grid-column: 1/-1;"><i class="fas fa-spinner fa-spin"></i> Loading latest posts...</div>';
+      const response = await fetch('/api/posts/get/?college=cted');
+      const data = await response.json();
 
-    function updateProfiles() {
-      // Hide all profiles completely
-      Array.from(profiles.children).forEach(card => {
-        card.style.display = 'none';
-        card.style.opacity = '0';
-        card.style.transform = 'translateX(20px)';
-      });
+      if (data.success && data.posts) {
+        const posts = data.posts.filter(p => p.type === 'announcement' || p.type === 'news' || !p.type);
+        if (posts.length === 0) {
+          container.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-newspaper" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CTED Admin Posts Available</h3>
+                <p>Posts created by CTED Administrator will appear here.</p>
+            </div>`;
+          return;
+        }
 
-      // Show only current 3 profiles
-      for (let i = index; i < index + cardsPerView && i < totalCards; i++) {
-        const card = profiles.children[i];
-        card.style.display = 'block';
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateX(0)';
-        }, (i - index) * 100);
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+          const date = post.created_at ? new Date(post.created_at).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+          }) : "March 14, 2026";
+
+          const card = document.createElement('div');
+          card.className = 'latest-card-professional';
+          card.innerHTML = `
+            <div class="post-image-container">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="post-badges">
+                <span class="badge-new">NEW</span>
+                <span class="badge-type">${(post.type || 'ANNOUNCEMENT').toUpperCase()}</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <p class="post-date">${date}</p>
+              <h3 class="post-title">${post.title.toUpperCase()}</h3>
+              <p class="post-excerpt">${post.content.substring(0, 80)}...</p>
+              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="read-more">READ MORE &rarr;</a>
+            </div>
+          `;
+          container.appendChild(card);
+        });
       }
+    } catch (e) { console.error('Error loading CTED posts:', e); }
+  }
+
+  // --- CTED ALUMNI ---
+  async function loadCtedAlumni() {
+    const container = document.getElementById('cted-alumni');
+    if (!container) return;
+
+    try {
+      const response = await fetch('/api/posts/get/?college=cted&type=alumni');
+      const data = await response.json();
+
+      if (data.success && data.posts) {
+        const posts = data.posts;
+        if (posts.length === 0) {
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No alumni posts available.</p>';
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+          const card = document.createElement('div');
+          card.className = 'latest-card-professional';
+          card.innerHTML = `
+            <div class="post-image-container">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="post-badges">
+                <span class="badge-type">ALUMNI</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <h3 class="post-title">${post.title.toUpperCase()}</h3>
+              <p class="post-excerpt">${post.content.substring(0, 100)}...</p>
+              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="read-more">READ MORE &rarr;</a>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) { console.error('Error loading CTED alumni:', e); }
+  }
+
+  // --- CTED AWARDS ---
+  async function loadCtedAwards() {
+    const container = document.getElementById('cted-awards');
+    if (!container) return;
+
+    try {
+      const response = await fetch('/api/posts/get/?college=cted&type=award');
+      const data = await response.json();
+
+      if (data.success && data.posts) {
+        const posts = data.posts;
+        if (posts.length === 0) {
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No awards available.</p>';
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+          const card = document.createElement('div');
+          card.className = 'cit-award-card-v2';
+          card.innerHTML = `
+            <div class="award-image-container-v2">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="award-trophy-badge-v2">
+                <i class="fas fa-trophy"></i>
+              </div>
+            </div>
+            <div class="award-content-box-v2">
+              <h3 class="award-title-green-v2">${post.title}</h3>
+              <p class="award-subtitle-grey-v2">${post.content}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) { console.error('Error loading CTED awards:', e); }
+  }
+
+  // --- CTED FACILITIES ---
+  async function loadCtedFacilities() {
+    const container = document.getElementById('cted-facilities');
+    if (!container) return;
+
+    try {
+      const response = await fetch('/api/facilities/?college=cted');
+      const data = await response.json();
+
+      if (data.success && data.facilities) {
+        const facilities = data.facilities;
+        if (facilities.length === 0) {
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No facilities available.</p>';
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "40px";
+        container.innerHTML = '';
+
+        facilities.forEach(facility => {
+          const card = document.createElement('div');
+          card.className = 'cted-facility-card';
+          card.innerHTML = `
+            <div class="cted-facility-image-wrapper">
+              <div class="cted-facility-badge">${facility.name}</div>
+              <img src="${facility.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) { console.error('Error loading CTED facilities:', e); }
+  }
+
+  document.addEventListener('DOMContentLoaded', async function() {
+    // Initialize data from Database APIs
+    loadCTEDOrganizationalChart();
+    loadCtedLatestPosts();
+    loadCtedAlumni();
+    loadCtedAwards();
+    loadCtedFacilities();
+    
+    // --- LOAD PROGRAMS ---
+    const programsContainer = document.getElementById('cted-programs');
+    if (programsContainer) {
+      try {
+        programsContainer.innerHTML = '<div style="text-align: center; padding: 40px; grid-column: 1/-1;"><i class="fas fa-spinner fa-spin"></i> Loading programs...</div>';
+        const response = await fetch('/api/programs/');
+        const data = await response.json();
+        
+        if (data.success && data.programs) {
+          const ctedPrograms = data.programs.filter(p => p.college && p.college.toLowerCase() === 'cted');
+          if (ctedPrograms.length === 0) {
+            programsContainer.innerHTML = '<div class="empty-state"><h3>No Programs Available</h3></div>';
+          } else {
+            let html = '';
+            ctedPrograms.forEach(program => {
+              html += `
+                <div class="card">
+                  <img src="${program.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+                  <div class="card-body ${program.status === 'active' ? 'highlighted' : ''}">
+                    <h3>${program.title}</h3>
+                    <div class="program-info">
+                      <div class="info-item"><i class="fas fa-clock"></i> <span>${program.duration}</span></div>
+                    </div>
+                    <a href="#" class="learn-btn">Learn More</a>
+                  </div>
+                </div>`;
+            });
+            programsContainer.innerHTML = html;
+          }
+        }
+      } catch (e) { console.error('Error loading programs:', e); }
     }
-
-    next.onclick = () => {
-      if (index < maxIndex) {
-        index++;
-        updateProfiles();
-        console.log('Next clicked, index:', index);
-      } else {
-        console.log('Reached max index');
-      }
-    };
-
-    prev.onclick = () => {
-      if (index > 0) {
-        index--;
-        updateProfiles();
-        console.log('Prev clicked, index:', index);
-      } else {
-        console.log('At start index');
-      }
-    };
-
-    // Initialize first view
-    updateProfiles();
   });
 </script>
-{% endblock %}
+
+<style>
+/* Floating Arrow Button */
+.floating-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #007fff, #0056b3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 127, 255, 0.3);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  pointer-events: none;
+}
+
+.floating-arrow.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-arrow:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  box-shadow: 0 4px 12px rgba(0, 127, 255, 0.4);
+  transform: translateY(-1px) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.floating-arrow i {
+  font-size: 14px;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+}
+
+.floating-arrow.visible i {
+  transform: rotate(0deg);
+}
+
+.floating-arrow:hover i {
+  transform: translateY(-1px) rotate(5deg);
+  transition: all 0.3s ease;
+}
+</style>
+
+<script>
+// Floating Arrow functionality
+const floatingArrow = document.getElementById('floatingArrow');
+let lastScrollTop = 0;
+
+// Show/hide arrow based on scroll position - trigger at PROGRAMS OFFERED section
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // Get the PROGRAMS OFFERED section position
+  const programsSection = document.getElementById('programs-section');
+  if (programsSection) {
+    const programsTop = programsSection.offsetTop;
+    
+    // Show arrow when user scrolls past the PROGRAMS OFFERED section
+    if (scrollTop > programsTop - 100) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  } else {
+    // Fallback: use fixed pixel value if section not found
+    if (scrollTop > 800) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  }
+  
+  lastScrollTop = scrollTop;
+});
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
+
 
 {% endblock %}

@@ -5,10 +5,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}NORSU Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/styles.css' %}">
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    {% block content %}{% endblock %}
+
+    
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle functionality
+            const menuToggleBtn = document.querySelector('.mobile-menu-toggle');
+            const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+            
+            if (menuToggleBtn && mobileNavMenu) {
+                menuToggleBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    menuToggleBtn.classList.toggle('active');
+                    mobileNavMenu.classList.toggle('active');
+                });
+
+                // Close mobile menu when clicking on links
+                const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggleBtn.classList.remove('active');
+                        mobileNavMenu.classList.remove('active');
+                    });
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    const isClickInsideMenu = mobileNavMenu.contains(event.target);
+                    const isClickOnToggle = menuToggleBtn.contains(event.target);
+                    
+                    if (!isClickInsideMenu && !isClickOnToggle && mobileNavMenu.classList.contains('active')) {
+                        menuToggleBtn.classList.remove('active');
+                        mobileNavMenu.classList.remove('active');
+                    }
+                });
+            }
+
+            // Navigation Menu Functionality
+            const desktopNavLinks = document.querySelectorAll('.nav-links li');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-links li');
+
+            // Desktop navigation functionality
+            desktopNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const anchor = this.querySelector('a');
+                    const hasDropdown = anchor.textContent.includes('▼');
+                    
+                    // Only prevent default for dropdown links
+                    if (hasDropdown) {
+                        e.preventDefault();
+                        const linkText = anchor.textContent.replace(' ▼', '').trim();
+                        
+                        desktopNavLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        handleNavigation(linkText);
+                    }
+                    // Let regular links (Home, Alumni) work normally
+                });
+            });
+
+            // Mobile navigation functionality
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const anchor = this.querySelector('a');
+                    const hasDropdown = anchor.textContent.includes('▼');
+                    
+                    // Only prevent default for dropdown links
+                    if (hasDropdown) {
+                        e.preventDefault();
+                        const linkText = anchor.textContent.replace(' ▼', '').trim();
+                        
+                        if (mobileNavMenu) {
+                            mobileNavMenu.classList.remove('active');
+                        }
+                        if (menuToggleBtn) {
+                            menuToggleBtn.classList.remove('active');
+                        }
+                        
+                        handleNavigation(linkText);
+                    } else {
+                        // For regular links, just close the mobile menu
+                        if (mobileNavMenu) {
+                            mobileNavMenu.classList.remove('active');
+                        }
+                        if (menuToggleBtn) {
+                            menuToggleBtn.classList.remove('active');
+                        }
+                    }
+                });
+            });
+
+            // Navigation handler function
+            function handleNavigation(section) {
+                switch(section.toLowerCase()) {
+                    case 'about':
+                        window.location.href = '/#hero-section';
+                        break;
+                    case 'academics':
+                        window.location.href = '/#colleges-section';
+                        break;
+                    case 'admissions':
+                        window.location.href = '/#programs-section';
+                        break;
+                    case 'contacts':
+                        window.location.href = '/#footer';
+                        break;
+                    case 'alumni':
+                        window.location.href = '/#alumni';
+                        break;
+                    default:
+                        console.log('Navigation to:', section);
+                }
+            }
+        });
+    </script>
     
     {% block extra_js %}{% endblock %}
 </body>

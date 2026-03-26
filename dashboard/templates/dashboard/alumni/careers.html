@@ -1,0 +1,463 @@
+{% extends 'dashboard/alumni/base.html' %}
+
+{% block title %}Career Opportunities - NORSU-BSC Alumni Network{% endblock %}
+
+{% block content %}
+
+<style>
+/* Careers Page Styles */
+.careers-hero {
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.95) 0%, rgba(95, 168, 211, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80') center/cover fixed;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.hero-title {
+    color: white;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.hero-subtitle {
+    color: rgba(255,255,255,0.95);
+    font-size: 1.2rem;
+}
+
+.filter-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin: -3rem auto 3rem;
+    max-width: 1200px;
+    position: relative;
+    z-index: 10;
+}
+
+.filter-tags {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-tag {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    background: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #4a5568;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.filter-tag:hover,
+.filter-tag.active {
+    background: #87CEEB;
+    color: white;
+    border-color: #87CEEB;
+    transform: translateY(-2px);
+}
+
+.careers-container {
+    padding: 4rem 0;
+    background: #F0F8FF;
+}
+
+.jobs-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.job-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.job-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, #87CEEB 0%, #5fa8d3 100%);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.job-card:hover::before {
+    transform: scaleY(1);
+}
+
+.job-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 12px 40px rgba(135, 206, 235, 0.3);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.job-title {
+    color: #1e3a5f;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.job-company {
+    color: #87CEEB;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.job-type-badge {
+    padding: 0.5rem 1rem;
+    background: #F0F8FF;
+    color: #1e3a5f;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.job-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+.meta-icon {
+    font-size: 1.2rem;
+}
+
+.job-description {
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.job-requirements {
+    background: #F0F8FF;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.job-requirements h4 {
+    color: #1e3a5f;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.job-requirements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.job-requirements li {
+    color: #4a5568;
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.job-requirements li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #87CEEB;
+    font-weight: 700;
+}
+
+.job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 2px solid #F0F8FF;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.job-salary {
+    color: #1e3a5f;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.job-deadline {
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+.apply-btn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #87CEEB 0%, #5fa8d3 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
+}
+
+.apply-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(135, 206, 235, 0.4);
+}
+
+.career-tips-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-top: 3rem;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tip-card {
+    padding: 2rem;
+    background: #F0F8FF;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    background: #e6f3ff;
+}
+
+.tip-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.tip-title {
+    color: #1e3a5f;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.tip-text {
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.empty-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .careers-hero {
+        padding: 3rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .job-header {
+        flex-direction: column;
+    }
+    
+    .job-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+</style>
+
+<section class="careers-hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-icon">💼</div>
+            <h1 class="hero-title">Career Opportunities</h1>
+            <p class="hero-subtitle">Explore job openings and internships from our partner companies</p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="filter-section">
+        <div class="filter-tags">
+            <a href="{% url 'careers' %}" class="filter-tag {% if not selected_type %}active{% endif %}">All Jobs</a>
+            {% for code, label in job_types %}
+            <a href="{% url 'careers' %}?type={{ code }}" class="filter-tag {% if selected_type == code %}active{% endif %}">{{ label }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<section class="careers-container">
+    <div class="container">
+        <div class="jobs-grid">
+            {% for job in opportunities %}
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3 class="job-title">{{ job.title }}</h3>
+                        <p class="job-company">{{ job.company }}</p>
+                    </div>
+                    <div class="job-type-badge">{{ job.get_job_type_display }}</div>
+                </div>
+                
+                <div class="job-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">📍</span>
+                        <span>{{ job.location }}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Posted {{ job.posted_date|date:"M d, Y" }}</span>
+                    </div>
+                    {% if job.salary_range %}
+                    <div class="meta-item">
+                        <span class="meta-icon">💰</span>
+                        <span>{{ job.salary_range }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <p class="job-description">{{ job.description|truncatewords:40 }}</p>
+                
+                <div class="job-requirements">
+                    <h4>Requirements:</h4>
+                    <ul>
+                        {% for req in job.requirements|slice:":3" %}
+                        <li>{{ req }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="job-footer">
+                    <div>
+                        {% if job.salary_range %}
+                        <p class="job-salary">{{ job.salary_range }}</p>
+                        {% endif %}
+                        <p class="job-deadline">Deadline: {{ job.deadline|date:"M d, Y" }}</p>
+                    </div>
+                    <a href="mailto:{{ job.contact_email }}?subject=Application for {{ job.title }}" class="apply-btn">Apply Now</a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="empty-state">
+                <div class="empty-icon">💼</div>
+                <h2 style="color: #1e3a5f; margin-bottom: 1rem;">No Job Openings Available</h2>
+                <p style="color: #4a5568;">Check back soon for new career opportunities!</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Career Tips Section -->
+        <div class="career-tips-section">
+            <h2 style="color: #1e3a5f; font-size: 2rem; margin-bottom: 1rem; font-weight: 700;">Career Tips & Resources</h2>
+            <p style="color: #4a5568; margin-bottom: 2rem;">Helpful advice to boost your career success</p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">📝</div>
+                    <h3 class="tip-title">Resume Writing</h3>
+                    <p class="tip-text">Craft a compelling resume that highlights your achievements and skills. Keep it concise, relevant, and tailored to each position.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎯</div>
+                    <h3 class="tip-title">Interview Preparation</h3>
+                    <p class="tip-text">Research the company, practice common questions, and prepare examples that demonstrate your qualifications and experience.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🤝</div>
+                    <h3 class="tip-title">Networking</h3>
+                    <p class="tip-text">Build professional relationships through alumni events, LinkedIn, and industry conferences. Many opportunities come through connections.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">📚</div>
+                    <h3 class="tip-title">Continuous Learning</h3>
+                    <p class="tip-text">Stay updated with industry trends, take online courses, and develop new skills to remain competitive in your field.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">💡</div>
+                    <h3 class="tip-title">Personal Branding</h3>
+                    <p class="tip-text">Develop your online presence, showcase your expertise, and maintain a professional image across all platforms.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎓</div>
+                    <h3 class="tip-title">Alumni Mentorship</h3>
+                    <p class="tip-text">Connect with experienced alumni who can provide guidance, advice, and insights into your chosen career path.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

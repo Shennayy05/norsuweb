@@ -1,14 +1,18 @@
 {% extends 'dashboard/base_simple.html' %}
 {% load static %}
 
-{% block title %}College of Criminal justice - NORSU{% endblock %}
+{% block title %}College of Criminal Justice Education - NORSU{% endblock %}
+
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'dashboard/css/ccjestyle.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/footer.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 {% endblock %}
 
+
 {% block content %}
+{% include 'dashboard/navbar.html' %}
 <section class="hero">
   <div class="overlay"></div>
 
@@ -27,7 +31,7 @@
       </div>
 
       <p class="description">
-        Welcome to The College of Criminal justice at Norsu BSC– University (CCJE)
+        Welcome to The College of Criminal Justice Education at Norsu BSC– University (CCJE)
         is one of the most storied programs in the institution's history. It transformed
         CCJE from a traditional engineering school into a modern "Center of Excellence"
         for technology. Strengthen moral standards. Pagpalig-on sa moralidad nga sukdanan.
@@ -44,19 +48,19 @@
           <span>About CCJE</span>
         </a>
 
-        <a href="#topnotchers-section" class="icon-box">
+        <a href="#alumni-section" class="icon-box">
           <i class="fa-solid fa-user-graduate"></i>
-          <span>Topnotchers</span>
+          <span>Alumni</span>
         </a>
 
         <a href="#awards-section" class="icon-box">
           <i class="fa-solid fa-award"></i>
-          <span>Awards&Recognition</span>
+          <span>Awards</span>
         </a>
 
-        <a href="#alumni-section" class="icon-box">
+        <a href="#administration-section" class="icon-box">
           <i class="fa-solid fa-users"></i>
-          <span>Alumni</span>
+          <span>Administration</span>
         </a>
       </div>
     </div>
@@ -67,7 +71,7 @@
   <div class="stats">
     <div class="stat-card">
       <i class="fa-solid fa-desktop"></i>
-      <h2>1</h2>
+      <h2>3</h2>
       <p>PROGRAMS</p>
     </div>
 
@@ -95,20 +99,20 @@
         <h4>About</h4>
         <h1>
           <span class="green">College</span>
-          <span class="dark"> of Criminal &amp; Justice Education</span>
+          <span class="dark">of Criminal Justice Education</span>
         </h1>
       </div>
     </div>
 
     <!-- DESCRIPTION -->
     <p class="about-text">
-      For the past 25 years, the College of Criminal justice continuously bring
+      For the past 25 years, the College of Criminal Justice Education continuously brings
       professional training to students, for them to be intellectually, morally, physically
       and socially skilled individuals equipped to contribute to global social and
-      professional demands. The CIT is committed to produce graduates with scientific,
+      professional demands. The CCJE is committed to produce graduates with scientific,
       artistic, and technological skills that meet global standards to aid in the advantage
-      of society in its interminable quest towards development. The CIT provides academic
-      and academic-support programs designed for the holistic development and professional
+      of society in its interminable quest towards development. The CCJE provides academic
+      and academic-support programs designed for holistic development and professional
       advances for students in fields of specialization in both the arts and sciences.
     </p>
 
@@ -131,7 +135,7 @@
       </div>
 
       <div class="goal-item">
-        <span class="letter a">C</span>
+        <span class="letter a">A</span>
         <div>
           <p>
             Attain excellent status in providing a pool of competent and competitive human resources.
@@ -143,19 +147,7 @@
       </div>
 
       <div class="goal-item">
-        <span class="letter s">J</span>
-        <div>
-          <p>
-            Strengthen moral standards.
-          </p>
-          <em>
-            Pagpalig-on sa moralidad nga sukdanan.
-          </em>
-        </div>
-      </div>
-
-         <div class="goal-item">
-        <span class="letter s">E</span>
+        <span class="letter s">S</span>
         <div>
           <p>
             Strengthen moral standards.
@@ -170,301 +162,761 @@
 
   </div>
 </section>
+<!-- LATEST AT CCJE -->
+<section class="latest-section" id="latest-section">
+  <div class="latest-container">
 
+    <h1 class="section-title">LATEST AT CCJE</h1>
+    <p class="section-subtitle">
+      Stay updated with the latest news, announcements, and events from the College of Criminal Justice Education.
+    </p>
+
+    <div class="latest-cards" id="ccje-latest">
+      <!-- Latest posts/news will load dynamically -->
+    </div>
+
+  </div>
+</section>
+
+<!-- CCJE PROGRAMS SECTION ------------------------------------------------------------->
 <section class="programs-section" id="programs-section">
   <div class="programs-container">
 
     <!-- HEADER -->
-    <h1 class="section-title">PROGRAM OFFERED</h1>
+    <h1 class="section-title">PROGRAMS OFFERED</h1>
     <p class="section-subtitle">
-      Experience top-notch facilities and cutting-edge laboratories at College of Criminal Justice Education for unparalleled academics advancements.
+      Experience top-notch facilities and cutting-edge laboratories at College of Criminal Justice Education for unparalleled academic advancements.
     </p>
 
     <!-- PROGRAM CARDS -->
-    <div class="cards">
-
-      <!-- CARD 1 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/pulis.jpg' %}" alt="CCJE">
-        <div class="card-body highlighted">
-          <h3>Bachelor of Criminology</h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div> 
-
+    <div class="cards" id="ccje-programs">
+      <!-- Programs will be dynamically loaded here -->
     </div>
   </div>
 </section>
 
+<!-- CCJE ALUMNI --------------------------------------------------------------------->
+<section class="alumni-section" id="alumni-section">
+  <div class="alumni-container">
+
+    <h1 class="section-title">CCJE ALUMNI</h1>
+    <p class="section-subtitle">
+      Meet our successful graduates from the College of Criminal Justice Education who continue to make an impact in different fields.
+    </p>
+
+    <div class="alumni-cards" id="ccje-alumni">
+      <!-- Alumni profiles will load dynamically -->
+    </div>
+
+  </div>
+</section>
+<!-- CCJE AWARDS AND RECOGNITION SECTION ---------------------------------------------->
+<section class="awards-section" id="awards-section">
+  <div class="awards-container">
+
+    <!-- SECTION HEADER -->
+    <h1 class="section-title">CCJE Awards and Recognition</h1>
+    <p class="section-subtitle">
+      Discover achievements, honors, and recognitions earned by the 
+      College of Criminal Justice Education through excellence in academics, training, 
+      and community service.
+    </p>
+
+    <!-- AWARDS CARDS (Loaded dynamically via JavaScript) -->
+    <div class="awards-cards" id="ccje-awards">
+      <!-- CCJE Awards will load dynamically here -->
+    </div>
+
+  </div>
+</section>
+<!-- CCJE FACILITIES SECTION ------------------------------------------------------------->
 <section class="facilities-section" id="facilities-section">
   <div class="facilities-container">
 
-    <!-- HEADER -->
-    <h1 class="section-title">CCJE FACILITIES AND ROOMS</h1>
+    <!-- SECTION HEADER -->
+    <h1 class="section-title">CCJE Facilities</h1>
     <p class="section-subtitle">
-      Experience top-notch facilities and cutting-edge laboratories at College of
-      Industrial Technology for unparalleled academics advancements.
+      Explore modern training rooms, forensic laboratories, simulation facilities, and learning spaces 
+      available at the College of Criminal Justice Education that support hands-on training, 
+      investigation skills, and professional development.
     </p>
 
-    <!-- GRID -->
-    <div class="facilities-grid">
-
-        <div class="facility-card">
-        <img src="{% static 'dashboard/images/ccjeof.jpg' %}" alt="CCJE OFFICE">
-        <span class="label">CCJE OFFICE</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/ccje1.jpg' %}" alt="CCJE 1">
-        <span class="label">CCJE 1</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/ccje2.jpg' %}" alt="CCJE 2">
-        <span class="label">CCJE 2</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/ccje3.jpg' %}" alt="CCJE 3">
-        <span class="label">CCJE 3</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/ccje3.jpg' %}" alt="CCJE 4">
-        <span class="label">CCJE 4</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/ccje3.jpg' %}" alt="CCJE 5">
-        <span class="label">CCJE 5</span>
-      </div>
-
-
+    <!-- FACILITIES CARDS (Loaded dynamically via JavaScript) -->
+    <div class="facilities-cards" id="ccje-facilities">
+      <!-- CCJE Facilities will load dynamically here -->
     </div>
+
   </div>
 </section>
-<section class="cas-admin">
-
+<section class="ccje-admin">
   <!-- HEADER -->
-  <div class="cas-header">
-    <h4>CCJE ADMINISTRATION</h4>
-    <h1>
-      <span>COLLEGE OF </span> CRIMINAL JUSTICE <span class="dark">EDUCATION</span>
+  <div class="ccje-header" style="text-align: center;">
+    <h4>College of Criminal Justice Education</h4>
+    <h1 style="text-align: center;">
+      <span>ORGANIZATIONAL CHART</span>
     </h1>
-    <p>
-      Attain excellent status in providing a pool of competent and competitive
-      human resources. Pagkab-ot sa taas nga matan-aw sa pag pangalagad ug dili
-      palupig nga.
+    <p style="text-align: center;">
+      Strengthen moral standards and provide quality education in criminal justice education.
     </p>
   </div>
 
-  <div class="cas-content">
+  <div class="ccje-content">
     
-    <!-- PROFILE SLIDER -->
-    <div class="profile-area">
-
-      <div class="profiles"> 
-        
-
-        <!-- PROFILE 1 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Jonas S. Gako., MSCJ  </h3>
-          <p>Dean, College of Criminal Justice Education</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        
-        <!-- PROFILE 2 -->
-          <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Ben John I. Laquinon., MSCJ</h3>
-          <p>Assistant Dean </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-
-        <!-- PROFILE 3 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Allah H. Ege., MSCJ</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 4 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3> April Loed M. Arnaiz., MSCJ </h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 5 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Marites F. Pantinople., MSCJ</h3>
-          <p>Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 6 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Maribel S. Toledo</h3>
-          <p>Staff</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-           <!-- PROFILE 7(NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Judith E. Catubay</h3>
-          <p>Staff</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-           <!-- PROFILE 8 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Celesste Ann Gaga-a Laure Capilla </h3>
-          <p>Guest Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-           <!-- PROFILE 9 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Dr. Iagn Neil D. Velarde</h3>
-          <p>Guest Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        
-          <!-- PROFILE 10 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Dionaldo Saldasal</h3>
-          <p>Guest Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-          <!-- PROFILE 11 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Eve Marie ALcazar</h3>
-          <p>Guest Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        
-          <!-- PROFILE 12 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Christopher Barrientos</h3>
-          <p>Guest Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        
-          <!-- PROFILE 6 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Archimedes Jr Lalamunan </h3>
-          <p>Guest Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-          <!-- PROFILE 13 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/ccjedean.jpg' %}">
-          <h3>Mark Anthony </h3>
-          <p>Guest Instructor</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-
-
-
-
-
-
-      </div>  
-     
+    <!-- ORGANIZATIONAL CHART -->
+    <div class="org-chart" id="ccje-organizational-chart">
+      <!-- Loaded dynamically -->
     </div>
-
   </div>
 
-   <!-- NAVIGATION -->
-      <div class="nav-buttons">
-        <button id="prev">&#10094;</button>
-        <button id="next">&#10095;</button>
-      </div>
-
 </section>
-
 {% block extra_js %}
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const profiles = document.querySelector('.profiles');
-    const next = document.getElementById('next');
-    const prev = document.getElementById('prev');
+  // --- FACULTY / ORG CHART ---
+  async function loadCCJEFaculty() {
+    try {
+      const response = await fetch('/api/faculty/?college=ccje');
+      const data = await response.json();
+      if (data.success && data.faculty) {
+        updateCCJEOrganizationalChart(data.faculty);
+        // Update faculty count in stats if needed
+        const facultyCountElement = document.getElementById('hero-faculty-count');
+        if (facultyCountElement) facultyCountElement.textContent = data.faculty.length;
+      }
+    } catch (e) { console.error('Error loading CCJE faculty:', e); }
+  }
 
-    if (!profiles || !next || !prev) {
-      console.error('Required elements not found');
+  function updateCCJEOrganizationalChart(faculty) {
+    const container = document.getElementById('ccje-organizational-chart');
+    if (!container) return;
+    if (!faculty || faculty.length === 0) {
+      container.innerHTML = '<p>No faculty data available.</p>';
       return;
     }
 
-    let index = 0;
-    const cardsPerView = 3;
-    const totalCards = profiles.children.length;
-    const maxIndex = Math.max(0, totalCards - cardsPerView);
+    const priority = (pos) => {
+      pos = (pos || '').toLowerCase();
+      if (pos.includes('dean') && !pos.includes('assistant')) return 1;
+      if (pos.includes('assistant dean') || pos.includes('coordinator')) return 2;
+      return 3;
+    };
 
-    console.log('Total cards:', totalCards, 'Max index:', maxIndex);
+    const sorted = [...faculty].sort((a, b) => priority(a.position) - priority(b.position));
+    const dean = sorted.find(f => priority(f.position) === 1);
+    const secondLevel = sorted.filter(f => priority(f.position) === 2);
+    const others = sorted.filter(f => priority(f.position) === 3);
 
-    function updateProfiles() {
-      // Hide all profiles completely
-      Array.from(profiles.children).forEach(card => {
-        card.style.display = 'none';
-        card.style.opacity = '0';
-        card.style.transform = 'translateX(20px)';
-      });
+    let html = '';
+    // Dean
+    html += `<div class="org-level top-level">
+      <div class="org-box dean-box">
+        ${dean?.image ? `<img src="${dean.image}" class="org-avatar">` : ''}
+        <div class="org-info">
+          <h3>${dean?.name || 'JONAS S. GAKO, MSCJ'}</h3>
+          <p class="org-title">${dean?.position || 'Dean, College of Criminal Justice Education'}</p>
+        </div>
+      </div>
+    </div><div class="org-connector"></div>`;
 
-      // Show only current 3 profiles
-      for (let i = index; i < index + cardsPerView && i < totalCards; i++) {
-        const card = profiles.children[i];
-        card.style.display = 'block';
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateX(0)';
-        }, (i - index) * 100);
-      }
+    // Second Level (Assistant Dean / Coordinators)
+    if (secondLevel.length > 0) {
+      html += `<div class="org-level second-level"><div class="org-row">`;
+      html += secondLevel.map(a => `
+        <div class="org-box assistant-box">
+          ${a.image ? `<img src="${a.image}" class="org-avatar">` : ''}
+          <div class="org-info"><h3>${a.name}</h3><p class="org-title">${a.position}</p></div>
+        </div>
+      `).join('');
+      html += `</div></div><div class="org-connector"></div>`;
     }
 
-    next.onclick = () => {
-      if (index < maxIndex) {
-        index++;
-        updateProfiles();
-        console.log('Next clicked, index:', index);
-      } else {
-        console.log('Reached max index');
-      }
-    };
+    // Others (Faculty Grid - 4 columns)
+    if (others.length > 0) {
+      html += `<div class="org-level third-level"><div class="org-grid">`;
+      html += others.map(f => `
+        <div class="org-box faculty-box">
+          ${f.image ? `<img src="${f.image}" class="org-avatar">` : ''}
+          <div class="org-info">
+            <h3>${f.name}</h3>
+            <p class="org-title">${f.position}</p>
+          </div>
+        </div>
+      `).join('');
+      html += `</div></div>`;
+    }
+    container.innerHTML = html;
+  }
 
-    prev.onclick = () => {
-      if (index > 0) {
-        index--;
-        updateProfiles();
-        console.log('Prev clicked, index:', index);
-      } else {
-        console.log('At start index');
+  document.addEventListener('DOMContentLoaded', async function() {
+    // Initialize data from Database APIs
+    await Promise.all([
+        loadCCJEFaculty(),
+        // Add other CCJE initializers here (e.g., loadCCJEPrograms, etc.)
+    ]);
+    
+    // Listen for storage changes
+    window.addEventListener('storage', function(e) {
+      if (e.key.includes('Updated') || e.key.includes('Faculty')) {
+          loadCCJEFaculty();
       }
-    };
-
-    // Initialize first view
-    updateProfiles();
+    });
+    
+    // Initialize CCJE programs from API
+    const programsContainer = document.getElementById('ccje-programs');
+    if (programsContainer) {
+        try {
+            // Show loading state
+            programsContainer.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin"></i> Loading programs...</div>';
+            
+            // Fetch programs from API
+            const response = await fetch('/api/programs/');
+            const data = await response.json();
+            
+            if (data.success && data.programs) {
+                // Filter programs for CCJE college (case-insensitive matching)
+                const ccjePrograms = data.programs.filter(program => 
+                    program.college && program.college.toLowerCase() === 'ccje'
+                );
+                
+                if (ccjePrograms.length === 0) {
+                    programsContainer.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>No Programs Available</h3>
+                            <p>Programs for this college will appear here once added in the admin dashboard.</p>
+                        </div>
+                    `;
+                } else {
+                    // Generate program cards from API data
+                    let html = '';
+                    ccjePrograms.forEach(program => {
+                        const isHighlighted = program.status === 'active';
+                        const statusText = program.status === 'active' ? 'Available' : 'Not Available';
+                        
+                        // Use uploaded image or default fallback
+                        let programImage = program.image || "/static/dashboard/images/pulis.jpg";
+                        
+                        html += `
+                            <div class="card">
+                                <img src="${programImage}" alt="${program.title}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+                                <div class="card-body ${isHighlighted ? 'highlighted' : ''}">
+                                    <h3>${program.title}</h3>
+                                    <div class="program-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>${program.duration}</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-info-circle"></i>
+                                            <span>${statusText}</span>
+                                        </div>
+                                    </div>
+                                    <a href="/programs/#${program.title.toLowerCase().replace(/\s+/g, '-')}" class="learn-btn">Learn More</a>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    programsContainer.innerHTML = html;
+                }
+                
+                // Update program count in stats
+                const programCountElement = document.querySelector('.stats .stat-card h2');
+                if (programCountElement) {
+                    programCountElement.textContent = ccjePrograms.length;
+                }
+            } else {
+                throw new Error('Failed to load programs');
+            }
+        } catch (error) {
+            console.error('Error loading CCJE programs:', error);
+            programsContainer.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Error Loading Programs</h3>
+                    <p>Unable to load programs. Please refresh the page or try again later.</p>
+                </div>
+            `;
+        }
+    }
   });
 </script>
 {% endblock %}
+  
 
+<script>
+// Load latest posts for CCJE from Database API
+async function loadCcjeLatestPosts() {
+    try {
+        console.log('=== CCJE LATEST POSTS FROM API ===');
+        const latestContainer = document.getElementById('ccje-latest');
+        if (!latestContainer) return;
+
+        // Fetch posts from API specifically for CCJE
+        const response = await fetch('/api/posts/get/?college=ccje');
+        const data = await response.json();
+        
+        if (data.success && data.posts) {
+            // Filter out alumni and awards - only show announcements, news, etc.
+            const nonAlumniPosts = data.posts.filter(post => 
+                post.post_type !== 'alumni' && post.post_type !== 'award' &&
+                post.type !== 'alumni' && post.type !== 'award'
+            );
+            
+            console.log(`Loaded ${nonAlumniPosts.length} general posts for CCJE`);
+            
+            if (nonAlumniPosts.length === 0) {
+                latestContainer.innerHTML = `
+                <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                    <i class="fas fa-newspaper" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                    <h3>No CCJE Admin Posts Available</h3>
+                    <p>Posts created by CCJE Administrator will appear here.</p>
+                </div>
+                `;
+                return;
+            }
+
+            latestContainer.innerHTML = "";
+            latestContainer.style.display = "grid";
+            latestContainer.style.gridTemplateColumns = "repeat(3, 1fr)";
+            latestContainer.style.gap = "30px";
+
+            nonAlumniPosts.forEach(post => {
+                const postCard = document.createElement("div");
+                postCard.className = "latest-card";
+                
+                const date = post.date_posted ? new Date(post.date_posted).toLocaleDateString('en-US',{
+                    year:'numeric',
+                    month:'long',
+                    day:'numeric'
+                }) : post.date ? new Date(post.date).toLocaleDateString('en-US',{
+                    year:'numeric',
+                    month:'long',
+                    day:'numeric'
+                }) : "March 14, 2026";
+                
+                const image = post.image || "/static/dashboard/images/news.jpg";
+                
+                // Check if post is new (created within last 3 days)
+                const postDate = new Date(post.date_posted || post.date);
+                const now = new Date();
+                const hoursSincePosted = (now - postDate) / (1000 * 60 * 60);
+                const isNewPost = hoursSincePosted <= 72;
+                
+                postCard.innerHTML = `
+                <div class="latest-card-image-wrapper" style="position: relative; width: 450px; height: 250px; overflow: hidden;">
+                    ${isNewPost ? '<span style="position: absolute; top: 15px; left: 15px; background: #ff4757; color: white; padding: 8px 18px; border-radius: 25px; font-weight: 700; font-size: 13px; text-transform: uppercase; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">NEW</span>' : ''}
+                    <span style="position: absolute; top: 15px; right: 15px; background: #1fb36a; color: white; padding: 8px 18px; border-radius: 25px; font-weight: 700; font-size: 13px; text-transform: uppercase; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">${(post.post_type || post.type || 'ANNOUNCEMENT').toUpperCase()}</span>
+                    <img src="${image}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='/static/dashboard/images/news.jpg'">
+                </div>
+                
+                <div style="padding: 25px; flex: 1; display: flex; flex-direction: column; background: #f9fdfb;">
+                    <div style="display: flex; align-items: center; gap: 45px ; color: #7a7a7a; font-size: 15px; margin-bottom: 15px; font-weight: 500;">
+                        <i class="fas fa-calendar-alt"></i> ${date}
+                    </div>
+                    
+                    <h3 style="font-size: 22px; font-weight: 900; margin-bottom: 12px; color: #174c2a; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3;">
+                        ${post.title}
+                    </h3>
+                    
+                    <p style="color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+                        ${post.content ? post.content.substring(0, 100) + '...' : ''}
+                    </p>
+                    
+                    <a href="/news/?postId=${post.id}&section=colleges-announcement" style="color: #007FFF; text-decoration: none; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; display: inline-flex; align-items: center;  gap: 35px 45px; margin-top: auto;">
+                        READ MORE →
+                    </a>
+                </div>
+                `;
+                
+                postCard.style.background = "#fff";
+                postCard.style.borderRadius = "20px";
+                postCard.style.boxShadow = "0 12px 40px rgba(0,0,0,0.15)";
+                postCard.style.overflow = "hidden";
+                postCard.style.transition = "0.3s";
+                postCard.style.display = "flex";
+                postCard.style.flexDirection = "column";
+                postCard.style.maxWidth = "430px";
+                postCard.style.minHeight = "450px";
+                postCard.style.margin = "0 auto";
+                
+                postCard.addEventListener("mouseenter",()=>{
+                    postCard.style.transform="translateY(-6px)";
+                    postCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+                });
+                
+                postCard.addEventListener("mouseleave",()=>{
+                    postCard.style.transform="translateY(0)";
+                    postCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+                });
+                
+                latestContainer.appendChild(postCard);
+            });
+        }
+    } catch(error) {
+        console.error("Error loading CCJE latest posts:", error);
+    }
+}
+
+// Load alumni for CCJE from Database API
+async function loadCcjeAlumni() {
+    try {
+        console.log('=== CCJE ALUMNI FROM API ===');
+        const alumniContainer = document.getElementById('ccje-alumni');
+        if (!alumniContainer) return;
+
+        const response = await fetch('/api/posts/get/?college=ccje&type=alumni');
+        const data = await response.json();
+        
+        if (data.success && data.posts) {
+            const alumniPosts = data.posts;
+            console.log(`Loaded ${alumniPosts.length} alumni stories for CCJE`);
+            
+            if (alumniPosts.length === 0) {
+                alumniContainer.innerHTML = `
+                <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                    <i class="fas fa-user-graduate" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                    <h3>No Alumni Stories Available</h3>
+                    <p>Alumni success stories will appear here.</p>
+                </div>
+                `;
+                return;
+            }
+
+            alumniContainer.innerHTML = "";
+            alumniContainer.style.display = "grid";
+            alumniContainer.style.gridTemplateColumns = "repeat(3, 1fr)";
+            alumniContainer.style.gap = "35px";
+
+            alumniPosts.forEach(post => {
+                const alumniCard = document.createElement("div");
+                alumniCard.className = "alumni-card";
+                
+                const image = post.image || "/static/dashboard/images/pulis.jpg";
+                
+                alumniCard.innerHTML = `
+                <div style="position:relative;">
+                    <img src="${image}" 
+                    style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;"
+                    onerror="this.src='/static/dashboard/images/pulis.jpg'">
+                </div>
+                <div style="padding:22px;">
+                    <h3 style="font-size:20px; font-weight:700; margin-bottom:8px; color:#174c2a;">
+                        ${post.title}
+                    </h3>
+                    <p style="color:#1fb36a; font-size:14px; font-weight:700; text-transform:uppercase; margin-bottom:15px; letter-spacing:1px;">
+                        Graduate
+                    </p>
+                    <p style="color:#555; font-size:15px; line-height:1.6; font-style:italic;">
+                        "${post.content ? post.content.substring(0, 150) + '...' : 'No content available.'}"
+                    </p>
+                </div>
+                `;
+                
+                alumniCard.style.background = "#fff";
+                alumniCard.style.borderRadius = "16px";
+                alumniCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+                alumniCard.style.overflow = "hidden";
+                alumniCard.style.transition = "0.3s";
+                
+                alumniCard.addEventListener("mouseenter",()=>{
+                    alumniCard.style.transform="translateY(-6px)";
+                    alumniCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+                });
+                
+                alumniCard.addEventListener("mouseleave",()=>{
+                    alumniCard.style.transform="translateY(0)";
+                    alumniCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+                });
+                
+                alumniContainer.appendChild(alumniCard);
+            });
+        }
+    } catch(error) {
+        console.error("Error loading CCJE alumni:", error);
+    }
+}
+
+// Load awards for CCJE from Database API
+async function loadCcjeAwards() {
+    try {
+        console.log('=== CCJE AWARDS FROM API ===');
+        const awardsContainer = document.getElementById('ccje-awards');
+        if (!awardsContainer) return;
+
+        const response = await fetch('/api/posts/get/?college=ccje&type=award');
+        const data = await response.json();
+        
+        if (data.success && data.posts) {
+            const awardPosts = data.posts;
+            console.log(`Loaded ${awardPosts.length} awards for CCJE`);
+            
+            if (awardPosts.length === 0) {
+                awardsContainer.innerHTML = `
+                <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                    <i class="fas fa-trophy" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                    <h3>No CCJE Awards Available</h3>
+                    <p>Awards and recognitions will appear here.</p>
+                </div>
+                `;
+                return;
+            }
+
+            awardsContainer.innerHTML = "";
+            awardsContainer.style.display = "grid";
+            awardsContainer.style.gridTemplateColumns = "repeat(3, 1fr)";
+            awardsContainer.style.gap = "35px";
+
+            awardPosts.forEach(post => {
+                const awardCard = document.createElement("div");
+                awardCard.className = "award-card";
+                
+                const image = post.image || "/static/dashboard/images/acads.jpg";
+                
+                awardCard.innerHTML = `
+                <div style="position:relative;">
+                    <div style="position:absolute; top:15px; right:15px; width:40px; height:40px; background:rgba(255,255,255,0.9); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#ffc107; box-shadow:0 4px 10px rgba(0,0,0,0.1); z-index:2;">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <img src="${image}" 
+                    style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;"
+                    onerror="this.src='/static/dashboard/images/acads.jpg'">
+                </div>
+                <div style="padding:22px;">
+                    <h3 style="font-size:20px; font-weight:700; margin-bottom:12px; color:#174c2a;">
+                        ${post.title}
+                    </h3>
+                    <p style="color:#666; font-size:15px; line-height:1.6;">
+                        ${post.content ? post.content.substring(0, 120) + '...' : 'No content available.'}
+                    </p>
+                </div>
+                `;
+                
+                awardCard.style.background = "#fff";
+                awardCard.style.borderRadius = "16px";
+                awardCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+                awardCard.style.overflow = "hidden";
+                awardCard.style.transition = "0.3s";
+                
+                awardCard.addEventListener("mouseenter",()=>{
+                    awardCard.style.transform="translateY(-6px)";
+                    awardCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+                });
+                
+                awardCard.addEventListener("mouseleave",()=>{
+                    awardCard.style.transform="translateY(0)";
+                    awardCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+                });
+                
+                awardsContainer.appendChild(awardCard);
+            });
+        }
+    } catch(error) {
+        console.error("Error loading CCJE awards:", error);
+    }
+}
+
+// Load facilities for CCJE from Database API
+async function loadCcjeFacilities() {
+    try {
+        console.log('=== CCJE FACILITIES FROM API ===');
+        const container = document.getElementById('ccje-facilities');
+        if (!container) return;
+
+        // Fetch facilities from API specifically for CCJE
+        const response = await fetch('/api/facilities/?college=ccje');
+        const data = await response.json();
+        
+        if (data.success && data.facilities) {
+            const facilities = data.facilities;
+            console.log(`Loaded ${facilities.length} facilities for CCJE`);
+            
+            if (facilities.length === 0) {
+                container.innerHTML = `
+                <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                    <i class="fas fa-building" style="font-size:64px;margin-bottom:20px;opacity:0.5;"></i>
+                    <h3>No CCJE Facilities Available</h3>
+                    <p>Add facilities in the CCJE admin dashboard to see them here.</p>
+                </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = "";
+            container.style.display = "grid";
+            container.style.gridTemplateColumns = "repeat(3, 1fr)";
+            container.style.gap = "40px";
+
+            facilities.forEach(facility => {
+                const facilityCard = document.createElement("div");
+                facilityCard.className = "ccje-facility-card";
+                
+                // Use facility image or default fallback
+                let facilityImage = facility.image || "/static/dashboard/images/pulis.jpg";
+                
+                facilityCard.innerHTML = `
+                <div class="ccje-facility-image-wrapper">
+                    <div class="ccje-facility-badge">${facility.name}</div>
+                    <img src="${facilityImage}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+                </div>
+                `;
+                
+                container.appendChild(facilityCard);
+            });
+        }
+    } catch(error) {
+        console.error("Error loading CCJE facilities:", error);
+    }
+}
+
+// Add debug function for CCJE facilities
+window.debugCCJEFacilities = function() {
+    console.log('=== CCJE FACILITIES DEBUG ===');
+    
+    // Check all localStorage keys
+    console.log('All localStorage keys:', Object.keys(localStorage));
+    
+    // Check facility data locations
+    const facilityData = JSON.parse(localStorage.getItem('facilityData') || '{}');
+    console.log('General facilityData:', Object.keys(facilityData).length, 'entries');
+    if (Object.keys(facilityData).length > 0) {
+        console.log('General facilities:', facilityData);
+    }
+    
+    const ccjeFacilityData = JSON.parse(localStorage.getItem('ccjeFacilityData') || '{}');
+    console.log('CCJE facilityData:', Object.keys(ccjeFacilityData).length, 'entries');
+    if (Object.keys(ccjeFacilityData).length > 0) {
+        console.log('CCJE facilities:', ccjeFacilityData);
+    }
+    
+    // Check other college facility data
+    const colleges = ['cas', 'cba', 'caf', 'cit', 'cted'];
+    colleges.forEach(col => {
+        const data = JSON.parse(localStorage.getItem(`${col}FacilityData`) || '{}');
+        if (Object.keys(data).length > 0) {
+            console.log(`${col.toUpperCase()} facilityData:`, Object.keys(data).length, 'entries');
+        }
+    });
+    
+    console.log('=== END DEBUG ===');
+};
+
+// Load all CCJE content when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadCcjeLatestPosts();
+    loadCcjeAlumni();
+    loadCcjeAwards();
+    loadCcjeFacilities();
+    
+    // Refresh data every 30 seconds to get updates from admin dashboard
+    setInterval(() => {
+        loadCcjeLatestPosts();
+        loadCcjeAlumni();
+        loadCcjeAwards();
+        loadCcjeFacilities();
+    }, 30000);
+});
+</script>
+
+<!-- Floating Arrow Button -->
+<div class="floating-arrow" id="floatingArrow" onclick="scrollToTop()">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<style>
+/* Floating Arrow Button */
+.floating-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #007fff, #0056b3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 127, 255, 0.3);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  pointer-events: none;
+}
+
+.floating-arrow.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-arrow:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  box-shadow: 0 4px 12px rgba(0, 127, 255, 0.4);
+  transform: translateY(-1px) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.floating-arrow i {
+  font-size: 14px;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+}
+
+.floating-arrow.visible i {
+  transform: rotate(0deg);
+}
+
+.floating-arrow:hover i {
+  transform: translateY(-1px) rotate(5deg);
+  transition: all 0.3s ease;
+}
+</style>
+
+<script>
+// Floating Arrow functionality
+const floatingArrow = document.getElementById('floatingArrow');
+let lastScrollTop = 0;
+
+// Show/hide arrow based on scroll position - trigger at PROGRAMS OFFERED section
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // Get the PROGRAMS OFFERED section position
+  const programsSection = document.getElementById('programs-section');
+  if (programsSection) {
+    const programsTop = programsSection.offsetTop;
+    
+    // Show arrow when user scrolls past the PROGRAMS OFFERED section
+    if (scrollTop > programsTop - 100) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  } else {
+    // Fallback: use fixed pixel value if section not found
+    if (scrollTop > 800) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  }
+  
+  lastScrollTop = scrollTop;
+});
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
+{% include 'dashboard/footer.html' %}
 {% endblock %}

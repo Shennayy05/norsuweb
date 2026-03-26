@@ -68,33 +68,33 @@ body {
     transition: all 0.3s ease;
     border-radius: 8px;
     cursor: pointer;
-    color: #5a6c7d;
+    color: #000000;
     border-bottom: 1px solid rgba(76, 175, 80, 0.1);
 }
 
 .program-btn:hover {
     background: rgba(76, 175, 80, 0.05);
     transform: translateX(4px);
-    color: #217791;
+    color: #038d03;
 }
 
 .program-btn.active {
     font-weight: 700;
     background: linear-gradient(90deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1));
-    border-left: 3px solid #217791;
-    color: #217791;
+    border-left: 3px solid #029b19;
+    color: #029b19;
 }
 
 .program-btn i {
     font-size: 8px;
-    color:#217791;
+    color:#029b19;
 }
 
 /* CONTACT */
 .contact-box h2 {
     font-size: 18px;
     margin-bottom: 16px;
-    color: #2c3e50;
+    color: #00ab31;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -107,18 +107,18 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #5a6c7d;
+    color: #019c22;
     transition: all 0.3s ease;
 }
 
 .contact-box p:hover {
-    color: #217791;
+    color: #019c22;
     transform: translateX(2px);
 }
 
 .contact-box i {
     width: 16px;
-    color: #217791;
+    color: #02b205;
     font-size: 14px;
 }
 
@@ -175,7 +175,7 @@ body {
 /* TITLE */
 .right-panel h1 {
     font-size: 30px;
-    color: #2c3e50;
+    color: #000000;
     
     margin-bottom: 12px;
     font-weight: 800;
@@ -184,7 +184,7 @@ body {
 
 .title-line {
     border-bottom: 3px solid transparent;
-    background: linear-gradient(90deg, #217791);
+    background: linear-gradient(90deg, #039620);
     margin-bottom: 24px;
     height: 3px;
     border-radius: 2px;
@@ -194,7 +194,7 @@ body {
 .right-panel p {
     font-size: 18px;
     line-height: 1.7;
-    color: #217791;
+    color: #000000;
     margin-bottom: 16px;
 }
 

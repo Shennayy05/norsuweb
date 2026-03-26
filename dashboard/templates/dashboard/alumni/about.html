@@ -1,0 +1,713 @@
+{% extends 'dashboard/alumni/base.html' %}
+
+{% block title %}About - NORSU-BSC Alumni Network{% endblock %}
+
+{% block content %}
+
+<style>
+/* Programs-style Hero Header */
+.programs-hero {
+    background: linear-gradient(135deg, #87CEEB 0%, #5fa8d3 50%, #87CEEB 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 10s ease infinite;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.geometric-shape {
+    position: absolute;
+    opacity: 0.1;
+}
+
+.shape-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid white;
+    top: 10%;
+    right: 10%;
+    animation: rotate 20s linear infinite;
+}
+
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 173px solid white;
+    bottom: 10%;
+    left: 5%;
+    animation: float 15s ease-in-out infinite;
+}
+
+.shape-square {
+    width: 150px;
+    height: 150px;
+    background: white;
+    top: 50%;
+    left: 15%;
+    transform: rotate(45deg);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: rotate(45deg) scale(1); }
+    50% { transform: rotate(45deg) scale(1.1); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    animation: fadeInDown 0.8s ease;
+}
+
+.hero-subtitle {
+    color: rgba(255,255,255,0.95);
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease 0.2s both;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.search-filter-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin: -3rem auto 3rem;
+    max-width: 900px;
+    position: relative;
+    z-index: 10;
+    animation: slideInUp 0.8s ease 0.4s both;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #87CEEB;
+    box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.1);
+}
+
+.search-btn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #87CEEB 0%, #5fa8d3 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(135, 206, 235, 0.4);
+}
+
+.filter-tags {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-tag {
+    padding: 0.6rem 1.5rem;
+    background: #F0F8FF;
+    color: #1e3a5f;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.filter-tag:hover, .filter-tag.active {
+    background: #87CEEB;
+    color: white;
+    border-color: #5fa8d3;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive Styles for About Page */
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Desktop Stat Cards - Equal Size */
+.stat-card {
+    min-width: 150px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Ensure consistent sizing for all stat cards */
+@media (min-width: 769px) {
+    .stat-card {
+        flex: 0 0 150px;
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .stat-number {
+        font-size: 3.5rem !important;
+    }
+}
+
+/* Base responsive adjustments */
+@media (max-width: 768px) {
+    /* Programs-style Hero Header Mobile */
+    .programs-hero {
+        padding: 3rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Page Header */
+    .page-header {
+        padding: 2rem 0 !important;
+    }
+    
+    .page-title {
+        font-size: 2rem !important;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem !important;
+    }
+    
+    /* About Hero Section */
+    .about-hero h1 {
+        font-size: 2rem !important;
+    }
+    
+    .about-hero p {
+        font-size: 1rem !important;
+    }
+    
+    /* Stats Row - Stack vertically */
+    .about-hero > div > div > div:nth-child(4) {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    
+    .about-hero > div > div > div:nth-child(4) > div[style*="width: 2px"] {
+        display: none !important;
+    }
+    
+    .stat-card {
+        width: 100% !important;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem !important;
+    }
+    
+    /* History Section - Single column */
+    section > div > div[style*="grid-template-columns: 1.5fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    /* Section headings */
+    h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    /* Timeline adjustments */
+    .timeline-card {
+        padding: 1rem !important;
+    }
+    
+    .timeline-year {
+        font-size: 1rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+    
+    /* Fun Facts - 2 columns on mobile */
+    section > div > div[style*="grid-template-columns: repeat(4, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    /* Major Contributions - Single column */
+    section > div > div > div[style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    /* Mission & Vision - Single column */
+    section > div > div[style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    /* Core Values - 2 columns */
+    section > div > div[style*="grid-template-columns: repeat(4, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    /* Officers Grid - Single column */
+    section > div > div[style*="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    /* CTA Buttons - Stack vertically */
+    .cta-buttons,
+    section > div > div > div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    
+    /* Padding adjustments */
+    section {
+        padding: 3rem 0 !important;
+    }
+    
+    .container {
+        padding: 0 1rem !important;
+    }
+    
+    /* Font size adjustments */
+    p {
+        font-size: 0.95rem !important;
+    }
+    
+    /* Card padding */
+    div[style*="padding: 3rem"],
+    div[style*="padding: 2.5rem"],
+    div[style*="padding: 2rem"] {
+        padding: 1.5rem !important;
+    }
+    
+    /* Icon sizes */
+    div[style*="font-size: 8rem"] {
+        font-size: 4rem !important;
+    }
+    
+    div[style*="font-size: 5rem"] {
+        font-size: 3rem !important;
+    }
+    
+    div[style*="font-size: 4rem"] {
+        font-size: 2.5rem !important;
+    }
+    
+    div[style*="font-size: 3rem"] {
+        font-size: 2rem !important;
+    }
+}
+
+/* Extra small phones */
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 5.5rem;
+    }
+    
+    .programs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .filter-tags {
+        justify-content: flex-start;
+    }
+}
+</style>
+
+<!-- Programs-style Hero Header -->
+<section class="programs-hero">
+    <!-- Geometric Shapes -->
+    <div class="geometric-shape shape-circle"></div>
+    <div class="geometric-shape shape-triangle"></div>
+    <div class="geometric-shape shape-square"></div>
+    
+    <div class="container">
+        <div class="hero-content"><br><br>
+            <h1 class="hero-title">ℹ️ About Us</h1>
+            <p class="hero-subtitle">Connecting generations of NORSU-BSC graduates through lifelong learning, professional growth, and community impact</p>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision -->
+<section style="padding: 5rem 0; background: linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920&q=80') center/cover fixed;">
+    <div class="container">
+        <h2 style="text-align: center; color: #1e3a5f; font-size: 2.8rem; margin-bottom: 3.5rem; font-weight: 800;">Vision & Mission</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem;">
+            <div style="background: #F0F8FF; padding: 3rem; border-radius: 20px;">
+                <div style="font-size: 4rem; text-align: center; margin-bottom: 1rem;">🎯</div>
+                <h3 style="color: black; font-size: 3rem; margin-bottom: 1.5rem; text-align: center;">Our Vision</h3>
+                <p><h5><center>{{ about_data.vision|default:"A globally recognized state university." }}</p></center></h5>
+            </div>
+            
+            <div style="background: #87CEEB; padding: 3rem; border-radius: 20px; color: black;">
+                <div style="font-size: 4rem; text-align: center; margin-bottom: 1rem;">🌟</div>
+                <h3 style="font-size: 3rem; margin-bottom: 1.5rem; text-align: center;">Our Mission</h3>
+                <p>{{ about_data.mission|default:"Negros Oriental State University delivers global excellence through advanced instruction, impactful research, and sustainable extension, with strategic partnerships and modern infrastructure shaping effective leaders to serve the Philippine society and the world." }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Alumni Officers Section -->
+{% if officers %}
+<section style="padding: 5rem 0; background: white;">
+    <div class="container">
+        <h2 style="text-align: center; color: #1e3a5f; font-size: 2.8rem; margin-bottom: 1rem; font-weight: 800;">Organizational Structure</h2>
+        <p style="text-align: center; color: #4a5568; max-width: 700px; margin: 0 auto 3.5rem; font-size: 1.15rem;">Meet the dedicated leaders of our alumni association</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem;">
+            {% for officer in officers %}
+            <div class="officer-card" style="background: linear-gradient(135deg, #F0F8FF 0%, #ffffff 100%); border-radius: 20px; padding: 2.5rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+                <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #87CEEB 0%, #5fa8d3 100%); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; font-weight: bold; box-shadow: 0 8px 20px rgba(135, 206, 235, 0.3);">
+                    {{ officer.name|slice:":2"|upper }}
+                </div>
+                <h3 style="color: #1e3a5f; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">{{ officer.name }}</h3>
+                <p style="color: #87CEEB; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">{{ officer.get_position_display }}</p>
+                <p style="color: #4a5568; font-size: 0.9rem; margin-bottom: 1rem;">Class of {{ officer.batch_year }}</p>
+                {% if officer.email %}
+                <p style="color: #4a5568; font-size: 0.85rem; margin-bottom: 0.3rem;">📧 {{ officer.email }}</p>
+                {% endif %}
+                {% if officer.phone %}
+                <p style="color: #4a5568; font-size: 0.85rem;">📞 {{ officer.phone }}</p>
+                {% endif %}
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #F0F8FF;">
+                    <span style="display: inline-block; padding: 0.4rem 1rem; background: #87CEEB; color: white; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">
+                        {{ officer.term_start|date:"Y" }} - {% if officer.term_end %}{{ officer.term_end|date:"Y" }}{% else %}Present{% endif %}
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section style="padding: 6rem 0; background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&q=80') center/cover fixed; position: relative;">
+    <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h2 style="color: #1e3a5f; font-size: 2.8rem; margin-bottom: 1.5rem; font-weight: 800;">Join Our Growing Community</h2>
+            <p style="color: #4a5568; font-size: 1.2rem; margin-bottom: 3rem; line-height: 1.6;">Be part of a network that supports, inspires, and connects alumni worldwide.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="cta-button cta-primary">
+                    <i class="fas fa-user-plus" style="margin-right: 10px; color: #FFD700;"></i>Become a Member
+                </a>
+                <a href="{% url 'directory' %}" class="cta-button cta-secondary">
+                    <i class="fas fa-search" style="margin-right: 10px; color: #87CEEB;"></i>Browse Directory
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Enhanced About Page Interactions
+
+// Scroll Reveal Animation
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.timeline-card, .value-card, .fact-card, .mission-card');
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementTop < windowHeight - elementVisible) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+// Initialize reveal elements
+document.querySelectorAll('.timeline-card, .value-card, .fact-card, .mission-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.6s ease';
+});
+
+// Animated Counter for Stats
+function animateValue(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        element.textContent = value.toLocaleString() + '+';
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+// Observe stats for animation
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+            entry.target.classList.add('counted');
+            const text = entry.target.textContent;
+            const number = parseInt(text.replace(/[^0-9]/g, ''));
+            animateValue(entry.target, 0, number, 2000);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-number').forEach(stat => {
+    statsObserver.observe(stat);
+});
+
+// Parallax effect for sections
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    
+    // Parallax for hero
+    const hero = document.querySelector('.about-hero');
+    if (hero) {
+        hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+    }
+    
+    // Reveal on scroll
+    revealOnScroll();
+});
+
+// Timeline card click to expand
+document.querySelectorAll('.timeline-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const content = this.querySelector('.timeline-content, [id^="timeline-content-"]');
+        if (content) {
+            const isExpanded = content.style.maxHeight && content.style.maxHeight !== '0px';
+            
+            // Close all other cards
+            document.querySelectorAll('.timeline-content, [id^="timeline-content-"]').forEach(c => {
+                c.style.maxHeight = '0';
+            });
+            
+            // Toggle current card
+            if (!isExpanded) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
+    });
+});
+
+// Add ripple effect on click
+document.querySelectorAll('.timeline-year, .cta-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+
+// Add ripple CSS
+const style = document.createElement('style');
+style.textContent = `
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s ease-out;
+        pointer-events: none;
+    }
+    
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    
+    .timeline-year, .cta-button {
+        position: relative;
+        overflow: hidden;
+    }
+`;
+document.head.appendChild(style);
+
+// Initial reveal check
+revealOnScroll();
+
+// Smooth scroll for CTA buttons
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Add hover sound effect (optional - visual feedback)
+document.querySelectorAll('.value-card, .fact-card, .officer-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-15px) scale(1.03)';
+    });
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// Progress bar on scroll
+const progressBar = document.createElement('div');
+progressBar.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #87CEEB 0%, #5fa8d3 100%);
+    z-index: 9999;
+    transition: width 0.1s ease;
+`;
+document.body.appendChild(progressBar);
+
+window.addEventListener('scroll', () => {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.pageYOffset / windowHeight) * 100;
+    progressBar.style.width = scrolled + '%';
+});
+
+// Mobile responsive adjustments
+function applyMobileStyles() {
+    if (window.innerWidth <= 768) {
+        // Adjust hero stats layout
+        const statsContainer = document.querySelector('.about-hero > div > div > div:nth-child(4)');
+        if (statsContainer) {
+            statsContainer.style.flexDirection = 'column';
+            statsContainer.style.gap = '1.5rem';
+        }
+        
+        // Hide stat dividers on mobile
+        document.querySelectorAll('.about-hero > div > div > div:nth-child(4) > div[style*="width: 2px"]').forEach(div => {
+            div.style.display = 'none';
+        });
+    }
+}
+
+// Apply on load and resize
+applyMobileStyles();
+window.addEventListener('resize', applyMobileStyles);
+</script>
+
+{% endblock %}

@@ -1,0 +1,710 @@
+{% extends 'dashboard/alumni/base.html' %}
+{% load static %}
+
+{% block title %}Programs - NORSU-BSC Alumni Network{% endblock %}
+
+{% block content %}
+
+<style>
+/* Programs Page Design - NO ANIMATIONS */
+
+/* Animated Gradient Hero */
+.programs-hero {
+    background: linear-gradient(135deg, #87CEEB 0%, #5fa8d3 50%, #87CEEB 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 10s ease infinite;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Geometric Shapes Background - Animated */
+.geometric-shape {
+    position: absolute;
+    opacity: 0.1;
+}
+
+.shape-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid white;
+    top: 10%;
+    right: 10%;
+    animation: rotate 20s linear infinite;
+}
+
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 173px solid white;
+    bottom: 10%;
+    left: 5%;
+    animation: float 15s ease-in-out infinite;
+}
+
+.shape-square {
+    width: 150px;
+    height: 150px;
+    background: white;
+    top: 50%;
+    left: 15%;
+    transform: rotate(45deg);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: rotate(45deg) scale(1); }
+    50% { transform: rotate(45deg) scale(1.1); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    animation: fadeInDown 0.8s ease;
+}
+
+.hero-subtitle {
+    color: rgba(255,255,255,0.95);
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Search and Filter Section */
+.search-filter-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin: -3rem auto 3rem;
+    max-width: 900px;
+    position: relative;
+    z-index: 10;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #87CEEB;
+    box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.1);
+}
+
+.search-btn {
+    padding: 1rem 2rem;
+    background: #87CEEB;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.filter-tags {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-tag {
+    padding: 0.6rem 1.5rem;
+    background: #F0F8FF;
+    color: #1e3a5f;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filter-tag.active {
+    background: #87CEEB;
+    color: white;
+    border-color: #5fa8d3;
+}
+
+/* Static Program Cards */
+.programs-container {
+    padding: 4rem 0;
+    background: #F0F8FF;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+.program-card {
+    background: white;
+    border-radius: 25px;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 450px;
+    height: 100%;
+}
+
+.program-card[style*="display: none"] {
+    display: none !important;
+}
+
+.program-card[style*="display: block"] {
+    display: flex !important;
+}
+
+.program-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: #87CEEB;
+}
+
+/* Static Icon Container - NO ANIMATIONS */
+.program-icon-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    border: 4px solid #87CEEB;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.program-icon {
+    font-size: 3.5rem;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+}
+
+.program-icon-image {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.program-name {
+    color: #1e3a5f;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.program-description {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.view-directory-btn {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    background: #87CEEB;
+    color: white !important;
+    text-align: center;
+    text-decoration: none !important;
+    border: none;
+    border-radius: 0 !important;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+/* Stats Overview Section */
+.stats-overview {
+    background: #87CEEB;
+    padding: 4rem 0;
+    margin-top: 4rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.stat-card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.stat-card-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card-label {
+    color: rgba(255,255,255,0.95);
+    font-size: 1.1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .programs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .filter-tags {
+        justify-content: flex-start;
+    }
+}
+
+/* Sub-Programs Section */
+.subprograms-container {
+    padding: 4rem 0;
+    background: #F0F8FF;
+}
+
+.subprograms-title {
+    text-align: center;
+    color: #1e3a5f;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.subprograms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+.subprogram-card {
+    background: white;
+    border-radius: 25px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    border-top: 6px solid #87CEEB;
+}
+
+.subprogram-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.subprogram-icon {
+    width: 80px;
+    height: 80px;
+    background: #87CEEB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2.5rem;
+}
+
+.subprogram-name {
+    color: #1e3a5f;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.subprogram-code {
+    color: #87CEEB;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: #1e3a5f;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    border: 2px solid #87CEEB;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.back-link:hover {
+    background: #87CEEB;
+    color: white;
+}
+</style>
+
+<section class="programs-hero">
+    <!-- Geometric Shapes -->
+    <div class="geometric-shape shape-circle"></div>
+    <div class="geometric-shape shape-triangle"></div>
+    <div class="geometric-shape shape-square"></div>
+    
+    <div class="container">
+        <div class="hero-content"><br>
+            <h1 class="hero-title">🎓 Departments</h1>
+            <p class="hero-subtitle">Explore our diverse programs and connect with alumni from your field</p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="search-filter-section">
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search programs...">
+            <button class="search-btn" onclick="filterPrograms()">Search</button>
+        </div>
+       
+    </div>
+</div>
+
+<section class="programs-container">
+    <div class="container">
+        <div class="programs-grid" id="programsGrid">
+            
+            <!-- Program Card 1 - EDIT HERE -->
+            <div class="program-card" data-category="engineering">
+                <div class="program-icon-container">
+                    <img src="{% static 'images/cas.png' %}" alt="BS Information Technology" class="program-icon-image">
+                </div>
+                <h3 class="program-name">College of Arts and Sciences</h3>
+                <p class="program-description">Connect with fellow graduates and explore career opportunities in this field.</p>
+                <a href="javascript:void(0)" onclick="showSubPrograms('College of Arts and Sciences')" class="view-directory-btn">
+                    View Alumni Directory 
+                </a>
+            </div>
+
+            <!-- Program Card 2 - EDIT HERE -->
+            <div class="program-card" data-category="business">
+                <div class="program-icon-container">
+                    <img src="{% static 'images/cba.png' %}" alt="Business Administration" class="program-icon-image">
+                </div>
+                <h3 class="program-name">College of Business Administration</h3>
+                <p class="program-description">Connect with fellow graduates and explore career opportunities in this field.</p>
+                <a href="javascript:void(0)" onclick="showSubPrograms('College of Business Administration')" class="view-directory-btn">
+                    View Alumni Directory 
+                </a>
+                </a>
+            </div>
+
+            <!-- Program Card 3 - EDIT HERE -->
+            <div class="program-card" data-category="engineering">
+                <div class="program-icon-container">
+                    <img src="{% static 'images/cit.png' %}" alt="Engineering" class="program-icon-image">
+                </div>
+                <h3 class="program-name">College of Industrial Technology</h3>
+                <p class="program-description">Connect with fellow graduates and explore career opportunities in this field.</p>
+                <a href="javascript:void(0)" onclick="showSubPrograms('College of Industrial Technology')" class="view-directory-btn">
+                    View Alumni Directory 
+                </a>
+            </div>
+
+            <!-- Program Card 4 - EDIT HERE -->
+            <div class="program-card" data-category="arts">
+                <div class="program-icon-container">
+                    <img src="{% static 'images/cted.png' %}" alt="Psychology" class="program-icon-image">
+                </div>
+                <h3 class="program-name">College of Teacher Education</h3>
+                <p class="program-description">Connect with fellow graduates and explore career opportunities in this field.</p>
+                <a href="javascript:void(0)" onclick="showSubPrograms('College of Teacher Education')" class="view-directory-btn">
+                    View Alumni Directory 
+                </a>
+            </div>
+
+            <!-- Program Card 5 - EDIT HERE -->
+            <div class="program-card" data-category="science">
+                <div class="program-icon-container">
+                    <img src="{% static 'images/CAF.png' %}" alt="Biology" class="program-icon-image">
+                </div>
+                <h3 class="program-name">College of Agriculture and Forestry</h3>
+                <p class="program-description">Connect with fellow graduates and explore career opportunities in this field.</p>
+                <a href="javascript:void(0)" onclick="showSubPrograms('College of Fisheries')" class="view-directory-btn">
+                    View Alumni Directory 
+                </a>
+            </div>
+
+            <!-- Program Card 6 - EDIT HERE -->
+            <div class="program-card" data-category="business">
+                <div class="program-icon-container">
+                    <img src="{% static 'images/ccje.png' %}" alt="Economics" class="program-icon-image">
+                </div>
+                <h3 class="program-name">College of Criminal Justice Education</h3>
+                <p class="program-description">Connect with fellow graduates and explore career opportunities in this field.</p>
+                <a href="javascript:void(0)" onclick="showSubPrograms('College of Criminal Justice Education')" class="view-directory-btn">
+                    View Alumni Directory 
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Sub-Programs Section (Hidden by default) -->
+<section id="subprogramsSection" class="subprograms-container" style="display: none;">
+    <div class="container">
+        <button onclick="backToPrograms()" class="back-link">← Back to All Programs</button>
+        
+        <h2 id="collegeName" class="subprograms-title"></h2>
+        
+        <div id="subprogramsGrid" class="subprograms-grid">
+            <!-- Sub-programs will be inserted here by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<script>
+// Search functionality - NO ANIMATIONS
+function filterPrograms() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.program-card');
+    let visibleCount = 0;
+    
+    cards.forEach(card => {
+        const programName = card.querySelector('.program-name').textContent.toLowerCase();
+        if (programName.includes(searchTerm)) {
+            card.style.display = 'flex';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Adjust grid if only 1 or 2 cards visible
+    const grid = document.getElementById('programsGrid');
+    if (visibleCount === 1) {
+        grid.style.gridTemplateColumns = 'repeat(1, minmax(320px, 400px))';
+        grid.style.justifyContent = 'center';
+    } else if (visibleCount === 2) {
+        grid.style.gridTemplateColumns = 'repeat(2, minmax(320px, 400px))';
+        grid.style.justifyContent = 'center';
+    } else {
+        grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(320px, 1fr))';
+        grid.style.justifyContent = 'start';
+    }
+}
+
+// Real-time search
+document.getElementById('searchInput').addEventListener('input', filterPrograms);
+
+// Category filter
+function filterByCategory(element, category) {
+    // Update active state
+    document.querySelectorAll('.filter-tag').forEach(tag => {
+        tag.classList.remove('active');
+    });
+    element.classList.add('active');
+    
+    const cards = document.querySelectorAll('.program-card');
+    let visibleCount = 0;
+    
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'flex';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Adjust grid based on visible cards
+    const grid = document.getElementById('programsGrid');
+    if (visibleCount === 1) {
+        grid.style.gridTemplateColumns = 'repeat(1, minmax(320px, 400px))';
+        grid.style.justifyContent = 'center';
+    } else if (visibleCount === 2) {
+        grid.style.gridTemplateColumns = 'repeat(2, minmax(320px, 400px))';
+        grid.style.justifyContent = 'center';
+    } else {
+        grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(320px, 1fr))';
+        grid.style.justifyContent = 'start';
+    }
+}
+
+// Sub-Programs Data
+const collegePrograms = {
+    'College of Arts and Sciences': [
+        {name: 'Bachelor of Information Technology', code: 'Information Technology'},
+        {name: 'Bachelor of Computer Science', code: 'Computer Science'}
+    ],
+    'College of Business Administration': [
+        {name: 'Bachelor of Business Administration', code: 'Business Administration'},
+        {name: 'Bachelor of Office Administration', code: 'Office Administration'},
+        {name: 'Bachelor of Hospitality Management', code: 'Hospitality Management'}
+    ],
+    'College of Industrial Technology': [
+        {name: 'Bachelor of Computer Technology', code: 'Computer Technology'},
+        {name: 'Bachelor of Electrical Technology', code: 'Electrical Technology'},
+        {name: 'Bachelor of Automotive Technology', code: 'Automotive Technology'}
+    ],
+    'College of Teacher Education': [
+        {name: 'Bachelor of Elementary Education', code: 'Elementary Education'},
+        {name: 'Bachelor of Secondary Education', code: 'Secondary Education'}
+    ],
+    'College of Fisheries': [
+        {name: 'Bachelor of Fisheries', code: 'Fisheries'},
+        {name: 'Bachelor of Aquaculture', code: 'Aquaculture'}
+    ],
+    'College of Criminal Justice Education': [
+        {name: 'Bachelor of Criminology', code: 'Criminology'}
+    ]
+};
+
+// Show Sub-Programs
+function showSubPrograms(collegeName) {
+    // Hide main programs section
+    document.querySelector('.programs-container').style.display = 'none';
+    document.querySelector('.search-filter-section').parentElement.style.display = 'none';
+    
+    // Show sub-programs section
+    const subSection = document.getElementById('subprogramsSection');
+    subSection.style.display = 'block';
+    
+    // Set college name
+    document.getElementById('collegeName').textContent = collegeName;
+    
+    // Get sub-programs for this college
+    const subprograms = collegePrograms[collegeName] || [];
+    
+    // Build sub-programs HTML
+    const grid = document.getElementById('subprogramsGrid');
+    grid.innerHTML = '';
+    
+    subprograms.forEach(program => {
+        const card = `
+            <div class="subprogram-card">
+                <div class="subprogram-header">
+                    <div class="subprogram-icon">📚</div>
+                    <h3 class="subprogram-name">${program.name}</h3>
+                    <p class="subprogram-code">${program.code}</p>
+                </div>
+                
+                <a href="/directory/?program=${encodeURIComponent(program.name)}" class="view-directory-btn">
+                    View Alumni Directory
+                </a>
+            </div>
+        `;
+        grid.innerHTML += card;
+    });
+    
+    // Scroll to top
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Back to Programs
+function backToPrograms() {
+    // Show main programs section
+    document.querySelector('.programs-container').style.display = 'block';
+    document.querySelector('.search-filter-section').parentElement.style.display = 'block';
+    
+    // Hide sub-programs section
+    document.getElementById('subprogramsSection').style.display = 'none';
+    
+    // Scroll to top
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+
+{% endblock %}

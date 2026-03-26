@@ -3,12 +3,16 @@
 
 {% block title %}College of Business Administration - NORSU{% endblock %}
 
+
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'dashboard/css/cbastyle.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/cbastyle.css' %}?v=20260312-2">
+<link rel="stylesheet" href="{% static 'dashboard/css/footer.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 {% endblock %}
 
+
 {% block content %}
+{% include 'dashboard/navbar.html' %}
 <section class="hero">
   <div class="overlay"></div>
 
@@ -22,7 +26,7 @@
         </div>
         <div class="title-container">
           <h4>COLLEGE OF</h4>
-          <h1>BUSNINES ADMINISTRATION</h1>
+          <h1>BUSINESS ADMINISTRATION</h1>
         </div>
       </div>
 
@@ -46,17 +50,17 @@
 
         <a href="#topnotchers-section" class="icon-box">
           <i class="fa-solid fa-user-graduate"></i>
-          <span>Topnotchers</span>
+          <span>Alumni</span>
         </a>
 
         <a href="#awards-section" class="icon-box">
           <i class="fa-solid fa-award"></i>
-          <span>Awards&Recognition</span>
+          <span>Awards</span>
         </a>
 
         <a href="#alumni-section" class="icon-box">
           <i class="fa-solid fa-users"></i>
-          <span>Alumni</span>
+          <span>Administration</span>
         </a>
       </div>
     </div>
@@ -67,7 +71,7 @@
   <div class="stats">
     <div class="stat-card">
       <i class="fa-solid fa-desktop"></i>
-      <h2>1</h2>
+      <h2>3</h2>
       <p>PROGRAMS</p>
     </div>
 
@@ -159,6 +163,23 @@
   </div>
 </section>
 
+<!-- LATEST AT cba --------------------------------------------------------------------->
+<section class="latest-section" id="latest-section">
+  <div class="latest-container">
+
+    <h1 class="section-title">LATEST AT CBA</h1>
+    <p class="section-subtitle">
+      Stay updated with the latest news, announcements, and events from the College of Business Administration.
+    </p>
+
+    <div class="latest-cards" id="cba-latest">
+      <!-- Latest posts/news will load dynamically -->
+    </div>
+
+  </div>
+</section>
+<!-- CBA PROGRAMS  OFFERED ------------------------------------------------------------->
+
 <section class="programs-section" id="programs-section">
   <div class="programs-container">
 
@@ -169,234 +190,1274 @@
     </p>
 
     <!-- PROGRAM CARDS -->
-    <div class="cards">
-
-      <!-- CARD 1 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/bus.jpg' %}" alt="BSIT">
-        <div class="card-body highlighted">
-          <h3>Bachelor of Business Administration</h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/office.jpg' %}" alt="BSCS">
-        <div class="card-body">
-          <h3>Bachelor of Office Administration </h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="card">
-        <img src="{% static 'dashboard/images/hm1.jpg' %}" alt="BSCS">
-        <div class="card-body">
-          <h3>Bachelor of Hospitality Management </h3>
-          <button class="learn-btn">Learn More</button>
-        </div>
-      </div>
-
+    <div class="cards" id="cba-programs">
+      <!-- Programs will be dynamically loaded here -->
     </div>
   </div>
 </section>
 
+
+
+<!-- CBA ALUMNI ---------------------------------------------->
+<section class="alumni-section" id="alumni-section">
+  <div class="alumni-container">
+
+    <h1 class="section-title">CBA ALUMNI</h1>
+    <p class="section-subtitle">
+      Meet our successful graduates from the College of Business and Accountancy who continue to make an impact in different fields.
+    </p>
+
+    <div class="alumni-cards" id="cba-alumni">
+      <!-- Alumni profiles will load dynamically -->
+    </div>
+
+  </div>
+</section><br><br>
+
+<!-- CBA AWARDS AND RECOGNITION SECTION ---------------------------------------------->
+<section class="awards-section" id="awards-section">
+  <div class="awards-container">
+
+    <!-- SECTION HEADER -->
+    <h1 class="section-title">CBA Awards and Recognition</h1>
+    <p class="section-subtitle">
+      Discover achievements, honors, and recognitions earned by the 
+      College of Business Administration through excellence in academics, research, 
+      and community service.
+    </p>
+
+    <!-- AWARDS CARDS (Loaded dynamically via JavaScript) -->
+    <div class="awards-cards" id="cba-awards">
+      <!-- CBA Awards will load dynamically here -->
+    </div>
+
+  </div>
+</section>
+<!-- CBA FACILITIES SECTION ------------------------------------------------------------->
 <section class="facilities-section" id="facilities-section">
   <div class="facilities-container">
 
-    <!-- HEADER -->
-    <h1 class="section-title">CBA FACILITIES AND LABORATORIES</h1>
+    <!-- SECTION HEADER -->
+    <h1 class="section-title">CBA Facilities</h1>
     <p class="section-subtitle">
-      Experience top-notch facilities and cutting-edge laboratories at College of
-      Industrial Technology for unparalleled academics advancements.
+      Explore modern classrooms, business laboratories, conference rooms, and learning spaces 
+      available at the College of Business Administration that support business education, 
+      research, and professional development.
     </p>
 
-    <!-- GRID -->
-    <div class="facilities-grid">
-
-        <div class="facility-card">
-        <img src="{% static 'dashboard/images/cbabuilding.jpg' %}" alt="CBA BUILDING">
-        <span class="label">CBA BUILDING</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cba1.jpg' %}" alt="CBA 1">
-        <span class="label">CBA 1</span>
-      </div>
-
-        <div class="facility-card">
-        <img src="{% static 'dashboard/images/cba2.jpg' %}" alt="CBA 2">
-        <span class="label">CBA 2</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cba3.jpg' %}" alt="CBA 3">
-        <span class="label">CBA 3</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cba4.jpg' %}" alt="CBA 4">
-        <span class="label">CBA 4</span>
-      </div>
-
-      <div class="facility-card">
-        <img src="{% static 'dashboard/images/cba3.jpg' %}" alt="CBA 5">
-        <span class="label">CBA 5</span>
-      </div>
-
+    <!-- FACILITIES CARDS (Loaded dynamically via JavaScript) -->
+    <div class="facilities-cards" id="cba-facilities">
+      <!-- CBA Facilities will load dynamically here -->
     </div>
+
   </div>
 </section>
-<section class="cas-admin">
-
+<section class="cba-admin">
   <!-- HEADER -->
-  <div class="cas-header">
-    <h4>CBA ADMINISTRATION</h4>
+  <div class="cba-header">
+    <h4>College of Business Administration</h4>
     <h1>
-      <span>COLLEGE OF </span> BUSINESS <span class="dark">ADMINISTRATION</span>
+      <span>ORGANIZATIONAL CHART</span>
     </h1>
     <p>
       Attain excellent status in providing a pool of competent and competitive
-      human resources. Pagkab-ot sa taas nga matan-aw sa pag pangalagad ug dili
-      palupig nga.
+      human resources.
     </p>
   </div>
 
-  <div class="cas-content">
+  <div class="cba-content">
     
-    <!-- PROFILE SLIDER -->
-    <div class="profile-area">
-
-      <div class="profiles"> 
-        
-
-        <!-- PROFILE 1 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/cbadean.jpg' %}">
-          <h3>Mayuan T. Calijan Ph.D.</h3>
-          <p>Dean, College of Business Administration</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        
-        <!-- PROFILE 2 -->
-          <div class="profile-card">
-          <img src="{% static 'dashboard/images/cbadean.jpg' %}">
-          <h3>Rogelo Cordero</h3>
-          <p>Assistan Dean </p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-
-        <!-- PROFILE 3 -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/cbadean.jpg' %}">
-          <h3>RONALD A. CORTEZ</h3>
-          <p>FACULTY</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 4 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/cbadean.jpg' %}">
-          <h3> ENGR. ELTON IAN M. JO, MTE </h3>
-          <p>FACULTY</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 5 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/cbadean.jpg' %}">
-          <h3>JUNRYL S. ESPANOL</h3>
-          <p>Faculty</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- PROFILE 6 (NEXT SLIDE) -->
-        <div class="profile-card">
-          <img src="{% static 'dashboard/images/cbadean.jpg' %}">
-          <h3>JANEDELLE O. MACAHUSAY, LPT</h3>
-          <p>Part Time</p>
-          <div class="dots"><span></span><span></span><span></span></div>
-        </div>
-
-      </div>
-     
+    <!-- ORGANIZATIONAL CHART -->
+    <div class="org-chart" id="cba-organizational-chart">
+      <!-- Organizational chart will be dynamically loaded here -->
     </div>
 
   </div>
-
-   <!-- NAVIGATION -->
-      <div class="nav-buttons">
-        <button id="prev">&#10094;</button>
-        <button id="next">&#10095;</button>
-      </div>
 
 </section>
 
 {% block extra_js %}
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const profiles = document.querySelector('.profiles');
-    const next = document.getElementById('next');
-    const prev = document.getElementById('prev');
+  // Load CBA faculty and update organizational chart
+  async function loadCBAOrganizationalChart() {
+    const container = document.getElementById('cba-organizational-chart');
+    if (!container) return;
 
-    if (!profiles || !next || !prev) {
-      console.error('Required elements not found');
-      return;
+    try {
+      container.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin"></i> Loading organizational chart...</div>';
+      
+      const response = await fetch('/api/faculty/?college=cba');
+      const data = await response.json();
+
+      if (data.success && data.faculty) {
+        const faculty = data.faculty;
+        
+        if (faculty.length === 0) {
+          container.innerHTML = '<p style="text-align: center; padding: 20px;">No faculty members found for CBA.</p>';
+          return;
+        }
+
+        const priority = (pos) => {
+          pos = (pos || '').toLowerCase();
+          if (pos.includes('dean') && !pos.includes('assistant')) return 1;
+          if (pos.includes('assistant dean') || pos.includes('coordinator')) return 2;
+          return 3;
+        };
+
+        const sorted = [...faculty].sort((a, b) => priority(a.position) - priority(b.position));
+        const dean = sorted.find(f => priority(f.position) === 1);
+        const secondLevel = sorted.filter(f => priority(f.position) === 2);
+        const others = sorted.filter(f => priority(f.position) === 3);
+
+        let html = '';
+        // Dean
+        if (dean) {
+          html += `
+            <div class="org-level top-level">
+              <div class="org-box dean-box">
+                <img src="${dean.image || '/static/dashboard/images/cbadean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/cbadean.jpg'">
+                <div class="org-info">
+                  <h3>${dean.name}</h3>
+                  <p class="org-title">${dean.position}, College of Business Administration</p>
+                </div>
+              </div>
+            </div><div class="org-connector"></div>`;
+        }
+
+        // Second Level
+        if (secondLevel.length > 0) {
+          html += `<div class="org-level second-level"><div class="org-row">`;
+          html += secondLevel.map(a => `
+            <div class="org-box assistant-box">
+              <img src="${a.image || '/static/dashboard/images/cbadean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/cbadean.jpg'">
+              <div class="org-info"><h3>${a.name}</h3><p class="org-title">${a.position}</p></div>
+            </div>
+          `).join('');
+          html += `</div></div><div class="org-connector"></div>`;
+        }
+
+        // Others
+        if (others.length > 0) {
+          html += `<div class="org-level third-level"><div class="org-grid">`;
+          html += others.map(f => `
+            <div class="org-box faculty-box">
+              <img src="${f.image || '/static/dashboard/images/cbadean.jpg'}" class="org-avatar" onerror="this.src='/static/dashboard/images/cbadean.jpg'">
+              <div class="org-info"><h3>${f.name}</h3><p class="org-title">${f.position}</p></div>
+            </div>
+          `).join('');
+          html += `</div></div>`;
+        }
+        container.innerHTML = html;
+      }
+    } catch (e) {
+      console.error('Error loading CBA faculty:', e);
+      container.innerHTML = '<p style="text-align: center; color: red;">Error loading organizational chart.</p>';
     }
+  }
 
-    let index = 0;
-    const cardsPerView = 3;
-    const totalCards = profiles.children.length;
-    const maxIndex = Math.max(0, totalCards - cardsPerView);
+// --- CBA FACILITIES ---
+  async function loadCbaFacilities() {
+    const container = document.getElementById('cba-facilities');
+    if (!container) return;
 
-    console.log('Total cards:', totalCards, 'Max index:', maxIndex);
+    try {
+      container.innerHTML = '<div style="text-align: center; padding: 40px; grid-column: 1/-1;"><i class="fas fa-spinner fa-spin"></i> Loading facilities...</div>';
+      
+      const response = await fetch('/api/facilities/?college=cba');
+      const data = await response.json();
 
-    function updateProfiles() {
-      // Hide all profiles completely
-      Array.from(profiles.children).forEach(card => {
-        card.style.display = 'none';
-        card.style.opacity = '0';
-        card.style.transform = 'translateX(20px)';
-      });
+      if (data.success && data.facilities) {
+        const facilities = data.facilities;
+        
+        if (facilities.length === 0) {
+          container.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-building" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CBA Facilities Available</h3>
+                <p>Add facilities in the CBA admin dashboard to see them here.</p>
+            </div>`;
+          return;
+        }
 
-      // Show only current 3 profiles
-      for (let i = index; i < index + cardsPerView && i < totalCards; i++) {
-        const card = profiles.children[i];
-        card.style.display = 'block';
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateX(0)';
-        }, (i - index) * 100);
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "40px";
+        container.innerHTML = '';
+
+        facilities.forEach(facility => {
+          const card = document.createElement('div');
+          card.className = 'cba-facility-card';
+          card.innerHTML = `
+            <div class="cba-facility-image-wrapper">
+              <div class="cba-facility-badge">${facility.name}</div>
+              <img src="${facility.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+            </div>
+          `;
+          container.appendChild(card);
+        });
       }
+    } catch (e) {
+      console.error('Error loading CBA facilities:', e);
+      container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Error loading facilities.</p>';
     }
+  }
 
-    next.onclick = () => {
-      if (index < maxIndex) {
-        index++;
-        updateProfiles();
-        console.log('Next clicked, index:', index);
-      } else {
-        console.log('Reached max index');
+  // --- CBA LATEST POSTS ---
+  async function loadCbaLatestPosts() {
+    const container = document.getElementById('cba-latest');
+    if (!container) return;
+
+    try {
+      container.innerHTML = '<div style="text-align: center; padding: 40px; grid-column: 1/-1;"><i class="fas fa-spinner fa-spin"></i> Loading latest posts...</div>';
+      const response = await fetch('/api/posts/get/?college=cba');
+      const data = await response.json();
+
+      if (data.success && data.posts) {
+        const posts = data.posts.filter(p => p.type === 'announcement' || p.type === 'news' || !p.type);
+        if (posts.length === 0) {
+          container.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-newspaper" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CBA Admin Posts Available</h3>
+                <p>Posts created by CBA Administrator will appear here.</p>
+            </div>`;
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+          const date = post.created_at ? new Date(post.created_at).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+          }) : "March 14, 2026";
+
+          const card = document.createElement('div');
+          card.className = 'latest-card-professional';
+          card.innerHTML = `
+            <div class="post-image-container">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="post-badges">
+                <span class="badge-new">NEW</span>
+                <span class="badge-type">${(post.type || 'ANNOUNCEMENT').toUpperCase()}</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <p class="post-date">${date}</p>
+              <h3 class="post-title">${post.title.toUpperCase()}</h3>
+              <p class="post-excerpt">${post.content.substring(0, 80)}...</p>
+              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="read-more">READ MORE &rarr;</a>
+            </div>
+          `;
+          container.appendChild(card);
+        });
       }
-    };
+    } catch (e) { console.error('Error loading CBA posts:', e); }
+  }
 
-    prev.onclick = () => {
-      if (index > 0) {
-        index--;
-        updateProfiles();
-        console.log('Prev clicked, index:', index);
+  // --- CBA ALUMNI ---
+  async function loadCbaAlumni() {
+    const container = document.getElementById('cba-alumni');
+    if (!container) return;
+
+    try {
+      // Fetch from Alumni Directory API instead of posts
+      const response = await fetch('/api/alumni/');
+      const data = await response.json();
+      
+      if (data.success && data.alumni) {
+        let alumni = data.alumni;
+        
+        // Filter for CBA college alumni (those with business/accountancy-related courses)
+        const cbaAlumni = alumni.filter(a => {
+          const course = (a.course || '').toLowerCase();
+          return course.includes('accountancy') || 
+                 course.includes('business') || 
+                 course.includes('management') ||
+                 course.includes('accounting') ||
+                 course.includes('bsa') ||
+                 course.includes('bba') ||
+                 course.includes('bsba') ||
+                 course.includes('bsm');
+        });
+        
+        // Take only the first 3 alumni for display
+        const displayAlumni = cbaAlumni.slice(0, 3);
+        
+        if (displayAlumni.length === 0) {
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No alumni posts available.</p>';
+        } else {
+          container.style.display = "grid";
+          container.style.gridTemplateColumns = "repeat(3, 1fr)";
+          container.style.gap = "30px";
+          container.innerHTML = '';
+
+          displayAlumni.forEach(a => {
+            const card = document.createElement('div');
+            card.className = 'alumni-card';
+            card.innerHTML = `
+              <img src="${a.profile_image || '/static/dashboard/images/pulis.jpg'}" alt="${a.full_name}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="alumni-card-content">
+                <h3>${a.full_name || 'Alumni'}</h3>
+                <p class="alumni-position">${a.position || a.course || 'Graduate'}</p>
+                <p class="alumni-quote">"${a.bio || 'Making an impact in their field'}"</p>
+                <div class="alumni-meta">
+                  <span class="alumni-course">${a.course || ''}</span>
+                  <span class="alumni-batch">Batch ${a.graduation_year || ''}</span>
+                </div>
+              </div>
+            `;
+            container.appendChild(card);
+          });
+        }
       } else {
-        console.log('At start index');
+        container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No alumni posts available.</p>';
       }
-    };
+    } catch (e) { 
+      console.error('Error loading CBA alumni:', e); 
+      container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Error loading alumni data.</p>';
+    }
+  }
 
-    // Initialize first view
-    updateProfiles();
+  // --- CBA AWARDS ---
+  async function loadCbaAwards() {
+    const container = document.getElementById('cba-awards');
+    if (!container) return;
+
+    try {
+      const response = await fetch('/api/posts/get/?college=cba&type=award');
+      const data = await response.json();
+
+      if (data.success && data.posts) {
+        const posts = data.posts;
+        if (posts.length === 0) {
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No awards available.</p>';
+          return;
+        }
+
+        container.style.display = "grid";
+        container.style.gridTemplateColumns = "repeat(3, 1fr)";
+        container.style.gap = "30px";
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+          const card = document.createElement('div');
+          card.className = 'cit-award-card-v2';
+          card.innerHTML = `
+            <div class="award-image-container-v2">
+              <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+              <div class="award-trophy-badge-v2">
+                <i class="fas fa-trophy"></i>
+              </div>
+            </div>
+            <div class="award-content-box-v2">
+              <h3 class="award-title-green-v2">${post.title}</h3>
+              <p class="award-subtitle-grey-v2">${post.content}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    } catch (e) { console.error('Error loading CBA awards:', e); }
+  }
+
+  document.addEventListener('DOMContentLoaded', async function() {
+    // Initialize data from Database APIs
+    loadCBAOrganizationalChart();
+    loadCbaFacilities();
+    loadCbaLatestPosts();
+    loadCbaAlumni();
+    loadCbaAwards();
+    
+    // Add force refresh function
+    window.forceRefreshCBFaculty = function() {
+        console.log('Force refreshing CBA faculty data...');
+        // Clear cache
+        delete window.cbaFacultyCache;
+        // Reload chart
+        loadCBAOrganizationalChart();
+    };
+    
+    // Initialize CBA programs from API
+    const programsContainer = document.getElementById('cba-programs');
+    if (programsContainer) {
+        try {
+            // Show loading state
+            programsContainer.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin"></i> Loading programs...</div>';
+            
+            // Fetch programs from API
+            const response = await fetch('/api/programs/');
+            const data = await response.json();
+            
+            if (data.success && data.programs) {
+                // Filter programs for CBA college (case-insensitive matching)
+                const cbaPrograms = data.programs.filter(program => 
+                    program.college && program.college.toLowerCase() === 'cba'
+                );
+                
+                if (cbaPrograms.length === 0) {
+                    programsContainer.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>No Programs Available</h3>
+                            <p>Programs for this college will appear here once added in the admin dashboard.</p>
+                        </div>
+                    `;
+                } else {
+                    // Generate program cards from API data
+                    let html = '';
+                    cbaPrograms.forEach(program => {
+                        const isHighlighted = program.status === 'active';
+                        const statusText = program.status === 'active' ? 'Available' : 'Not Available';
+                        
+                        // Use uploaded image or default fallback
+                        let programImage = program.image || "/static/dashboard/images/pulis.jpg";
+                        
+                        html += `
+                            <div class="card">
+                                <img src="${programImage}" alt="${program.title}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
+                                <div class="card-body ${isHighlighted ? 'highlighted' : ''}">
+                                    <h3>${program.title}</h3>
+                                    <div class="program-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>${program.duration}</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-info-circle"></i>
+                                            <span>${statusText}</span>
+                                        </div>
+                                    </div>
+                                    <a href="/programs/#${program.title.toLowerCase().replace(/\s+/g, '-')}" class="learn-btn">Learn More</a>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    programsContainer.innerHTML = html;
+                }
+                
+                // Update program count in stats
+                const programCountElement = document.querySelector('.stats .stat-card h2');
+                if (programCountElement) {
+                    programCountElement.textContent = cbaPrograms.length;
+                }
+            } else {
+                throw new Error('Failed to load programs');
+            }
+        } catch (error) {
+            console.error('Error loading CBA programs:', error);
+            programsContainer.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Error Loading Programs</h3>
+                    <p>Unable to load programs. Please refresh the page or try again later.</p>
+                </div>
+            `;
+        }
+    }
+    
+    loadCBAOrganizationalChart();
+    
+    // Add debug function to console
+    window.debugCBAFaculty = function() {
+      console.log('=== MANUAL CBA FACULTY DEBUG ===');
+      const cbaFacultyData = JSON.parse(localStorage.getItem('cbaFacultyData') || '{}');
+      console.log('All localStorage keys:', Object.keys(localStorage));
+      console.log('cbaFacultyData:', cbaFacultyData);
+      console.log('Number of entries:', Object.keys(cbaFacultyData).length);
+      
+      // Check if faculty data exists in general facultyData
+      const generalFacultyData = JSON.parse(localStorage.getItem('facultyData') || '{}');
+      console.log('General facultyData:', generalFacultyData);
+      console.log('=== END DEBUG ===');
+    };
+    
+    console.log('CBA Dashboard loaded. Run debugCBAFaculty() in console to debug faculty data.');
+    
+    // Listen for storage changes to auto-refresh when data is updated
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'cbaProgramsUpdated') {
+            console.log('CBA Programs updated, refreshing...');
+            location.reload();
+        }
+        if (e.key === 'cbaFacultyUpdated') {
+            console.log('CBA Faculty updated, refreshing CBA chart...');
+            loadCBAOrganizationalChart();
+        }
+    });
+    
+    // Refresh data every 30 seconds to get updates from admin dashboard
+    setInterval(() => {
+        loadCBAOrganizationalChart();
+    }, 30000);
   });
 </script>
 {% endblock %}
+<script>
+// Load latest posts for CBA from CBA admin dashboard localStorage
+function loadCbaLatestPosts() {
+    try {
+        // Debug: Check all localStorage keys
+        console.log('All localStorage keys:', Object.keys(localStorage));
+        
+        // Debug: Check cbaAdminPosts specifically
+        const cbaPostsRaw = localStorage.getItem('cbaAdminPosts');
+        console.log('Raw cbaAdminPosts data:', cbaPostsRaw);
+        
+        // Get posts specifically from CBA admin dashboard
+        const cbaPosts = JSON.parse(localStorage.getItem('cbaAdminPosts') || '[]');
+        console.log('Parsed CBA posts:', cbaPosts);
+        console.log('Number of CBA posts:', cbaPosts.length);
+        
+        // Debug: Check post types
+        cbaPosts.forEach(post => {
+            console.log('Post type:', post.type, 'Post title:', post.title);
+        });
+        
+        // Filter OUT alumni and awards - only show announcements and general posts
+        const nonAlumniPosts = cbaPosts.filter(post => post.type !== 'alumni' && post.type !== 'award');
+        console.log('Filtered non-alumni posts:', nonAlumniPosts);
+        console.log('Number of non-alumni posts:', nonAlumniPosts.length);
+        
+        const latestContainer = document.getElementById('cba-latest');
+        latestContainer.innerHTML = '';
+        
+        latestContainer.style.display = "grid";
+        latestContainer.style.gridTemplateColumns = "repeat(3, minmax(320px,1fr))";
+        latestContainer.style.gap = "30px";
+        
+        nonAlumniPosts.forEach(post => {
+            const postCard = document.createElement("div");
+            postCard.className = "latest-card";
+            
+            const date = post.date ? new Date(post.date).toLocaleDateString('en-US',{
+                year:'numeric',
+                month:'long',
+                day:'numeric'
+            }) : "March 09, 2026";
+            
+            const image = post.image ? post.image : "https://via.placeholder.com/600x350";
+            
+            // Check if post is new (created within last 3 days)
+            const postDate = new Date(post.date);
+            const now = new Date();
+            const hoursSincePosted = (now - postDate) / (1000 * 60 * 60);
+            const isNewPost = hoursSincePosted <= 72;
 
+            postCard.innerHTML = `
+            
+            <div style="position:relative;">
+                <img src="${image}" 
+                style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;">
+                
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    background:#1e88ff;
+                    color:white;
+                    padding:6px 14px;
+                    font-size:12px;
+                    border-radius:20px;
+                    font-weight:600;">
+                    CBA ADMIN
+                </span>
+                
+                ${isNewPost ? `
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    left:15px;
+                    background:#ff4757;
+                    color:white;
+                    padding:4px 10px;
+                    font-size:10px;
+                    border-radius:12px;
+                    font-weight:700;
+                    text-transform:uppercase;
+                    letter-spacing:1px;
+                    animation: pulse 2s infinite;">
+                    NEW
+                </span>
+                ` : ''}
+            </div>
+            
+            <div style="padding:22px;">
+                
+                <p style="
+                    color:#7a7a7a;
+                    font-size:15px;
+                    margin-bottom:10px;">
+                    ${date}
+                </p>
+                
+                <h3 style="
+                    font-size:22px;
+                    font-weight:700;
+                    margin-bottom:14px;
+                    color:#222;">
+                    ${post.title}
+                </h3>
+                
+                <a href="/news/?postId=${post.id}&section=colleges-announcement" style="
+                    color:#2a5db0;
+                    text-decoration:none;
+                    font-weight:600;
+                    font-size:14px;">
+                    READ MORE →
+                </a>
+                
+            </div>
+            `;
+            
+            postCard.style.background = "#fff";
+            postCard.style.borderRadius = "16px";
+            postCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            postCard.style.overflow = "hidden";
+            postCard.style.transition = "0.3s";
+            
+            postCard.addEventListener("mouseenter",()=>{
+                postCard.style.transform="translateY(-6px)";
+                postCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            postCard.addEventListener("mouseleave",()=>{
+                postCard.style.transform="translateY(0)";
+                postCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            latestContainer.appendChild(postCard);
+        });
+        
+        if(nonAlumniPosts.length === 0){
+            latestContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-newspaper" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CBA Admin Posts Available</h3>
+                <p>Posts created by CBA Administrator will appear here.</p>
+                <p style="font-size:12px; color:#999; margin-top:10px;">Debug: Check browser console for post details</p>
+            </div>
+            `;
+        }
+        
+    } catch(error) {
+        console.error("Error loading CBA admin posts:", error);
+        document.getElementById("cba-latest").innerHTML = `
+        <div style="text-align:center;padding:60px;color:red;">
+            Error loading CBA admin posts
+        </div>
+        `;
+    }
+}
+
+// Load alumni for CBA from CBA admin dashboard localStorage
+function loadCbaAlumni() {
+    try {
+        // Get posts specifically from CBA admin dashboard
+        const cbaPosts = JSON.parse(localStorage.getItem('cbaAdminPosts') || '[]');
+        console.log('CBA posts for alumni:', cbaPosts);
+        
+        // Filter alumni posts from CBA admin posts
+        const alumniPosts = cbaPosts.filter(post => post.type === 'alumni').slice(0, 3);
+        console.log('CBA alumni posts:', alumniPosts);
+        
+        const alumniContainer = document.getElementById('cba-alumni');
+        alumniContainer.innerHTML = '';
+        
+        alumniContainer.style.display = "grid";
+        alumniContainer.style.gridTemplateColumns = "repeat(3, minmax(320px,1fr))";
+        alumniContainer.style.gap = "30px";
+        
+        alumniPosts.forEach(post => {
+            const alumniCard = document.createElement("div");
+            alumniCard.className = "alumni-card";
+            
+            const date = post.date ? new Date(post.date).toLocaleDateString('en-US',{
+                year:'numeric',
+                month:'long',
+                day:'numeric'
+            }) : "March 09, 2026";
+            
+            const image = post.image ? post.image : "https://via.placeholder.com/600x350/28a745/FFFFFF?text=CBA+ALUMNI";
+            
+            alumniCard.innerHTML = `
+            
+            <div style="position:relative;">
+                <img src="${image}" 
+                style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;" 
+                onerror="this.src='https://via.placeholder.com/600x350/28a745/FFFFFF?text=CBA+ALUMNI';">
+                
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    background:#28a745;
+                    color:white;
+                    padding:6px 14px;
+                    font-size:12px;
+                    border-radius:20px;
+                    font-weight:600;">
+                    ALUMNI
+                </span>
+            </div>
+            
+            <div style="padding:22px;">
+                
+                <p style="
+                    color:#7a7a7a;
+                    font-size:15px;
+                    margin-bottom:10px;">
+                    ${date}
+                </p>
+                
+                <h3 style="
+                    font-size:22px;
+                    font-weight:700;
+                    margin-bottom:14px;
+                    color:#222;">
+                    ${post.title}
+                </h3>
+                
+                <p style="
+                    color:#666;
+                    font-size:14px;
+                    line-height:1.5;
+                    margin-bottom:15px;">
+                    ${post.content.substring(0, 100)}...
+                </p>
+                
+                <a href="#" style="
+                    color:#28a745;
+                    text-decoration:none;
+                    font-weight:600;
+                    font-size:14px;">
+                    READ MORE
+                </a>
+                
+            </div>
+            `;
+            
+            alumniCard.style.background = "#fff";
+            alumniCard.style.borderRadius = "16px";
+            alumniCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            alumniCard.style.overflow = "hidden";
+            alumniCard.style.transition = "0.3s";
+            
+            alumniCard.addEventListener("mouseenter",()=>{
+                alumniCard.style.transform="translateY(-6px)";
+                alumniCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            alumniCard.addEventListener("mouseleave",()=>{
+                alumniCard.style.transform="translateY(0)";
+                alumniCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            alumniContainer.appendChild(alumniCard);
+        });
+        
+        if(alumniPosts.length === 0){
+            alumniContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-user-graduate" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CBA Alumni Available</h3>
+                <p>Check back soon for CBA alumni updates.</p>
+            </div>
+            `;
+        }
+        
+    } catch(error) {
+        console.error("Error loading CBA alumni:", error);
+        document.getElementById("cba-alumni").innerHTML = `
+        <div style="text-align:center;padding:60px;color:red;">
+            Error loading CBA alumni
+        </div>
+        `;
+    }
+}
+
+// Load awards for CBA from CBA admin dashboard localStorage
+function loadCbaAwards() {
+    console.log('=== loadCbaAwards() function called ===');
+    try {
+        // Get posts specifically from CBA admin dashboard
+        const cbaPosts = JSON.parse(localStorage.getItem('cbaAdminPosts') || '[]');
+        console.log('CBA posts for awards:', cbaPosts);
+        console.log('Number of CBA posts total:', cbaPosts.length);
+        
+        // Filter award posts
+        const awardPosts = cbaPosts.filter(post => post.type === 'award').slice(0, 3);
+        console.log('CBA award posts after filtering:', awardPosts);
+        console.log('Number of CBA award posts:', awardPosts.length);
+        
+        const awardsContainer = document.getElementById('cba-awards');
+        console.log('Awards container element:', awardsContainer);
+        
+        if (!awardsContainer) {
+            console.error('ERROR: cba-awards container not found!');
+            return;
+        }
+        
+        awardsContainer.innerHTML = '';
+        
+        awardsContainer.style.display = "grid";
+        awardsContainer.style.gridTemplateColumns = "repeat(3, minmax(320px,1fr))";
+        awardsContainer.style.gap = "30px";
+        
+        if (awardPosts.length === 0) {
+            console.log('No award posts found, showing empty state');
+            awardsContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-trophy" style="font-size: 64px; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No CBA Awards Available</h3>
+                <p>Check back soon for CBA awards and recognitions.</p>
+                <p style="font-size:12px; color:#999; margin-top:10px;">Debug: Check browser console for award details</p>
+            </div>
+            `;
+            return;
+        }
+        
+        awardPosts.forEach(post => {
+            console.log('=== Processing Award Post ===');
+            console.log('Full post object:', post);
+            
+            const awardCard = document.createElement("div");
+            awardCard.className = "award-card";
+            
+            const date = post.date ? new Date(post.date).toLocaleDateString('en-US',{
+                year:'numeric',
+                month:'long',
+                day:'numeric'
+            }) : "March 09, 2026";
+            
+            const image = post.image ? post.image : "https://via.placeholder.com/600x350/1e88ff/FFFFFF?text=CBA+AWARD";
+            
+            awardCard.innerHTML = `
+            <div style="position:relative;">
+                <img src="${image}" 
+                style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;"
+                onerror="this.src='https://via.placeholder.com/600x350/1e88ff/FFFFFF?text=CBA+AWARD'; console.log('Image failed to load, using fallback');">
+                
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    background:#1e88ff;
+                    color:#fff;
+                    padding:6px 14px;
+                    font-size:12px;
+                    border-radius:20px;
+                    font-weight:600;">
+                    AWARD
+                </span>
+            </div>
+            
+            <div style="padding:22px;">
+                <p style="
+                    color:#7a7a7a;
+                    font-size:15px;
+                    margin-bottom:10px;">
+                    ${date}
+                </p>
+                
+                <h3 style="
+                    font-size:22px;
+                    font-weight:700;
+                    margin-bottom:14px;
+                    color:#222;">
+                    ${post.title}
+                </h3>
+                
+                <p style="
+                    color:#666;
+                    font-size:14px;
+                    line-height:1.5;
+                    margin-bottom:15px;">
+                    ${post.content.substring(0, 100)}...
+                </p>
+                
+                <a href="#" style="
+                    color:#1e88ff;
+                    text-decoration:none;
+                    font-weight:600;
+                    font-size:14px;">
+                    READ MORE
+                </a>
+            </div>
+            `;
+            
+            awardCard.style.background = "#fff";
+            awardCard.style.borderRadius = "16px";
+            awardCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            awardCard.style.overflow = "hidden";
+            awardCard.style.transition = "0.3s";
+            
+            awardCard.addEventListener("mouseenter",()=>{
+                awardCard.style.transform="translateY(-6px)";
+                awardCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            awardCard.addEventListener("mouseleave",()=>{
+                awardCard.style.transform="translateY(0)";
+                awardCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            awardsContainer.appendChild(awardCard);
+        });
+        
+    } catch(error) {
+        console.error("Error loading CBA awards:", error);
+        const awardsContainer = document.getElementById("cba-awards");
+        if (awardsContainer) {
+            awardsContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:red;">
+                Error loading CBA awards
+            </div>
+            `;
+        }
+    }
+}
+
+// Load facilities for CBA from facilityData localStorage (connected to admin dashboard)
+function loadCbaFacilities() {
+    try {
+        console.log('=== CBA FACILITIES DEBUG START ===');
+        
+        // Get all facility data from admin dashboard
+        const facilityData = JSON.parse(localStorage.getItem('facilityData') || '{}');
+        console.log('All facility data from localStorage:', facilityData);
+        console.log('Number of all facilities:', Object.keys(facilityData).length);
+        
+        // Get CBA-specific facility data
+        const cbaFacilityData = JSON.parse(localStorage.getItem('cbaFacilityData') || '{}');
+        console.log('CBA facility data from localStorage:', cbaFacilityData);
+        console.log('Number of CBA facilities:', Object.keys(cbaFacilityData).length);
+        
+        // Combine both data sources (fallback to general facilityData if cbaFacilityData is empty)
+        let allFacilities = {};
+        
+        // Add CBA-specific facilities first
+        Object.keys(cbaFacilityData).forEach(key => {
+            allFacilities[key] = cbaFacilityData[key];
+        });
+        
+        // Add general facilities if CBA-specific is empty
+        if (Object.keys(cbaFacilityData).length === 0) {
+            Object.keys(facilityData).forEach(key => {
+                allFacilities[key] = facilityData[key];
+            });
+        }
+        
+        console.log('Combined facilities data:', allFacilities);
+        console.log('Total facilities to display:', Object.keys(allFacilities).length);
+        
+        // Convert to array and show all facilities (no filtering)
+        const cbaFacilities = Object.values(allFacilities).slice(0, 12); // Show up to 12 facilities
+        
+        console.log('Final CBA facilities to display:', cbaFacilities);
+        
+        const facilityContainer = document.getElementById('cba-facilities');
+        facilityContainer.innerHTML = "";
+
+        facilityContainer.style.display = "grid";
+        facilityContainer.style.gridTemplateColumns = "repeat(3, 1fr)";
+        facilityContainer.style.gap = "40px";
+
+        cbaFacilities.forEach(facility => {
+            const facilityCard = document.createElement("div");
+            
+            // Use facility image or default placeholder
+            let facilityImage = facility.image || "https://via.placeholder.com/400x300/1e88ff/FFFFFF?text=" + encodeURIComponent(facility.name);
+            
+            facilityCard.innerHTML = `
+            
+            <div style="position:relative;">
+                <img src="${facilityImage}" 
+                style="width:100%; height:230px; object-fit:cover; border-top-left-radius:16px; border-top-right-radius:16px;"
+                onerror="this.src='https://via.placeholder.com/400x300/1e88ff/FFFFFF?text=${encodeURIComponent(facility.name)}'">
+                
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    background:#1e88ff;
+                    color:white;
+                    padding:6px 14px;
+                    font-size:12px;
+                    border-radius:20px;
+                    font-weight:600;
+                    text-transform:uppercase;">
+                    ${facility.status || 'Active'}
+                </span>
+                
+                ${facility.capacity ? `
+                <span style="
+                    position:absolute;
+                    top:15px;
+                    left:15px;
+                    background:#17a2b8;
+                    color:white;
+                    padding:4px 10px;
+                    font-size:10px;
+                    border-radius:12px;
+                    font-weight:700;">
+                    Capacity: ${facility.capacity}
+                </span>
+                ` : ''}
+            </div>
+            
+            <div style="padding:22px;">
+                
+                <h3 style="
+                    font-size:22px;
+                    font-weight:700;
+                    margin-bottom:14px;
+                    color:#222;">
+                    ${facility.name}
+                </h3>
+                
+                <p style="
+                    color:#666;
+                    font-size:16px;
+                    margin-bottom:10px;
+                    font-weight:500;">
+                    <i class="fas fa-door-open" style="margin-right:8px; color:#1e88ff;"></i>
+                    Type: ${facility.type}
+                </p>
+                
+                ${facility.capacity ? `
+                <p style="
+                    color:#666;
+                    font-size:14px;
+                    margin-bottom:15px;">
+                    <i class="fas fa-users" style="margin-right:8px; color:#17a2b8;"></i>
+                    Capacity: ${facility.capacity} people
+                </p>
+                ` : ''}
+                
+                <div style="
+                    display:flex;
+                    align-items:center;
+                    gap:8px;">
+                    <span style="
+                        display:inline-block;
+                        width:10px;
+                        height:10px;
+                        border-radius:50%;
+                        background:${facility.status === 'active' ? '#28a745' : facility.status === 'maintenance' ? '#ffc107' : '#dc3545'};">
+                    </span>
+                    <span style="
+                        color:#666;
+                        font-size:14px;
+                        font-weight:500;">
+                        ${facility.status === 'active' ? 'Available' : facility.status === 'maintenance' ? 'Under Maintenance' : 'Unavailable'}
+                    </span>
+                </div>
+                
+            </div>
+            `;
+            
+            facilityCard.style.background = "#fff";
+            facilityCard.style.borderRadius = "16px";
+            facilityCard.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)";
+            facilityCard.style.overflow = "hidden";
+            facilityCard.style.transition = "0.3s";
+            
+            facilityCard.addEventListener("mouseenter",()=>{
+                facilityCard.style.transform="translateY(-6px)";
+                facilityCard.style.boxShadow="0 10px 25px rgba(0,0,0,0.15)";
+            });
+            
+            facilityCard.addEventListener("mouseleave",()=>{
+                facilityCard.style.transform="translateY(0)";
+                facilityCard.style.boxShadow="0 6px 18px rgba(0,0,0,0.08)";
+            });
+            
+            facilityContainer.appendChild(facilityCard);
+        });
+
+        if(cbaFacilities.length === 0){
+            facilityContainer.innerHTML = `
+            <div style="text-align:center;padding:60px;color:#777;grid-column:1/-1;">
+                <i class="fas fa-building" style="font-size:64px;margin-bottom:20px;opacity:0.5;"></i>
+                <h3>No CBA Facilities Available</h3>
+                <p>Add facilities in the CBA admin dashboard to see them here.</p>
+                <p style="font-size:12px; color:#999; margin-top:10px;">Facilities added through the admin dashboard will appear in this section.</p>
+                <button onclick="window.debugCBAFacilities()" style="margin-top:15px; padding:8px 16px; background:#1e88ff; color:white; border:none; border-radius:4px; cursor:pointer;">Debug Facilities</button>
+            </div>
+            `;
+        }
+
+        console.log('CBA Facilities loaded successfully:', cbaFacilities.length, 'facilities displayed');
+        console.log('=== CBA FACILITIES DEBUG END ===');
+
+    } catch(error) {
+        console.error("Error loading CBA facilities:", error);
+        document.getElementById("cba-facilities").innerHTML = `
+        <div style="text-align:center;padding:60px;color:red;">
+            <i class="fas fa-exclamation-triangle" style="font-size:64px;margin-bottom:20px;"></i>
+            <h3>Error Loading CBA Facilities</h3>
+            <p>Unable to load facilities. Please refresh the page or try again later.</p>
+            <p style="font-size:12px; color:#666; margin-top:10px;">Error: ${error.message}</p>
+        </div>
+        `;
+    }
+}
+
+// Add debug function for CBA facilities
+window.debugCBAFacilities = function() {
+    console.log('=== CBA FACILITIES DEBUG ===');
+    
+    // Check all localStorage keys
+    console.log('All localStorage keys:', Object.keys(localStorage));
+    
+    // Check facility data locations
+    const facilityData = JSON.parse(localStorage.getItem('facilityData') || '{}');
+    console.log('General facilityData:', Object.keys(facilityData).length, 'entries');
+    if (Object.keys(facilityData).length > 0) {
+        console.log('General facilities:', facilityData);
+    }
+    
+    const cbaFacilityData = JSON.parse(localStorage.getItem('cbaFacilityData') || '{}');
+    console.log('CBA facilityData:', Object.keys(cbaFacilityData).length, 'entries');
+    if (Object.keys(cbaFacilityData).length > 0) {
+        console.log('CBA facilities:', cbaFacilityData);
+    }
+    
+    // Check other college facility data
+    const colleges = ['cas', 'cit', 'caf', 'ccje', 'cted'];
+    colleges.forEach(col => {
+        const data = JSON.parse(localStorage.getItem(`${col}FacilityData`) || '{}');
+        if (Object.keys(data).length > 0) {
+            console.log(`${col.toUpperCase()} facilityData:`, Object.keys(data).length, 'entries');
+        }
+    });
+    
+    console.log('=== END DEBUG ===');
+};
+
+// Load all CBA content when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadCbaLatestPosts();
+    loadCbaAlumni();
+    loadCbaAwards();
+    loadCbaFacilities();
+    
+    // Refresh data every 30 seconds to get updates from admin dashboard
+    setInterval(() => {
+        loadCbaLatestPosts();
+        loadCbaAlumni();
+        loadCbaAwards();
+        loadCbaFacilities();
+    }, 30000);
+});
+</script>
+
+<!-- Floating Arrow Button -->
+<div class="floating-arrow" id="floatingArrow" onclick="scrollToTop()">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<style>
+/* Floating Arrow Button */
+.floating-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #007fff, #0056b3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 127, 255, 0.3);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  pointer-events: none;
+}
+
+.floating-arrow.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-arrow:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  box-shadow: 0 4px 12px rgba(0, 127, 255, 0.4);
+  transform: translateY(-1px) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.floating-arrow i {
+  font-size: 14px;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+}
+
+.floating-arrow.visible i {
+  transform: rotate(0deg);
+}
+
+.floating-arrow:hover i {
+  transform: translateY(-1px) rotate(5deg);
+  transition: all 0.3s ease;
+}
+</style>
+
+<script>
+// Floating Arrow functionality
+const floatingArrow = document.getElementById('floatingArrow');
+let lastScrollTop = 0;
+
+// Show/hide arrow based on scroll position - trigger at PROGRAMS OFFERED section
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // Get the PROGRAMS OFFERED section position
+  const programsSection = document.getElementById('programs-section');
+  if (programsSection) {
+    const programsTop = programsSection.offsetTop;
+    
+    // Show arrow when user scrolls past the PROGRAMS OFFERED section
+    if (scrollTop > programsTop - 100) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  } else {
+    // Fallback: use fixed pixel value if section not found
+    if (scrollTop > 800) {
+      floatingArrow.classList.add('visible');
+    } else {
+      floatingArrow.classList.remove('visible');
+    }
+  }
+  
+  lastScrollTop = scrollTop;
+});
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
+{% include 'dashboard/footer.html' %}
 {% endblock %}
+</body>
+</html>

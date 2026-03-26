@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="afe77710-19ff-4126-bc5a-e0f2a3826b84" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/data/mock-admins.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/article.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/castyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/location.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/navbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/newstyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/program.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/Cba5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/SS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/ac.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/agri1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/aw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/aw1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/bb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/boni.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/caf7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/caf8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/caf9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/care.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/cas1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/cas2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/casuni.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/cba6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/cba7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/ccje4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/ccje5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/ccje6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/ccjean.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/cit12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/citaward.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/citendparty.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/cted9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/ele.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/for1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/gg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/higalaay.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/in.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/intram.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/news.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/norsunian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/pe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/sec a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/sus.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/suspension.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/test.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/uni.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/admin-dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/admin-login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/news/news1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/news/programs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/newsdashbord.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/countdown.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/alumni.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/analytics.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/article.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/cafstyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/castyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/cbastyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/ccjestyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/citstyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/ctedstyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/footer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/home-modern.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/index-responsive.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/location.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/navbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/newstyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/program.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/101.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/102.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/103.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/AVR.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/C2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/CAF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/CAS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/CBA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/CCJE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/CIT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/CTED.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/Cba5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/EL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ITBUILDING.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/SAC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/SS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ac.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/acads.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/agri.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/agri1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ang.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/aw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/aw1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/bal.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/baron.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/bb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/boni.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/bus.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/buss.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/c1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/caf7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/caf8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/caf9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cafdean.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cafe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/canteen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/care.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/carem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cas1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cas2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/casuni.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cba1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cba2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cba3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cba4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cba6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cba7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cbabuilding.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cbadean.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ccje1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ccje2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ccje3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ccje4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ccje5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ccje6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ccjean.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ccjedean.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ccjeof.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ccjeuni.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cf1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cf2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cit dean.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cit1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cit10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cit11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cit12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cit2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cit4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cit6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cit8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cit9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/citan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/citaward.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/citendparty.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/citoff.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/coms.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cord.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cted fr.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cted1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cted2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cted3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cted4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cted5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cted6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cted7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cted8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/cted9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ele.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/elemen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/em.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/f9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/for1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/forestry.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/gg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/gym.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/helen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/higalaay.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/hm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/hm1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/hymn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/image (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/image.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/image1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/image4.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/in.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/info.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/intram.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/itof.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/jes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/jun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/library.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/lili.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/liza.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/logo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/maf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/mar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/maria.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/me.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/mul1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/news.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/norsubsc.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/norsunian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/of.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/office.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/or.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/pe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/pogs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/pulis.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/rot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/rote.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/royy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/rt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/sales1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/sales2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/sales3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/sec a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/secondary.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/sus.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/suspension.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/t15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/t16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/t17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/test.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/theater.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/tungs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/ui.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/uni.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/y.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dashboard/images/yurfo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/NORSUWESITE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NORSUWESITE.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/dashboard/css/cafstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/cafstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/dashboard/css/casstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/casstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/dashboard/css/cbastyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/cbastyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/dashboard/css/ccjestyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/ccjestyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/dashboard/css/citstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/citstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/dashboard/css/ctedstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/ctedstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/dashboard/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/dashboard/images/CAS.png" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/CAS.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/dashboard/images/image1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/image4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/static/dashboard/images/sales1.png" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/images/sales1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/base_simple.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/base_simple.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordcaf.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordcaf.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordcas.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordcas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordcba.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordcba.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordccje.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordccje.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordcit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordcit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordcted.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/dashbordcted.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/norsu_dashboard/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/norsu_dashboard/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/norsu_dashboard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/norsu_dashboard/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/dashboard/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/dashboard/css/styles.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;shennayy&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Shennayy05/norsuwebsite.git&quot;,
+    &quot;accountId&quot;: &quot;6e2c118e-0480-4579-a277-953fdacd8354&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="39Vx5lrCHDx4j2oGJKTPm1cW0Jh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/OneDrive/Desktop/NORSUWESITE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-2ee2454479a3-9cdd278e9d02-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-251.25410.122" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="afe77710-19ff-4126-bc5a-e0f2a3826b84" name="Changes" comment="" />
+      <created>1770794858139</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1770794858139</updated>
+    </task>
+    <servers />
+  </component>
+</project>

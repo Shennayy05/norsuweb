@@ -1,0 +1,361 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block header %}
+    <!-- Removed header for Calendar page -->
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .calendar-page {
+        background-color: #f8f9fa;
+        padding: 40px 0;
+        min-height: 100vh;
+    }
+
+    .calendar-header {
+        background: #4682B4;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .calendar-header h1 {
+        font-size: 48px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0;
+    }
+
+    .calendar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .calendar-display {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        padding: 40px;
+        margin-bottom: 40px;
+        border: 1px solid #eee;
+        text-align: center;
+    }
+
+    .calendar-title {
+        color: #007bff;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 32px;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #007bff;
+        display: inline-block;
+    }
+
+    .calendar-description {
+        font-size: 18px;
+      
+        margin-bottom: 40px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .calendar-images-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .calendar-image-item {
+        width: 100%;
+        max-width: 1000px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        background: white;
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .calendar-image-item:hover {
+        transform: scale(1.01);
+    }
+
+    .calendar-image-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .no-calendar {
+        text-align: center;
+        padding: 100px 20px;
+        color: #7f8c8d;
+    }
+
+    .no-calendar i {
+        font-size: 64px;
+        margin-bottom: 20px;
+        display: block;
+        opacity: 0.5;
+    }
+
+    .download-section {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .download-btn {
+        background: #00a2ff;
+        color: white;
+        padding: 10px 30px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 200;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        
+    }
+
+    .download-btn:hover {
+        background: #008ae6;
+        transform: translateY(-2px);
+      
+    }
+
+    @media (max-width: 768px) {
+        .calendar-header h1 {
+            font-size: 32px;
+        }
+        .calendar-display {
+            padding: 20px;
+        }
+        .calendar-title {
+            font-size: 24px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="calendar-page">
+    <div class="calendar-header">
+        <h1>NORSU CALENDAR</h1>
+    </div>
+
+    <div class="calendar-container">
+        {% if calendar %}
+        <div class="calendar-display">
+            <h2 class="calendar-title">{{ calendar.title }} ({{ calendar.academic_year }})</h2>
+            
+            {% if calendar.description %}
+            <div class="calendar-description">
+                {{ calendar.description|linebreaks }}
+            </div>
+            {% endif %}
+            
+            <div class="calendar-images-grid">
+                {% if calendar.images %}
+                    {% for img_url in calendar.images %}
+                    <div class="calendar-image-item">
+                        <img src="{{ img_url }}" alt="Calendar Page {{ forloop.counter }}">
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No calendar images available.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="download-section">
+            {% if calendar.pdf_file %}
+            <a href="{{ calendar.pdf_file.url }}" class="download-btn" download>
+                <i class="fas fa-file-pdf"></i>
+                Download NORSU Calendar pdf.
+            </a>
+            {% elif calendar.images %}
+            <!-- Use jspdf to generate PDF from images -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+            <button id="downloadBtn" onclick="generatePDFFromImages()" class="download-btn">
+                <i class="fas fa-file-pdf"></i>
+                Download NORSU Calendar pdf.
+            </button>
+            {{ calendar.images|json_script:"calendarImages" }}
+            <script>
+                // Pass Django data to JavaScript
+                console.log('Calendar images:', calendarImages);
+                
+                async function generatePDFFromImages() {
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+                    const downloadBtn = document.getElementById('downloadBtn');
+                    const originalText = downloadBtn.innerHTML;
+                    
+                    downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+                    downloadBtn.disabled = true;
+
+                    const images = calendarImages;
+
+                    try {
+                        for (let i = 0; i < images.length; i++) {
+                            if (i > 0) pdf.addPage();
+                            
+                            const imgData = await getImageData(images[i]);
+                            const imgProps = pdf.getImageProperties(imgData);
+                            const pdfWidth = pdf.internal.pageSize.getWidth();
+                            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                            
+                            // Center if image is smaller than page height, otherwise scale
+                            pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                        }
+                        pdf.save(`NORSU_Calendar_{{ calendar.academic_year }}.pdf`);
+                    } catch (error) {
+                        console.error('Error generating PDF:', error);
+                        alert('Error generating PDF. Please try again.');
+                    } finally {
+                        downloadBtn.innerHTML = originalText;
+                        downloadBtn.disabled = false;
+                    }
+                }
+
+                function getImageData(url) {
+                    return new Promise((resolve, reject) => {
+                        const img = new Image();
+                        img.crossOrigin = 'Anonymous';
+                        img.onload = () => {
+                            const canvas = document.createElement('canvas');
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            const ctx = canvas.getContext('2d');
+                            ctx.drawImage(img, 0, 0);
+                            resolve(canvas.toDataURL('image/jpeg', 0.95));
+                        };
+                        img.onerror = reject;
+                        img.src = url;
+                    });
+                }
+            </script>
+            {% else %}
+            <p style="color: #666; font-style: italic;">Download not available for this calendar.</p>
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="no-calendar">
+            <i class="fas fa-calendar-times"></i>
+            <h2>No Active Academic Calendar</h2>
+            <p>The academic calendar is currently being updated. Please check back later.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+<style>
+/* Floating Arrow Button */
+.floating-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #007fff, #0056b3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 127, 255, 0.3);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  pointer-events: none;
+}
+
+.floating-arrow.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-arrow:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  box-shadow: 0 4px 12px rgba(0, 127, 255, 0.4);
+  transform: translateY(-1px) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.floating-arrow i {
+  font-size: 14px;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+}
+
+.floating-arrow.visible i {
+  transform: rotate(0deg);
+}
+
+.floating-arrow:hover i {
+  transform: translateY(-1px) rotate(5deg);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .floating-arrow {
+    bottom: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .floating-arrow i {
+    font-size: 12px;
+  }
+}
+</style>
+
+<script>
+// Floating arrow functionality
+const floatingArrow = document.querySelector('.floating-arrow');
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Show/hide floating arrow based on scroll position
+window.addEventListener('scroll', function() {
+    if (floatingArrow) {
+        if (window.pageYOffset > 300) {
+            floatingArrow.classList.add('visible');
+        } else {
+            floatingArrow.classList.remove('visible');
+        }
+    }
+});
+
+// Initial check
+if (floatingArrow) {
+    if (window.pageYOffset > 300) {
+        floatingArrow.classList.add('visible');
+    }
+}
+</script>
+{% endblock %}

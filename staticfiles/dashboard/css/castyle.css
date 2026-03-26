@@ -845,8 +845,8 @@ body {
 }
 
 .learn-btn {
-  background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
-  color: white;
+  background: linear-gradient(135deg, #016d0e 0%, #07b41e 100%);
+  color: white !important;
   border: none;
   padding: 16px 32px;
   border-radius: 12px;
@@ -859,6 +859,8 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 8px 25px rgba(0,102,204,0.3);
+  text-decoration: none !important;
+  display: inline-block;
 }
 
 .learn-btn::before {
@@ -876,10 +878,28 @@ body {
   background: linear-gradient(135deg, #0052a3 0%, #003d82 100%);
   transform: translateY(-2px);
   box-shadow: 0 12px 35px rgba(0,102,204,0.4);
+  color: white !important;
+  text-decoration: none !important;
 }
 
 .learn-btn:hover::before {
   left: 100%;
+}
+
+.learn-btn:focus,
+.learn-btn:active,
+.learn-btn:visited {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+a.learn-btn,
+a.learn-btn:hover,
+a.learn-btn:focus,
+a.learn-btn:active,
+a.learn-btn:visited {
+  text-decoration: none !important;
+  color: white !important;
 }
 
 /* FACILITIES SECTION */
@@ -891,13 +911,7 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.facilities-container {
-  max-width: 1350px;
-  margin: auto;
-}
-
-/* HEADER */
-.section-title {
+.facilities-section .section-title {
   font-size: 38px;
   font-weight: 800;
   margin-bottom: 16px;
@@ -906,26 +920,49 @@ body {
   position: relative;
 }
 
+.facilities-container {
+  max-width: 1350px;
+  margin: auto;
+}
+
+/* HEADER */
+.section-title {
+  font-size: 38px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #2c7f76;
+  text-align: center;
+  position: relative;
+  
+}
+.facility-text {
+  max-width: 900px;
+  padding: 20px 25px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .section-title::after {
   content: '';
-  position: absolute;
   bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #04f62d, #037407);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #056410, #069d21, #056410);
   border-radius: 2px;
 }
 
 .section-subtitle {
-  font-size: 18px;
-  max-width: 950px;
+
   line-height: 1.6;
-  margin-bottom: 45px;
   color: #555;
+  margin-bottom: 45px;
+  max-width: 800px;
   text-align: center;
-  font-style: italic;
+  margin-right: auto;
 }
 
 /* GRID */
@@ -981,7 +1018,7 @@ body {
 .label {
   display: inline-block;
   margin-top: 16px;
-  background: linear-gradient(135deg, #3f5f94);
+  background: linear-gradient(135deg, #0e9835);
   color: #fff;
   padding: 12px 28px;
   border-radius: 25px;
@@ -1453,168 +1490,6 @@ body::before {
   transform: scale(0.95);
 }
 
-/* ===============================
-   UNIVERSITY NEWS SECTION
-================================ */
-
-/* SECTION */
-.uv-news-section {
-    background: linear-gradient(135deg, rgba(44, 62, 80, 0.05), rgba(30, 41, 59, 0.05));
-    padding: 70px 80px 90px;
-}
-
-/* HEADER */
-.uv-news-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 45px;
-}
-
-.uv-title-group {
-    max-width: 600px;
-}
-
-.uv-title {
-    font-size: 34px;
-    font-weight: 600;
-    padding-left: 14px;
-    position: relative;
-}
-
-.uv-title::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 6px;
-    width: 4px;
-    height: 26px;
-    background-color: #39b54a;
-}
-
-.uv-subtitle {
-    margin-top: 14px;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #374151;
-}
-
-/* NAV BUTTONS */
-.uv-nav-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.uv-nav-btn {
-    width: 44px;
-    height: 44px;
-    background-color: #3f5f94;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-/* GRID */
-.uv-news-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-/* CARD */
-.uv-news-card {
-    background: #ffffff;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-}
-
-.uv-news-card:hover {
-    transform: translateY(-6px);
-}
-
-/* IMAGE */
-.uv-news-card img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-}
-
-/* CONTENT */
-.uv-card-content {
-    padding: 20px 22px 26px;
-}
-
-.uv-date {
-    font-size: 14px;
-    color: #4b5563;
-    margin-bottom: 12px;
-}
-
-.uv-card-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: #14532d;
-    line-height: 1.35;
-    margin-bottom: 22px;
-}
-
-/* READ MORE */
-.uv-read-more {
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.6px;
-    color: #000000;
-    text-decoration: none;
-}
-
-/* SEE MORE */
-.uv-see-more-wrapper {
-    text-align: center;
-    margin-top: 55px;
-}
-
-.uv-see-more-btn {
-    background-color: #3f5f94;
-    color: #ffffff;
-    border: none;
-    padding: 16px 42px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-    .uv-news-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .uv-news-section {
-        padding: 40px 20px 60px;
-    }
-
-    .uv-news-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .uv-news-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ===============================
-   UNIVERSITY NEWS SECTION END
- ================================ */
-
 /* Floating NORSU Logo Design */
 .floating-norsu-logo {
     position: fixed;
@@ -1758,4 +1633,5 @@ body::before {
     .university-name {
         font-size: 1.2rem;
     }
+
 

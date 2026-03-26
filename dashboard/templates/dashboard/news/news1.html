@@ -6,6 +6,7 @@
 {% block extra_css %}
 
 <link rel="stylesheet" href="{% static 'dashboard/css/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/footer.css' %}">
 <link rel="stylesheet" href="{% static 'dashboard/css/article.css' %}">
 
 
@@ -62,8 +63,6 @@
 {% endblock %}
 
 {% block content %}
-
-{% include 'dashboard/navbar.html' %}
 
 <div class="article-wrapper">
 
@@ -647,5 +646,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-
+{% include 'dashboard/footer.html' %}
 {% endblock %}

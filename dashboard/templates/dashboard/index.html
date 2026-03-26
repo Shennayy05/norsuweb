@@ -2,47 +2,90 @@
 {% load static %}
 
 {% block content %}
-<div class="hero-section">
-    <div class="hero-image">
-        <img src="{% static 'dashboard/images/background.jpg' %}" alt="University Entrance">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h1 class="hero-title">OUR PRIDE</h1>
-                <h2 class="hero-subtitle">OUR HOPE</h2>
-                <h3 class="hero-tagline">OUR FUTURE</h3>
-                <div class="university-name">
-                    NEGROS ORIENTAL STATE UNIVERSITY<br>
-                    BAYAWAN - STA. CATALINA CAMPUS
-                </div>
+<div class="hero-section" id="hero-section">
+    <video autoplay loop muted playsinline class="hero-video">
+        <source src="{% static 'dashboard/images/norsubsc.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1 class="hero-title"><span class="hero-title-our">OUR</span> PRIDE, <span class="hero-title-our">OUR</span> HOPE,  <span class="hero-title-our">OUR</span> FUTURE</h1>
+            <div class="university-name"><br><br><br><br>
+                NEGROS ORIENTAL STATE UNIVERSITY<br>
+                <h4>BAYAWAN - STA. CATALINA CAMPUS</h4>
             </div>
         </div>
     </div>
+
+    
 </div>
+
+
+<section class="top-cards totals-cards">
+    <div class="stats-grid">
+        <div class="stat-card stat-colleges">
+            <i class="fas fa-university"></i>
+            <h3 id="totalCollegesCount">{{ total_colleges }}</h3>
+            <p>Total Colleges</p>
+        </div>
+        <div class="stat-card stat-students">
+            <i class="fas fa-users"></i>
+            <h3 id="totalStudentsCount">{{ total_students }}</h3>
+            <p>Total Students</p>
+        </div>
+        <div class="stat-card stat-instructors">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h3 id="totalInstructorsCount">{{ total_instructors }}</h3>
+            <p>Total Instructors</p>
+        </div>
+        <div class="stat-card stat-programs">
+            <i class="fas fa-book"></i>
+            <h3 id="totalProgramsCount">{{ total_programs }}</h3>
+            <p>Total Programs</p>
+        </div>
+    </div>
+</section>
 
 <section class="top-cards">
 
     <div class="card">
         <span class="label">VISION</span>
         <h3>A globally recognized state university.</h3>
+        <a href="/about/#vision">
+         <button class="info-btn">Learn More</button>
+        </a>
     </div>
-
+    
     <div class="card">
         <div class="label">MISSION</div>
-        <h3><p><b>Negros Oriental State University delivers...</p></b></h3>
-        <button class="info-btn">Learn More</button>
+        <h3>Negros Oriental State University delivers...</h3>
+        <a href="/about/#mission">
+         <button class="info-btn">Learn More</button>
+        </a>
     </div>
 
     <div class="card">
         <span class="label">CORE VALUES</span>
-        <h2 class="highlight">S.H.I.N.E</h2>
-        <button>Learn More</button>
+        <h3 class="highlight">S.H.I.N.E</h3>
+       <a href="/about/#core-values">
+         <button class="info-btn">Learn More</button>
+        </a>
     </div>
 
     <div class="card">
+        <span class="label">QUALITY POLICY</span>
+        <h3 class="highlight">Negros Oriental State University</h3>
+        <a href="/about/#quality-policy" >
+         <button class="info-btn">Learn More</button>
+        </a>
+    </div>
+
+     <div class="card">
         <span class="label">STRATEGIC GOALS</span>
-        <p><b>Negros Oriental State University will:</b></p>
         <h2 class="highlight">A.S.P.I.R.E</h2>
-        <button>Learn More</button>
+        <a href="/about/#strategic-goals" >
+         <button class="info-btn">Learn More</button>
+        </a>
     </div>
 
 </section>
@@ -52,39 +95,207 @@
 
     <div class="left-content">
         <h1>Negros Oriental State University</h1>
-        <h4>Bayawan Sta. Catalina Campus</h4>
+        <h4>Bayawan-Sta. Catalina Campus</h4>
 
         <p class="love">❤️ we are <strong>NORSUnians</strong></p>
 
         <p>
-            The Negros Oriental State University, Bayawan – Sta. Catalina Campus
-            of Bayawan City was first established in 1947 as the Tolong Junior
-            High School (TJHS) located in the heart of the Municipality of Bayawan
-            where the Rizal Park and the Amphi-theater now is located.  
+            The Negros Oriental State University (NORSU) Bayawan–Sta. Catalina Campus has a rich history rooted in the effort 
+            to bring accessible education to the southern part of Negros Oriental after World War II. 
+            It began on July 5, 1947, as Tolong Junior High School in what is now Bayawan, 
+            becoming the first public secondary school outside Dumaguete in the province. 
         </p>
-
-        <button class="main-btn">Learn More</button>
+        <a href="/about/#norsu-history">
+         <button class="main-btn">Learn More</button>
+        </a>    
+       
     </div>
 
     <div class="right-image">
-        <img src="{% static 'dashboard/images/hymn.png' %}" alt="University Hymn">
+        <a href="https://youtu.be/97PRYCQ6LFM?si=o6u_w-jjV3uHW5tO" target="_blank" style="display: block; cursor: pointer; position: relative;">
+            <video autoplay loop muted playsinline style="width: 100%; border-radius: 22px; box-shadow: 0 7px 22px rgba(0, 0, 0, 0.22); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 7px 22px rgba(0, 0, 0, 0.22)';">
+                <source src="{% static 'dashboard/images/NORSU Hymn.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Play icon overlay -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; transition: all 0.3s ease;" class="play-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="#1e2d6d">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </div>
+        </a>
     </div>
+    <style>
+        .right-image a:hover .play-icon {
+            background: rgba(255, 255, 255, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+    /* Fix content overlap with sticky navbar */
+.hero-section {
+    margin-top: 0;
+}
+
+/* Achievement Card Styling */
+.achievement-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e2d6d;
+    margin: 15px 20px 5px 20px;
+    text-transform: uppercase;
+}
+
+.achievement-card .card-text {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0 20px 15px 20px;
+    line-height: 1.5;
+}
+
+/* Category Badges */
+.category-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.category-academic { background: #e3f2fd; color: #1976d2; }
+.category-sports { background: #f1f8e9; color: #388e3c; }
+.category-research { background: #f3e5f5; color: #7b1fa2; }
+.category-community { background: #fff3e0; color: #f57c00; }
+.category-arts { background: #fce4ec; color: #c2185b; }
+.category-leadership { background: #e8eaf6; color: #303f9f; }
+.category-international { background: #e0f2f1; color: #00796b; }
+.category-other { background: #f5f5f5; color: #616161; }
+</style>
 
 </section>
-<section class="colleges-section">
+
+
+
+<!--NEWS-->
+<section class="uv-news-section" id="uv-news-section"> 
+    <!-- HEADER -->
+    <div class="uv-news-header">
+        <div class="uv-title-group">
+            <h1 class="uv-title">Latest at <strong>NORSU</strong></h1>
+            <p class="uv-subtitle">
+                Discover the latest news, events, and announcements happening<br>
+                at NORSU.
+            </p>
+        </div>
+    </div>
+
+    <!-- NEWS GRID -->
+    <div class="uv-news-grid">
+
+        <!-- CARD 1 -->
+        {% if posts %}
+            {% for post in posts %}
+        <div class="uv-news-card">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% else %}
+            <img src="{% static 'dashboard/images/default-news.jpg' %}" alt="{{ post.title }}">
+            {% endif %}
+            {% if post.is_new %}
+            <div class="new-badge">NEW</div>
+            {% endif %}
+            <div class="uv-card-content">
+                <div class="uv-date">{{ post.created_at|date:"F d, Y" }}</div>
+                <h3 class="uv-card-title">{{ post.title }}</h3>
+                <a href="/news/#post-{{ post.id }}" class="uv-read-more">READ MORE</a>
+            </div>
+        </div>
+            {% endfor %}
+        {% else %}
+        <div class="uv-news-card">
+            <img src="{% static 'dashboard/images/ac.jpg' %}" alt="News1">
+            <div class="uv-card-content">
+                <div class="uv-date">February 23, 2025</div>
+                <h3 class="uv-card-title">Higalaay sa NORSU- BSC</h3>
+                <a href="#" class="uv-read-more" onclick="viewStaticNews('news1'); return false;">READ MORE</a>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="uv-news-card">
+            <img src="{% static 'dashboard/images/aw.jpg' %}" alt="Norsu News 2">
+            <div class="uv-card-content">
+                <div class="uv-date">February 13, 2026</div>
+                <h3 class="uv-card-title">Grand convocation, awarding ceremonies highlight NORSU’s 118th founding anniversary</h3>
+                <a href="#" class="uv-read-more" onclick="viewStaticNews('news4'); return false;">READ MORE</a>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="uv-news-card">
+            <img src="{% static 'dashboard/images/intram.jpg' %}" alt="Norsu News 3">
+            <div class="uv-card-content">
+                <div class="uv-date">February 15, 2024</div>
+                <h3 class="uv-card-title">NORSU BSC INTRAMURALS CELEBRATION </h3>
+                <a href="#" class="uv-read-more" onclick="viewStaticNews('news3'); return false;">READ MORE</a>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="uv-news-card">
+            <img src="{% static 'dashboard/images/bb.jpg' %}" alt="Norsu News 4">
+            <div class="uv-card-content">
+                <div class="uv-date">January 19, 2026</div>
+                <h3 class="uv-card-title">Back-to-School Marks Start of Second Semester, AY 2025-2026 at NORSU-BSC</h3>
+                <a href="#" class="uv-read-more" onclick="viewStaticNews('news5'); return false;">READ MORE</a>
+            </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="uv-news-card">
+            <img src="{% static 'dashboard/images/test.jpg' %}" alt="Norsu News 5">
+            <div class="uv-card-content">
+                <div class="uv-date">February 16, 2025</div>
+                <h3 class="uv-card-title">NORSU-BSC ADMISSION TEST (SCHOOL YEAR 2026-2027)</h3>
+                <a href="#" class="uv-read-more" onclick="viewStaticNews('news6'); return false;">READ MORE</a>
+            </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="uv-news-card">
+            <img src="{% static 'dashboard/images/ss.jpg' %}" alt="Norsu News 6">
+            <div class="uv-card-content">
+                <div class="uv-date">January 3, 2026</div>
+                <h3 class="uv-card-title">Class Suspension and shift to asynchronous Learning </h3>
+                <a href="#" class="uv-read-more" onclick="viewStaticNews('news2'); return false;">READ MORE</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <!-- SEE MORE -->
+    <div class="uv-see-more-wrapper">
+        <a href="/news/" class="uv-see-more-btn">See more news</a>
+    </div>
+
+    </section>
+
+    <!-- COLLEGE SECTION -->
+
+<section class="colleges-section" id="colleges-section">
 
     <div class="header">
-        <img src="{% static 'dashboard/images/logo1.png' %}" class="logo" alt="Logo">
-        <h1>COLLEGES</h1>
+        <div class="header-title-row">
+            <img src="{% static 'dashboard/images/logo1.png' %}" class="logo" alt="Logo">
+            <h1>COLLEGES</h1>
+        </div>
         <p>
             Negros Oriental State University Bayawan–Sta. Catalina Campus has six (6) colleges
         </p>
     </div>
 
     <div class="colleges-grid-wrapper">
-        <div class="colleges-nav-arrow left">&#8249;</div>
         <div class="colleges-scroll">
 
+            <!-- First set of colleges -->
             <a href="/ccje/" class="college-card-link">
                 <div class="college-card">
                     <img src="{% static 'dashboard/images/CCJE.png' %}" alt="">
@@ -107,7 +318,62 @@
                 <div class="college-card">
                     <img src="{% static 'dashboard/images/CAS.png' %}" alt="">
                     <div class="college-title">
-                        COLLEGE OF ARTS AND SCIENCES ``````````
+                        COLLEGE OF ARTS AND SCIENCES 
+                    </div>
+                </div>
+            </a>
+             <a href="/cba/" class="college-card-link">
+                <div class="college-card">
+                    <img src="{% static 'dashboard/images/CBA.png' %}" alt="">
+                    <div class="college-title">
+                        COLLEGE OF BUSINESS ADMINISTRATION
+                    </div>
+                </div>
+            </a>
+            
+
+            <a href="/cted/" class="college-card-link">
+                <div class="college-card">
+                    <img src="{% static 'dashboard/images/CTED.png' %}" alt="">
+                    <div class="college-title">
+                        COLLEGE OF TEACHER EDUCATION
+                    </div>
+                </div>
+            </a>
+ 
+            <a href="/caf/" class="college-card-link">
+                <div class="college-card">
+                    <img src="{% static 'dashboard/images/CAF.png' %}" alt="">
+                    <div class="college-title">
+                        COLLEGE OF AGRICULTURE AND FORESTRY
+                    </div>
+                </div>
+            </a>
+
+            <!-- Duplicate set for seamless loop -->
+            <a href="/ccje/" class="college-card-link">
+                <div class="college-card">
+                    <img src="{% static 'dashboard/images/CCJE.png' %}" alt="">
+                    <div class="college-title">
+                        COLLEGE OF CRIMINAL JUSTICE EDUCATION
+                    </div>
+                </div>
+            </a>
+
+            <a href="/cit/" class="college-card-link">
+                <div class="college-card">
+                    <img src="{% static 'dashboard/images/CIT.png' %}" alt="">
+                    <div class="college-title">
+                        COLLEGE OF INDUSTRIAL TECHNOLOGY
+                    </div>
+                </div>
+            </a>
+
+            <a href="/cas/" class="college-card-link">
+                <div class="college-card">
+                    <img src="{% static 'dashboard/images/CAS.png' %}" alt="">
+                    <div class="college-title">
+                        COLLEGE OF ARTS AND SCIENCES 
                     </div>
                 </div>
             </a>
@@ -140,7 +406,6 @@
             </a>
             
         </div>
-        <div class="colleges-nav-arrow right">&#8250;</div>
     </div>
 
 </section>
@@ -165,238 +430,1232 @@
     <!-- Cards -->
     <div class="cards">
 
-        <!-- Card 1 -->
+        {% for story in success_stories %}
+        <!-- Success Story Card -->
         <div class="card">
-
-            <img src="{% static 'dashboard/images/me.jpg' %}" class="avatar">
+            {% if story.image %}
+                <img src="{{ story.image.url }}" class="avatar">
+            {% else %}
+                <div class="avatar" style="background: #f0f2f5; display: flex; align-items: center; justify-content: center; color: #adb5bd; border-radius: 50%;">
+                    <i class="fas fa-user"></i>
+                </div>
+            {% endif %}
 
             <div class="quote">❝</div>
 
-            <h3>A Story Maria</h3>
+            <h3>{{ story.alumni_name }}</h3>
+            <h4 style="color: #0078d4; font-size: 0.9rem; margin-bottom: 10px;">{{ story.achievement }}</h4>
 
             <p>
-                of Maria Santos first walked through the gates of her university,
-                she carried nothing but a notebook, a pen, and a dream of making
-                a difference. As a first-generation college student, she faced
-                challenges that could have easily discouraged her — financial
-                struggles, self-doubt, and the pressure to succeed.
+                {{ story.description|truncatewords:40 }}
             </p>
 
-            <button>Read More</button>
-
+            <a href="/alumni/" class="card-link">
+                <button>Read More</button>
+            </a>
         </div>
-
-        <!-- Card 2 -->
-        <div class="card">
-
-            <img src="{% static 'dashboard/images/jun.png' %}" class="avatar">
-
-            <div class="quote">❝</div>
-            <h3>A Story Jun </h3>
-
-            <p>
-
-                When Juan Santos first walked through the gates of his university,
-                he carried only a notebook, a pen, and a dream bigger than his fears.
-                As a first-generation college student, he bore the weight of expectation
-                from his family and the hope of creating a better life. 
-            </p>
-
-            <button>Read More</button>
-
+        {% empty %}
+        <div class="empty-state" style="text-align: center; width: 100%; padding: 40px; color: #666;">
+            <i class="fas fa-quote-left" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.2;"></i>
+            <p>More success stories coming soon!</p>
         </div>
+        {% endfor %}
 
     </div>
 
     <!-- Bottom Button -->
     <div class="bottom">
-        <button class="big-btn">
-            Read More about alumni<br>Relations
-        </button>
+        <a href="/alumni/" class="big-btn">
+            Read more about Alumni
+        </a>
     </div>
 
 </section>
-<section class="achievements-section">
+
+<section class="achievements-section" id="achievements-section">
 
     <div class="section-header">
         <div class="title-content">
-            <h1>NORSU-BSC ACHIEVEMENTS</h1>
-            <p class="subtitle-text">Negros Oriental State University (NORSU) continues to stand as a beacon of excellence, leadership, and service,showcasing remarkable achievements that reflect 
-                the dedication and talent of its students, faculty, and administrators.</p>
-        </div>
-
-        <div class="nav-arrows">
-            <span>&larr;</span>
-            <span>&rarr;</span>
+            <h1>Norsu Achievements</h1>
+            <p> Oriental State University (NORSU) continues to stand as a beacon of excellence, leadership, and service, showcasing remarkable achievements that reflect
+                the dedication and talent of its students, faculty, and administrators. </p>
         </div>
     </div>
 
-    <div class="cards-container">
+    <div class="achievements-slider-container">
+        <button class="achievement-nav prev" id="prevAchievement" aria-label="Previous Achievement">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="achievements-viewport">
+            <div class="cards-container" id="achievementsCardsContainer">
+                {% for achievement in achievements %}
+                <div class="achievement-card {% if achievement.is_highlighted %}highlighted{% endif %}">
+                    {% if achievement.image %}
+                    <img src="{{ achievement.image.url }}" alt="{{ achievement.title }}" style="width:100%; height:300px; object-fit:cover; border-radius:12px 12px 0 0;">
+                    {% else %}
+                    <div style="width:100%; height:300px; background:#f8f9fa; display:flex; align-items:center; justify-content:center; border-radius:12px 12px 0 0;">
+                        <i class="fas fa-trophy" style="font-size:64px; color:#f39c12; opacity:0.5;"></i>
+                    </div>
+                    {% endif %}
+                    
+                    <p class="card-title">{{ achievement.title }}</p>
+                    
+                    {% if achievement.recipient %}
+                    <p class="card-recipient" style="font-weight: 600; color: #1e2d6d; margin: 10px 20px 5px 20px; font-size: 1.1em;">
+                        {{ achievement.recipient }}
+                    </p>
+                    {% endif %}
+                    
+                    <p class="card-text" style="margin-top: 5px;">
+                        {{ achievement.description }}
+                    </p>
+                    
+                    <div style="margin: 15px 20px 20px 20px;">
+                        <span class="category-badge category-{{ achievement.category }}" style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 600; text-transform: uppercase;">
+                            {{ achievement.get_category_display }}
+                        </span>
+                    </div>
+                </div>
+                {% empty %}
+                <!-- Default cards shown if no achievements in database -->
+                <div class="achievement-card">
+                    <img src="{% static 'dashboard/images/image.jpeg' %}" alt="Hara ug sa NORSU 2025" style="width:100%; height:300px; object-fit:cover; border-radius:12px 12px 0 0;">
+                    <p class="card-text">
+                        The Unforgettable Highlights of Hara ug Hari sa NORSU 2025
+                    </p>
+                </div>
 
-        <!-- Card 1 -->
-        <div class="achievement-card">
-            <img src="{% static 'dashboard/images/image.jpeg' %}" alt="Hara ug sa NORSU 2025">
-            <p class="card-text">
-                The Unforgettable Highlights of Hara ug Hari sa NORSU 2025
-            </p>
+                <div class="achievement-card highlighted">
+                    <img src="{% static 'dashboard/images/image1.png' %}" alt="Batan-ong Rizal Leadership Training" style="width:100%; height:300px; object-fit:cover; border-radius:12px 12px 0 0;">
+                    <p class="card-title">BATAN-ONG RIZAL 2025 LEADERSHIP TRAINING</p>
+                    <p class="card-text">
+                        Building Leaders: The 2nd Batan-ong Rizal Leadership Training Successfully Wrapped Up!
+                    </p>
+                </div>
 
-            <div class="dots">
-                <span></span><span></span><span></span><span></span>
+                <div class="achievement-card">
+                    <img src="{% static 'dashboard/images/image4.jpeg' %}" alt="Champion" style="width:100%; height:300px; object-fit:cover; border-radius:12px 12px 0 0;">
+                    <p class="card-text bold">
+                        CONGRATULATIONS, Ms. DAISYRAY L. GOMEZ!
+                    </p>
+                </div>
+                {% endfor %}
             </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="achievement-card highlighted">
-            <img src="{% static 'dashboard/images/image1.png' %}" alt="Batan-ong Rizal Leadership Training">
-            <p class="card-title">BATAN-ONG RIZAL 2025 LEADERSHIP TRAINING</p>
-            <p class="card-text">
-                Building Leaders: The 2nd Batan-ong Rizal Leadership Training Successfully Wrapped Up!
-            </p>
-
-            <div class="dots">
-                <span></span><span></span><span></span><span></span>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="achievement-card">
-            <img src="{% static 'dashboard/images/image1.jpeg' %}" alt="Champion">
-            <p class="card-text bold">
-                CONGRATULATIONS, Ms. DAISYRAY L. GOMEZ!
-            </p>
-
-            <div class="dots">
-                <span></span><span></span><span></span><span></span>
-            </div>
-        </div>
-
+        <button class="achievement-nav next" id="nextAchievement" aria-label="Next Achievement">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 
-    <div class="read-more-container">
-        <button class="read-more-btn">Read More</button>
+    <!-- Navigation Dots -->
+    <div class="achievement-dots">
+        {% for achievement in achievements %}
+        <span class="achievement-dot {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.counter0 }}"></span>
+        {% empty %}
+        <span class="achievement-dot active" data-slide="0"></span>
+        <span class="achievement-dot" data-slide="1"></span>
+        <span class="achievement-dot" data-slide="2"></span>
+        {% endfor %}
     </div>
-
-<section class="programs-section">
-
-    <h1 class="programs-title">Programs Offered</h1>
-    <p class="programs-subtitle">
-        Negros Oriental State University (NORSU) continues to stand as a beacon of<br>
-        excellence, leadership, and service.
-    </p>
-
-    <div class="programs-slider">
-
-        <!-- LEFT CARD -->
-        <div class="program-card side">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/elemen.jpg' %}" alt="">
-                <div class="nav-arrow left">&#8249;</div>
-            </div>
-            <h3>Bachelor of Science in Elementary Education</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-        <div class="program-card side">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/Secondary.jpg' %}" alt="">
-                <div class="nav-arrow left">&#8249;</div>
-            </div>
-            <h3>Bachelor of Science in Secondary Education</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-
-        <!-- CENTER CARD -->
-        <div class="program-card center">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/cit1.jpg' %}" alt="">
-            </div>
-            <h3 class="active-title">
-                Bachelor of Science in Industrial Technology
-            </h3>
-            <button class="btn blue">Learn More</button>
-        </div>
-
-        <!-- RIGHT CARD -->
-        <div class="program-card side">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/agri.jpg' %}" alt="">
-                <div class="nav-arrow right">&#8250;</div>
-            </div>
-            <h3>Bachelor of Science in Animal Science</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-        <!-- HIDDEN CARDS FOR ROTATION -->
-        <div class="program-card side" style="display: none;">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/forestry.jpg' %}" alt="">
-            </div>
-            <h3>Bachelor of Science in Agronomy</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-        <div class="program-card side" style="display: none;">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/buss.jpg' %}" alt="">
-            </div>
-            <h3>Bachelor of Science in Business Administration</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-        <div class="program-card side" style="display: none;">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/pulis.jpg' %}" alt="">
-            </div>
-            <h3>Bachelor of Science in Criminology</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-        <div class="program-card side" style="display: none;">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/info.jpg' %}" alt="">
-            </div>
-            <h3>Bachelor of Science in Information Technology</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-        <div class="program-card side" style="display: none;">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/coms.jpg' %}" alt="">
-            </div>
-            <h3>Bachelor of Science in Computer Science</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-        <div class="program-card side" style="display: none;">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/of.jpg' %}" alt="">
-            </div>
-            <h3>Bachelor of Science in Office Administration</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-        <div class="program-card side" style="display: none;">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/hm.jpg' %}" alt="">
-            </div>
-            <h3>Bachelor of Science in Hospitality Management</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-           <div class="program-card side" style="display: none;">
-            <div class="image-container">
-                <img src="{% static 'dashboard/images/of.jpg' %}" alt="">
-            </div>
-            <h3>Bachelor of Science in Business Administration</h3>
-            <button class="btn gray">Learn More</button>
-        </div>
-
-
+    
+    <div class="see-more-achievements">
+        <a href="{% url 'achievements' %}" class="see-more-btn">See more</a>
     </div>
+    
 
     
+</section>
+
+<!-- PROGRAMS OFFERED SECTION -->
+<section class="programs-offered-section" id="programs-offered-section">
+     
+    <!-- HEADER -->
+    <div class="programs-offered-header">
+        <div class="programs-offered-title-group">
+            <h1 class="programs-offered-title">Programs <strong>Offered</strong></h1>
+            <p class="programs-offered-subtitle">
+                Explore our diverse range of academic programs designed to<br>
+                prepare students for successful careers in various fields.
+            </p>
+        </div>
+    </div>
+
+    <!-- PROGRAMS GRID -->
+    <div class="programs-offered-grid">
+
+        <!-- PROGRAM 1: Information Technology -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/info.jpg' %}" alt="bsint Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Science in Information Technology</h3>
+                <p class="program-college">College of Arts and Sciences </p>
+                <a href="/programs/#bsit" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- PROGRAM 2: Computer Science -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/coms.jpg' %}" alt="bscs Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Science in Computer Science</h3>
+                <p class="program-college">College of Arts and Sciences</p>
+                <a href="/programs/#bscs" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- PROGRAM 3: Secondary Education -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/secondary.jpg' %}" alt="bsed Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Secondary Education</h3>
+                <p class="program-college">College of Teacher Education</p>
+                <a href="/programs/#bpeed" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- PROGRAM 4: Elementary Education -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/elemen.jpg' %}" alt="bpeed Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Elementary Education</h3>
+                <p class="program-college">College of Teacher Education</p>
+                <a href="/programs/#bsed" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- PROGRAM 5: Hospitality Management -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/hm.jpg' %}" alt="BSHM Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Science in Hospitality Management</h3>
+                <p class="program-college">College of Business Administration</p>
+                <a href="/programs/#bshm" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- PROGRAM 6: Office Administration -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/office.jpg' %}" alt="bsoa Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Science in Office Administration </h3>
+                <p class="program-college">College of Business Administration </p>
+                <a href="/programs/#bsoa" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- PROGRAM 7: Business Administration -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/bus.jpg' %}" alt="bsba Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Science in Business Administration </h3>
+                <p class="program-college">College of Business Administration</p>
+                <a href="/programs/#bsba" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- PROGRAM 8: Forestry -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/forestry.jpg' %}" alt="Forestry Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Science in Forestry</h3>
+                <p class="program-college">College of Agriculture and Forestry  </p>
+                <a href="/programs/#fores" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- PROGRAM 9: Agriculture -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/agri.jpg' %}" alt="agriculture Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Science in Agriculture</h3>
+                <p class="program-college">College of Agriculture and Forestry</p>
+                <a href="/programs/#agri" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- PROGRAM 10: Industrial Technology -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/cit1.jpg' %}" alt="cit Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Science in Industrial Technology</h3>
+                <p class="program-college">College of Industrial Technology</p>
+                <a href="/programs/#bit" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+        <!-- PROGRAM 11: Criminology -->
+        <div class="program-offered-card">
+            <img src="{% static 'dashboard/images/pulis.jpg' %}" alt="bscrim Program">
+            <div class="program-card-content">
+                <div class="program-date">4 Years Program</div>
+                <h3 class="program-card-title">Bachelor of Criminology Education</h3>
+                <p class="program-college">College of Criminal Justice Education</p>
+                <a href="/programs/#bscrim" class="program-learn-more">LEARN MORE</a>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Navigation Dots for Programs -->
+    <div class="programs-dots">
+        <span class="programs-dot active" data-slide="0"></span>
+        <span class="programs-dot" data-slide="1"></span>
+        <span class="programs-dot" data-slide="2"></span>
+        <span class="programs-dot" data-slide="3"></span>
+        <span class="programs-dot" data-slide="4"></span>
+        <span class="programs-dot" data-slide="5"></span>
+    </div>
+    
+    <!-- SEE MORE BUTTON -->
+    <div class="programs-see-more-wrapper">
+        <a href="/programs/#bsit" class="programs-see-more-btn">View All Programs</a>
+    </div>
 
 </section>
 
+
+<section class="location-section">
+
+  <div class="location-header">
+    <h2>📍 NORSU Bayawan – Sta. Catalina Campus</h2>
+    <p>
+      Located along National Road, Caranoche, Santa Catalina, Bayawan City,
+      Negros Oriental, Philippines.
+    </p>
+  </div>
+
+  <!-- MAP CENTER -->
+  <div class="map-frame">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!4v1730730505799!6m8!1m7!1scF14VLnBn9F_xIzHTR1TYA!2m2!1d9.3524814!2d122.8373582!3f26.343645309256623!4f-3.234750112439343!5f0.7820865974627469"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <!-- INFO CENTER -->
+  <div class="location-info">
+    <div class="info-item">
+      <span>📌 Latitude</span>
+      <strong>9.3524814° N</strong>
+    </div>
+
+    <div class="info-item">
+      <span>📌 Longitude</span>
+      <strong>122.8373582° E</strong>
+    </div>
+
+    <div class="info-item">
+      <span>📍 Address</span>
+      <strong>Caranoche, Santa Catalina, Bayawan City</strong>
+    </div>
+  </div>
+
+  <a
+    href="https://maps.google.com/?q=9.3524814,122.8373582"
+    target="_blank"
+    class="btn-direction">
+    Get Directions
+  </a>
+
+</section>
+
+
+<script>
+// Programs Offered Navigation - Standalone Script with Variable Cards Per Page
+(function() {
+    'use strict';
+    
+    function initProgramsNavigation() {
+        const programsGrid = document.querySelector('.programs-offered-grid');
+        const programsDots = document.querySelectorAll('.programs-dot');
+        const programsCards = document.querySelectorAll('.program-offered-card');
+        
+        if (!programsGrid || programsCards.length === 0) {
+            console.error('Programs navigation: Required elements not found');
+            return;
+        }
+        
+        let currentPage = 0;
+        let autoSlideInterval;
+        
+        // Define which cards belong to which page (0-indexed)
+        const pageGroups = [
+            [0, 1],        // Page 0: IT + CS
+            [2, 3],        // Page 1: Secondary Ed + Elementary Ed
+            [4, 5, 6],     // Page 2: Hospitality + Office Admin + Business Admin (3 cards)
+            [7, 8],        // Page 3: Forestry + Agriculture
+            [9],           // Page 4: Industrial Tech
+            [10]           // Page 5: Criminology
+        ];
+        
+        const totalPages = pageGroups.length;
+        
+        console.log('Programs Navigation Initialized:', {
+            totalCards: programsCards.length,
+            totalPages: totalPages,
+            pageGroups: pageGroups
+        });
+        
+        function showPage(pageIndex) {
+            const cardIndices = pageGroups[pageIndex];
+            
+            console.log(`Showing page ${pageIndex + 1}/${totalPages} (cards: ${cardIndices.join(', ')})`);
+            
+            // Show/hide cards with fade effect
+            programsCards.forEach((card, idx) => {
+                if (cardIndices.includes(idx)) {
+                    card.style.display = 'block';
+                    card.style.opacity = '0';
+                    setTimeout(() => {
+                        card.style.transition = 'opacity 0.5s ease-in-out';
+                        card.style.opacity = '1';
+                    }, 50);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Update dots
+            programsDots.forEach((dot, idx) => {
+                if (idx === pageIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            currentPage = pageIndex;
+        }
+        
+        // Auto-slide function
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                // Move to next page, or loop back to first page
+                currentPage = (currentPage + 1) % totalPages;
+                showPage(currentPage);
+                // Save current page to sessionStorage
+                sessionStorage.setItem('programsCurrentPage', currentPage);
+            }, 2000); // Change page every 2 seconds
+        }
+        
+        // Stop auto-slide
+        function stopAutoSlide() {
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+            }
+        }
+        
+        // Restart auto-slide
+        function restartAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+        
+        // Dots click event
+        programsDots.forEach((dot, idx) => {
+            dot.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage(idx);
+                // Save current page to sessionStorage
+                sessionStorage.setItem('programsCurrentPage', idx);
+                restartAutoSlide(); // Restart timer after manual interaction
+            });
+        });
+        
+        // Pause auto-slide on hover
+        programsGrid.addEventListener('mouseenter', stopAutoSlide);
+        programsGrid.addEventListener('mouseleave', startAutoSlide);
+        
+        // Restore saved page or show first page
+        const savedPage = sessionStorage.getItem('programsCurrentPage');
+        const initialPage = savedPage ? parseInt(savedPage) : 0;
+        showPage(initialPage);
+        startAutoSlide();
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initProgramsNavigation);
+    } else {
+        initProgramsNavigation();
+    }
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const newsGrid = document.querySelector('.uv-news-grid');
+    const prevBtn = document.getElementById('news-prev');
+    const nextBtn = document.getElementById('news-next');
+    
+    let currentIndex = 0;
+    const cards = document.querySelectorAll('.uv-news-card');
+    const totalCards = cards.length;
+    const cardsPerView = 3;
+    const maxIndex = Math.ceil(totalCards / cardsPerView) - 1;
+    
+    // Show cards based on current index
+    function showCards(index) {
+        const startIndex = index * cardsPerView;
+        const endIndex = Math.min(startIndex + cardsPerView, totalCards);
+        
+        cards.forEach((card, i) => {
+            if (i >= startIndex && i < endIndex) {
+                card.style.display = 'block';
+                card.style.opacity = '0';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.3s ease-in-out';
+                    card.style.opacity = '1';
+                }, 50);
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Update button states
+        prevBtn.style.opacity = index === 0 ? '0.5' : '1';
+        nextBtn.style.opacity = index >= maxIndex ? '0.5' : '1';
+        prevBtn.style.cursor = index === 0 ? 'not-allowed' : 'pointer';
+        nextBtn.style.cursor = index >= maxIndex ? 'not-allowed' : 'pointer';
+    }
+    
+    // Initialize
+    showCards(0);
+    
+    // Previous button click
+    prevBtn.addEventListener('click', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            showCards(currentIndex);
+        }
+    });
+    
+    // Next button click
+    nextBtn.addEventListener('click', function() {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            showCards(currentIndex);
+        }
+    });
+
+    // Programs See More button functionality
+    const programsSeeMoreBtn = document.querySelector('.programs-see-more-btn');
+    if (programsSeeMoreBtn) {
+        programsSeeMoreBtn.addEventListener('click', function() {
+            // Navigate to programs page
+            window.location.href = '/programs/';
+        });
+    }
+
+    // Achievement Dots Navigation
+    const achievementDots = document.querySelectorAll('.achievement-dot');
+    const achievementCards = document.querySelectorAll('.achievement-card');
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    // Function to show specific slide
+    function showSlide(slideIndex) {
+        const container = document.getElementById('achievementsCardsContainer');
+        if (!container) return;
+        
+        const cards = container.querySelectorAll('.achievement-card');
+        if (cards.length === 0) return;
+        
+        // Remove active class from all dots
+        achievementDots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current dot
+        if (achievementDots[slideIndex]) {
+            achievementDots[slideIndex].classList.add('active');
+        }
+        
+        // Scroll to the card corresponding to the dot
+        // Assuming cards are displayed in a flex row with gap
+        const cardWidth = cards[0].offsetWidth + 30; // 30 is the gap
+        container.scrollTo({
+            left: slideIndex * cardWidth,
+            behavior: 'smooth'
+        });
+        
+        currentSlide = slideIndex;
+    }
+
+    // Add click event to each dot
+    achievementDots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+            showSlide(index);
+            // Reset auto-slide timer
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        });
+    });
+
+    // Auto-slide function
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % achievementDots.length;
+            showSlide(currentSlide);
+        }, 5000); // Change slide every 5 seconds
+    }
+
+    // Start auto-slide
+    if (achievementDots.length > 0) {
+        startAutoSlide();
+    }
+});
+
+// Static News Data for Modal
+const staticNewsData = {
+    'news1': {
+        title: "HIGALAAY SA NORSU-BSC (School Year 2025-2026)",
+        date: "February 23, 2025",
+        category: "EVENT",
+        image: "{% static 'dashboard/images/ac.jpg' %}",
+        content: `The celebration of Higalaay sa NORSU-BSC as a meaningful event that marks the official opening of School Year 2025–2026 at Negros Oriental State University – Bayawan Sta Catalina Campus. Through this program, we warmly welcome our new students and reaffirm our unity as one academic community composed of students, faculty, and staff. Higalaay reflects our shared values of hospitality, inclusivity, and commitment to academic excellence.
+
+Throughout the event, various presentations, cultural performances, and interactive activities are conducted to give students the opportunity to get to know one another and showcase their talents. Student organizations and different academic departments actively participate by introducing their programs, services, and campus initiatives. These activities help freshmen and transferees better understand campus life and the opportunities available to them at NORSU-BSC.
+
+More than just a welcoming celebration, Higalaay sa NORSU-BSC serves as a foundation for building camaraderie, respect, and cooperation within the academic community. It encourages students to be active, responsible, and engaged members of the university as they prepare for a school year filled with learning, personal growth, and academic success.`
+    },
+    'news2': {
+        title: "ACADEMIC ADVISORY: CLASS SUSPENSION UPDATE",
+        date: "January 3, 2026",
+        category: "ACADEMIC",
+        image: "{% static 'dashboard/images/ss.jpg' %}",
+        content: `Due to unforeseen circumstances and in consideration of student safety and welfare, all NORSU campuses shall shift to asynchronous classes starting Monday, November 3, 2025, until the suspension is officially lifted by the university administration.
+
+This advisory affects all undergraduate and graduate programs across all NORSU campuses including Bayawan-Sta. Catalina, Dumaguete, Bais, and satellite campuses. Students are advised to monitor official university channels for further updates and announcements regarding the resumption of face-to-face classes.
+
+Faculty members are instructed to prepare alternative learning materials and conduct online consultations to ensure the continuity of education during this period. The university administration emphasizes that this measure is taken as a precautionary step to maintain the safety and well-being of the entire academic community.`
+    },
+    'news3': {
+        title: "NORSU BSC INTRAMURALS CELEBRATION",
+        date: "February 15, 2024",
+        category: "SPORTS",
+        image: "{% static 'dashboard/images/intram.jpg' %}",
+        content: `Negros Oriental State University – Bayawan Sta Catalina Campus (NORSU–BSC) proudly gathered for Intramurals 2025, bringing together students from its six colleges in a campus-wide celebration of athleticism, teamwork, and sportsmanship. The event served as a unifying activity that strengthened intercollegiate relationships while fostering friendly competition and mutual respect among participants.
+
+Throughout the intramurals, students from the six colleges actively participated in various sports and recreational activities, showcasing not only their physical skills but also discipline, leadership, and cooperation. Each college demonstrated pride and determination as they represented their respective teams, contributing to a lively and energetic atmosphere across the campus.
+
+More than a sporting event, Intramurals 2025 reinforced unity and school spirit within the NORSU–BSC community. It provided students from all six colleges an opportunity to connect beyond academics, build lasting camaraderie, and create meaningful memories that highlight the values of teamwork, perseverance, and collective excellence.`
+    },
+    'news4': {
+        title: "GRAND CONVOCATION, AWARDING CEREMONIES HIGHLIGHT NORSU’s 118th FOUNDING ANNIVERSARY",
+        date: "February 13, 2026",
+        category: "GENERAL",
+        image: "{% static 'dashboard/images/aw.jpg' %}",
+        content: `In a momentous occasion marking the 118th founding anniversary of Negros Oriental State University (NORSU), the university held its annual Convocation program at NORSU Gymnasium on November 28, 2025, showcasing the institution's legacy of academic excellence.
+
+In his keynote address, Dr. Noel Marjon E. Yasi, the university president, expressed his deep gratitude to the former university leaders, as well as the faculty, and staff, acknowledging their contributions to the institution’s growth. "Let our actions speak louder than words, and the top example can inspire others," he added.
+
+Several faculty members of NORSU BSC received prestigious awards in categories such as the Scopus Citation Award, AD Scientific Award, and Google Scholar Citation Award, among others. Special recognition was also given to students excelling in academics, research, and community service. This year’s convocation was a fitting tribute to NORSU’s legacy and a promising look at the bright future ahead for the university and its stakeholders.`
+    },
+    'news5': {
+        title: "Back-to-School Marks Start of Second Semester, AY 2025-2026 at NORSU-BSC",
+        date: "January 19, 2026",
+        category: "ACADEMIC",
+        image: "{% static 'dashboard/images/bb.jpg' %}",
+        content: `Negros Oriental State University- Bayawan–Santa Catalina Campus (NORSU-BSC) officially reopened its doors last January 19, 2026, marking the beginning of the second semester of Academic Year 2025-2026. The return of students, faculty, and staff brought renewed energy to the campus as classes formally resumed.
+
+In the first week of classes, students settled into their new schedules while instructors provided an overview of the semester’s lessons, expectations, and academic requirements. This helped learners prepare for the subjects they will take and guided them in meeting the standards set for the term.
+
+Campus offices and student services were also fully operational, assisting learners with enrollment, schedules, and other academic concerns. Faculty and staff worked hand in hand to ensure that classes ran smoothly and that activities followed proper timelines.`
+    },
+    'news6': {
+        title: "NORSU BSC ADMISSION TEST (SCHOOL YEAR 2026-2027)",
+        date: "February 16, 2025",
+        category: "ACADEMIC",
+        image: "{% static 'dashboard/images/test.jpg' %}",
+        content: `The Negros Oriental State University - Bayawan-Sta. Catalina Campus is now announcing its admission test schedule for the incoming school year 2026-2027. Prospective students are encouraged to prepare their requirements and visit the campus for registration.
+
+The admission test is a crucial step for students wishing to join the NORSU community. It evaluates the academic readiness of applicants across various fields of study. Detailed instructions regarding the application process, required documents, and testing dates will be posted on official university boards and social media pages.
+
+We look forward to welcoming a new batch of students who are committed to academic excellence and personal growth. For more information, please visit the Admission Office or contact our official helpdesk.`
+    }
+};
+
+// Function to view static news in modal
+function viewStaticNews(newsId) {
+    const news = staticNewsData[newsId];
+    if (news) {
+        showPostModal({
+            title: news.title,
+            created_at: news.date,
+            category: news.category,
+            image: news.image,
+            content: news.content
+        });
+    }
+}
+
+// View full post content in modal
+function viewFullPost(postId) {
+    fetch('/api/posts/get/')
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                const post = result.posts.find(p => p.id === postId);
+                if (post) {
+                    showPostModal(post);
+                }
+            }
+        })
+        .catch(error => console.error('Error loading post:', error));
+}
+
+function showPostModal(post) {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        backdrop-filter: blur(5px);
+    `;
+    
+    // Check if it's the Higalaay post to show two images
+    const isHigalaay = post.title.includes('HIGALAAY');
+    const secondImage = isHigalaay ? "{% static 'dashboard/images/gg.jpg' %}" : null;
+    
+    // Format date properly
+    const postDate = typeof post.created_at === 'string' ? post.created_at : new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+    modal.innerHTML = `
+        <div style="background: white; padding: 40px; border-radius: 20px; max-width: 1000px; width: 95%; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.2);">
+            <button onclick="this.closest('div').parentElement.remove()" style="position: absolute; top: 20px; right: 20px; background: #f1f2f6; color: #2f3542; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 24px; transition: 0.3s; display: flex; align-items: center; justify-content: center; z-index: 10;">&times;</button>
+            
+            <!-- Header Section -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
+                    <div style="width: 6px; height: 24px; background: #1f7a3f; border-radius: 3px;"></div>
+                    <h2 style="color: #0c3d1e; font-size: 24px; font-weight: 800; text-transform: uppercase; margin: 0; line-height: 1.2;">${post.title}</h2>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; color: #7f8c8d; font-size: 14px; white-space: nowrap; margin-left: 20px;">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>${postDate}</span>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                <!-- Left: Images -->
+                <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px;">
+                    ${post.image ? `
+                        <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 4px solid #1f7a3f;">
+                            <img src="${post.image}" alt="${post.title}" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                        </div>
+                    ` : ''}
+                    
+                    ${secondImage ? `
+                        <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 4px solid #1f7a3f;">
+                            <img src="${secondImage}" alt="Secondary Image" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                        </div>
+                    ` : ''}
+                </div>
+
+                <!-- Right: Text Content -->
+                <div style="flex: 1.5; min-width: 300px; background: #fdfdfd; padding: 30px; border-radius: 15px; box-shadow: inset 0 0 20px rgba(0,0,0,0.02), 0 5px 15px rgba(0,0,0,0.05); position: relative;">
+                    <div style="color: #2c3e50; line-height: 1.8; font-size: 16px; text-align: justify;">
+                        ${post.content.split('\n\n').map((para, idx) => {
+                            if (idx === 0) {
+                                const firstChar = para.charAt(0);
+                                const restText = para.slice(1);
+                                return `<p style="margin-bottom: 20px;"><span style="float: left; color: #1f7a3f; font-size: 64px; line-height: 50px; padding-top: 4px; padding-right: 8px; font-weight: 800; font-family: serif;">${firstChar}</span>${restText}</p>`;
+                            }
+                            return `<p style="margin-bottom: 20px;">${para}</p>`;
+                        }).join('')}
+                    </div>
+                    
+                    <div style="margin-top: 30px; display: flex; gap: 10px;">
+                        <span style="background: rgba(31, 122, 63, 0.1); color: #1f7a3f; padding: 6px 15px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase;">
+                            ${post.category || 'NEWS'}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
+</script>
+
+<!-- Scroll Animations Script -->
+<style>
+/* Scroll Animation Styles */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation delays for child elements */
+.scroll-animate:nth-child(1) { transition-delay: 0.1s; }
+.scroll-animate:nth-child(2) { transition-delay: 0.2s; }
+.scroll-animate:nth-child(3) { transition-delay: 0.3s; }
+.scroll-animate:nth-child(4) { transition-delay: 0.4s; }
+</style>
+
+<script>
+// Disable browser's automatic scroll restoration
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Save scroll position before page unload
+window.addEventListener('beforeunload', function() {
+    sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+});
+
+// Restore scroll position after ALL content is loaded
+window.addEventListener('load', function() {
+    const savedScrollPosition = sessionStorage.getItem('scrollPosition');
+    if (savedScrollPosition && savedScrollPosition !== '0') {
+        setTimeout(function() {
+            window.scrollTo({
+                top: parseInt(savedScrollPosition),
+                left: 0,
+                behavior: 'instant'
+            });
+        }, 150);
+    }
+});
+
+// Scroll Animation Observer
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Add scroll-animate class to sections
+    const sections = document.querySelectorAll('.top-cards, .main-section, .uv-news-section, .colleges-section, .alumni, .achievements-section, .programs-offered-section, .location-section');
+    
+    sections.forEach(section => {
+        section.classList.add('scroll-animate');
+    });
+    
+    // Add scroll-animate to cards within sections
+    const cards = document.querySelectorAll('.card, .uv-news-card, .college-card, .achievement-card, .program-offered-card');
+    cards.forEach(card => {
+        card.classList.add('scroll-animate');
+    });
+    
+    // Intersection Observer for scroll animations (both directions)
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Element is entering viewport - fade in and slide up
+                entry.target.classList.add('active');
+            } else {
+                // Element is leaving viewport - fade out and slide down
+                entry.target.classList.remove('active');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all elements with scroll-animate class
+    document.querySelectorAll('.scroll-animate').forEach(element => {
+        observer.observe(element);
+    });
+    
+    // Load Admin Updates
+    loadAdminUpdates();
+    
+    // Load Upcoming Events
+    loadUpcomingEvents();
+});
+
+// Function to load admin updates
+function loadAdminUpdates() {
+    const grid = document.getElementById('adminUpdatesGrid');
+    
+    // Simulated posts data (replace with actual API call)
+    const posts = [
+        {
+            title: "asdas",
+            content: "dasdasd...",
+            date: "3/3/2026",
+            image: null
+        },
+        {
+            title: "as",
+            content: "asaa...",
+            date: "3/3/2026",
+            image: null
+        },
+        {
+            title: "---",
+            content: "",
+            date: "3/1/2026",
+            image: null
+        }
+    ];
+    
+    if (posts.length === 0) {
+        grid.innerHTML = `
+            <div class="admin-updates-empty">
+                <i class="fas fa-inbox"></i>
+                <h3>No Updates Yet</h3>
+                <p>Check back later for the latest updates from administration.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    grid.innerHTML = posts.map(post => `
+        <div class="admin-update-card scroll-animate">
+            ${post.image ? 
+                `<img src="${post.image}" alt="${post.title}" class="admin-update-image">` :
+                `<div class="admin-update-no-image"><i class="fas fa-image"></i></div>`
+            }
+            <div class="admin-update-content">
+                <h3 class="admin-update-title">${post.title}</h3>
+                <p class="admin-update-text">${post.content}</p>
+                <div class="admin-update-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    ${post.date}
+                </div>
+            </div>
+        </div>
+    `).join('');
+    
+    // Re-observe new elements for scroll animation
+    document.querySelectorAll('.admin-update-card').forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Function to load upcoming events
+function loadUpcomingEvents() {
+    const grid = document.getElementById('eventsGrid');
+    
+    // Simulated events data (replace with actual API call)
+    const events = [
+        {
+            title: "Enrollment Period",
+            description: "Registration for the upcoming semester",
+            date: "March 15-30, 2026",
+            location: "Registrar's Office"
+        },
+        {
+            title: "Intramurals 2026",
+            description: "Annual sports competition",
+            date: "April 5-10, 2026",
+            location: "NORSU Sports Complex"
+        },
+        {
+            title: "Career Fair",
+            description: "Meet potential employers and explore opportunities",
+            date: "April 20, 2026",
+            location: "Main Auditorium"
+        }
+    ];
+    
+    if (events.length === 0) {
+        grid.innerHTML = `
+            <div class="events-loading">
+                <i class="fas fa-calendar-times"></i>
+                <p>No upcoming events at this time.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    grid.innerHTML = events.map(event => `
+        <div class="event-card scroll-animate">
+            <div class="event-date-badge">
+                <i class="fas fa-calendar-alt"></i> ${event.date}
+            </div>
+            <h3 class="event-title">${event.title}</h3>
+            <p class="event-description">${event.description}</p>
+            <div class="event-location">
+                <i class="fas fa-map-marker-alt"></i>
+                ${event.location}
+            </div>
+        </div>
+    `).join('');
+    
+    // Re-observe new elements for scroll animation
+    document.querySelectorAll('.event-card').forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Load achievements when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadNorsuLatestPosts();
+});
+
+// Function to load latest NORSU posts from localStorage
+function loadNorsuLatestPosts() {
+    try {
+        // Get posts from NORSU admin dashboard localStorage
+        const norsuPosts = JSON.parse(localStorage.getItem('norsuAdminPosts') || '[]');
+        console.log('NORSU posts:', norsuPosts);
+        
+        const newsGrid = document.querySelector('.uv-news-grid');
+        if (!newsGrid) return;
+        
+        // Clear existing dynamic posts (keep static cards)
+        const existingCards = newsGrid.querySelectorAll('.uv-news-card[data-dynamic="true"]');
+        existingCards.forEach(card => card.remove());
+        
+        if (norsuPosts.length === 0) {
+            return; // Keep showing static cards if no dynamic posts
+        }
+        
+        // Add dynamic posts at the beginning
+        norsuPosts.forEach((post, index) => {
+            const newsCard = document.createElement('div');
+            newsCard.className = 'uv-news-card';
+            newsCard.setAttribute('data-dynamic', 'true');
+            
+            // Check if post is new (created within last 3 days)
+            const postDate = new Date(post.date);
+            const now = new Date();
+            const hoursSincePosted = (now - postDate) / (1000 * 60 * 60);
+            const isNewPost = hoursSincePosted <= 72;
+            
+            // Format date
+            const formattedDate = post.date ? new Date(post.date).toLocaleDateString('en-US', {
+                year:'numeric',
+                month:'long',
+                day:'numeric'
+            }) : "March 09, 2026";
+            
+            // Handle image with fallback
+            const image = post.image ? post.image : "{% static 'dashboard/images/default-news.jpg' %}";
+            
+            newsCard.innerHTML = `
+                <img src="${image}" alt="${post.title}" 
+                     onerror="this.src='{% static 'dashboard/images/default-news.jpg' %}';"
+                     style="width:100%; height:200px; object-fit:cover;">
+                ${isNewPost ? '<div class="new-badge">NEW</div>' : ''}
+                <div class="uv-card-content">
+                    <div class="uv-date">${formattedDate}</div>
+                    <h3 class="uv-card-title">${post.title}</h3>
+                    <a href="/news/#post-${post.id || index}" class="uv-read-more">READ MORE</a>
+                </div>
+            `;
+            
+            // Insert at the beginning of the grid (before static cards)
+            if (index === 0) {
+                newsGrid.insertBefore(newsCard, newsGrid.firstChild);
+            } else {
+                newsGrid.insertBefore(newsCard, existingCards[index] || newsGrid.children[index]);
+            }
+        });
+        
+    } catch(error) {
+        console.error("Error loading NORSU posts:", error);
+    }
+}
+
+</script>
+
+<!-- Floating Arrow Button -->
+<div class="floating-arrow" id="floatingArrow" onclick="scrollToTop()">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<style>
+/* Floating Arrow Button */
+.floating-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #007fff, #0056b3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 127, 255, 0.3);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  pointer-events: none;
+}
+
+.floating-arrow.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-arrow:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  box-shadow: 0 4px 12px rgba(0, 127, 255, 0.4);
+  transform: translateY(-1px) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.floating-arrow i {
+  font-size: 14px;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+}
+
+.floating-arrow.visible i {
+  transform: rotate(0deg);
+}
+
+.floating-arrow:hover i {
+  transform: translateY(-1px) rotate(5deg);
+  transition: all 0.3s ease;
+}
+</style>
+
+<script>
+// Achievement Slider functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('achievementsCardsContainer');
+    const prevBtn = document.getElementById('prevAchievement');
+    const nextBtn = document.getElementById('nextAchievement');
+    const dots = document.querySelectorAll('.achievement-dot');
+    const cards = document.querySelectorAll('.achievement-card');
+    
+    let currentIndex = 0;
+    const totalCards = cards.length;
+
+    function getCardsToShow() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1200) return 2;
+        return 3;
+    }
+
+    function updateSlider() {
+        const cardsToShow = getCardsToShow();
+        const maxIndex = Math.max(0, totalCards - cardsToShow);
+        
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+        // Calculate offset
+        const cardWidth = cards[0].offsetWidth + 30; // card width + gap
+        const offset = -currentIndex * cardWidth;
+        container.style.transform = `translateX(${offset}px)`;
+
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+            if (index > maxIndex) {
+                dot.style.display = 'none';
+            } else {
+                dot.style.display = 'inline-block';
+            }
+        });
+
+        // Update button states
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= maxIndex;
+
+        // Hide arrows if not enough cards
+        if (totalCards <= cardsToShow) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+        } else {
+            prevBtn.style.display = 'flex';
+            nextBtn.style.display = 'flex';
+        }
+    }
+
+    if (prevBtn && nextBtn && container) {
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const maxIndex = Math.max(0, totalCards - getCardsToShow());
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const maxIndex = Math.max(0, totalCards - getCardsToShow());
+                if (index <= maxIndex) {
+                    currentIndex = index;
+                    updateSlider();
+                }
+            });
+        });
+
+        // Initialize slider
+        window.addEventListener('resize', updateSlider);
+        updateSlider();
+    }
+});
+
+// Floating Arrow functionality
+const floatingArrow = document.getElementById('floatingArrow');
+let lastScrollTop = 0;
+
+// Show/hide arrow based on scroll position - trigger after scrolling down from top
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // Show arrow when user scrolls down from top (after 300px)
+  if (scrollTop > 300) {
+    floatingArrow.classList.add('visible');
+  } else {
+    floatingArrow.classList.remove('visible');
+  }
+  
+  lastScrollTop = scrollTop;
+});
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
+
 {% endblock %}
+
+

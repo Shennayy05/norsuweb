@@ -2,128 +2,157 @@
    NORSU NAVBAR STYLES
 ================================ */
 
-/* Main Header Container */
-.norsu-header {
-    background-color: #ffffff;
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+/* Main Navbar Container */
+.main-navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    flex-wrap: wrap;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
     gap: 20px;
 }
 
-/* Logo Area */
-.logo-area {
+/* Navbar Logo */
+.navbar-logo {
     display: flex;
     align-items: center;
-    gap: 9px;
-    flex: 1;
-    min-width: 300px;
 }
 
-.logo-area img {
-    width: 50px;
-    height: 50px;
+.navbar-logo-img {
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #000000;
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.logo-text .title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #000000;
-    line-height: 1.2;
-}
-
-.logo-text .red {
-    color: #ff0000;
-}
-
-.logo-text .n-red {
-    color: #ff0000;
-}
-
-.logo-text .subtitle {
-    font-size: 0.9rem;
-    color: #000000;
-    opacity: 0.9;
 }
 
 /* Navigation Links */
 .nav-links {
     display: flex;
-    gap: 25px;
-    align-items: center;
-    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+    gap: 0;
+}
+
+.nav-links li {
+    margin: 0;
 }
 
 .nav-links a {
-    color: #000000;
+    color: #333 !important;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 15px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    padding: 15px 18px;
     display: flex;
     align-items: center;
     gap: 5px;
-    padding: 8px 12px;
-    border-radius: 6px;
+    transition: all 0.3s ease;
+    height: 50px;
 }
 
 .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
+    background-color: #d0d0d0 !important;
+    color: #000 !important;
 }
 
-.nav-links a span {
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
+.dropdown-arrow {
+    font-size: 10px;
+    margin-left: 2px;
 }
 
-.nav-links a:hover span {
-    transform: rotate(180deg);
+/* Right Section */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 /* Search Box */
-.search-box {
+.navbar-search {
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 25px;
-    padding: 5px 15px;
-    min-width: 250px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px;
+    padding: 5px 10px;
+    min-width: 220px;
 }
 
-.search-box input {
+.navbar-search-input {
     border: none;
     outline: none;
     flex: 1;
-    padding: 5px;
-    font-size: 0.9rem;
+    padding: 4px;
+    font-size: 13px;
     background: transparent;
+    color: #333 !important;
 }
 
-.search-icon {
-    color: #000000;
-    font-size: 1.1rem;
+.navbar-search-input::placeholder {
+    color: #999 !important;
+}
+
+.navbar-search-btn {
+    background: none;
+    border: none;
+    color: #5dade2;
     cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: color 0.3s ease;
 }
 
-.search-icon:hover {
-    color: #1a7aa8;
+.navbar-search-btn:hover {
+    color: #3498db;
+}
+
+/* Admin Login Button */
+.admin-login-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #5b7db1;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(91, 125, 177, 0.3);
+    border: none;
+}
+
+.admin-login-btn:hover {
+    background: #4a6a9a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(91, 125, 177, 0.4);
+    color: white !important;
+}
+
+.admin-login-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+    stroke: white;
+}
+
+.admin-login-btn span {
+    color: white;
 }
 
 /* Mobile Menu Toggle */
@@ -133,460 +162,149 @@
     border: none;
     cursor: pointer;
     padding: 8px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    z-index: 1001;
-    position: relative;
-}
-
-.mobile-menu-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.menu-toggle-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
     flex-direction: column;
     gap: 4px;
-    padding: 5px;
-    min-width: 30px;
-    min-height: 30px;
-    justify-content: center;
-    align-items: center;
 }
 
-.menu-toggle-btn span {
+.mobile-menu-toggle span {
     width: 25px;
     height: 3px;
-    background-color: #000000;
+    background-color: #333 !important;
     transition: 0.3s;
     border-radius: 2px;
 }
 
-.menu-toggle-btn.active span:nth-child(1) {
+.mobile-menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
 
-.menu-toggle-btn.active span:nth-child(2) {
+.mobile-menu-toggle.active span:nth-child(2) {
     opacity: 0;
 }
 
-.menu-toggle-btn.active span:nth-child(3) {
+.mobile-menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Mobile Navigation Menu */
 .mobile-nav-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
-    background-color: #2aa2d5;
-    z-index: 2000;
-    transition: left 0.3s ease;
-    overflow-y: auto;
-}
-
-.mobile-nav-menu.active {
-    left: 0;
-}
-
-.mobile-nav-content {
-    padding: 80px 20px 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.mobile-nav-links a {
-    color: #000000;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.mobile-nav-links a:hover {
-    color: #484848;
-    background-color: rgba(228, 224, 224, 0.1);
-    padding-left: 15px;
-    transform: translateX(5px);
-}
-
-.mobile-nav-links a span {
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
-}
-
-.mobile-nav-links a:hover span {
-    transform: rotate(180deg);
-}
-
-.mobile-search {
-    display: flex;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 25px;
-    padding: 10px 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.mobile-search input {
-    border: none;
-    outline: none;
-    flex: 1;
-    padding: 5px;
-    font-size: 1rem;
-    background: transparent;
-    color: #000000;
-}
-
-.mobile-search .search-icon {
-    color: #2aa2d5;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.mobile-search .search-icon:hover {
-    color: #1a7aa8;
-}
-
-/* Search Container Alternative */
-.search-container {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border-radius: 25px;
-    padding: 5px 15px;
-    min-width: 250px;
-    flex-shrink: 0;
-}
-
-.search-input {
-    border: none;
-    outline: none;
-    flex: 1;
-    padding: 5px;
-    font-size: 0.9rem;
-}
-
-.search-btn {
-    background: none;
-    border: none;
-    color: #000000;
-    cursor: pointer;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-btn:hover {
-    color: #666666;
-}
-
-/* Alternative Mobile Menu Styles */
-.mobile-nav-menu {
     display: none;
-    background-color: #2aa2d5;
+    background-color: #ffffff !important;
+    border-top: 1px solid #ccc !important;
     padding: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-nav-menu.active {
     display: block;
-    animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .mobile-nav-links {
     list-style: none;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
+    padding: 0;
 }
 
 .mobile-nav-links li {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .mobile-nav-links a {
-    color: #ffffff;
+    color: #333 !important;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 16px;
     font-weight: 500;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    transition: all 0.3s ease;
-    border-radius: 4px;
+    border-bottom: 1px solid #d0d0d0 !important;
 }
 
 .mobile-nav-links a:hover {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding-left: 10px;
-    transform: translateX(5px);
-}
-
-.mobile-nav-links a:hover .dropdown-arrow {
-    transform: rotate(180deg);
+    color: #000 !important;
 }
 
 .mobile-search {
-    margin-top: 20px;
-}
-
-.mobile-search .search-container {
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.mobile-search .search-input {
-    color: #000000;
-}
-
-.mobile-search .search-btn {
-    color: #2aa2d5;
-}
-
-.mobile-search .search-btn:hover {
-    color: #1a7aa8;
-}
-
-/* Floating NORSU Logo Design */
-.floating-norsu-logo {
-    position: fixed;
-    top: 80px;
-    left: 20px;
-    z-index: 1001;
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: all 0.5s ease-in-out;
-    pointer-events: none;
-}
-
-.floating-norsu-logo.visible {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
-}
-
-.floating-logo-container {
     display: flex;
     align-items: center;
-    gap: 15px;
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 10px 15px;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    background-color: white !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 15px;
 }
 
-.floating-logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #0066cc;
+.mobile-search-input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 4px;
+    font-size: 14px;
+    background: transparent;
+    color: #333 !important;
 }
 
-.floating-logo-text {
+.mobile-search-btn {
+    background: none;
+    border: none;
+    color: #5dade2;
+    cursor: pointer;
+    padding: 4px;
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
-.norsu-name {
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #000000;
-    text-align: center;
-    line-height: 1.2;
+.mobile-admin-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #5b7db1;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 30px;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(91, 125, 177, 0.3);
 }
 
-.norsu-name span {
-    color: #cc0000;
+.mobile-admin-btn:hover {
+    background: #4a6a9a;
+    box-shadow: 0 4px 12px rgba(91, 125, 177, 0.4);
 }
 
-.norsu-country {
-    font-size: 0.6rem;
-    color: #0066cc;
-    text-align: center;
-    font-weight: 500;
+.mobile-admin-btn svg {
+    fill: white;
+    stroke: white;
+}
+
+.mobile-admin-btn span {
+    color: white;
 }
 
 /* ===============================
-   NAVBAR RESPONSIVE DESIGN
+   RESPONSIVE DESIGN
 ================================ */
 
-@media (max-width: 1200px) {
-    .norsu-header {
-        padding: 12px 20px;
-        gap: 15px;
-    }
-    
-    .nav-links {
-        gap: 20px;
-    }
-    
-    .search-box {
-        min-width: 200px;
-    }
-    
-    .logo-area {
-        min-width: 280px;
-    }
-    
-    .logo-text .title {
-        font-size: 1.1rem;
-    }
-    
-    .logo-text .subtitle {
-        font-size: 0.8rem;
-    }
-}
-
 @media (max-width: 768px) {
-    .norsu-header {
-        flex-direction: column;
-        padding: 15px;
-        gap: 20px;
-        align-items: stretch;
-        position: relative;
-    }
-    
-    .logo-area {
-        min-width: auto;
-        justify-content: center;
-        order: 1;
+    .navbar-logo {
+        display: none;
     }
     
     .nav-links {
         display: none;
     }
     
+    .navbar-search {
+        display: none;
+    }
+    
+    .admin-login-btn {
+        display: none;
+    }
+    
     .mobile-menu-toggle {
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        order: 2;
-        z-index: 1002;
-    }
-    
-    .search-box {
-        width: 100%;
-        min-width: auto;
-        order: 3;
-    }
-    
-    .logo-text .title {
-        font-size: 1rem;
-    }
-    
-    .logo-text .subtitle {
-        font-size: 0.7rem;
-    }
-    
-    .logo-area img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .floating-norsu-logo {
-        top: 70px;
-        left: 10px;
-    }
-    
-    .floating-logo-container {
-        padding: 8px 12px;
-        gap: 10px;
-    }
-    
-    .floating-logo {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .norsu-name {
-        font-size: 0.7rem;
-    }
-    
-    .norsu-country {
-        font-size: 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .norsu-header {
-        padding: 10px;
-        gap: 15px;
-    }
-    
-    .logo-area {
-        gap: 10px;
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .logo-area img {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .logo-text .title {
-        font-size: 0.9rem;
-        text-align: center;
-    }
-    
-    .logo-text .subtitle {
-        font-size: 0.6rem;
-        text-align: center;
-    }
-    
-    .nav-links {
-        gap: 10px;
-        font-size: 0.9rem;
-    }
-    
-    .nav-links a {
-        font-size: 0.9rem;
-        padding: 6px 10px;
-    }
-    
-    .search-box {
-        padding: 3px 12px;
-        min-width: auto;
-    }
-    
-    .search-box input {
-        font-size: 0.8rem;
+        display: flex;
     }
 }
