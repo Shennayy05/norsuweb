@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - NORSU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #07a82a;
+            --secondary-color: #18ab27;
+            --success-color: #28a745;
+            --warning-color: #0d9b00;
+            --danger-color: #dc3545;
+            --info-color: #17a2b8;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --sidebar-bg: #1a1a2e;
+            --sidebar-hover: #16213e;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: #3b5b92;
+            color: white;
+            padding: 0;
+            box-shadow: 2px 0 10px #3b5b92(0, 0, 0, 0.1);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(34, 190, 230, 0.1);
+        }
+
+        .college-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 32px;
+            color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .college-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .college-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .admin-name {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .nav-menu {
+            padding: 20px 0;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .nav-item:hover {
+            background: var(--sidebar-hover);
+            border-left-color: var(--primary-color);
+        }
+
+        .nav-item.active {
+            background: #3b5b92;
+            border-left-color: var(--primary-color);
+        }
+
+        .nav-item i {
+            width: 20px;
+            margin-right: 12px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            background: #f5f6fa;
+            min-height: 100vh;
+        }
+
+        /* Top Header */
+        .top-header {
+            background: white;
+            padding: 20px 30px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .session-timer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: var(--light);
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        .logout-btn {
+            background: var(--danger-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+        }
+
+        /* Content Area */
+        .content {
+            padding: 30px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-info h3 {
+            font-size: 32px;
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .stat-info p {
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid #eee;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-success {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .btn-warning {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: 8px 15px;
+            font-size: 12px;
+        }
+
+        /* Posts List */
+        .posts-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .post-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .post-item:hover {
+            background: #f8f9fa;
+        }
+
+        .post-item:last-child {
+            border-bottom: none;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .post-type {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .type-announcement {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .type-news {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .type-update {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .post-date {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .post-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .post-content {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+
+        /* Image Upload Styles */
+        .image-preview {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            background: #f9f9f9;
+
+        }
+
+        .image-preview img {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            
+        }
+        element.style {
+            max-width: 100%;
+            max-height: 800px;
+            border-radius: 8px;
+            margin-bottom: 15px;}
+
+        .post-image {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .post-image img {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Authentication Check -->
+    <script>
+        // Check if user is authenticated
+        function checkAuth() {
+            const sessionData = sessionStorage.getItem('adminSession');
+            if (!sessionData) {
+                window.location.href = '/admin-login/';
+                return null;
+            }
+
+            const session = JSON.parse(sessionData);
+            const now = Date.now();
+            const sessionAge = now - session.loginTime;
+            
+            if (sessionAge > session.sessionTimeout) {
+                sessionStorage.removeItem('adminSession');
+                alert('Session expired. Please login again.');
+                window.location.href = '/admin-login/';
+                return null;
+            }
+
+            return session;
+        }
+
+        const session = checkAuth();
+        if (!session) {
+            // Redirect will happen automatically
+        }
+    </script>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="college-logo" id="collegeLogo">
+                <img src="" alt="College Logo" id="collegeLogoImg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            <div class="college-name" id="collegeName">Loading...</div>
+            <div class="admin-name" id="adminName">Loading...</div>
+        </div>
+        
+        <nav class="nav-menu">
+            <a class="nav-item active" onclick="showTab('dashboard')">
+                <i class="fas fa-tachometer-alt"></i>College of Arts & Sciences Dashboard
+            </a>
+            <a class="nav-item" onclick="showTab('posts')">
+                <i class="fas fa-newspaper"></i> Posts
+            </a>
+            <a class="nav-item" onclick="showTab('announcements')">
+                <i class="fas fa-bullhorn"></i> Announcements
+            </a>
+            <a class="nav-item" onclick="showTab('news')">
+                <i class="fas fa-newspaper"></i> News
+            </a>
+            <a class="nav-item" onclick="showTab('updates')">
+                <i class="fas fa-sync"></i> Updates
+            </a>
+            <a class="nav-item" onclick="showTab('alumni')">
+                <i class="fas fa-graduation-cap"></i> Alumni
+            </a>
+            <a class="nav-item" onclick="showTab('awards')">
+                <i class="fas fa-trophy"></i> Awards & Recognition
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <h1 class="header-title" id="pageTitle">Dashboard</h1>
+            <div class="header-actions">
+                <div class="session-timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="sessionTimer">2:00:00</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalPosts">0</h3>
+                            <p>Total Posts</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #28a745, #20c997);">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalAnnouncements">0</h3>
+                            <p>Announcements</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #ffc107, #e0a800);">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalNews">0</h3>
+                            <p>News</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #17a2b8, #138496);">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalUpdates">0</h3>
+                            <p>Updates</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #6f42c1, #5a32a3);">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalAlumni">0</h3>
+                            <p>Alumni Posts</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #fd7e14, #e55a00);">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalAwards">0</h3>
+                            <p>Awards & Recognition</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Activity</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="posts-list" id="recentPosts">
+                            <div class="empty-state">
+                                <i class="fas fa-inbox"></i>
+                                <p>No recent activity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Posts Tab -->
+            <div id="posts" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Create New Post</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="postForm">
+                            <div class="form-group">
+                                <label for="postType" class="form-label">Post Type</label>
+                                <select id="postType" class="form-control" required>
+                                    <option value="announcement">Announcement</option>
+                                    <option value="news">News</option>
+                                    <option value="update">Update</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="postTitle" class="form-label">Title</label>
+                                <input type="text" id="postTitle" class="form-control" placeholder="Enter post title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postContent" class="form-label">Content</label>
+                                <textarea id="postContent" class="form-control" placeholder="Enter post content" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Create Post
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Posts</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="posts-list" id="postsList">
+                            <div class="empty-state">
+                                <i class="fas fa-inbox"></i>
+                                <p>No posts found</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Announcements Tab -->
+            <div id="announcements" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">New Announcement</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="announcementForm">
+                            <div class="form-group">
+                                <label for="announcementTitle" class="form-label">Title</label>
+                                <input type="text" id="announcementTitle" class="form-control" placeholder="Enter announcement title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="announcementContent" class="form-label">Content</label>
+                                <textarea id="announcementContent" class="form-control" placeholder="Enter announcement content" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="announcementImage" class="form-label">Image (Optional)</label>
+                                <input type="file" id="announcementImage" class="form-control" accept="image/*">
+                                <div class="image-preview" id="announcementImagePreview" style="display: none; margin-top: 10px;">
+                                    <img src="" alt="Preview" style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="removeImage('announcement')" style="margin-top: 5px;">Remove</button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-bullhorn"></i> Create Announcement
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Announcements</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="posts-list" id="announcementsList">
+                            <div class="empty-state">
+                                <i class="fas fa-inbox"></i>
+                                <p>No announcements found</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Tab -->
+            <div id="news" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">New News</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="newsForm">
+                            <div class="form-group">
+                                <label for="newsTitle" class="form-label">Title</label>
+                                <input type="text" id="newsTitle" class="form-control" placeholder="Enter news title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newsContent" class="form-label">Content</label>
+                                <textarea id="newsContent" class="form-control" placeholder="Enter news content" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="newsImage" class="form-label">Image (Optional)</label>
+                                <input type="file" id="newsImage" class="form-control" accept="image/*">
+                                <div class="image-preview" id="newsImagePreview" style="display: none; margin-top: 10px;">
+                                    <img src="" alt="Preview" style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="removeImage('news')" style="margin-top: 5px;">Remove</button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-newspaper"></i> Create News
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">News</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="posts-list" id="newsList">
+                            <div class="empty-state">
+                                <i class="fas fa-inbox"></i>
+                                <p>No news found</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Updates Tab -->
+            <div id="updates" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">New Update</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="updateForm">
+                            <div class="form-group">
+                                <label for="updateTitle" class="form-label">Title</label>
+                                <input type="text" id="updateTitle" class="form-control" placeholder="Enter update title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="updateContent" class="form-label">Content</label>
+                                <textarea id="updateContent" class="form-control" placeholder="Enter update content" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-sync"></i> Create Update
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Updates</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="posts-list" id="updatesList">
+                            <div class="empty-state">
+                                <i class="fas fa-inbox"></i>
+                                <p>No updates found</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alumni Tab -->
+            <div id="alumni" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">New Alumni Post</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="alumniForm">
+                            <div class="form-group">
+                                <label for="alumniName" class="form-label">Name</label>
+                                <input type="text" id="alumniName" class="form-control" placeholder="Enter alumni name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="alumniTitle" class="form-label">Title</label>
+                                <input type="text" id="alumniTitle" class="form-control" placeholder="Enter alumni title (e.g., Summa Cum Laude, Magna Cum Laude)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="alumniContent" class="form-label">Quote</label>
+                                <textarea id="alumniContent" class="form-control" placeholder="Enter alumni quote or achievement" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="alumniImage" class="form-label">Image (Optional)</label>
+                                <input type="file" id="alumniImage" class="form-control" accept="image/*">
+                                <div class="image-preview" id="alumniImagePreview" style="display: none; margin-top: 10px;">
+                                    <img src="" alt="Preview" style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="removeImage('alumni')" style="margin-top: 5px;">Remove</button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-graduation-cap"></i> Create Alumni Post
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Alumni Posts</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="posts-list" id="alumniList">
+                            <div class="empty-state">
+                                <i class="fas fa-inbox"></i>
+                                <p>No alumni posts found</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Awards & Recognition Tab -->
+            <div id="awards" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">New Award/Recognition</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="awardForm">
+                            <div class="form-group">
+                                <label for="awardTitle" class="form-label">Title</label>
+                                <input type="text" id="awardTitle" class="form-control" placeholder="Enter award/recognition title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="awardContent" class="form-label">Content</label>
+                                <textarea id="awardContent" class="form-control" placeholder="Enter award/recognition content" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="awardImage" class="form-label">Image (Optional)</label>
+                                <input type="file" id="awardImage" class="form-control" accept="image/*">
+                                <div class="image-preview" id="awardImagePreview" style="display: none; margin-top: 10px;">
+                                    <img src="" alt="Preview" style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="removeImage('award')" style="margin-top: 5px;">Remove</button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-trophy"></i> Create Award/Recognition
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Awards & Recognition</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="posts-list" id="awardsList">
+                            <div class="empty-state">
+                                <i class="fas fa-inbox"></i>
+                                <p>No awards/recognition found</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Initialize dashboard
+        let currentSession = null;
+        let posts = [];
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            currentSession = checkAuth();
+            if (currentSession) {
+                initializeDashboard();
+                loadPosts();
+                startSessionTimer();
+            }
+        });
+
+        function initializeDashboard() {
+            // Set college information
+            document.getElementById('collegeName').textContent = currentSession.collegeFullName;
+            document.getElementById('adminName').textContent = currentSession.name;
+            
+            // Set college logo image
+            const collegeLogoImg = document.getElementById('collegeLogoImg');
+            const collegeLogos = {
+                'cas': '/static/dashboard/images/CAS.png',
+                'cit': '/static/dashboard/images/CIT.png',
+                'cted': '/static/dashboard/images/CTED.png',
+                'ccje': '/static/dashboard/images/CCJE.png',
+                'cba': '/static/dashboard/images/CBA.png',
+                'caf': '/static/dashboard/images/CAF.png'
+            };
+            
+            // Debug: Log the college value
+            console.log('College value:', currentSession.college);
+            console.log('College full name:', currentSession.collegeFullName);
+            
+            // Make college matching case-insensitive
+            const collegeKey = (currentSession.college || '').toLowerCase().trim();
+            
+            if (collegeLogos[collegeKey]) {
+                collegeLogoImg.src = collegeLogos[collegeKey];
+                console.log('Loading logo for:', collegeKey);
+            } else {
+                // Fallback to university logo if college logo not found
+                collegeLogoImg.src = '/static/dashboard/images/logo1.png';
+                console.log('Using fallback logo, college not found:', collegeKey);
+            }
+            
+            // Update page title
+            document.title = `${currentSession.collegeFullName} Admin Dashboard`;
+            
+            // Set up form event listeners
+            setupFormListeners();
+        }
+
+        function setupFormListeners() {
+            // Post form
+            document.getElementById('postForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                createPost('post');
+            });
+
+            // Announcement form
+            document.getElementById('announcementForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                createPost('announcement');
+            });
+
+            // News form
+            document.getElementById('newsForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                createPost('news');
+            });
+
+            // Update form
+            document.getElementById('updateForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                createPost('update');
+            });
+
+            // Alumni form
+            document.getElementById('alumniForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                createPost('alumni');
+            });
+
+            // Award form
+            document.getElementById('awardForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                createPost('award');
+            });
+
+            // Image upload listeners
+            document.getElementById('announcementImage').addEventListener('change', function(e) {
+                handleImageUpload(e, 'announcement');
+            });
+
+            document.getElementById('newsImage').addEventListener('change', function(e) {
+                handleImageUpload(e, 'news');
+            });
+
+            document.getElementById('alumniImage').addEventListener('change', function(e) {
+                handleImageUpload(e, 'alumni');
+            });
+
+            document.getElementById('awardImage').addEventListener('change', function(e) {
+                handleImageUpload(e, 'award');
+            });
+        }
+
+        function createPost(type) {
+            let title, content, imageData = null;
+            
+            switch(type) {
+                case 'post':
+                    title = document.getElementById('postTitle').value;
+                    content = document.getElementById('postContent').value;
+                    type = document.getElementById('postType').value;
+                    document.getElementById('postForm').reset();
+                    break;
+                case 'announcement':
+                    title = document.getElementById('announcementTitle').value;
+                    content = document.getElementById('announcementContent').value;
+                    imageData = document.getElementById('announcementImage').dataset.base64 || null;
+                    document.getElementById('announcementForm').reset();
+                    document.getElementById('announcementImagePreview').style.display = 'none';
+                    break;
+                case 'news':
+                    title = document.getElementById('newsTitle').value;
+                    content = document.getElementById('newsContent').value;
+                    imageData = document.getElementById('newsImage').dataset.base64 || null;
+                    document.getElementById('newsForm').reset();
+                    document.getElementById('newsImagePreview').style.display = 'none';
+                    break;
+                case 'update':
+                    title = document.getElementById('updateTitle').value;
+                    content = document.getElementById('updateContent').value;
+                    document.getElementById('updateForm').reset();
+                    break;
+                case 'alumni':
+                    const name = document.getElementById('alumniName').value;
+                    title = document.getElementById('alumniTitle').value;
+                    content = document.getElementById('alumniContent').value;
+                    imageData = document.getElementById('alumniImage').dataset.base64 || null;
+                    
+                    // Create alumni post with all fields
+                    const post = {
+                        id: Date.now(),
+                        college: currentSession.college,
+                        collegeFullName: currentSession.collegeFullName,
+                        type: 'alumni',
+                        name: name,
+                        title: title,
+                        content: content,
+                        image: imageData,
+                        date: new Date().toISOString(),
+                        author: currentSession.name
+                    };
+                    
+                    // Save to localStorage
+                    savePost(post);
+                    
+                    // Reset form
+                    document.getElementById('alumniForm').reset();
+                    document.getElementById('alumniImagePreview').style.display = 'none';
+                    
+                    // Refresh posts
+                    loadPosts();
+                    
+                    // Show success message
+                    alert('Alumni post created successfully!');
+                    
+                    return;
+                case 'award':
+                    title = document.getElementById('awardTitle').value;
+                    content = document.getElementById('awardContent').value;
+                    imageData = document.getElementById('awardImage').dataset.base64 || null;
+                    document.getElementById('awardForm').reset();
+                    document.getElementById('awardImagePreview').style.display = 'none';
+                    break;
+            }
+
+            const post = {
+                id: Date.now(),
+                college: currentSession.college,
+                collegeFullName: currentSession.collegeFullName,
+                type: type,
+                title: title,
+                content: content,
+                image: imageData,
+                date: new Date().toISOString(),
+                author: currentSession.name
+            };
+
+            // Save to localStorage
+            savePost(post);
+            
+            // Reload posts
+            loadPosts();
+            
+            // Show success message
+            showNotification(`${type.charAt(0).toUpperCase() + type.slice(1)} created successfully!`, 'success');
+        }
+
+        function savePost(post) {
+            // Get existing posts
+            const existingPosts = JSON.parse(localStorage.getItem('allPosts') || '[]');
+            existingPosts.unshift(post); // Add to beginning
+            localStorage.setItem('allPosts', JSON.stringify(existingPosts));
+        }
+
+        function loadPosts() {
+            // Get all posts from localStorage
+            const allPosts = JSON.parse(localStorage.getItem('allPosts') || '[]');
+            
+            // Filter posts for current college
+            posts = allPosts.filter(post => post.college === currentSession.college);
+            
+            // Update stats
+            updateStats();
+            
+            // Display posts in different sections
+            displayPosts('postsList', posts);
+            displayPosts('announcementsList', posts.filter(p => p.type === 'announcement'));
+            displayPosts('newsList', posts.filter(p => p.type === 'news'));
+            displayPosts('updatesList', posts.filter(p => p.type === 'update'));
+            displayPosts('alumniList', posts.filter(p => p.type === 'alumni'));
+            displayPosts('awardsList', posts.filter(p => p.type === 'award'));
+            displayPosts('recentPosts', posts.slice(0, 5)); // Recent activity - show last 5
+        }
+
+        function displayPosts(elementId, postsToDisplay) {
+            const container = document.getElementById(elementId);
+            
+            if (postsToDisplay.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>No posts found</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = postsToDisplay.map(post => `
+                <div class="post-item">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            <span class="post-type type-${post.type}">${post.type}</span>
+                            <span class="post-date">${formatDate(post.date)}</span>
+                        </div>
+                        <div class="post-actions">
+                            <button class="btn btn-sm btn-warning" onclick="editPost(${post.id})">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn btn-sm btn-danger" onclick="deletePost(${post.id})">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                    ${post.image ? `<div class="post-image"><img src="${post.image}" alt="Post image" style="max-width: 100%; max-height: 300px; border-radius: 8px; margin-bottom: 15px;"></div>` : ''}
+                    <h3 class="post-title">${post.title}</h3>
+                    <p class="post-content">${post.content}</p>
+                </div>
+            `).join('');
+        }
+
+        function updateStats() {
+            document.getElementById('totalPosts').textContent = posts.length;
+            document.getElementById('totalAnnouncements').textContent = posts.filter(p => p.type === 'announcement').length;
+            document.getElementById('totalNews').textContent = posts.filter(p => p.type === 'news').length;
+            document.getElementById('totalUpdates').textContent = posts.filter(p => p.type === 'update').length;
+            document.getElementById('totalAlumni').textContent = posts.filter(p => p.type === 'alumni').length;
+            document.getElementById('totalAwards').textContent = posts.filter(p => p.type === 'award').length;
+        }
+
+        function deletePost(postId) {
+            if (confirm('Are you sure you want to delete this post?')) {
+                let allPosts = JSON.parse(localStorage.getItem('allPosts') || '[]');
+                allPosts = allPosts.filter(post => post.id !== postId);
+                localStorage.setItem('allPosts', JSON.stringify(allPosts));
+                loadPosts();
+                showNotification('Post deleted successfully!', 'danger');
+            }
+        }
+
+        function editPost(postId) {
+            // For simplicity, we'll just show an alert
+            // In a real application, this would open an edit form
+            alert('Edit functionality would be implemented here.');
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+        }
+
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active class from all nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked nav item
+            event.target.classList.add('active');
+            
+            // Update page title
+            const titles = {
+                'dashboard': 'Dashboard',
+                'posts': 'Posts',
+                'announcements': 'Announcements',
+                'news': 'News',
+                'updates': 'Updates',
+                'alumni': 'Alumni',
+                'awards': 'Awards & Recognition'
+            };
+            document.getElementById('pageTitle').textContent = titles[tabName];
+        }
+
+        function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                border-radius: 8px;
+                color: white;
+                font-weight: 500;
+                z-index: 9999;
+                animation: slideIn 0.3s ease;
+                background: ${type === 'success' ? '#28a745' : type === 'danger' ? '#dc3545' : '#17a2b8'};
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                sessionStorage.removeItem('adminSession');
+                window.location.href = '/admin-login/';
+            }
+        }
+
+        function startSessionTimer() {
+            const timerElement = document.getElementById('sessionTimer');
+            
+            setInterval(() => {
+                if (!currentSession) return;
+                
+                const now = Date.now();
+                const sessionAge = now - currentSession.loginTime;
+                const timeRemaining = Math.max(0, currentSession.sessionTimeout - sessionAge);
+                
+                const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                
+                timerElement.textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeRemaining === 0) {
+                    alert('Session expired. Please login again.');
+                    logout();
+                }
+            }, 1000);
+        }
+
+        // Image handling functions
+        function handleImageUpload(event, type) {
+            const file = event.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const base64 = e.target.result;
+                    const input = document.getElementById(type + 'Image');
+                    const preview = document.getElementById(type + 'ImagePreview');
+                    
+                    // Store base64 data in dataset
+                    input.dataset.base64 = base64;
+                    
+                    // Show preview
+                    preview.querySelector('img').src = base64;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removeImage(type) {
+            const input = document.getElementById(type + 'Image');
+            const preview = document.getElementById(type + 'ImagePreview');
+            
+            // Clear file input
+            input.value = '';
+            delete input.dataset.base64;
+            
+            // Hide preview
+            preview.style.display = 'none';
+            preview.querySelector('img').src = '';
+        }
+    </script>
+</body>
+</html>

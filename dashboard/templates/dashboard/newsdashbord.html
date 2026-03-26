@@ -1,0 +1,831 @@
+{% extends 'dashboard/base_simple.html' %}
+
+{% load static %}
+
+{% block title %}College of Teacher Education - NORSU{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'dashboard/css/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/newstyle.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/navbar.html' %}
+
+<div class="page">
+
+    <div class="layout">
+
+        <!-- LEFT COLUMN -->
+        <main class="column scrollable">
+
+            <!-- Pagination -->
+            <div class="tile">
+              <h1>NORSU BSC NEWS AND ANNOUNCEMENT</h1>
+              <p>Latest News</p>
+            </div>
+
+            <!-- Dynamic Posts from Database -->
+            {% for post in posts %}
+            <article class="news">
+                <div class="image-box">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    {% else %}
+                        <img src="{% static 'dashboard/images/default-news.jpg' %}" alt="{{ post.title }}">
+                    {% endif %}
+                </div>
+
+                <div class="content">
+                    <div class="date">📅 {{ post.created_at|date:"F d, Y" }}
+                        <span style="background: #3498db; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">{{ post.category|upper }}</span>
+                    </div>
+                    <h2>{{ post.title }}</h2>
+                    <p>
+                        {% if post.content|length > 200 %}
+                            {{ post.content|slice:":200" }}...
+                        {% else %}
+                            {{ post.content }}
+                        {% endif %}
+                    </p>
+
+                    <div class="footer">
+                        <a href="#" class="read" data-post-id="{{ post.id }}" onclick="viewFullPost(this.getAttribute('data-post-id')); return false;">READ MORE →</a>
+                        <span class="share">f&nbsp;&nbsp;Share</span>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+
+            <!-- Static News Item -->
+            <article class="news">
+                <div class="image-box">
+                     <img src="{% static 'dashboard/images/ac.jpg' %}" alt="Norsu News 2">
+                </div>
+
+                <div class="content">
+                    <div class="date">📅 October 23, 2025</div>
+                    <h2>Higalaay sa NORSU- BSC </h2>
+                    <p>
+                        NORSU -BSC Gathered for the higalaay sa norsu/ acquintance party 2025 
+                        to celebrate their success and bond as a community.
+                    </p>
+
+                    <div class="footer">
+                        <a href="/news1/#news1" class="read">READ MORE →</a>
+                        <span class="share">f&nbsp;&nbsp;Share</span>
+                    </div>
+                </div>
+                
+            </article>
+            <article class="news">
+                <div class="image-box">
+                     <img src="{% static 'dashboard/images/SS.jpg' %}" alt="Norsu News 2">
+                </div>
+
+                <div class="content">
+                    <div class="date">📅 January 3, 2026</div>
+                    <h2> Class Suspension and shift to asynchronous Learning </h2>
+                    <p>
+                        Mode of Classes: All NORSU campuses shall shift 
+                        to asynchronous classes 
+                        starting Monday, November 3, 2025, 
+                        until the suspension is officially lifted.
+                    </p>
+
+                    <div class="footer">
+                        <a href="/news1/#news2" class="read">READ MORE →</a>
+                        <span class="share">f&nbsp;&nbsp;Share</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news">
+                <div class="image-box">
+                     <img src="{% static 'dashboard/images/intram.jpg' %}" alt="Norsu News 2">
+                </div>
+
+                <div class="content">
+                    <div class="date">📅 February 15, 2024</div>
+                    <h2>NORSU BSC INTRAMURALS CELEBRATION </h2>
+                    <p>
+                        Negros Oriental State University – Bayawan–Sta. Catalina Campus (NORSU–BSC) 
+                        proudly hosted Intramurals 2025, a campus-wide celebration that brought 
+                        together students from the six colleges in the spirit of unity, sportsmanship, 
+                        and healthy competition. 
+                    </p>
+
+                    <div class="footer">
+                        <a href="/news1/#news3" class="read">READ MORE →</a>
+                        <span class="share">f&nbsp;&nbsp;Share</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news">
+                <div class="image-box">
+                     <img src="{% static 'dashboard/images/aw.jpg' %}" alt="Norsu News 2">
+                </div>
+
+                <div class="content">
+                    <div class="date">📅 February 13, 2026</div>
+                    <h2>Grand convocation, awarding ceremonies highlight NORSU’s 118th.... </h2>
+                    <p>
+                        The Negros Oriental State University marked its 118th Founding Anniversary 
+                        with a grand convocation and awarding ceremonies that honored the institution’s enduring legacy, 
+                        academic excellence, and outstanding contributions of faculty, staff, alumni, and partners. 
+                        
+                    </p>
+
+                    <div class="footer">
+                        <a href="/news1/#news4" class="read">READ MORE →</a>
+                        <span class="share">f&nbsp;&nbsp;Share</span>
+                    </div>
+                </div>
+            </article>
+            
+        </main>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="column scrollable sidebar">
+
+            <section>
+                <h3>GENERAL ANNOUNCEMENT</h3>
+
+                <div class="side-item">
+                    <img src="{% static 'dashboard/images/bb.jpg' %}">
+                    <div>
+                        <p>NORSU BSC BACK TO SCHOOL</p>
+                        <a href="/news1/#news5">📄 See More</a>
+                    </div>
+                </div>
+                <div class="side-item">
+                    <img src="{% static 'dashboard/images/test.jpg' %}">
+                    <div>
+                        <p>NORSU-BSC ADMISSION TEST (SCHOOLL YEAR 2026-2027)</p>
+                        <a href="/news1/#news6">📄 See More</a>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>COLLEGES ANNOUNCEMENT</h3>
+
+                <div class="side-item">
+                    <img src="{% static 'dashboard/images/ccje4.jpg' %}">
+                    <div>
+                        <p>CCJE Fire Drill and Fire Lecture</p>
+                        <a href="/ccje/#ccje-news">📄 See More</a>
+                    </div>
+                </div>
+
+                <div class="side-item">
+                    <img src="{% static 'dashboard/images/cit12.jpg' %}">
+                    <div>
+                        <p>CIT CLEAN UP DRIVE</p>
+                        <a href="/cit/#cit-news">📄 See More</a>
+                    </div>
+                </div>
+
+                <div class="side-item">
+                    <img src="{% static 'dashboard/images/cas2.jpg' %}">
+                    <div>
+                        <p>CAS CLEAN UP DRIVE</p>
+                        <a href="/cas/#cas-news">📄 See More</a>
+                    </div>
+                </div>
+                 <div class="side-item">
+                    <img src="{% static 'dashboard/images/cba5.jpg' %}">
+                    <div>
+                        <p>CBA WORLD TOURISIM DAY</p>
+                        <a href="/cba/#cba-news">📄 See More</a>
+                    </div>
+                </div>
+
+                <div class="side-item">
+                    <img src="{% static 'dashboard/images/cted8.jpg' %}">
+                    <div>
+                        <p>CTED CLEAN UP DRIVE</p>
+                        <a href="/cted/#cted-news">📄 See More</a>
+                    </div>
+                </div>
+
+                     <div class="side-item">
+                    <img src="{% static 'dashboard/images/caf7.png' %}">
+                    <div>
+                        <p>CAF FIRST PINNING CEREMONY</p>
+                        <a href="/caf/#caf-news">📄 See More</a>
+                    </div>
+                </div>
+            </section>
+
+        </aside>
+
+    </div>
+
+</div>
+
+<!-- Super Admin Content Section -->
+<section class="super-admin-news-content">
+    <div class="container">
+        <h2 class="section-title">Latest Updates from Administration</h2>
+        <div class="content-grid">
+            <div class="content-section">
+                <h3>Recent Posts</h3>
+                <div class="posts-list" id="superAdminPosts">
+                    <!-- Posts will be loaded here -->
+                </div>
+            </div>
+            <div class="content-section">
+                <h3>Announcements</h3>
+                <div class="announcements-list" id="superAdminAnnouncements">
+                    <!-- Announcements will be loaded here -->
+                </div>
+            </div>
+            <div class="content-section">
+                <h3>News Articles</h3>
+                <div class="news-list" id="superAdminNews">
+                    <!-- News will be loaded here -->
+                </div>
+            </div>
+            <div class="content-section">
+                <h3>Alumni Updates</h3>
+                <div class="alumni-list" id="superAdminAlumni">
+                    <!-- Alumni will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// View full post content
+function viewFullPost(postId) {
+    // Convert to integer if it's a string
+    postId = parseInt(postId);
+    
+    fetch(`/api/posts/get/`)
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                const post = result.posts.find(p => p.id === postId);
+                if (post) {
+                    showPostModal(post);
+                }
+            }
+        })
+        .catch(error => console.error('Error loading post:', error));
+}
+
+function showPostModal(post) {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+    `;
+    
+    modal.innerHTML = `
+        <div style="background: white; padding: 30px; border-radius: 15px; max-width: 700px; max-height: 80vh; overflow-y: auto; margin: 20px;">
+            ${post.image ? `<img src="${post.image}" alt="${post.title}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;">` : ''}
+            <h2 style="color: #2c3e50; margin-bottom: 15px;">${post.title}</h2>
+            <div style="color: #7f8c8d; margin-bottom: 20px;">
+                📅 ${new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                <span style="background: #3498db; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">${post.category.toUpperCase()}</span>
+            </div>
+            <div style="color: #2c3e50; line-height: 1.6; margin-bottom: 20px; white-space: pre-wrap;">${post.content}</div>
+            <button onclick="this.closest('div').parentElement.remove()" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Close</button>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
+// Sync data from Super Admin Dashboard
+document.addEventListener('DOMContentLoaded', function() {
+    syncDataFromSuperAdmin();
+    loadNewsFromSuperAdmin();
+    loadAllSuperAdminContent();
+});
+
+function syncDataFromSuperAdmin() {
+    // Check for new data from super admin
+    const superAdminPosts = JSON.parse(localStorage.getItem('superAdminPosts') || '[]');
+    const superAdminAnnouncements = JSON.parse(localStorage.getItem('superAdminAnnouncements') || '[]');
+    const superAdminNews = JSON.parse(localStorage.getItem('superAdminNews') || '[]');
+    const superAdminAlumni = JSON.parse(localStorage.getItem('superAdminAlumni') || '[]');
+
+    // Sync posts
+    if (superAdminPosts.length > 0) {
+        const dashboardPosts = JSON.parse(localStorage.getItem('dashboardPosts') || '[]');
+        superAdminPosts.forEach(post => {
+            if (!dashboardPosts.find(p => p.id === post.id)) {
+                dashboardPosts.push({
+                    id: post.id,
+                    title: post.title,
+                    content: post.content,
+                    date: post.date,
+                    category: post.category,
+                    image: post.image || null
+                });
+            }
+        });
+        localStorage.setItem('dashboardPosts', JSON.stringify(dashboardPosts));
+    }
+
+    // Sync announcements
+    if (superAdminAnnouncements.length > 0) {
+        const dashboardAnnouncements = JSON.parse(localStorage.getItem('dashboardAnnouncements') || '[]');
+        superAdminAnnouncements.forEach(announcement => {
+            if (!dashboardAnnouncements.find(a => a.id === announcement.id)) {
+                dashboardAnnouncements.push({
+                    id: announcement.id,
+                    title: announcement.title,
+                    content: announcement.content,
+                    date: announcement.date,
+                    priority: announcement.priority,
+                    image: announcement.image || null
+                });
+            }
+        });
+        localStorage.setItem('dashboardAnnouncements', JSON.stringify(dashboardAnnouncements));
+    }
+
+    // Sync news
+    if (superAdminNews.length > 0) {
+        const dashboardNews = JSON.parse(localStorage.getItem('dashboardNews') || '[]');
+        superAdminNews.forEach(news => {
+            if (!dashboardNews.find(n => n.id === news.id)) {
+                dashboardNews.push({
+                    id: news.id,
+                    title: news.title,
+                    content: news.content,
+                    date: news.date,
+                    category: news.category,
+                    image: news.image || null
+                });
+            }
+        });
+        localStorage.setItem('dashboardNews', JSON.stringify(dashboardNews));
+    }
+
+    // Sync alumni
+    if (superAdminAlumni.length > 0) {
+        const dashboardAlumni = JSON.parse(localStorage.getItem('dashboardAlumni') || '[]');
+        superAdminAlumni.forEach(alumnus => {
+            if (!dashboardAlumni.find(a => a.id === alumnus.id)) {
+                dashboardAlumni.push({
+                    id: alumnus.id,
+                    name: alumnus.name,
+                    email: alumnus.email,
+                    batch: alumnus.batch,
+                    course: alumnus.course,
+                    position: alumnus.position,
+                    company: alumnus.company,
+                    bio: alumnus.bio,
+                    image: alumnus.image || null
+                });
+            }
+        });
+        localStorage.setItem('dashboardAlumni', JSON.stringify(dashboardAlumni));
+    }
+}
+
+function loadAllSuperAdminContent() {
+    // Load posts
+    const posts = JSON.parse(localStorage.getItem('superAdminPosts') || '[]');
+    const postsContainer = document.getElementById('superAdminPosts');
+    if (postsContainer && posts.length > 0) {
+        const postsHTML = posts.slice(0, 3).map(post => `
+            <div class="content-item">
+                ${post.image ? `<img src="${post.image}" alt="${post.title}" class="content-image">` : ''}
+                <div class="content-details">
+                    <h4>${post.title}</h4>
+                    <p>${post.content.substring(0, 100)}...</p>
+                    <span class="category-badge">${post.category}</span>
+                    <small class="content-date">${new Date(post.date).toLocaleDateString()}</small>
+                </div>
+            </div>
+        `).join('');
+        postsContainer.innerHTML = postsHTML;
+    }
+
+    // Load announcements
+    const announcements = JSON.parse(localStorage.getItem('superAdminAnnouncements') || '[]');
+    const announcementsContainer = document.getElementById('superAdminAnnouncements');
+    if (announcementsContainer && announcements.length > 0) {
+        const announcementsHTML = announcements.slice(0, 3).map(announcement => `
+            <div class="content-item announcement">
+                ${announcement.image ? `<img src="${announcement.image}" alt="${announcement.title}" class="content-image">` : ''}
+                <div class="content-details">
+                    <h4>${announcement.title}</h4>
+                    <p>${announcement.content.substring(0, 100)}...</p>
+                    <span class="priority-badge priority-${announcement.priority}">${announcement.priority}</span>
+                    <small class="content-date">${new Date(announcement.date).toLocaleDateString()}</small>
+                </div>
+            </div>
+        `).join('');
+        announcementsContainer.innerHTML = announcementsHTML;
+    }
+
+    // Load news
+    const news = JSON.parse(localStorage.getItem('superAdminNews') || '[]');
+    const newsContainer = document.getElementById('superAdminNews');
+    if (newsContainer && news.length > 0) {
+        const newsHTML = news.slice(0, 3).map(newsItem => `
+            <div class="content-item news">
+                ${newsItem.image ? `<img src="${newsItem.image}" alt="${newsItem.title}" class="content-image">` : ''}
+                <div class="content-details">
+                    <h4>${newsItem.title}</h4>
+                    <p>${newsItem.content.substring(0, 100)}...</p>
+                    <span class="category-badge">${newsItem.category}</span>
+                    <small class="content-date">${new Date(newsItem.date).toLocaleDateString()}</small>
+                </div>
+            </div>
+        `).join('');
+        newsContainer.innerHTML = newsHTML;
+    }
+
+    // Load alumni
+    const alumni = JSON.parse(localStorage.getItem('superAdminAlumni') || '[]');
+    const alumniContainer = document.getElementById('superAdminAlumni');
+    if (alumniContainer && alumni.length > 0) {
+        const alumniHTML = alumni.slice(0, 3).map(alumnus => `
+            <div class="content-item alumni">
+                ${alumnus.image ? `<img src="${alumnus.image}" alt="${alumnus.name}" class="content-image">` : ''}
+                <div class="content-details">
+                    <h4>${alumnus.name}</h4>
+                    <p>${alumnus.course} - Class of ${alumnus.batch}</p>
+                    ${alumnus.position ? `<p class="alumni-position">${alumnus.position} at ${alumnus.company}</p>` : ''}
+                    <small class="content-date">${new Date(alumnus.date).toLocaleDateString()}</small>
+                </div>
+            </div>
+        `).join('');
+        alumniContainer.innerHTML = alumniHTML;
+    }
+}
+
+function loadNewsFromSuperAdmin() {
+    // This function is now handled by loadAllSuperAdminContent()
+    // Keeping for compatibility
+    loadAllSuperAdminContent();
+}
+
+// Auto-refresh content every 30 seconds
+setInterval(() => {
+    syncDataFromSuperAdmin();
+    loadAllSuperAdminContent();
+}, 30000);
+</script>
+
+<style>
+/* Super Admin Content Styles for News Dashboard */
+.super-admin-news-content {
+    padding: 60px 0;
+    background: #f8f9fa;
+    margin-top: 40px;
+    border-top: 3px solid #3498db;
+}
+
+.super-admin-news-content .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.super-admin-news-content .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.super-admin-news-content .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 2px;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.content-section {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid #3498db;
+}
+
+.content-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.content-section h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.content-section h3::before {
+    content: '📄';
+    font-size: 1.2rem;
+}
+
+.content-section:nth-child(2) h3::before {
+    content: '📢';
+}
+
+.content-section:nth-child(3) h3::before {
+    content: '🗞️';
+}
+
+.content-section:nth-child(4) h3::before {
+    content: '🎓';
+}
+
+.content-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.content-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border-left-color: #3498db;
+}
+
+.content-item.announcement:hover {
+    border-left-color: #f39c12;
+}
+
+.content-item.news:hover {
+    border-left-color: #667eea;
+}
+
+.content-item.alumni:hover {
+    border-left-color: #27ae60;
+}
+
+.content-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.content-details {
+    flex: 1;
+}
+
+.content-details h4 {
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.content-details p {
+    margin: 0 0 8px 0;
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.alumni-position {
+    color: #3498db !important;
+    font-weight: 500 !important;
+}
+
+.content-date {
+    color: #95a5a6;
+    font-size: 0.75rem;
+    display: block;
+    margin-top: 6px;
+}
+
+.priority-badge, .category-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.priority-urgent { background: #e74c3c; color: white; }
+.priority-high { background: #f39c12; color: white; }
+.priority-medium { background: #3498db; color: white; }
+.priority-low { background: #95a5a6; color: white; }
+
+.category-badge {
+    background: #667eea;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .super-admin-news-content {
+        padding: 40px 0;
+    }
+    
+    .super-admin-news-content .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .content-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .content-image {
+        width: 100%;
+        height: 150px;
+        margin: 0 auto 10px auto;
+    }
+    
+    .content-section {
+        padding: 20px;
+    }
+}
+</style>
+              
+<script>
+      localStorage.setItem('dashboardNews', JSON.stringify(dashboardNews));
+
+
+    // Sync announcements
+    if (superAdminAnnouncements.length > 0) {
+        const dashboardAnnouncements = JSON.parse(localStorage.getItem('dashboardAnnouncements') || '[]');
+        superAdminAnnouncements.forEach(announcement => {
+            if (!dashboardAnnouncements.find(a => a.id === announcement.id)) {
+                dashboardAnnouncements.push({
+                    id: announcement.id,
+                    title: announcement.title,
+                    content: announcement.content,
+                    date: announcement.date,
+                    priority: announcement.priority
+                });
+            }
+        });
+        localStorage.setItem('dashboardAnnouncements', JSON.stringify(dashboardAnnouncements));
+    }
+
+
+function loadNewsFromSuperAdmin() {
+    const newsData = JSON.parse(localStorage.getItem('dashboardNews') || '[]');
+    const announcementsData = JSON.parse(localStorage.getItem('dashboardAnnouncements') || '[]');
+    const newsContainer = document.querySelector('main.scrollable');
+    
+    if (newsContainer && (newsData.length > 0 || announcementsData.length > 0)) {
+        // Find the pagination section and add dynamic news after it
+        const paginationSection = newsContainer.querySelector('.tile');
+        
+        // Combine news and announcements, sort by date
+        const allNews = [...newsData, ...announcementsData].sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        if (allNews.length > 0 && paginationSection) {
+            // Insert dynamic news after the pagination section
+            allNews.slice(0, 5).forEach((item, index) => {
+                const newsArticle = document.createElement('article');
+                newsArticle.className = 'news';
+                newsArticle.style.marginTop = index === 0 ? '20px' : '0';
+                
+                const priority = item.priority || 'normal';
+                const priorityBadge = priority !== 'normal' ? 
+                    `<span style="background: ${getPriorityColor(priority)}; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">${priority.toUpperCase()}</span>` : '';
+                
+                newsArticle.innerHTML = `
+                    <div class="image-box">
+                       ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<img src="{% static "dashboard/images/default-news.jpg" %}" alt="News">'}
+                    </div>
+                    <div class="content">
+                        <div class="date">📅 ${new Date(item.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}${priorityBadge}</div>
+                        <h2>${item.title}</h2>
+                        <p>${item.content.length > 200 ? item.content.substring(0, 200) + '...' : item.content}</p>
+                        <div class="footer">
+                            <a href="#" class="read" onclick="viewFullNewsContent('${item.id}'); return false;">READ MORE →</a>
+                            <span class="share">f&nbsp;&nbsp;Share</span>
+                        </div>
+                    </div>
+                `;
+                
+                paginationSection.parentNode.insertBefore(newsArticle, paginationSection.nextSibling);
+            });
+        }
+    }
+}
+
+function getPriorityColor(priority) {
+    switch(priority) {
+        case 'urgent': return '#e74c3c';
+        case 'high': return '#f39c12';
+        case 'medium': return '#3498db';
+        case 'low': return '#27ae60';
+        default: return '#95a5a6';
+    }
+}
+
+function viewFullNewsContent(itemId) {
+    const allNews = [...JSON.parse(localStorage.getItem('dashboardNews') || '[]'), 
+                    ...JSON.parse(localStorage.getItem('dashboardAnnouncements') || '[]')];
+    const item = allNews.find(n => n.id === itemId);
+    
+    if (item) {
+        // Create modal or alert to show full content
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        `;
+        
+        modal.innerHTML = `
+            <div style="background: white; padding: 30px; border-radius: 15px; max-width: 600px; max-height: 80vh; overflow-y: auto; margin: 20px;">
+                <h2 style="color: #2c3e50; margin-bottom: 15px;">${item.title}</h2>
+                <div style="color: #7f8c8d; margin-bottom: 20px;">
+                    📅 ${new Date(item.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    ${item.priority ? `<span style="background: ${getPriorityColor(item.priority)}; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">${item.priority.toUpperCase()}</span>` : ''}
+                </div>
+                <div style="color: #2c3e50; line-height: 1.6; margin-bottom: 20px;">${item.content}</div>
+                <button onclick="this.closest('div').parentElement.remove()" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Close</button>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+    }
+}
+
+// Auto-refresh data every 5 minutes
+setInterval(() => {
+    syncDataFromSuperAdmin();
+    loadNewsFromSuperAdmin();
+}, 5 * 60 * 1000);
+
+
+</script>
+
+
+{% endblock %}

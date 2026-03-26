@@ -1,0 +1,296 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f4f5f6 0%, #fefdff 100%);
+    min-height: 100vh;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+.main-wrapper {
+    display: flex;
+    height: 100vh;
+    padding: 5px 20px;
+    gap: 20px;
+}
+
+/* =========================
+   LEFT PANEL (FIXED)
+========================= */
+.left-panel {
+    width: 320px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* PROGRAM & CONTACT BOX */
+.program-box,
+.contact-box {
+    background: linear-gradient(145deg, #ffffff, #f8f9ff);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(76, 175, 80, 0.15);
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.program-box::before,
+.contact-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f8f8f8, #f8f1ff);
+    border-radius: 16px 16px 0 0;
+}
+
+/* PROGRAM BUTTONS */
+.program-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.program-btn {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #5a6c7d;
+    border-bottom: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.program-btn:hover {
+    background: rgba(76, 175, 80, 0.05);
+    transform: translateX(4px);
+    color: #217791;
+}
+
+.program-btn.active {
+    font-weight: 700;
+    background: linear-gradient(90deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1));
+    border-left: 3px solid #217791;
+    color: #217791;
+}
+
+.program-btn i {
+    font-size: 8px;
+    color:#217791;
+}
+
+/* CONTACT */
+.contact-box h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: #2c3e50;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.contact-box p {
+    font-size: 13px;
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #5a6c7d;
+    transition: all 0.3s ease;
+}
+
+.contact-box p:hover {
+    color: #217791;
+    transform: translateX(2px);
+}
+
+.contact-box i {
+    width: 16px;
+    color: #217791;
+    font-size: 14px;
+}
+
+.follow {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.follow i {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #cddc39, #8bc34a);
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.follow i:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+}
+
+/* =========================
+   RIGHT PANEL (SCROLLABLE)
+========================= */
+.right-panel {
+    flex: 1;
+    background: linear-gradient(145deg, #ffffff, #fafbff);
+    border-radius: 16px;
+    padding: 32px;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    border: 1px solid rgba(76, 175, 80, 0.08);
+    position: relative;
+    display: none;
+}
+
+.right-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f8f8f8, #f8f1ff);
+    border-radius: 16px 16px 0 0;
+}
+
+/* TITLE */
+.right-panel h1 {
+    font-size: 30px;
+    color: #2c3e50;
+    
+    margin-bottom: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.title-line {
+    border-bottom: 3px solid transparent;
+    background: linear-gradient(90deg, #217791);
+    margin-bottom: 24px;
+    height: 3px;
+    border-radius: 2px;
+}
+
+/* CONTENT */
+.right-panel p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #217791;
+    margin-bottom: 16px;
+}
+
+/* IMAGE */
+.content-image {
+    margin: 24px 0;
+    text-align: center;
+}
+
+.image-row {
+    display: flex;
+    gap: 10px;
+}
+
+.content-image img {
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 8px 32px rgba(76, 175, 80, 0.2);
+    transition: all 0.3s ease;
+}
+
+.content-image img:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(76, 175, 80, 0.3);
+}
+
+/* SECTIONS */
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title::before {
+    content: "";
+    width: 4px;
+    height: 16px;
+    background: linear-gradient(180deg, #fdfdff, #4caf50);
+    margin-right: 12px;
+    border-radius: 2px;
+}
+
+.section-divider {
+    border-bottom: 2px solid transparent;
+    background: linear-gradient(90deg, rgba(76, 175, 80, 0.1) 30%, transparent 30%);
+    margin: 12px 0 20px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+/* SCROLLBAR STYLING */
+.right-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.right-panel::-webkit-scrollbar-track {
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 4px;
+}
+
+.right-panel::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #f3f7f3, #ffffff);
+    border-radius: 4px;
+}
+
+.right-panel::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #45a049, #7cb342);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .left-panel {
+        width: 100%;
+        order: 2;
+    }
+    
+    .right-panel {
+        order: 1;
+        padding: 20px;
+    }
+    
+    .program-box,
+    .contact-box {
+        margin-bottom: 15px;
+        padding: 20px;
+    }
+}

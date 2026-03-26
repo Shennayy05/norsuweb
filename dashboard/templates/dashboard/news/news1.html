@@ -1,0 +1,651 @@
+{% extends 'dashboard/base_simple.html' %}
+{% load static %}
+
+{% block title %}Conference Meeting - NORSU News{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'dashboard/css/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/article.css' %}">
+
+
+<style>
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(31, 122, 63, 0.2);
+    padding-bottom: 2px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn.active {
+    color: #1f7a3f;
+    background: rgba(31, 122, 63, 0.1);
+    border-bottom: 3px solid #1f7a3f;
+    margin-bottom: -2px;
+}
+
+.tab-btn:hover {
+    color: #1f7a3f;
+    background: rgba(31, 122, 63, 0.05);
+}
+
+/* Content Sections */
+.news-content {
+    display: none;
+}
+
+.news-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/navbar.html' %}
+
+<div class="article-wrapper">
+
+    <!-- TAB NAVIGATION -->
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="switchTab('news1')">Higalaay Celebration</button>
+        <button class="tab-btn " onclick="switchTab('news2')">Academic Announcement</button>
+        <button class="tab-btn " onclick="switchTab('news3')">Intramurals Awarding</button>
+        <button class="tab-btn " onclick="switchTab('news4')">Awarding ceremonies</button>
+        <button class="tab-btn " onclick="switchTab('news5')">Back To School</button>
+        <button class="tab-btn " onclick="switchTab('news6')">Admission Test</button>
+        <button class="tab-btn " onclick="switchTab('news7')">COLLEGE ANNOUNCEMENT</button>
+    </div>
+
+    <!-- NEWS 1 CONTENT -->
+    <div id="news1" class="news-content active">
+        <!-- HEADER -->
+        <div class="article-header">
+            <h1>
+              HIGALAAY SA NORSU-BSC (School Year 2025-2026)<br>
+            </h1>
+            <span class="article-date"> February 23, 2025</span>
+        </div>
+        
+        <!-- CONTENT -->
+        <div class="article-content">
+
+            <!-- LEFT IMAGES -->
+            <div class="article-images">
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/ac.jpg' %}" alt="Higalaay">
+                </div>
+
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/gg.jpg' %}" alt="University Campus">
+                </div>
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="article-text">
+                <p>
+                    The celebration of Higalaay sa NORSU-BSC as a meaningful event that marks the official 
+                    opening of School Year 2025–2026 at Negros Oriental State University – Bayawan Sta Catalina Campus. 
+                    Through this program, we warmly welcome our new students and reaffirm our unity as one 
+                    academic community composed of students, faculty, and staff. Higalaay reflects our shared 
+                    values of hospitality, inclusivity, and commitment to academic excellence.
+                </p>
+
+                <p>
+                    Throughout the event, various presentations, cultural performances, and interactive 
+                    activities are conducted to give students the opportunity to get to know one another 
+                    and showcase their talents. Student organizations and different academic departments 
+                    actively participate by introducing their programs, services, and campus initiatives. 
+                    These activities help freshmen and transferees better understand campus life and the 
+                    opportunities available to them at NORSU-BSC.
+                </p>
+
+                <p>
+                    More than just a welcoming celebration, Higalaay sa NORSU-BSC serves as a foundation 
+                    for building camaraderie, respect, and cooperation within the academic community. 
+                    It encourages students to be active, responsible, and engaged members of the university 
+                    as they prepare for a school year filled with learning, personal growth, and academic success.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEWS 2 CONTENT -->
+    <div id="news2" class="news-content"> 
+        <!-- HEADER -->
+        <div class="article-header">
+            <h1>
+                ACADEMIC ADVISORY<br>
+                CLASS SUSPENSION UPDATE
+            </h1>
+            <span class="article-date">February 5, 2025</span>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="article-content">
+
+            <!-- LEFT IMAGES -->
+            <div class="article-images">
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/ss.jpg' %}" alt="Class Suspension">
+                </div>
+
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/suspension.jpg' %}" alt="University Campus">
+                </div>
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="article-text">
+                <p>
+                    Due to unforeseen circumstances and in consideration of student safety and welfare,
+                    all NORSU campuses shall shift to asynchronous classes starting Monday, November 3, 2025,
+                    until the suspension is officially lifted by the university administration.
+                </p>
+
+                <p>
+                    This advisory affects all undergraduate and graduate programs across all NORSU campuses
+                    including Bayawan-Sta. Catalina, Dumaguete, Bais, and satellite campuses.
+                    Students are advised to monitor official university channels for further updates and
+                    announcements regarding the resumption of face-to-face classes.
+                </p>
+
+                <p>
+                    Faculty members are instructed to prepare alternative learning materials and
+                    conduct online consultations to ensure the continuity of education during this period.
+                    The university administration emphasizes that this measure is taken as a precautionary
+                    step to maintain the safety and well-being of the entire academic community.
+                </p>
+                <p>
+                    Faculty members are instructed to prepare alternative learning materials and
+                    conduct online consultations to ensure the continuity of education during this period.
+                    The university administration emphasizes that this measure is taken as a precautionary
+                    step to maintain the safety and well-being of the entire academic community.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- NEWS 3 CONTENT -->
+    <div id="news3" class="news-content"> 
+        <!-- HEADER -->
+        <div class="article-header">
+            <h1>
+                NORSU BSC INTRAMURALS CELEBRATION<br>
+            </h1>
+            <span class="article-date">Feruary 9, 2025</span>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="article-content">
+
+            <!-- LEFT IMAGES -->
+            <div class="article-images">
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/intram.jpg' %}" alt="Intramurals">
+                </div>
+
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/in.jpg' %}" alt="University Campus">
+                </div>
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="article-text">
+                <p>
+                    Negros Oriental State University – Bayawan Sta Catalina Campus (NORSU–BSC) 
+                    proudly gathered for Intramurals 2025, bringing together students 
+                    from its six colleges in a campus-wide celebration of athleticism, teamwork, 
+                    and sportsmanship. The event served as a unifying activity that strengthened 
+                    intercollegiate relationships while fostering friendly competition and mutual 
+                    respect among participants.
+                </p>
+
+                <p>
+                    Throughout the intramurals, students from the six colleges 
+                    actively participated in various sports and recreational activities, 
+                    showcasing not only their physical skills but also discipline, leadership, 
+                    and cooperation. Each college demonstrated pride and determination as they 
+                    represented their respective teams, contributing to a lively and energetic 
+                    atmosphere across the campus.
+                </p>
+
+                <p>
+                    More than a sporting event, Intramurals 2025 reinforced 
+                    unity and school spirit within the NORSU–BSC community. It provided 
+                    students from all six colleges an opportunity to connect beyond academics, 
+                    build lasting camaraderie, and create meaningful memories that highlight 
+                    the values of teamwork, perseverance, and collective excellence.
+                </p>
+                <p>
+                    The event also promoted inclusivity and equal participation, ensuring 
+                    that students from all six colleges were given the opportunity to engage, 
+                    compete, and support one another. Through organized activities and collaborative
+                     efforts, the intramurals encouraged respect, fairness, and appreciation for 
+                     diverse talents within the campus community.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- NEWS 4 CONTENT -->
+    <div id="news4" class="news-content"> 
+        <!-- HEADER -->
+        <div class="article-header">
+            <h1>
+                GRAND CONVOCATION, AWARDING CEREMONIES HIGHLIGHT<br>
+                NORSU’s 118th FOUNDING ANNIVERSARY
+            </h1>
+            <span class="article-date">December 1, 2025</span>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="article-content">
+
+            <!-- LEFT IMAGES -->
+            <div class="article-images">
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/aw.jpg' %}" alt="Class Suspension">
+                </div>
+
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/aw1.jpg' %}" alt="University Campus">
+                </div>
+
+                     <div class="image-box">
+                    <img src="{% static 'dashboard/images/aw1.jpg' %}" alt="University Campus">
+                </div>
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="article-text">
+                <p>
+                   In a momentous occasion marking the 118th founding anniversary of 
+                   Negros Oriental State University (NORSU), the university held 
+                   its annual Convocation program at NORSU Gymnasium on November 28, 2025, 
+                   showcasing the institution's legacy of academic excellence.
+                   The program kicked off with the theme "Unified in Excellence: SHINE Together for 
+                   Global Recognition," with welcoming remarks from Dr. Merivic G. Catada, 
+                Vice President for Administration and Finance, who extended a warm greeting to 
+                the university’s faculty, staff, and students.
+                </p>
+
+                <p>
+                    In his keynote address, Dr. Noel Marjon E. Yasi, the university president, 
+                    expressed his deep gratitude to the former university leaders, as well as 
+                    the faculty, and staff, acknowledging their contributions to the institution’s 
+                    growth. "Let our actions speak louder than words, and the top example can inspire others," 
+                    he added. The major highlight of the event was the recognition of faculty, staff, 
+                    and students who have made significant contributions to the University’s mission. 
+                </p>
+
+                <p>
+                    Several faculty members of NORSU BSC received prestigious awards in 
+                    categories such as the Scopus Citation Award, AD Scientific Award, 
+                    and Google Scholar Citation Award, among others. Special recognition was also given to students excelling in academics, research, and community service.
+                    The award categories included:
+                    Scopus Citation Award
+                    AD Scientific Award
+                    Google Scholar Citation Award
+                    ResearchGate Citation Award
+                    WURI 2025 Contributor Award
+                    Student Mobility
+                    Industrial and Entrepreneurial Spirit
+                    Thesis Management
+                    Technology Development and Application
+                    Empowerment-Based Management
+                    Sustainability Initiatives
+                </p>
+                <p>
+                    Additionally, the event featured performances by student artists, adding a cultural touch to the celebration. Dr. Edwin Romano Jr., Vice President for Academic Affairs, delivered the closing remarks, thanking attendees for their dedication and urging students to use their education for the greater good, in line with NORSU's mission to be a top-performing institution committed to excellence.
+                    Dr. Edwin Romano Jr., NORSU’s Vice President for Research, Innovation  Development and Extension, delivered the closing remarks, thanking everyone for their continued dedication to the university’s mission. 
+                    This year’s convocation was a fitting tribute to NORSU’s legacy and a promising look at the bright future ahead for the university and its stakeholders.
+            </div>
+        </div>
+    </div>
+    <!-- NEWS 5 CONTENT -->
+    <div id="news5" class="news-content"> 
+        <!-- HEADER -->
+        <div class="article-header">
+            <h1>
+                Back-to-School Marks Start of Second Semester, AY 2025-2026 at NORSU-BSC
+            </h1>
+            <span class="article-date">December 1, 2025</span>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="article-content">
+
+            <!-- LEFT IMAGES -->
+            <div class="article-images">
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/bb.jpg' %}" alt="Class Suspension">
+                </div>
+
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/back.jpg' %}" alt="University Campus">
+                </div>
+
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="article-text">
+                <p>
+                   Negros Oriental State University- Bayawan–Santa Catalina Campus (NORSU-BSC) 
+                   officially reopened its doors last January 19, 2026, marking the beginning of 
+                   the second semester of Academic Year 2025-2026. The return of students, faculty, 
+                   and staff brought renewed energy to the campus as classes formally resumed.
+                </p>
+
+
+                <p>
+                    In the first week of classes, students settled into their new schedules 
+                    while instructors provided an overview of the semester’s lessons, expectations, 
+                    and academic requirements. This helped learners prepare for the subjects they will 
+                    take and guided them in meeting the standards set for the term. 
+                </p>
+
+                <p>
+                    Campus offices and student services were also fully operational, 
+                    assisting learners with enrollment, schedules, and other academic concerns. 
+                    Faculty and staff worked hand in hand to ensure that classes ran smoothly and 
+                    that activities followed proper timelines.
+                </p>
+                <p>
+                  The well-organized start of the semester highlighted the university’s 
+                  commitment to fostering effective learning and active student participation. 
+                  With a strong beginning, NORSU–Bayawan–Santa Catalina Campus set the tone for 
+                  a productive and engaging academic journey in the weeks ahead.
+             </div>
+        </div>
+    </div>
+    <!-- NEWS 6 CONTENT -->
+    <div id="news6" class="news-content"> 
+        <!-- HEADER -->
+        <div class="article-header">
+            <h1>
+                NORSU BSC ADMISSION TEST
+            </h1>
+            <span class="article-date">February 16, 2025</span>
+        </div>
+        <!-- CONTENT -->
+        <div class="article-content">
+
+            <!-- LEFT IMAGES -->
+            <div class="article-images">
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/test.jpg' %}" alt="Class Suspension">
+                </div>
+
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/test.jpg' %}" alt="University Campus">
+                </div>
+
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="article-text">
+                <p>
+                   Negros Oriental State University- Bayawan–Santa Catalina Campus (NORSU-BSC) 
+                   officially reopened its doors last January 19, 2026, marking the beginning of 
+                   the second semester of Academic Year 2025-2026. The return of students, faculty, 
+                   and staff brought renewed energy to the campus as classes formally resumed.
+                </p>
+
+
+                <p>
+                    In the first week of classes, students settled into their new schedules 
+                    while instructors provided an overview of the semester’s lessons, expectations, 
+                    and academic requirements. This helped learners prepare for the subjects they will 
+                    take and guided them in meeting the standards set for the term. 
+                </p>
+
+                <p>
+                    Campus offices and student services were also fully operational, 
+                    assisting learners with enrollment, schedules, and other academic concerns. 
+                    Faculty and staff worked hand in hand to ensure that classes ran smoothly and 
+                    that activities followed proper timelines.
+                </p>
+                <p>
+                  The well-organized start of the semester highlighted the university’s 
+                  commitment to fostering effective learning and active student participation. 
+                  With a strong beginning, NORSU–Bayawan–Santa Catalina Campus set the tone for 
+                  a productive and engaging academic journey in the weeks ahead.
+             </div>
+        </div>
+    </div>
+
+        <!-- NEWS 7 CONTENT -->
+    <div id="news7" class="news-content"> 
+        <!-- HEADER -->
+        <div class="article-header">
+            <h1>
+               HDJSGDHSFJHSGKV
+            </h1>
+            <span class="article-date">December 1, 2025</span>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="article-content">
+
+            <!-- LEFT IMAGES -->
+            <div class="article-images">
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/bb.jpg' %}" alt="Class Suspension">
+                </div>
+
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/back.jpg' %}" alt="University Campus">
+                </div>
+
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="article-text">
+                <p>
+                   UDFKGDFVFBFHUUKJFBKFKLJBJFDMB
+                </p>
+
+
+                <p>
+                    In the first week of classes, students settled into their new schedules 
+                    while instructors provided an overview of the semester’s lessons, expectations, 
+                    and academic requirements. This helped learners prepare for the subjects they will 
+                    take and guided them in meeting the standards set for the term. 
+                </p>
+
+                <p>
+                    Campus offices and student services were also fully operational, 
+                    assisting learners with enrollment, schedules, and other academic concerns. 
+                    Faculty and staff worked hand in hand to ensure that classes ran smoothly and 
+                    that activities followed proper timelines.
+                </p>
+                <p>
+                  The well-organized start of the semester highlighted the university’s 
+                  commitment to fostering effective learning and active student participation. 
+                  With a strong beginning, NORSU–Bayawan–Santa Catalina Campus set the tone for 
+                  a productive and engaging academic journey in the weeks ahead.
+             </div>
+        </div>
+    </div>
+
+        <!-- NEWS 8 CONTENT -->
+    <div id="news8" class="news-content"> 
+        <!-- HEADER -->
+        <div class="article-header">
+            <h1>
+                Back-to-School Marks Start of Second Semester, AY 2025-2026 at NORSU-BSC
+            </h1>
+            <span class="article-date">December 1, 2025</span>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="article-content">
+
+            <!-- LEFT IMAGES -->
+            <div class="article-images">
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/bb.jpg' %}" alt="Class Suspension">
+                </div>
+
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/back.jpg' %}" alt="University Campus">
+                </div>
+
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="article-text">
+                <p>
+                   Negros Oriental State University- Bayawan–Santa Catalina Campus (NORSU-BSC) 
+                   officially reopened its doors last January 19, 2026, marking the beginning of 
+                   the second semester of Academic Year 2025-2026. The return of students, faculty, 
+                   and staff brought renewed energy to the campus as classes formally resumed.
+                </p>
+
+
+                <p>
+                    In the first week of classes, students settled into their new schedules 
+                    while instructors provided an overview of the semester’s lessons, expectations, 
+                    and academic requirements. This helped learners prepare for the subjects they will 
+                    take and guided them in meeting the standards set for the term. 
+                </p>
+
+                <p>
+                    Campus offices and student services were also fully operational, 
+                    assisting learners with enrollment, schedules, and other academic concerns. 
+                    Faculty and staff worked hand in hand to ensure that classes ran smoothly and 
+                    that activities followed proper timelines.
+                </p>
+                <p>
+                  The well-organized start of the semester highlighted the university’s 
+                  commitment to fostering effective learning and active student participation. 
+                  With a strong beginning, NORSU–Bayawan–Santa Catalina Campus set the tone for 
+                  a productive and engaging academic journey in the weeks ahead.
+             </div>
+        </div>
+    </div>
+
+        <!-- NEWS 9 CONTENT -->
+    <div id="news9" class="news-content"> 
+        <!-- HEADER -->
+        <div class="article-header">
+            <h1>
+                Back-to-School Marks Start of Second Semester, AY 2025-2026 at NORSU-BSC
+            </h1>
+            <span class="article-date">December 1, 2025</span>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="article-content">
+
+            <!-- LEFT IMAGES -->
+            <div class="article-images">
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/bb.jpg' %}" alt="Class Suspension">
+                </div>
+
+                <div class="image-box">
+                    <img src="{% static 'dashboard/images/back.jpg' %}" alt="University Campus">
+                </div>
+
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="article-text">
+                <p>
+                   Negros Oriental State University- Bayawan–Santa Catalina Campus (NORSU-BSC) 
+                   officially reopened its doors last January 19, 2026, marking the beginning of 
+                   the second semester of Academic Year 2025-2026. The return of students, faculty, 
+                   and staff brought renewed energy to the campus as classes formally resumed.
+                </p>
+
+
+                <p>
+                    In the first week of classes, students settled into their new schedules 
+                    while instructors provided an overview of the semester’s lessons, expectations, 
+                    and academic requirements. This helped learners prepare for the subjects they will 
+                    take and guided them in meeting the standards set for the term. 
+                </p>
+
+                <p>
+                    Campus offices and student services were also fully operational, 
+                    assisting learners with enrollment, schedules, and other academic concerns. 
+                    Faculty and staff worked hand in hand to ensure that classes ran smoothly and 
+                    that activities followed proper timelines.
+                </p>
+                <p>
+                  The well-organized start of the semester highlighted the university’s 
+                  commitment to fostering effective learning and active student participation. 
+                  With a strong beginning, NORSU–Bayawan–Santa Catalina Campus set the tone for 
+                  a productive and engaging academic journey in the weeks ahead.
+             </div>
+        </div>
+    </div>
+
+    </div>
+</div>       
+<script>
+function switchTab(tabId) {
+    // Hide all content sections
+    const allContent = document.querySelectorAll('.news-content');
+    allContent.forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Remove active class from all buttons
+    const allButtons = document.querySelectorAll('.tab-btn');
+    allButtons.forEach(button => {
+        button.classList.remove('active');
+    });
+    
+    // Show selected content and activate button
+    const selectedContent = document.getElementById(tabId);
+    const selectedButton = document.querySelector(`.tab-btn[onclick="switchTab('${tabId}')"]`);
+    
+    if (selectedContent) {
+        selectedContent.classList.add('active');
+    }
+    
+    if (selectedButton) {
+        selectedButton.classList.add('active');
+    }
+}
+
+// Handle anchor links from news dashboard
+document.addEventListener('DOMContentLoaded', function() {
+    const hash = window.location.hash;
+    if (hash === '#news2') {
+        switchTab('news2');
+    } else if (hash === '#news3') {
+        switchTab('news3');
+    } else if (hash === '#news4') {
+        switchTab('news4');
+    } else if (hash === '#news5') {
+        switchTab('news5');
+    } else if (hash === '#news6') {
+        switchTab('news6');
+    }
+});
+</script>
+
+{% endblock %}
