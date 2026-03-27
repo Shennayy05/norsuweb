@@ -730,8 +730,14 @@ document.addEventListener('DOMContentLoaded', function() {
         loadProgramData(programId);
     });
     
-    // Initialize with BSIT visible
-    switchTab('bsit');
+    // Check for hash in URL to switch to correct tab
+    const hash = window.location.hash.substring(1);
+    if (hash && programConfigs[hash]) {
+        switchTab(hash);
+    } else {
+        // Default to BSIT if no valid hash
+        switchTab('bsit');
+    }
 });
 </script>
 

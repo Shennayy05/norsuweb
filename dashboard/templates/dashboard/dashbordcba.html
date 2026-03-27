@@ -435,20 +435,22 @@
           }) : "March 14, 2026";
 
           const card = document.createElement('div');
-          card.className = 'latest-card-professional';
+          card.className = 'latest-card';
           card.innerHTML = `
-            <div class="post-image-container">
+            <div class="latest-card-image-wrapper">
               <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
-              <div class="post-badges">
-                <span class="badge-new">NEW</span>
-                <span class="badge-type">${(post.type || 'ANNOUNCEMENT').toUpperCase()}</span>
-              </div>
+              <div class="latest-card-badge-left">NEW</div>
+              <div class="latest-card-badge-right">${(post.type || 'ANNOUNCEMENT').toUpperCase()}</div>
             </div>
-            <div class="post-content">
-              <p class="post-date">${date}</p>
-              <h3 class="post-title">${post.title.toUpperCase()}</h3>
-              <p class="post-excerpt">${post.content.substring(0, 80)}...</p>
-              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="read-more">READ MORE &rarr;</a>
+            <div class="latest-card-content">
+              <div class="latest-card-date">
+                <i class="fas fa-calendar-alt"></i> ${date}
+              </div>
+              <h3>${post.title.toUpperCase()}</h3>
+              <p>${post.content ? post.content.substring(0, 100) + '...' : ''}</p>
+              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="latest-card-read-more">
+                READ MORE &rarr;
+              </a>
             </div>
           `;
           container.appendChild(card);
@@ -614,6 +616,21 @@
                         const isHighlighted = program.status === 'active';
                         const statusText = program.status === 'active' ? 'Available' : 'Not Available';
                         
+                        // Map program title to hash used in programs.html
+                        let hash = 'bsit'; // Default
+                        const title = program.title.toLowerCase();
+                        if (title.includes('computer science')) hash = 'bscs';
+                        else if (title.includes('information technology')) hash = 'bsit';
+                        else if (title.includes('elementary education')) hash = 'bsed';
+                        else if (title.includes('secondary education')) hash = 'bpeed';
+                        else if (title.includes('hospitality')) hash = 'bshm';
+                        else if (title.includes('office')) hash = 'bsoa';
+                        else if (title.includes('business')) hash = 'bsba';
+                        else if (title.includes('agriculture')) hash = 'agri';
+                        else if (title.includes('forestry')) hash = 'fores';
+                        else if (title.includes('industrial')) hash = 'bit';
+                        else if (title.includes('criminology')) hash = 'bscrim';
+                        
                         // Use uploaded image or default fallback
                         let programImage = program.image || "/static/dashboard/images/pulis.jpg";
                         
@@ -632,7 +649,7 @@
                                             <span>${statusText}</span>
                                         </div>
                                     </div>
-                                    <a href="/programs/#${program.title.toLowerCase().replace(/\s+/g, '-')}" class="learn-btn">Learn More</a>
+                                    <a href="/programs/#${hash}" class="learn-btn">Learn More</a>
                                 </div>
                             </div>
                         `;

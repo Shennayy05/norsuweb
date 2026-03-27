@@ -68,20 +68,14 @@ def super_admin_login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         
-        print(f"Login attempt - Username: {username}, Password length: {len(password) if password else 0}")
-        
         user = authenticate(request, username=username, password=password)
-        
-        print(f"Authentication result: {user}")
         
         if user is not None:
             login(request, user)
             next_url = request.GET.get('next', '/super-admin-dashboard/')
-            print(f"Login successful, redirecting to: {next_url}")
             return redirect(next_url)
         else:
             messages.error(request, 'Invalid username or password')
-            print("Authentication failed")
     
     return render(request, 'dashboard/super-admin-login.html')
 

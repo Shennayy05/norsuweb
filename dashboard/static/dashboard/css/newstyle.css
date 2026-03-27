@@ -6,12 +6,13 @@
 }
 
 html, body {
-    height: 100%;
-    overflow: hidden;
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
 }
 /* PAGE STYLES */
 .page {
-    height: 100vh;
+    min-height: 100vh;
     padding: 40px 60px;
     padding-top: 10px; /* Account for navbar */
 }
@@ -223,31 +224,37 @@ html, body {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .navbar-container {
+    .page {
+        padding: 20px 15px;
+        margin-top: 0;
+    }
+    
+    .layout {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .news {
         flex-direction: column;
         gap: 15px;
+        padding: 20px 0;
     }
-
-    .nav-left, .nav-right {
-        display: none;
+    
+    .image-box {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 16 / 9;
     }
-
-    .mobile-menu-toggle {
-        display: block;
+    
+    .content h2 {
+        font-size: 1.4rem;
     }
-
-    .mobile-nav-menu {
-        display: block;
-    }
-
-    .page {
-        padding: 20px;
-        padding-top: 120px;
-    }
-
-    .layout {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    
+    .scrollable {
+        overflow-y: visible;
+        height: auto;
+        padding-right: 0;
     }
 }
 

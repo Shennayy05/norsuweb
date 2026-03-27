@@ -992,20 +992,18 @@ window.debugCAFFacilities = function() {
           }) : "March 14, 2026";
 
           const card = document.createElement('div');
-          card.className = 'latest-card-professional';
+          card.className = 'latest-card';
           card.innerHTML = `
-            <div class="post-image-container">
+            <div class="latest-card-image-wrapper">
               <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
-              <div class="post-badges">
-                <span class="badge-new">NEW</span>
-                <span class="badge-type">${(post.type || 'ANNOUNCEMENT').toUpperCase()}</span>
-              </div>
+              <div class="latest-card-badge-left">NEW</div>
+              <div class="latest-card-badge-right">${(post.type || 'ANNOUNCEMENT').toUpperCase()}</div>
             </div>
-            <div class="post-content">
-              <p class="post-date">${date}</p>
-              <h3 class="post-title">${post.title.toUpperCase()}</h3>
-              <p class="post-excerpt">${post.content.substring(0, 80)}...</p>
-              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="read-more">READ MORE &rarr;</a>
+            <div class="latest-card-content">
+              <p class="latest-card-date">${date}</p>
+              <h3 class="latest-card-title">${post.title.toUpperCase()}</h3>
+              <p>${post.content.substring(0, 80)}...</p>
+              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="latest-card-read-more">READ MORE &rarr;</a>
             </div>
           `;
           container.appendChild(card);
@@ -1037,18 +1035,16 @@ window.debugCAFFacilities = function() {
 
         posts.forEach(post => {
           const card = document.createElement('div');
-          card.className = 'latest-card-professional';
+          card.className = 'latest-card';
           card.innerHTML = `
-            <div class="post-image-container">
+            <div class="latest-card-image-wrapper">
               <img src="${post.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
-              <div class="post-badges">
-                <span class="badge-type">ALUMNI</span>
-              </div>
+              <div class="latest-card-badge-right">ALUMNI</div>
             </div>
-            <div class="post-content">
-              <h3 class="post-title">${post.title.toUpperCase()}</h3>
-              <p class="post-excerpt">${post.content.substring(0, 100)}...</p>
-              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="read-more">READ MORE &rarr;</a>
+            <div class="latest-card-content">
+              <h3 class="latest-card-title">${post.title.toUpperCase()}</h3>
+              <p>${post.content.substring(0, 100)}...</p>
+              <a href="/news/?postId=${post.id}&section=colleges-announcement" class="latest-card-read-more">READ MORE &rarr;</a>
             </div>
           `;
           container.appendChild(card);
@@ -1158,26 +1154,22 @@ window.debugCAFFacilities = function() {
           } else {
             let html = '';
             cafPrograms.forEach(program => {
-              // Generate URL-friendly program name
-              let programSlug = program.title.toLowerCase()
-                .replace(/bachelor of science in/gi, 'bachelor-of-sciences')
-                .replace(/bachelor of/gi, 'bachelor-of')
-                .replace(/[^a-z0-9\s-]/g, '')
-                .replace(/\s+/g, '-')
-                .replace(/-+/g, '-')
-                .trim('-');
+              // Map program title to hash used in programs.html
+              let hash = 'bsit'; // Default
+              const title = program.title.toLowerCase();
+              if (title.includes('computer science')) hash = 'bscs';
+              else if (title.includes('information technology')) hash = 'bsit';
+              else if (title.includes('elementary education')) hash = 'bsed';
+              else if (title.includes('secondary education')) hash = 'bpeed';
+              else if (title.includes('hospitality')) hash = 'bshm';
+              else if (title.includes('office')) hash = 'bsoa';
+              else if (title.includes('business')) hash = 'bsba';
+              else if (title.includes('agriculture')) hash = 'agri';
+              else if (title.includes('forestry')) hash = 'fores';
+              else if (title.includes('industrial')) hash = 'bit';
+              else if (title.includes('criminology')) hash = 'bscrim';
               
-              // Special handling for agriculture program - point to BS AGRICULTURE section
-              if (program.title.toLowerCase().includes('agriculture')) {
-                programSlug = 'bs-agriculture';
-              }
-              
-              // Special handling for forestry program - point to BS FORESTRY section  
-              if (program.title.toLowerCase().includes('forestry')) {
-                programSlug = 'bs-forestry';
-              }
-              
-              console.log('Program title:', program.title, '→ URL:', '/programs/#' + programSlug);
+              console.log('Program title:', program.title, '→ URL:', '/programs/#' + hash);
               
               html += `
                 <div class="card">
@@ -1187,7 +1179,7 @@ window.debugCAFFacilities = function() {
                     <div class="program-info">
                       <div class="info-item"><i class="fas fa-clock"></i> <span>${program.duration}</span></div>
                     </div>
-                    <a href="/programs/#${programSlug}" class="learn-btn">Learn More</a>
+                    <a href="/programs/#${hash}" class="learn-btn">Learn More</a>
                   </div>
                 </div>`;
             });

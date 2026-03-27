@@ -7,6 +7,289 @@
 
 body {
   background: #c8e6f0f2;
+  padding-top: 60px; /* Add padding to prevent content from being hidden behind the fixed navbar */
+}
+
+/* Add a media query for smaller screens */
+@media (max-width: 768px) {
+  .hero {
+    padding: 20px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .left, .right {
+    text-align: center;
+  }
+
+  .logo-title {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+    position: static;
+    margin-top: 40px;
+  }
+
+  .about-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .goals-list {
+    padding-left: 0;
+  }
+
+  .latest-cards, .alumni-cards, .awards-cards, .facilities-cards, .unified-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* LATEST AT CCJE SECTION */
+.latest-section {
+  padding: 80px 70px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.latest-container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.latest-cards, .alumni-cards, .unified-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px 45px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.latest-card {
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.latest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  border-color: #1fb36a;
+}
+
+.latest-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.latest-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.latest-card-badge-right {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #1fb36a;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.latest-card-badge-left {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ff4757;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.latest-card h3 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 15px;
+  color: #174c2a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.latest-card-date {
+  color: #7a7a7a;
+  font-size: 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.latest-card-read-more {
+  color: #1fb36a;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  transition: all 0.2s ease;
+}
+
+.latest-card-read-more:hover {
+  gap: 10px;
+  color: #174c2a;
+}
+
+.latest-card-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.latest-card p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ALUMNI CARD */
+.alumni-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.alumni-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.alumni-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.alumni-card-content {
+    padding: 22px;
+}
+
+.alumni-card-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #174c2a;
+}
+
+.alumni-position {
+    color: #1fb36a;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.alumni-quote {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* AWARD CARD */
+.award-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.award-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.award-icon-box {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffc107;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+.award-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.award-card-content {
+    padding: 22px;
+}
+
+.award-card-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #174c2a;
+}
+
+.award-card-content p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 /* DYNAMIC PROGRAM CARDS */

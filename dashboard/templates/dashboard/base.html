@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Force desktop view on desktop browsers */
+        @media only screen and (min-width: 1024px) {
+            .nav-links { display: flex !important; }
+            .mobile-menu-toggle { display: none !important; }
+            .mobile-nav-menu { display: none !important; }
+            .navbar-search { display: flex !important; }
+            .admin-login-btn { display: flex !important; }
+            .hero-content { flex-direction: column !important; justify-content: center !important; align-items: center !important; }
+            .hero-title { font-size: 2.8rem !important; text-align: center !important; }
+            .university-info { text-align: center !important; }
+            .top-cards { grid-template-columns: repeat(4, 1fr) !important; }
+        }
+        /* Mobile styles only for actual mobile devices */
+        @media only screen and (max-width: 1023px) and (pointer: coarse) {
+            .nav-links { display: none !important; }
+            .mobile-menu-toggle { display: flex !important; }
+            .navbar-search { display: none !important; }
+            .admin-login-btn { display: none !important; }
+        }
+        /* Override responsive CSS that forces mobile */
+        body { 
+            min-width: unset !important; 
+            max-width: unset !important;
+            overflow-x: unset !important;
+        }
+        html { 
+            max-width: unset !important;
+            overflow-x: unset !important;
+        }
+        .main-navbar { min-width: unset !important; }
+        .container { min-width: unset !important; }
+    </style>
     <title>NORSU Bayawan-Sta. Catalina Campus</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'dashboard/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/index-responsive.css' %}">
     <link rel="stylesheet" href="{% static 'dashboard/css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'dashboard/css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'dashboard/css/location.css' %}">
@@ -45,47 +79,15 @@
                     }
                 });
             }
-            // Mobile menu toggle functionality
-            const menuToggleBtn = document.querySelector('.mobile-menu-toggle');
-            const mobileNavMenu = document.querySelector('.mobile-nav-menu');
-            
-            // Header scroll functionality
+            // Header scroll functionality (desktop only)
             const header = document.querySelector('.main-header');
-            if (header) {
+            if (header && window.innerWidth > 768) {
                 window.addEventListener('scroll', function() {
                     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                     if (scrollTop > 50) {
                         header.style.display = 'none';
                     } else {
                         header.style.display = 'block';
-                    }
-                });
-            }
-            
-            if (menuToggleBtn && mobileNavMenu) {
-                menuToggleBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    menuToggleBtn.classList.toggle('active');
-                    mobileNavMenu.classList.toggle('active');
-                });
-
-                // Close mobile menu when clicking on links
-                const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        menuToggleBtn.classList.remove('active');
-                        mobileNavMenu.classList.remove('active');
-                    });
-                });
-
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    const isClickInsideMenu = mobileNavMenu.contains(event.target);
-                    const isClickOnToggle = menuToggleBtn.contains(event.target);
-                    
-                    if (!isClickInsideMenu && !isClickOnToggle && mobileNavMenu.classList.contains('active')) {
-                        menuToggleBtn.classList.remove('active');
-                        mobileNavMenu.classList.remove('active');
                     }
                 });
             }
@@ -136,6 +138,8 @@
                     console.log('Mobile top-level link clicked:', linkText);
                     
                     const hasDropdown = this.textContent.includes('▼');
+                    const menu = document.getElementById('mobileNavMenu');
+                    const btn = document.getElementById('mobileMenuToggle');
                     
                     // Only prevent default for dropdown triggers
                     if (hasDropdown && !linkText.includes('About')) {
@@ -143,22 +147,13 @@
                         if (href && href.startsWith('#')) {
                             e.preventDefault();
                             const sectionName = linkText.replace(' ▼', '').trim();
-                            
-                            // Close mobile menu after click if needed
-                            // (Actually for dropdowns we might want to keep it open, 
-                            // but the original code closed it)
-                            
-                            // Handle navigation
                             handleNavigation(sectionName);
                         }
                     } else {
-                        // For regular links, just close mobile menu
-                        if (mobileNavMenu) {
-                            mobileNavMenu.classList.remove('active');
-                        }
-                        if (menuToggleBtn) {
-                            menuToggleBtn.classList.remove('active');
-                        }
+                        // For regular links, close mobile menu
+                        if (menu) menu.classList.remove('active');
+                        if (btn) btn.classList.remove('active');
+                        document.body.style.overflow = '';
                     }
                 });
             }

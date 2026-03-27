@@ -5,9 +5,8 @@
         <div class="navbar-logo-section">
             <img src="{% static 'dashboard/images/logo1.png' %}" alt="NORSU Logo" class="navbar-logo">
             <div class="navbar-logo-text">
-                
-                <div class="navbar-subtitle">Negros Oriental State University</div>
-                <div class="navbar-campus">Bayawan-Sta. Catalina Campus</div>
+                <div class="navbar-title">Negros Oriental State University</div>
+                <div class="navbar-subtitle">Bayawan-Sta. Catalina Campus</div>
             </div>
         </div>
 
@@ -41,16 +40,6 @@
                     </div>
                 </div>
             </li>
-            
-            <li class="mobile-dropdown"> 
-                <li class="dropdown">
-                <a href="#Admission">Admissions<span class="dropdown-arrow">▼</span></a>
-                <div class="dropdown-menu">  
-                    <a href="#">Admission Services</a>
-                    <a href="#">Admission Services</a>
-                </div>
-                </li>
-            </li>
             <li><a href="#contacts">Contacts <span class="dropdown-arrow">▼</span></a></li>
             <li><a href="{% url 'alumni' %}">Alumni</a></li>
 </ul>
@@ -78,7 +67,7 @@
             </a>
 
             <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Mobile Menu" onclick="toggleMobileMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -87,259 +76,182 @@
     </div>
 
     <!-- Mobile Navigation Menu -->
-    <div class="mobile-nav-menu">
+    <div class="mobile-nav-menu" id="mobileNavMenu">
+        <!-- Close Button -->
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <div class="mobile-menu-header">
+            <img src="{% static 'dashboard/images/logo1.png' %}" alt="NORSU Logo" class="mobile-menu-logo">
+            <div class="mobile-menu-text">
+                <div class="mobile-menu-university">Negros Oriental State University</div>
+                <div class="mobile-menu-campus">Bayawan-Sta. Catalina Campus</div>
+            </div>
+        </div>
+
+        <!-- Mobile Search -->
+        <div class="mobile-search-container">
+            <div class="navbar-search">
+                <input type="text" class="navbar-search-input" placeholder="Search...">
+                <button class="navbar-search-btn" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
         <ul class="mobile-nav-links">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li class="mobile-dropdown">
-                <a href="#about">About <span class="dropdown-arrow">▼</span></a>
+                <a href="javascript:void(0)" onclick="toggleMobileDropdown(this)">About <span class="dropdown-arrow">▼</span></a>
                 <div class="mobile-dropdown-menu">
                     <a href="{% url 'about' %}">About NORSU</a>
                     <a href="#administration">Administration</a>
                     <a href="#history">History</a>
-                    <a href="#accreditations">Accreditations</a>
                     <a href="/news/">Latest at NORSU</a>
-                    <a href="#">ACADEMICS</a>
-                   
                 </div>
             </li>
-
             <li class="mobile-dropdown">
-                <a href="#academics">Academics <span class="dropdown-arrow">▼</span></a>
+                <a href="javascript:void(0)" onclick="toggleMobileDropdown(this)">Academics <span class="dropdown-arrow">▼</span></a>
                 <div class="mobile-dropdown-menu">
                     <a href="{% url 'academic_calendar' %}">Academic Calendar</a>
-                    <a href="#">Academic Programs</a>
-                    <a href="#">Colleges</a>
+                    <a href="/programs/">Academic Programs</a>
+                    <a href="{% url 'caf_dashboard' %}">College of Agriculture & Forestry</a>
+                    <a href="{% url 'cas_dashboard' %}">College of Arts & Sciences</a>
+                    <a href="{% url 'cba_dashboard' %}">College of Business Administration</a>
+                    <a href="{% url 'ccje_dashboard' %}">College of Criminal Justice Education</a>
+                    <a href="{% url 'cted_dashboard' %}">College of Teacher Education</a>
+                    <a href="{% url 'cit_dashboard' %}">College of Industrial Technology</a>
                 </div>
             </li>
-            
-            <li><a href="#academics">Academics <span class="dropdown-arrow">▼</span></a></li>
-         
-            <li class="mobile-dropdown"> 
-                <li class="dropdown">
-                <a href="#Admission">Admission <span class="dropdown-arrow">▼</span></a>
-                <div class="dropdown-menu">  
-                    <a href="#">Admission Services</a>
-                    <a href="#">Admission Services</a>
+            <li class="mobile-dropdown">
+                <a href="javascript:void(0)" onclick="toggleMobileDropdown(this)">Contacts <span class="dropdown-arrow">▼</span></a>
+                <div class="mobile-dropdown-menu">
+                    <a href="#contacts">Contact Us</a>
                 </div>
-                </li>
             </li>
-
-
-            <li><a href="#contacts">Contacts <span class="dropdown-arrow">▼</span></a></li>
             <li><a href="{% url 'alumni' %}">Alumni</a></li>
+            <!-- Admin Login Link moved to list -->
+            <li><a href="/super-admin-login/">Admin Login</a></li>
         </ul>
-        <div class="mobile-search">
-            <input type="text" class="mobile-search-input" placeholder="Search...">
-            <button class="mobile-search-btn" aria-label="Search">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.35-4.35"></path>
-                </svg>
-            </button>
-        </div>
-        <a href="/super-admin-login/" class="mobile-admin-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            <span>Admin Login</span>
-        </a>
     </div>
 </nav>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-nav-menu');
-    
-    if (mobileToggle && mobileMenu) {
-        mobileToggle.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-            mobileToggle.classList.toggle('active');
-        });
-    }
-
-    // Mobile dropdown functionality
-    const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-    
-    mobileDropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        const menu = dropdown.querySelector('.mobile-dropdown-menu');
+// Touch device dropdown support
+function initDropdownTouchSupport() {
+    if ('ontouchstart' in window) {
+        const dropdowns = document.querySelectorAll('.dropdown');
         
-        if (link && menu) {
-            link.addEventListener('click', function(e) {
-                const href = link.getAttribute('href');
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            
+            if (link && menu) {
+                let firstTouch = true;
                 
-                // Allow real links like /about/
-                if (href && href.startsWith('/')) {
-                    return;
-                }
-                
-                // Prevent only dropdown toggle
-                e.preventDefault();
-                
-                // Close other dropdowns
-                mobileDropdowns.forEach(otherDropdown => {
-                    if (otherDropdown !== dropdown) {
-                        otherDropdown.classList.remove('active');
+                link.addEventListener('touchstart', function(e) {
+                    if (firstTouch) {
+                        e.preventDefault();
+                        firstTouch = false;
+                        
+                        // Close other dropdowns
+                        dropdowns.forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                otherDropdown.classList.remove('active');
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('active');
+                    } else {
+                        // Allow normal navigation on second touch
+                        window.location.href = link.href;
                     }
                 });
                 
-                // Toggle current dropdown
-                dropdown.classList.toggle('active');
-            });
-        }
-    });
+                // Reset on touch outside
+                document.addEventListener('touchstart', function(e) {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                        firstTouch = true;
+                    }
+                });
+            }
+        });
+    }
+}
 
-    // Handle dropdown menu links to ensure they work properly
-    const dropdownLinks = document.querySelectorAll('.dropdown-menu a, .mobile-dropdown-menu a');
+function toggleMobileMenu() {
+    var menu = document.getElementById('mobileNavMenu');
+    var btn = document.getElementById('mobileMenuToggle');
+    if (!menu) return;
     
-    dropdownLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            // Allow all absolute paths (starting with /) to navigate normally
-            if (href && href.startsWith('/') && !href.startsWith('/#')) {
-                // Let Django URL links work normally (e.g., /about/, /caf/, /cas/, etc.)
-                console.log('Navigating to:', href);
-                return; // Don't prevent default
-            } else if (href && href.startsWith('#')) {
-                // Handle anchor links
-                e.preventDefault();
-                console.log('Anchor link clicked:', href);
-            } else {
-                // For other links, let them work normally
-                console.log('Link clicked:', href);
-            }
+    var isOpen = menu.classList.toggle('active');
+    btn.classList.toggle('active', isOpen);
+    
+    // Prevent body scroll when menu is open
+    if (isOpen) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function toggleMobileDropdown(el) {
+    var li = el.closest('.mobile-dropdown');
+    if (!li) return;
+    
+    var wasOpen = li.classList.contains('active');
+    
+    // Close other open dropdowns at the same level
+    var parent = li.parentElement;
+    parent.querySelectorAll(':scope > .mobile-dropdown').forEach(function(item) {
+        if (item !== li) item.classList.remove('active');
+    });
+    
+    li.classList.toggle('active', !wasOpen);
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    var menu = document.getElementById('mobileNavMenu');
+    var btn = document.getElementById('mobileMenuToggle');
+    if (!menu || !menu.classList.contains('active')) return;
+    
+    // If click is outside navbar and mobile menu
+    if (!e.target.closest('.main-navbar') && !e.target.closest('#mobileNavMenu')) {
+        menu.classList.remove('active');
+        if (btn) btn.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Initialize on DOM content loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initDropdownTouchSupport();
+    
+    var menu = document.getElementById('mobileNavMenu');
+    var btn = document.getElementById('mobileMenuToggle');
+    
+    // Ensure menu is closed on page load
+    if (menu) menu.classList.remove('active');
+    if (btn) btn.classList.remove('active');
+    document.body.style.overflow = '';
+
+    var mobileLinks = document.querySelectorAll('.mobile-nav-links a:not([onclick*="toggleMobileDropdown"])');
+    mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (menu) menu.classList.remove('active');
+            if (btn) btn.classList.remove('active');
+            document.body.style.overflow = '';
         });
     });
-
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function(e) {
-        // Close mobile dropdowns
-        if (!e.target.closest('.mobile-dropdown')) {
-            mobileDropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
-        }
-    });
-
-    // Search functionality
-    const searchInput = document.querySelector('.navbar-search-input');
-    const searchBtn = document.querySelector('.navbar-search-btn');
-    const mobileSearchInput = document.querySelector('.mobile-search-input');
-    const mobileSearchBtn = document.querySelector('.mobile-search-btn');
-
-    // Desktop search
-    if (searchBtn && searchInput) {
-        searchBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            performSearch(searchInput.value);
-        });
-
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                performSearch(searchInput.value);
-            }
-        });
-    }
-
-    // Mobile search
-    if (mobileSearchBtn && mobileSearchInput) {
-        mobileSearchBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            performSearch(mobileSearchInput.value);
-        });
-
-        mobileSearchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                performSearch(mobileSearchInput.value);
-            }
-        });
-    }
-
-    function performSearch(query) {
-        if (!query || query.trim() === '') {
-            console.log('Please enter a search term');
-            return;
-        }
-
-        const searchTerm = query.trim().toLowerCase();
-        console.log('Searching for:', searchTerm);
-
-        // Define search mappings for different content types
-        const searchMappings = {
-            // College pages
-            'agriculture': '/caf/',
-            'forestry': '/caf/',
-            'caf': '/caf/',
-            'arts': '/cas/',
-            'sciences': '/cas/',
-            'cas': '/cas/',
-            'business': '/cba/',
-            'administration': '/cba/',
-            'cba': '/cba/',
-            'criminal': '/ccje/',
-            'justice': '/ccje/',
-            'criminology': '/ccje/',
-            'ccje': '/ccje/',
-            'teacher': '/cted/',
-            'education': '/cted/',
-            'cted': '/cted/',
-            'technology': '/cit/',
-            'industrial': '/cit/',
-            'cit': '/cit/',
-            
-            // General pages
-            'home': '/',
-            'about': '/about/',
-            'news': '/news/',
-            'alumni': '/alumni/',
-            'programs': '/programs/',
-            'admissions': '/admissions/',
-            'contacts': '/contacts/',
-            
-            // Academic terms
-            'academic': '/academic-calendar/',
-            'calendar': '/academic-calendar/',
-            'course': '/programs/',
-            'courses': '/programs/',
-            
-            // Contact terms
-            'contact': '/contacts/',
-            'email': '/contacts/',
-            'phone': '/contacts/',
-            'address': '/contacts/',
-            
-            // Admin terms
-            'admin': '/admin/',
-            'login': '/admin/',
-            'dashboard': '/admin/'
-        };
-
-        // Check for exact matches first
-        if (searchMappings[searchTerm]) {
-            window.location.href = searchMappings[searchTerm];
-            return;
-        }
-
-        // Check for partial matches
-        for (const [key, url] of Object.entries(searchMappings)) {
-            if (searchTerm.includes(key) || key.includes(searchTerm)) {
-                window.location.href = url;
-                return;
-            }
-        }
-
-        // If no match found, redirect to search results page or show message
-        console.log('No results found for:', searchTerm);
-        // You could redirect to a search results page:
-        // window.location.href = `/search/?q=${encodeURIComponent(searchTerm)}`;
-        
-        // For now, show an alert
-        alert(`No results found for "${query}". Try searching for: agriculture, business, education, technology, arts, sciences, criminal justice, or admin.`);
-    }
 });
 </script>

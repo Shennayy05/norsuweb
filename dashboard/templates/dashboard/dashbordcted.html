@@ -561,6 +561,21 @@
           } else {
             let html = '';
             ctedPrograms.forEach(program => {
+              // Map program title to hash used in programs.html
+              let hash = 'bsit'; // Default
+              const title = program.title.toLowerCase();
+              if (title.includes('computer science')) hash = 'bscs';
+              else if (title.includes('information technology')) hash = 'bsit';
+              else if (title.includes('elementary education')) hash = 'bsed';
+              else if (title.includes('secondary education')) hash = 'bpeed';
+              else if (title.includes('hospitality')) hash = 'bshm';
+              else if (title.includes('office')) hash = 'bsoa';
+              else if (title.includes('business')) hash = 'bsba';
+              else if (title.includes('agriculture')) hash = 'agri';
+              else if (title.includes('forestry')) hash = 'fores';
+              else if (title.includes('industrial')) hash = 'bit';
+              else if (title.includes('criminology')) hash = 'bscrim';
+              
               html += `
                 <div class="card">
                   <img src="${program.image || '/static/dashboard/images/pulis.jpg'}" onerror="this.src='/static/dashboard/images/pulis.jpg'">
@@ -569,7 +584,7 @@
                     <div class="program-info">
                       <div class="info-item"><i class="fas fa-clock"></i> <span>${program.duration}</span></div>
                     </div>
-                    <a href="#" class="learn-btn">Learn More</a>
+                    <a href="/programs/#${hash}" class="learn-btn">Learn More</a>
                   </div>
                 </div>`;
             });

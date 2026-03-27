@@ -894,176 +894,377 @@ a.learn-btn:visited {
     background: #eef7f9 !important;
     border-radius: 30px !important;
     padding: 20px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
     transition: all 0.3s ease !important;
-    position: relative !important;
-    border-top: 5px solid #1fb36a !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    margin-top: 25px !important;
+    position: relative;
+    overflow: hidden;
     width: 100% !important;
 }
 
-.cba-facility-card:hover {
-    transform: translateY(-10px) !important;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1) !important;
+/* Grid Container Styles */
+.facility-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
 }
 
-.cba-facility-image-wrapper {
-    width: 100% !important;
-    height: 100% !important;
-    position: relative !important;
-    border-radius: 20px !important;
-    overflow: visible !important;
+.award-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
 }
 
-.cba-facility-image-wrapper img {
-    width: 100% !important;
-    height: 350px !important;
-    object-fit: cover !important;
-    border-radius: 20px !important;
-    display: block !important;
+.alumni-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    gap: 30px;
+    width: 100%;
 }
 
-.cba-facility-badge {
-    position: absolute !important;
-    top: -25px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    background: #3b5b8f !important;
-    color: white !important;
-    padding: 8px 35px !important;
-    border-radius: 50px !important;
-    font-weight: 700 !important;
-    font-size: 18px !important;
-    z-index: 10 !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
-    white-space: nowrap !important;
+/* LATEST AT CBA SECTION (SYNCHRONIZED WITH CAS) */
+.latest-section {
+  padding: 80px 70px;
+  background: rgba(255, 255, 255, 0.2);
 }
-/* PROFESSIONAL POST CARDS (SHARED DESIGN) */
-.latest-card-professional {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+.latest-container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.latest-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px 45px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.latest-card {
+  background: #ffffff;
+  border-radius: 15px;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
   display: flex;
   flex-direction: column;
-  min-height: 500px;
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
-.latest-card-professional:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.latest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  border-color: blue;
 }
 
-.post-image-container {
+.latest-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.latest-card-image-wrapper {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 230px;
   overflow: hidden;
 }
 
-.post-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+.latest-card-badge-right {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: blue;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.latest-card-professional:hover .post-image-container img {
-  transform: scale(1.1);
-}
-
-.post-badges {
+.latest-card-badge-left {
   position: absolute;
   top: 15px;
   left: 15px;
-  display: flex;
-  gap: 10px;
-  z-index: 2;
-}
-
-.badge-new {
   background: #ff4757;
-  color: #fff;
-  padding: 5px 12px;
-  border-radius: 5px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1px;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.badge-type {
-  background: #27ae60;
-  color: #fff;
-  padding: 5px 12px;
-  border-radius: 5px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1px;
+.latest-card h3 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 15px;
+  color: blue;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.post-content {
-  padding: 30px;
+.latest-card-content {
+  padding: 20px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 
-.post-date {
-  color: #888;
+.latest-card-date {
+  color: #7a7a7a;
   font-size: 14px;
-  font-weight: 600;
   margin-bottom: 12px;
-  text-transform: uppercase;
-}
-
-.post-title {
-  color: #27ae60;
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 1.3;
-  margin-bottom: 20px;
-  flex-grow: 1;
-}
-
-.post-excerpt {
-  color: #555;
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.read-more {
-  color: #27ae60;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 15px;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: gap 0.3s ease;
+  font-weight: 500;
 }
 
-.read-more:hover {
-  gap: 12px;
+.latest-card-read-more {
+  color: blue;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  transition: all 0.2s ease;
 }
 
-/* AWARD CARDS V2 (MATCHING USER REFERENCE IMAGE) */
-.cit-award-card-v2 {
-  background: #ffffff;
+.latest-card-read-more:hover {
+  gap: 10px;
+  color: #174c2a;
+}
+
+.latest-card p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .latest-cards, .alumni-cards, .awards-cards, .facilities-cards {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  
+  .latest-section {
+    padding: 40px 20px !important;
+  }
+}
+
+/* HIGHLIGHTED CARD */
+.facility-card.highlight {
+  border: 3px solid #0575188c;
+  padding: 4px;
   border-radius: 20px;
+  background: linear-gradient(145deg, rgba(122, 75, 255, 0.1), #ffffff);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 20px 50px rgba(6, 102, 3, 0.522); }
+  50% { box-shadow: 0 25px 60px rgba(2, 120, 28, 0.5); }
+}
+
+.facility-card.highlight img {
+  border: 3px solid #024b0f;
+  padding: 4px;
+  border-radius: 15px;
+}
+
+/* CBA ADMIN SECTION */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e8f5f0 0%, #f0f9ff 50%, #e6f7ff 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(31, 176, 106, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(23, 76, 42, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(31, 176, 106, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cba-admin {
+  padding: 50px 70px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 35px;
+  margin: 30px;
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+.cba-admin::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #1fb36a, #174c2a, #1fb36a, #174c2a);
+  animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { 
+    opacity: 0.8; 
+    background-position: 0% 50%;
+  }
+  50% { 
+    opacity: 1; 
+    background-position: 100% 50%;
+  }
+}
+
+.cba-header {
+  margin-bottom: 50px;
+  position: relative;
+  text-align: center;
+}
+
+.cba-header h4 {
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #174c2a;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  animation: slideInDown 1s ease-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LATEST AT CBA SECTION */
+.latest-section {
+  padding: 80px 70px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.latest-container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.latest-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px 45px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.latest-card {
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.latest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  border-color: #1fb36a;
+}
+
+.latest-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.latest-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.latest-card-badge-right {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #1fb36a;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.latest-card-badge-left {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ff4757;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.latest-card h3 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 15px;
+  color: #174c2a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .cit-award-card-v2:hover {
